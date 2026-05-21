@@ -4,126 +4,356 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Arena Scoreboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-serif;background:#0e1420;color:#fff}
-.screen{width:100vw;height:100vh;display:flex;flex-direction:column;padding:28px 36px 24px;gap:20px}
-/* header */
+
+/* ── SCREENS ── */
+.screen{position:absolute;inset:0;display:none;flex-direction:column}
+.screen.active{display:flex}
+
+/* ── TRANSITIONS ── */
+.screen{opacity:0;transform:translateX(40px);transition:opacity .25s,transform .25s}
+.screen.active{opacity:1;transform:translateX(0)}
+.screen.out{opacity:0;transform:translateX(-40px)}
+
+/* ═══════════════════════════════════════════
+   SCREEN 1 — HOMESCREEN
+═══════════════════════════════════════════ */
+#home{
+  background:radial-gradient(ellipse at 60% 40%, #1a3a6e 0%, #0e1420 60%);
+  align-items:center;justify-content:center;gap:0;padding:40px;
+}
+#home::before{
+  content:'';position:absolute;inset:0;
+  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><circle cx="300" cy="300" r="280" fill="none" stroke="rgba(13,255,222,0.04)" stroke-width="1"/><circle cx="300" cy="300" r="200" fill="none" stroke="rgba(13,255,222,0.04)" stroke-width="1"/><circle cx="300" cy="300" r="120" fill="none" stroke="rgba(13,255,222,0.04)" stroke-width="1"/></svg>') center/70vmin no-repeat;
+  pointer-events:none;
+}
+
+.home-inner{display:flex;flex-direction:column;align-items:center;gap:32px;z-index:1}
+
+.home-logo img{height:70px;object-fit:contain;filter:brightness(1.1)}
+
+.home-club{font-size:36px;font-weight:900;letter-spacing:-.5px;text-align:center}
+.home-table{font-size:15px;color:rgba(255,255,255,.45);text-align:center;margin-top:4px}
+
+.home-status{display:flex;align-items:center;gap:7px;background:rgba(13,255,222,.1);border:1px solid rgba(13,255,222,.25);border-radius:999px;padding:8px 18px;font-size:13px;font-weight:600;color:#0DFFDE}
+.dot-live{width:8px;height:8px;border-radius:50%;background:#0DFFDE;animation:blink 2s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.home-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.btn{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 28px;border-radius:20px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);cursor:pointer;transition:all .15s;min-width:140px;color:#fff;text-decoration:none}
+.btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(135deg,#1a6ef5,#0838a0);border-color:#1a6ef5}
+.btn.primary:hover{background:linear-gradient(135deg,#2a7eff,#1a50c7)}
+.btn-icon{font-size:28px}
+.btn-label{font-size:13px;font-weight:700;letter-spacing:.3px;opacity:.9}
+
+.home-settings{position:absolute;top:24px;right:28px;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:background .15s}
+.home-settings:hover{background:rgba(255,255,255,.12)}
+
+/* ═══════════════════════════════════════════
+   SCREEN 2 — SERVICES
+═══════════════════════════════════════════ */
+#services{padding:28px 36px 24px;gap:18px;background:#0e1420}
+
 .hdr{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .hdr-left{display:flex;align-items:center;gap:14px}
-.logo{width:52px;height:52px;background:linear-gradient(135deg,#0DFFDE22,#0DFFDE44);border:1.5px solid #0DFFDE55;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#0DFFDE;letter-spacing:-.5px;flex-shrink:0}
-.hdr-txt .club{font-size:24px;font-weight:800;letter-spacing:-.4px}
-.hdr-txt .sub{font-size:13px;color:rgba(255,255,255,.45);margin-top:3px}
-.hdr-right{display:flex;align-items:center;gap:12px}
-.pill-live{display:flex;align-items:center;gap:7px;background:rgba(13,255,222,.1);border:1px solid rgba(13,255,222,.25);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:#0DFFDE}
-.dot{width:8px;height:8px;border-radius:50%;background:#0DFFDE;animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.pill-count{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:rgba(255,255,255,.6)}
-/* section */
+.hdr-logo img{height:40px;object-fit:contain}
+.hdr-txt .club{font-size:22px;font-weight:800;letter-spacing:-.4px}
+.hdr-txt .sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:3px}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.pill{display:flex;align-items:center;gap:6px;border-radius:999px;padding:7px 14px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill-live{background:rgba(13,255,222,.1);border:1px solid rgba(13,255,222,.25);color:#0DFFDE}
+.pill-count{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6)}
+.btn-back{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.7);transition:background .15s}
+.btn-back:hover{background:rgba(255,255,255,.12)}
+
 .sec-hdr{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .sec-dot{width:8px;height:8px;border-radius:50%;background:#0DFFDE}
-.sec-title{font-size:13px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
-/* grid: 5 cols x 2 rows */
-.grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:12px;min-height:0}
-/* featured 2x2 */
-.card-feat{grid-column:1/3;grid-row:1/3;background:linear-gradient(145deg,#0f4fc7,#0838a0);border:1px solid rgba(13,255,222,.2);border-radius:22px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer}
-.card-feat::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:rgba(13,255,222,.06);border-radius:50%}
-/* standard card */
-.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background .15s}
-.card:hover{background:rgba(255,255,255,.07)}
-.card.off{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.04);opacity:.45}
-/* badge */
-.badge{display:inline-flex;padding:5px 9px;border-radius:7px;font-size:11px;font-weight:700;letter-spacing:.2px;align-self:flex-start;line-height:1}
+.sec-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
+
+/* 5-col grid */
+.grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:11px;min-height:0}
+.card-feat{grid-column:1/3;grid-row:1/3;background:linear-gradient(145deg,#1a6ef5 0%,#0838a0 100%);border:1px solid rgba(13,255,222,.15);border-radius:22px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer;transition:filter .15s}
+.card-feat:hover{filter:brightness(1.1)}
+.card-feat::before{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:rgba(255,255,255,.05);border-radius:50%}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background .15s}
+.card:hover{background:rgba(255,255,255,.08)}
+.card.off{opacity:.4;cursor:default}
+.card.off:hover{background:rgba(255,255,255,.04)}
+.badge{display:inline-flex;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.2px;align-self:flex-start;line-height:1}
 .b-live{background:#ef4444;color:#fff}
-.b-ai  {background:#8b5cf6;color:#fff}
+.b-ai{background:#8b5cf6;color:#fff}
 .b-gold{background:#f59e0b;color:#fff}
 .b-blue{background:#3b82f6;color:#fff}
-.b-grn {background:#10b981;color:#fff}
+.b-grn{background:#10b981;color:#fff}
 .b-gray{background:rgba(255,255,255,.1);color:rgba(255,255,255,.45)}
-/* card body */
-.cb{display:flex;align-items:center;gap:10px}
-.ico{font-size:26px;line-height:1}
-.ico-lg{font-size:40px;line-height:1}
-.name{font-size:15px;font-weight:700;color:rgba(255,255,255,.88);line-height:1.2}
-.name-lg{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.3px}
+.cb{display:flex;align-items:center;gap:9px}
+.ico{font-size:24px;line-height:1}
+.ico-lg{font-size:38px;line-height:1}
+.name{font-size:14px;font-weight:700;color:rgba(255,255,255,.88)}
+.name-lg{font-size:26px;font-weight:900;color:#fff;letter-spacing:-.3px}
 .card.off .name{color:rgba(255,255,255,.35)}
-.card.off .ico{opacity:.4}
+
+/* ═══════════════════════════════════════════
+   SCREEN 3 — RANKING
+═══════════════════════════════════════════ */
+#ranking{padding:28px 36px 24px;gap:20px;background:#0e1420}
+.rank-title{font-size:22px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
+.rank-type-tabs{display:flex;gap:8px}
+.tab{padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.5);transition:all .15s}
+.tab.active{background:#0DFFDE;border-color:#0DFFDE;color:#0e1420}
+.rank-list{flex:1;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.rank-row{display:flex;align-items:center;gap:16px;padding:14px 20px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+.rank-row.top1{background:linear-gradient(90deg,rgba(245,158,11,.12),rgba(245,158,11,.04));border-color:rgba(245,158,11,.2)}
+.rank-row.top2{background:rgba(148,163,184,.06)}
+.rank-row.top3{background:rgba(205,127,50,.05)}
+.rank-pos{width:32px;font-size:18px;font-weight:900;text-align:center;flex-shrink:0}
+.rank-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a6ef5,#0DFFDE);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+.rank-info{flex:1;min-width:0}
+.rank-name{font-size:16px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.rank-pts{font-size:20px;font-weight:800;color:#0DFFDE;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   SCREEN 4 — MATCH HISTORY
+═══════════════════════════════════════════ */
+#history{padding:28px 36px 24px;gap:20px;background:#0e1420}
+.hist-list{flex:1;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.hist-row{display:flex;align-items:center;gap:16px;padding:14px 20px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+.hist-badge{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;flex-shrink:0}
+.hist-badge.pool{background:rgba(59,130,246,.2);color:#60a5fa}
+.hist-badge.carom{background:rgba(139,92,246,.2);color:#a78bfa}
+.hist-players{flex:1;font-size:15px;font-weight:600}
+.hist-score{font-size:22px;font-weight:800;color:#fff;flex-shrink:0;letter-spacing:-1px}
+.hist-time{font-size:12px;color:rgba(255,255,255,.35);flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   SCREEN 5 — GAME (Pool 9-ball)
+═══════════════════════════════════════════ */
+#game{
+  background:radial-gradient(ellipse at 50% 50%, #0f2d1a 0%, #081410 100%);
+  padding:24px 36px;gap:16px;
+}
+.game-top{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.game-mode{font-size:13px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
+.game-time{font-size:32px;font-weight:800;color:#0DFFDE;font-variant-numeric:tabular-nums}
+.game-main{flex:1;display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;min-height:0}
+.player{display:flex;flex-direction:column;align-items:center;gap:12px}
+.player-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#1a6ef5,#0DFFDE);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900}
+.player-name{font-size:18px;font-weight:700;text-align:center}
+.player-score{font-size:96px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;color:#0DFFDE}
+.player.right .player-score{color:#fff}
+.score-divider{display:flex;flex-direction:column;align-items:center;gap:8px}
+.score-vs{font-size:28px;font-weight:900;color:rgba(255,255,255,.2)}
+.score-frame{font-size:14px;font-weight:600;color:rgba(255,255,255,.3)}
+.game-footer{display:flex;justify-content:center;gap:16px;flex-shrink:0}
+.game-btn{padding:12px 28px;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .15s}
+.game-btn.pause{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.game-btn.end{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.game-btn:hover{filter:brightness(1.2)}
+
+/* ═══════════════════════════════════════════
+   SHARED NAV HEADER (Screens 3,4)
+═══════════════════════════════════════════ */
+.page-hdr{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.page-hdr-left{display:flex;align-items:center;gap:12px}
 </style>
 </head>
 <body>
-<div class="screen">
-  <div class="hdr">
-    <div class="hdr-left">
-      <div class="logo">ARENA</div>
-      <div class="hdr-txt">
-        <div class="club">G8 Billiards</div>
-        <div class="sub">Bàn 07 · Scoreboard</div>
+
+<!-- ═══ SCREEN 1: HOME ═══ -->
+<div class="screen active" id="home">
+  <div class="home-settings" onclick="showScreen('home')">⚙️</div>
+  <div class="home-inner">
+    <div class="home-logo"><img src="logo.png" alt="Arena"></div>
+    <div>
+      <div class="home-club">G8 Billiards</div>
+      <div class="home-table">Bàn 07</div>
+    </div>
+    <div class="home-status"><div class="dot-live"></div>Livestream đang chạy</div>
+    <div class="home-buttons">
+      <div class="btn" onclick="showScreen('history')">
+        <div class="btn-icon">📋</div>
+        <div class="btn-label">LỊCH SỬ</div>
       </div>
-    </div>
-    <div class="hdr-right">
-      <div class="pill-live"><div class="dot"></div>Livestream đang chạy</div>
-      <div class="pill-count">♦ 10/10 dịch vụ</div>
-    </div>
-  </div>
-
-  <div class="sec-hdr">
-    <div class="sec-dot"></div>
-    <div class="sec-title">Tất cả dịch vụ</div>
-  </div>
-
-  <div class="grid">
-    <!-- featured: Cắt Cam -->
-    <div class="card-feat">
-      <div class="badge b-live">● LIVE</div>
-      <div class="cb"><div class="ico-lg">📷</div><div class="name-lg">Cắt Cam</div></div>
-    </div>
-    <!-- Giải đấu -->
-    <div class="card">
-      <div class="badge b-gold">2 GIẢI G8</div>
-      <div class="cb"><div class="ico">🏆</div><div class="name">Giải đấu</div></div>
-    </div>
-    <!-- Thử thách -->
-    <div class="card">
-      <div class="badge b-ai">AI · MỚI</div>
-      <div class="cb"><div class="ico">🎯</div><div class="name">Thử thách</div></div>
-    </div>
-    <!-- Voucher -->
-    <div class="card">
-      <div class="badge b-grn">3 ƯU ĐÃI</div>
-      <div class="cb"><div class="ico">🎟️</div><div class="name">Voucher G8</div></div>
-    </div>
-    <!-- Xếp hạng -->
-    <div class="card">
-      <div class="badge b-gold">TOP G8</div>
-      <div class="cb"><div class="ico">🥇</div><div class="name">Xếp hạng</div></div>
-    </div>
-    <!-- Academy -->
-    <div class="card">
-      <div class="badge b-blue">VIDEO</div>
-      <div class="cb"><div class="ico">🎓</div><div class="name">Academy</div></div>
-    </div>
-    <!-- Đặt bàn -->
-    <div class="card">
-      <div class="badge b-grn">CÒN SLOT</div>
-      <div class="cb"><div class="ico">📅</div><div class="name">Đặt bàn</div></div>
-    </div>
-    <!-- Bảng điểm -->
-    <div class="card">
-      <div class="badge b-blue">REAL-TIME</div>
-      <div class="cb"><div class="ico">📊</div><div class="name">Bảng điểm</div></div>
-    </div>
-    <!-- Gọi đồ -->
-    <div class="card">
-      <div class="badge b-blue">MENU</div>
-      <div class="cb"><div class="ico">🍺</div><div class="name">Gọi đồ</div></div>
-    </div>
-    <!-- AI phân tích — inactive -->
-    <div class="card off">
-      <div class="badge b-gray">BETA</div>
-      <div class="cb"><div class="ico">🤖</div><div class="name">AI phân tích</div></div>
+      <div class="btn primary" onclick="showScreen('game')">
+        <div class="btn-icon">▶️</div>
+        <div class="btn-label">TRẬN MỚI</div>
+      </div>
+      <div class="btn" onclick="showScreen('ranking')">
+        <div class="btn-icon">🏆</div>
+        <div class="btn-label">XẾP HẠNG</div>
+      </div>
+      <div class="btn" onclick="showScreen('services')">
+        <div class="btn-icon">⚡</div>
+        <div class="btn-label">DỊCH VỤ</div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- ═══ SCREEN 2: SERVICES ═══ -->
+<div class="screen" id="services">
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-logo"><img src="logo.png" alt="Arena"></div>
+      <div class="hdr-txt">
+        <div class="club">G8 Billiards</div>
+        <div class="sub">Bàn 07 · Arena Scoreboard</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="pill pill-live"><div class="dot-live"></div>Livestream đang chạy</div>
+      <div class="pill pill-count">♦ 10/10 dịch vụ</div>
+      <div class="btn-back" onclick="showScreen('home')">← Quay lại</div>
+    </div>
+  </div>
+  <div class="sec-hdr"><div class="sec-dot"></div><div class="sec-title">Tất cả dịch vụ</div></div>
+  <div class="grid">
+    <div class="card-feat"><div class="badge b-live">● LIVE</div><div class="cb"><div class="ico-lg">📷</div><div class="name-lg">Cắt Cam</div></div></div>
+    <div class="card"><div class="badge b-gold">2 GIẢI G8</div><div class="cb"><div class="ico">🏆</div><div class="name">Giải đấu</div></div></div>
+    <div class="card"><div class="badge b-ai">AI · MỚI</div><div class="cb"><div class="ico">🎯</div><div class="name">Thử thách</div></div></div>
+    <div class="card"><div class="badge b-grn">3 ƯU ĐÃI</div><div class="cb"><div class="ico">🎟️</div><div class="name">Voucher G8</div></div></div>
+    <div class="card"><div class="badge b-gold">TOP G8</div><div class="cb"><div class="ico">🥇</div><div class="name">Xếp hạng</div></div></div>
+    <div class="card"><div class="badge b-blue">VIDEO</div><div class="cb"><div class="ico">🎓</div><div class="name">Academy</div></div></div>
+    <div class="card"><div class="badge b-grn">CÒN SLOT</div><div class="cb"><div class="ico">📅</div><div class="name">Đặt bàn</div></div></div>
+    <div class="card"><div class="badge b-blue">REAL-TIME</div><div class="cb"><div class="ico">📊</div><div class="name">Bảng điểm</div></div></div>
+    <div class="card"><div class="badge b-blue">MENU</div><div class="cb"><div class="ico">🍺</div><div class="name">Gọi đồ</div></div></div>
+    <div class="card off"><div class="badge b-gray">BETA</div><div class="cb"><div class="ico">🤖</div><div class="name">AI phân tích</div></div></div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 3: RANKING ═══ -->
+<div class="screen" id="ranking">
+  <div class="page-hdr">
+    <div class="page-hdr-left">
+      <div class="rank-title">🏆 Bảng xếp hạng</div>
+      <div class="rank-type-tabs">
+        <div class="tab active">Pool 9-ball</div>
+        <div class="tab">Carom 3C</div>
+      </div>
+    </div>
+    <div class="btn-back" onclick="showScreen('home')">← Quay lại</div>
+  </div>
+  <div class="rank-list">
+    <div class="rank-row top1"><div class="rank-pos">🥇</div><div class="rank-avatar">N</div><div class="rank-info"><div class="rank-name">Nguyễn Văn An</div><div class="rank-sub">Pool · 47 trận</div></div><div class="rank-pts">2,840</div></div>
+    <div class="rank-row top2"><div class="rank-pos">🥈</div><div class="rank-avatar">T</div><div class="rank-info"><div class="rank-name">Trần Minh Tuấn</div><div class="rank-sub">Pool · 39 trận</div></div><div class="rank-pts">2,712</div></div>
+    <div class="rank-row top3"><div class="rank-pos">🥉</div><div class="rank-avatar">L</div><div class="rank-info"><div class="rank-name">Lê Hoàng Phúc</div><div class="rank-sub">Pool · 51 trận</div></div><div class="rank-pts">2,655</div></div>
+    <div class="rank-row"><div class="rank-pos" style="color:rgba(255,255,255,.4);font-size:16px">4</div><div class="rank-avatar" style="background:rgba(255,255,255,.1)">P</div><div class="rank-info"><div class="rank-name">Phạm Quốc Bảo</div><div class="rank-sub">Pool · 28 trận</div></div><div class="rank-pts" style="color:rgba(255,255,255,.6)">2,590</div></div>
+    <div class="rank-row"><div class="rank-pos" style="color:rgba(255,255,255,.4);font-size:16px">5</div><div class="rank-avatar" style="background:rgba(255,255,255,.1)">H</div><div class="rank-info"><div class="rank-name">Hoàng Đức Việt</div><div class="rank-sub">Pool · 33 trận</div></div><div class="rank-pts" style="color:rgba(255,255,255,.6)">2,518</div></div>
+    <div class="rank-row"><div class="rank-pos" style="color:rgba(255,255,255,.4);font-size:16px">6</div><div class="rank-avatar" style="background:rgba(255,255,255,.1)">D</div><div class="rank-info"><div class="rank-name">Đặng Thanh Tùng</div><div class="rank-sub">Pool · 22 trận</div></div><div class="rank-pts" style="color:rgba(255,255,255,.6)">2,441</div></div>
+    <div class="rank-row"><div class="rank-pos" style="color:rgba(255,255,255,.4);font-size:16px">7</div><div class="rank-avatar" style="background:rgba(255,255,255,.1)">V</div><div class="rank-info"><div class="rank-name">Vũ Thành Long</div><div class="rank-sub">Pool · 19 trận</div></div><div class="rank-pts" style="color:rgba(255,255,255,.6)">2,387</div></div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 4: HISTORY ═══ -->
+<div class="screen" id="history">
+  <div class="page-hdr">
+    <div class="page-hdr-left">
+      <div class="rank-title" style="font-size:20px">📋 Lịch sử trận đấu</div>
+    </div>
+    <div class="btn-back" onclick="showScreen('home')">← Quay lại</div>
+  </div>
+  <div class="hist-list">
+    <div class="hist-row"><div class="hist-badge pool">Pool 9-ball</div><div class="hist-players">Nguyễn Văn An vs Trần Minh Tuấn</div><div class="hist-score">7 – 5</div><div class="hist-time">14:32 · hôm nay</div></div>
+    <div class="hist-row"><div class="hist-badge carom">Carom 3C</div><div class="hist-players">Lê Hoàng Phúc vs Phạm Quốc Bảo</div><div class="hist-score">40 – 31</div><div class="hist-time">13:15 · hôm nay</div></div>
+    <div class="hist-row"><div class="hist-badge pool">Pool 9-ball</div><div class="hist-players">Hoàng Đức Việt vs Vũ Thành Long</div><div class="hist-score">7 – 3</div><div class="hist-time">12:48 · hôm nay</div></div>
+    <div class="hist-row"><div class="hist-badge pool">Pool 9-ball</div><div class="hist-players">Đặng Thanh Tùng vs Nguyễn Văn An</div><div class="hist-score">4 – 7</div><div class="hist-time">11:20 · hôm nay</div></div>
+    <div class="hist-row"><div class="hist-badge carom">Carom 3C</div><div class="hist-players">Trần Minh Tuấn vs Hoàng Đức Việt</div><div class="hist-score">40 – 28</div><div class="hist-time">10:05 · hôm nay</div></div>
+    <div class="hist-row"><div class="hist-badge pool">Pool 9-ball</div><div class="hist-players">Phạm Quốc Bảo vs Lê Hoàng Phúc</div><div class="hist-score">6 – 7</div><div class="hist-time">09:30 · hôm nay</div></div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 5: GAME ═══ -->
+<div class="screen" id="game">
+  <div class="game-top">
+    <div class="game-mode">Pool 9-ball · Bàn 07</div>
+    <div class="game-time" id="game-timer">00:00</div>
+    <div class="btn-back" onclick="stopGame();showScreen('home')">✕ Kết thúc</div>
+  </div>
+  <div class="game-main">
+    <div class="player">
+      <div class="player-avatar">A</div>
+      <div class="player-name">Nguyễn Văn An</div>
+      <div class="player-score" id="score-p1">4</div>
+    </div>
+    <div class="score-divider">
+      <div class="score-vs">VS</div>
+      <div class="score-frame">Best of 9</div>
+    </div>
+    <div class="player right">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">T</div>
+      <div class="player-name">Trần Minh Tuấn</div>
+      <div class="player-score" id="score-p2">3</div>
+    </div>
+  </div>
+  <div class="game-footer">
+    <button class="game-btn pause" onclick="togglePause()">⏸ Tạm dừng</button>
+    <button class="game-btn" style="background:rgba(13,255,222,.1);color:#0DFFDE;border:1px solid rgba(13,255,222,.2)" onclick="addScore(1)">+1 An</button>
+    <button class="game-btn" style="background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.2)" onclick="addScore(2)">+1 Tuấn</button>
+    <button class="game-btn end" onclick="stopGame();showScreen('home')">🏁 Kết thúc trận</button>
+  </div>
+</div>
+
+<script>
+// ── Navigation ────────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active','out');
+  });
+  const next = document.getElementById(id);
+  if (next) {
+    next.classList.add('active');
+  }
+}
+
+// ── Game timer ────────────────────────────────────────────────────────
+let timerInterval = null;
+let seconds = 0;
+let paused = false;
+
+function startTimer() {
+  seconds = 0;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (!paused) {
+      seconds++;
+      const m = String(Math.floor(seconds/60)).padStart(2,'0');
+      const s = String(seconds%60).padStart(2,'0');
+      document.getElementById('game-timer').textContent = m+':'+s;
+    }
+  }, 1000);
+}
+
+function stopGame() { clearInterval(timerInterval); seconds = 0; paused = false; }
+
+function togglePause() {
+  paused = !paused;
+  document.querySelector('.game-btn.pause').textContent = paused ? '▶ Tiếp tục' : '⏸ Tạm dừng';
+}
+
+function addScore(player) {
+  const el = document.getElementById('score-p'+player);
+  el.textContent = parseInt(el.textContent) + 1;
+}
+
+// Start timer when entering game screen
+document.getElementById('home').querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.querySelector('.btn-label')?.textContent === 'TRẬN MỚI') startTimer();
+  });
+});
+
+// Ranking tab switch
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
