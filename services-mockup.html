@@ -340,7 +340,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     <!-- Center controls -->
     <div class="game-center">
       <div class="game-top-bar">
-        <div class="game-mode-txt">Pool 9-ball · Bàn 07</div>
+        <div class="game-mode-txt">Pool 9-ball · Hoàng Sao · Bàn 07</div>
         <div class="game-timer" id="gtimer">00:00</div>
       </div>
       <div class="game-video" id="camBox">
@@ -392,7 +392,8 @@ function addScore(id){
 // Browser không hỗ trợ RTSP trực tiếp — dùng HTTP snapshot (port 80)
 // URL format Dahua: http://user:pass@host/cgi-bin/snapshot.cgi?channel=1
 // Cần cung cấp credentials từ DB để kết nối thật
-const CAM_SNAPSHOT_URL = null; // set URL thật ở đây khi có credentials
+// Proxy qua /api/snapshot để tránh mixed-content (HTTPS page → HTTP camera)
+const CAM_SNAPSHOT_URL = '/api/snapshot?host=arenahoangsaoshop.cameraddns.net&port=80&user=admin&pass=Ktsmart2025&ch=1';
 
 function initCamera(){
   const img = document.getElementById('camFeed');
