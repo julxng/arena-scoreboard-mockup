@@ -196,8 +196,11 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     </div>
     <!-- Center -->
     <div class="home-center">
-      <img src="logo_arena.png" class="home-logo" alt="Arena">
-      <div class="home-club" id="home-club-name">ARENA SCOREBOARD</div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <img src="logo_arena.png" class="home-logo" alt="Arena">
+        <img src="logo-hoangsao.jpg" style="height:120px;width:120px;object-fit:contain;border-radius:12px" alt="Hoàng Sao">
+      </div>
+      <div class="home-club" id="home-club-name">HOÀNG SAO BILLIARDS</div>
     </div>
     <!-- Bottom buttons -->
     <div class="home-btns">
@@ -223,8 +226,9 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
   <div class="svc-hdr">
     <div class="svc-hdr-left">
       <img src="logo_arena.png" class="svc-logo" alt="Arena">
+      <img src="logo-hoangsao.jpg" style="height:36px;width:36px;object-fit:contain;border-radius:8px" alt="HS">
       <div>
-        <div class="svc-club">G8 Billiards</div>
+        <div class="svc-club">Hoàng Sao Billiards</div>
         <div class="svc-sub">Bàn 07 · Arena Scoreboard</div>
       </div>
     </div>
@@ -237,10 +241,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
   <div class="sec-row"><div class="sec-dot"></div><div class="sec-label">Tất cả dịch vụ</div></div>
   <div class="svc-grid">
     <div class="card-feat"><div class="badge b-live">● LIVE</div><div class="card-bot"><div class="ico-lg">📷</div><div class="cname-lg">Cắt Cam</div></div></div>
-    <div class="svc-card"><div class="badge b-gold">2 GIẢI G8</div><div class="card-bot"><div class="ico">🏆</div><div class="cname">Giải đấu</div></div></div>
+    <div class="svc-card"><div class="badge b-gold">2 GIẢI HS</div><div class="card-bot"><div class="ico">🏆</div><div class="cname">Giải đấu</div></div></div>
     <div class="svc-card"><div class="badge b-ai">AI · MỚI</div><div class="card-bot"><div class="ico">🎯</div><div class="cname">Thử thách</div></div></div>
     <div class="svc-card"><div class="badge b-grn">3 ƯU ĐÃI</div><div class="card-bot"><div class="ico">🎟️</div><div class="cname">Voucher G8</div></div></div>
-    <div class="svc-card"><div class="badge b-gold">TOP G8</div><div class="card-bot"><div class="ico">🥇</div><div class="cname">Xếp hạng</div></div></div>
+    <div class="svc-card"><div class="badge b-gold">TOP HS</div><div class="card-bot"><div class="ico">🥇</div><div class="cname">Xếp hạng</div></div></div>
     <div class="svc-card"><div class="badge b-blue">VIDEO</div><div class="card-bot"><div class="ico">🎓</div><div class="cname">Academy</div></div></div>
     <div class="svc-card"><div class="badge b-grn">CÒN SLOT</div><div class="card-bot"><div class="ico">📅</div><div class="cname">Đặt bàn</div></div></div>
     <div class="svc-card"><div class="badge b-blue">REAL-TIME</div><div class="card-bot"><div class="ico">📊</div><div class="cname">Bảng điểm</div></div></div>
@@ -339,7 +343,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="game-mode-txt">Pool 9-ball · Bàn 07</div>
         <div class="game-timer" id="gtimer">00:00</div>
       </div>
-      <div class="game-video"><div class="game-video-txt">📹 Camera feed</div></div>
+      <div class="game-video" id="camBox">
+        <div class="game-video-txt" id="camStatus">⏳ Đang kết nối camera...</div>
+        <img id="camFeed" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:12px" alt="camera">
+      </div>
       <div class="game-btns">
         <div class="game-btn gbtn-pause" onclick="togglePause()">⏸ Tạm dừng</div>
         <div class="game-btn gbtn-end" onclick="stopGame();showScreen('home')">🏁 Kết thúc trận</div>
@@ -365,7 +372,7 @@ function switchTab(el){
 
 // timer
 let _t=null,_s=0,_p=false;
-function startTimer(){
+function startTimer(){ initCamera();
   _s=0;_p=false;clearInterval(_t);
   _t=setInterval(()=>{
     if(!_p){_s++;const m=String(Math.floor(_s/60)).padStart(2,'0'),s=String(_s%60).padStart(2,'0');document.getElementById('gtimer').textContent=m+':'+s;}
@@ -379,6 +386,33 @@ function togglePause(){
 function addScore(id){
   const el=document.getElementById(id);
   el.textContent=parseInt(el.textContent)+1;
+}
+
+// Camera: thử load snapshot từ Dahua IP camera
+// Browser không hỗ trợ RTSP trực tiếp — dùng HTTP snapshot (port 80)
+// URL format Dahua: http://user:pass@host/cgi-bin/snapshot.cgi?channel=1
+// Cần cung cấp credentials từ DB để kết nối thật
+const CAM_SNAPSHOT_URL = null; // set URL thật ở đây khi có credentials
+
+function initCamera(){
+  const img = document.getElementById('camFeed');
+  const status = document.getElementById('camStatus');
+  if(!CAM_SNAPSHOT_URL){
+    status.innerHTML='📹 Camera feed<br><span style="font-size:11px;opacity:.5">Cần RTSP credentials từ DB</span>';
+    return;
+  }
+  let ok=false;
+  function load(){
+    img.src = CAM_SNAPSHOT_URL + '?t=' + Date.now();
+  }
+  img.onload = ()=>{
+    if(!ok){ ok=true; status.style.display='none'; img.style.display='block'; }
+    setTimeout(load, 500); // refresh mỗi 500ms
+  };
+  img.onerror = ()=>{
+    status.innerHTML='⚠️ Không kết nối được camera<br><small>'+CAM_SNAPSHOT_URL+'</small>';
+  };
+  load();
 }
 </script>
 </body>
