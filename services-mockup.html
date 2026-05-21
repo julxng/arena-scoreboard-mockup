@@ -112,44 +112,64 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .bo{background:#c2410c;color:#fff}
 .bz{background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)}
 
-/* Icon circle */
-.ico-c{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:rgba(255,255,255,.1)}
-.ico-cl{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;background:rgba(255,255,255,.12)}
+/* App-icon style — gradient + inner highlight + shadow */
+.ico-c{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2)}
+.ico-cl{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;box-shadow:0 6px 16px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2)}
+/* Per-icon color */
+.i-cam  {background:linear-gradient(145deg,#3b82f6,#1d4ed8)}
+.i-trp  {background:linear-gradient(145deg,#f59e0b,#b45309)}
+.i-ch   {background:linear-gradient(145deg,#a855f7,#7c3aed)}
+.i-vc   {background:linear-gradient(145deg,#10b981,#047857)}
+.i-rk   {background:linear-gradient(145deg,#f97316,#c2410c)}
+.i-ac   {background:linear-gradient(145deg,#38bdf8,#0284c7)}
+.i-bk   {background:linear-gradient(145deg,#22d3ee,#0e7490)}
+.i-sc   {background:linear-gradient(145deg,#818cf8,#4338ca)}
+.i-fn   {background:linear-gradient(145deg,#fb923c,#dc2626)}
+.i-ai   {background:linear-gradient(145deg,#4b5563,#1f2937)}
 .cr{display:flex;align-items:center;gap:9px}
 .cn{font-size:12px;font-weight:700;color:rgba(255,255,255,.9)}
 .cnl{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
 /* ══ SCREEN 2: RANKING ══ */
 #ranking{background:url('background_ranking.jpg') center/cover no-repeat}
-#ranking .overlay{background:rgba(0,0,0,.74)}
-#ranking .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px;gap:14px;color:#fff}
-.phdr{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.ptitle{font-size:clamp(18px,2.4vw,32px);font-weight:900;letter-spacing:-.5px;flex:1}
+#ranking .overlay{background:linear-gradient(120deg,rgba(2,8,30,.92) 0%,rgba(3,10,36,.8) 50%,rgba(2,8,30,.9) 100%)}
+#ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto 1fr;height:100%;padding:24px 28px;gap:0;color:#fff}
+
+/* Header spans full width */
+.phdr{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.ptitle{font-size:clamp(22px,3vw,40px);font-weight:900;letter-spacing:-.5px;flex:1}
 .rtabs{display:flex;gap:7px}
-.rtab{padding:6px 16px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;border:2px solid rgba(13,255,222,.3);background:transparent;color:rgba(255,255,255,.5);transition:all .15s}
+.rtab{padding:7px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:2px solid rgba(13,255,222,.28);background:transparent;color:rgba(255,255,255,.45);transition:all .15s}
 .rtab.active{background:#0DFFDE;border-color:#0DFFDE;color:#061428}
-.rbody{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:0}
-.lboard{display:flex;flex-direction:column}
-.lhdr{display:grid;grid-template-columns:48px 1fr 76px;padding:6px 14px;margin-bottom:5px}
-.lhc{font-size:clamp(11px,1.3vw,18px);font-weight:700;color:#0DFFDE}
+
+/* Leaderboard (left) */
+.lboard{display:flex;flex-direction:column;gap:6px;padding-right:24px}
+.lhdr{display:grid;grid-template-columns:52px 1fr 90px;padding:6px 16px;margin-bottom:2px}
+.lhc{font-size:clamp(11px,1.2vw,16px);font-weight:700;color:rgba(13,255,222,.7);text-transform:uppercase;letter-spacing:.5px}
 .lhc.nm{text-align:left}
 .lhc:not(.nm){text-align:center}
-.lr{display:grid;grid-template-columns:48px 1fr 76px;padding:10px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:8px;margin-bottom:5px;align-items:center}
-.lr.r1{background:rgba(245,158,11,.09);border-color:rgba(245,158,11,.2)}
-.lpos{font-size:17px;font-weight:900;text-align:center}
-.lname{font-size:clamp(11px,1.25vw,17px);font-weight:700}
-.lelo{font-size:clamp(13px,1.3vw,19px);font-weight:800;color:#0DFFDE;text-align:center}
-.podium{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:8px}
-.pod-row{display:flex;gap:10px;align-items:flex-end}
-.pi{display:flex;flex-direction:column;align-items:center;gap:5px}
-.pav{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
-.p1 .pav{width:76px;height:76px;font-size:22px;background:linear-gradient(135deg,#f59e0b,#d97706);border:3px solid #f59e0b}
-.p2 .pav,.p3 .pav{width:60px;height:60px;font-size:18px;background:linear-gradient(135deg,#94a3b8,#475569)}
-.pname{font-size:11px;font-weight:700;max-width:100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
-.pelo{font-size:13px;font-weight:800;color:#0DFFDE}
-.pbase{display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:rgba(255,255,255,.4);background-size:100% 100%}
-.p1 .pbase{width:96px;height:108px;background-image:url('top1.png')}
-.p2 .pbase,.p3 .pbase{width:84px;height:92px}
+.lr{display:grid;grid-template-columns:52px 1fr 90px;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:11px;align-items:center;transition:background .15s;cursor:default}
+.lr:hover{background:rgba(255,255,255,.08)}
+.lr.r1{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.22)}
+.lr.r2{background:rgba(148,163,184,.06);border-color:rgba(148,163,184,.15)}
+.lr.r3{background:rgba(180,83,9,.07);border-color:rgba(180,83,9,.18)}
+.lpos{font-size:clamp(16px,1.6vw,22px);font-weight:900;text-align:center}
+.lname{font-size:clamp(13px,1.4vw,19px);font-weight:700}
+.lelo{font-size:clamp(14px,1.5vw,20px);font-weight:800;color:#0DFFDE;text-align:center}
+
+/* Podium (right) */
+.podium{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:16px;gap:12px}
+.pod-row{display:flex;gap:14px;align-items:flex-end}
+.pi{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pav{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
+.p1 .pav{width:88px;height:88px;font-size:28px;background:linear-gradient(145deg,#fbbf24,#d97706);border:3px solid #fbbf24;box-shadow:0 0 24px rgba(251,191,36,.4)}
+.p2 .pav{width:68px;height:68px;font-size:22px;background:linear-gradient(145deg,#94a3b8,#475569);box-shadow:0 0 14px rgba(148,163,184,.25)}
+.p3 .pav{width:68px;height:68px;font-size:22px;background:linear-gradient(145deg,#cd7f32,#92400e);box-shadow:0 0 14px rgba(205,127,50,.2)}
+.pname{font-size:12px;font-weight:700;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.pelo{font-size:15px;font-weight:800;color:#0DFFDE}
+.pbase{display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:rgba(255,255,255,.5);background-size:100% 100%;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.p1 .pbase{width:120px;height:130px;background-image:url('top1.png')}
+.p2 .pbase,.p3 .pbase{width:100px;height:110px}
 .p2 .pbase{background-image:url('top2.png')}
 .p3 .pbase{background-image:url('top3.png')}
 
@@ -293,16 +313,16 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="spill">10/10 active</div>
       </div>
       <div class="sgrid">
-        <div class="cfeat"><div class="bdg bl">● LIVE</div><div class="cr" style="margin-top:auto"><div class="ico-cl">📷</div><div class="cnl">Cắt Cam</div></div></div>
-        <div class="sc"><div class="bdg bg">2 GIẢI HS</div><div class="cr"><div class="ico-c">🏆</div><div class="cn">Giải đấu</div></div></div>
-        <div class="sc"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c">🎯</div><div class="cn">Thử thách</div></div></div>
-        <div class="sc"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c">🎟️</div><div class="cn">Voucher HS</div></div></div>
-        <div class="sc"><div class="bdg bg">TOP HS</div><div class="cr"><div class="ico-c">🥇</div><div class="cn">Xếp hạng</div></div></div>
-        <div class="sc"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c">🎓</div><div class="cn">Academy</div></div></div>
-        <div class="sc"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c">📅</div><div class="cn">Đặt bàn</div></div></div>
-        <div class="sc"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c">📊</div><div class="cn">Bảng điểm</div></div></div>
-        <div class="sc"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c">🍺</div><div class="cn">Gọi đồ</div></div></div>
-        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c">🤖</div><div class="cn">AI phân tích</div></div></div>
+        <div class="cfeat"><div class="bdg bl">● LIVE</div><div class="cr" style="margin-top:auto"><div class="ico-cl i-cam">📷</div><div class="cnl">Cắt Cam</div></div></div>
+        <div class="sc"><div class="bdg bg">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
+        <div class="sc"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
+        <div class="sc"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher HS</div></div></div>
+        <div class="sc"><div class="bdg bg">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
+        <div class="sc"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
+        <div class="sc"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
+        <div class="sc"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
+        <div class="sc"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
+        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
       </div>
     </div>
   </div>
@@ -312,30 +332,48 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 <div class="screen" id="ranking">
   <div class="overlay"></div>
   <div class="content">
+    <!-- Header (spans both columns) -->
     <div class="phdr">
       <div class="ptitle">BẢNG XẾP HẠNG</div>
       <div class="rtabs">
-        <div class="rtab active" onclick="switchTab(this)">Pool</div>
+        <div class="rtab active" onclick="switchTab(this)">Pool 9-ball</div>
         <div class="rtab" onclick="switchTab(this)">Carom 3C</div>
       </div>
       <div class="back-btn" onclick="showScreen('home')">← Quay lại</div>
     </div>
-    <div class="rbody">
-      <div class="lboard">
-        <div class="lhdr"><div class="lhc">HẠNG</div><div class="lhc nm">CƠ THỦ</div><div class="lhc">ELO</div></div>
-        <div class="lr r1"><div class="lpos">🥇</div><div class="lname">Nguyễn Văn An</div><div class="lelo">2,840</div></div>
-        <div class="lr"><div class="lpos" style="color:#94a3b8">🥈</div><div class="lname">Trần Minh Tuấn</div><div class="lelo">2,712</div></div>
-        <div class="lr"><div class="lpos" style="color:#cd7f32">🥉</div><div class="lname">Lê Hoàng Phúc</div><div class="lelo">2,655</div></div>
-        <div class="lr"><div class="lpos" style="color:rgba(255,255,255,.4)">4</div><div class="lname">Phạm Quốc Bảo</div><div class="lelo" style="color:rgba(255,255,255,.5)">2,590</div></div>
-        <div class="lr"><div class="lpos" style="color:rgba(255,255,255,.4)">5</div><div class="lname">Hoàng Đức Việt</div><div class="lelo" style="color:rgba(255,255,255,.5)">2,518</div></div>
-        <div class="lr"><div class="lpos" style="color:rgba(255,255,255,.4)">6</div><div class="lname">Đặng Thanh Tùng</div><div class="lelo" style="color:rgba(255,255,255,.5)">2,441</div></div>
-        <div class="lr"><div class="lpos" style="color:rgba(255,255,255,.4)">7</div><div class="lname">Vũ Thành Long</div><div class="lelo" style="color:rgba(255,255,255,.5)">2,387</div></div>
-      </div>
-      <div class="podium">
-        <div class="pod-row">
-          <div class="pi p2"><div class="pav">T</div><div class="pname">Trần Minh Tuấn</div><div class="pelo">2,712</div><div class="pbase p2">2</div></div>
-          <div class="pi p1"><div class="pav">A</div><div class="pname">Nguyễn Văn An</div><div class="pelo">2,840</div><div class="pbase p1">1</div></div>
-          <div class="pi p3"><div class="pav">L</div><div class="pname">Lê Hoàng Phúc</div><div class="pelo">2,655</div><div class="pbase p3">3</div></div>
+
+    <!-- Left: full leaderboard -->
+    <div class="lboard">
+      <div class="lhdr"><div class="lhc">Hạng</div><div class="lhc nm">Cơ thủ</div><div class="lhc">ELO</div></div>
+      <div class="lr r1"><div class="lpos">🥇</div><div class="lname">Nguyễn Văn An</div><div class="lelo">2,840</div></div>
+      <div class="lr r2"><div class="lpos">🥈</div><div class="lname">Trần Minh Tuấn</div><div class="lelo">2,712</div></div>
+      <div class="lr r3"><div class="lpos">🥉</div><div class="lname">Lê Hoàng Phúc</div><div class="lelo">2,655</div></div>
+      <div class="lr"><div class="lpos" style="font-size:16px;color:rgba(255,255,255,.4)">4</div><div class="lname">Phạm Quốc Bảo</div><div class="lelo" style="color:rgba(255,255,255,.45)">2,590</div></div>
+      <div class="lr"><div class="lpos" style="font-size:16px;color:rgba(255,255,255,.4)">5</div><div class="lname">Hoàng Đức Việt</div><div class="lelo" style="color:rgba(255,255,255,.45)">2,518</div></div>
+      <div class="lr"><div class="lpos" style="font-size:16px;color:rgba(255,255,255,.4)">6</div><div class="lname">Đặng Thanh Tùng</div><div class="lelo" style="color:rgba(255,255,255,.45)">2,441</div></div>
+      <div class="lr"><div class="lpos" style="font-size:16px;color:rgba(255,255,255,.4)">7</div><div class="lname">Vũ Thành Long</div><div class="lelo" style="color:rgba(255,255,255,.45)">2,387</div></div>
+    </div>
+
+    <!-- Right: big podium -->
+    <div class="podium">
+      <div class="pod-row">
+        <div class="pi p2">
+          <div class="pav">T</div>
+          <div class="pname">Trần Minh Tuấn</div>
+          <div class="pelo">2,712</div>
+          <div class="pbase p2">2</div>
+        </div>
+        <div class="pi p1">
+          <div class="pav">A</div>
+          <div class="pname">Nguyễn Văn An</div>
+          <div class="pelo">2,840</div>
+          <div class="pbase p1">1</div>
+        </div>
+        <div class="pi p3">
+          <div class="pav">L</div>
+          <div class="pname">Lê Hoàng Phúc</div>
+          <div class="pelo">2,655</div>
+          <div class="pbase p3">3</div>
         </div>
       </div>
     </div>
