@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Arena Scoreboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-serif;background:#0e1420;color:#fff}
+.screen{width:100vw;height:100vh;display:flex;flex-direction:column;padding:28px 36px 24px;gap:20px}
+/* header */
+.hdr{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.hdr-left{display:flex;align-items:center;gap:14px}
+.logo{width:52px;height:52px;background:linear-gradient(135deg,#0DFFDE22,#0DFFDE44);border:1.5px solid #0DFFDE55;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#0DFFDE;letter-spacing:-.5px;flex-shrink:0}
+.hdr-txt .club{font-size:24px;font-weight:800;letter-spacing:-.4px}
+.hdr-txt .sub{font-size:13px;color:rgba(255,255,255,.45);margin-top:3px}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.pill-live{display:flex;align-items:center;gap:7px;background:rgba(13,255,222,.1);border:1px solid rgba(13,255,222,.25);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:#0DFFDE}
+.dot{width:8px;height:8px;border-radius:50%;background:#0DFFDE;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.pill-count{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:rgba(255,255,255,.6)}
+/* section */
+.sec-hdr{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.sec-dot{width:8px;height:8px;border-radius:50%;background:#0DFFDE}
+.sec-title{font-size:13px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
+/* grid: 5 cols x 2 rows */
+.grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:12px;min-height:0}
+/* featured 2x2 */
+.card-feat{grid-column:1/3;grid-row:1/3;background:linear-gradient(145deg,#0f4fc7,#0838a0);border:1px solid rgba(13,255,222,.2);border-radius:22px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer}
+.card-feat::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:rgba(13,255,222,.06);border-radius:50%}
+/* standard card */
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background .15s}
+.card:hover{background:rgba(255,255,255,.07)}
+.card.off{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.04);opacity:.45}
+/* badge */
+.badge{display:inline-flex;padding:5px 9px;border-radius:7px;font-size:11px;font-weight:700;letter-spacing:.2px;align-self:flex-start;line-height:1}
+.b-live{background:#ef4444;color:#fff}
+.b-ai  {background:#8b5cf6;color:#fff}
+.b-gold{background:#f59e0b;color:#fff}
+.b-blue{background:#3b82f6;color:#fff}
+.b-grn {background:#10b981;color:#fff}
+.b-gray{background:rgba(255,255,255,.1);color:rgba(255,255,255,.45)}
+/* card body */
+.cb{display:flex;align-items:center;gap:10px}
+.ico{font-size:26px;line-height:1}
+.ico-lg{font-size:40px;line-height:1}
+.name{font-size:15px;font-weight:700;color:rgba(255,255,255,.88);line-height:1.2}
+.name-lg{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.3px}
+.card.off .name{color:rgba(255,255,255,.35)}
+.card.off .ico{opacity:.4}
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="logo">ARENA</div>
+      <div class="hdr-txt">
+        <div class="club">G8 Billiards</div>
+        <div class="sub">Bàn 07 · Scoreboard</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="pill-live"><div class="dot"></div>Livestream đang chạy</div>
+      <div class="pill-count">♦ 10/10 dịch vụ</div>
+    </div>
+  </div>
+
+  <div class="sec-hdr">
+    <div class="sec-dot"></div>
+    <div class="sec-title">Tất cả dịch vụ</div>
+  </div>
+
+  <div class="grid">
+    <!-- featured: Cắt Cam -->
+    <div class="card-feat">
+      <div class="badge b-live">● LIVE</div>
+      <div class="cb"><div class="ico-lg">📷</div><div class="name-lg">Cắt Cam</div></div>
+    </div>
+    <!-- Giải đấu -->
+    <div class="card">
+      <div class="badge b-gold">2 GIẢI G8</div>
+      <div class="cb"><div class="ico">🏆</div><div class="name">Giải đấu</div></div>
+    </div>
+    <!-- Thử thách -->
+    <div class="card">
+      <div class="badge b-ai">AI · MỚI</div>
+      <div class="cb"><div class="ico">🎯</div><div class="name">Thử thách</div></div>
+    </div>
+    <!-- Voucher -->
+    <div class="card">
+      <div class="badge b-grn">3 ƯU ĐÃI</div>
+      <div class="cb"><div class="ico">🎟️</div><div class="name">Voucher G8</div></div>
+    </div>
+    <!-- Xếp hạng -->
+    <div class="card">
+      <div class="badge b-gold">TOP G8</div>
+      <div class="cb"><div class="ico">🥇</div><div class="name">Xếp hạng</div></div>
+    </div>
+    <!-- Academy -->
+    <div class="card">
+      <div class="badge b-blue">VIDEO</div>
+      <div class="cb"><div class="ico">🎓</div><div class="name">Academy</div></div>
+    </div>
+    <!-- Đặt bàn -->
+    <div class="card">
+      <div class="badge b-grn">CÒN SLOT</div>
+      <div class="cb"><div class="ico">📅</div><div class="name">Đặt bàn</div></div>
+    </div>
+    <!-- Bảng điểm -->
+    <div class="card">
+      <div class="badge b-blue">REAL-TIME</div>
+      <div class="cb"><div class="ico">📊</div><div class="name">Bảng điểm</div></div>
+    </div>
+    <!-- Gọi đồ -->
+    <div class="card">
+      <div class="badge b-blue">MENU</div>
+      <div class="cb"><div class="ico">🍺</div><div class="name">Gọi đồ</div></div>
+    </div>
+    <!-- AI phân tích — inactive -->
+    <div class="card off">
+      <div class="badge b-gray">BETA</div>
+      <div class="cb"><div class="ico">🤖</div><div class="name">AI phân tích</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
