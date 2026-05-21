@@ -21,61 +21,83 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .back-btn:hover{background:rgba(255,255,255,.15)}
 
 /* ─────────────────────────────────────
-   SCREEN 1 — HOME (redesigned)
-   Left panel: logo + actions
-   Right panel: services grid
+   SCREEN 1 — HOME
 ───────────────────────────────────── */
 #home{background:url('flaming_8_ball_home.png') center/cover no-repeat}
-#home .overlay{background:linear-gradient(to right, rgba(0,0,0,.88) 30%, rgba(0,0,0,.72) 60%, rgba(0,0,0,.82))}
-#home .layout{position:relative;z-index:1;display:grid;grid-template-columns:320px 1fr;height:100%;gap:0}
+#home .overlay{background:linear-gradient(100deg,rgba(4,18,48,.96) 0%,rgba(4,18,48,.85) 28%,rgba(6,22,58,.7) 55%,rgba(4,18,48,.82) 100%)}
+#home .layout{position:relative;z-index:1;display:grid;grid-template-columns:300px 1fr;height:100%}
 
 /* Left panel */
-.home-left{display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px 24px;border-right:1px solid rgba(255,255,255,.07)}
-.home-logos{display:flex;align-items:center;gap:14px}
-.home-logos img.arena-logo{height:52px;object-fit:contain}
-.home-logos .divider{width:1px;height:40px;background:rgba(255,255,255,.15)}
-.home-logos img.club-logo{height:48px;width:48px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.9);padding:4px}
-.home-club-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-top:16px;line-height:1.2}
-.home-club-sub{font-size:13px;color:rgba(255,255,255,.4);margin-top:4px}
-.home-status{display:flex;align-items:center;gap:6px;margin-top:12px}
-.home-status-txt{font-size:13px;color:#0DFFDE;font-weight:600}
+.home-left{display:flex;flex-direction:column;justify-content:space-between;padding:26px 22px 22px;border-right:1px solid rgba(13,255,222,.1);background:rgba(0,6,24,.35)}
+.home-logos{display:flex;align-items:center;gap:12px}
+.home-logos img.arena-logo{height:48px;object-fit:contain}
+.home-logos .divider{width:1px;height:36px;background:rgba(255,255,255,.15)}
+.home-logos img.club-logo{height:44px;width:44px;object-fit:contain;border-radius:10px;background:#fff;padding:4px}
+.home-club-name{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-top:14px;line-height:1.25}
+.home-club-sub{font-size:12px;color:rgba(255,255,255,.38);margin-top:4px}
+.home-status{display:flex;align-items:center;gap:7px;margin-top:10px;background:rgba(13,255,222,.07);border:1px solid rgba(13,255,222,.18);border-radius:999px;padding:5px 12px;width:fit-content}
+.home-status-txt{font-size:12px;color:#0DFFDE;font-weight:600}
 
-.home-nav{display:flex;flex-direction:column;gap:10px;flex:1;justify-content:center}
-.nav-btn{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;cursor:pointer;transition:all .15s;border:1.5px solid transparent;color:#fff;text-decoration:none}
-.nav-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
-.nav-btn.primary{background:rgba(13,255,222,.1);border-color:rgba(13,255,222,.3)}
-.nav-btn.primary:hover{background:rgba(13,255,222,.18)}
-.nav-btn-icon{font-size:22px;width:32px;text-align:center;flex-shrink:0}
-.nav-btn-label{font-size:15px;font-weight:700;letter-spacing:.3px}
+.home-nav{display:flex;flex-direction:column;gap:9px;flex:1;justify-content:center}
 
-.home-footer{font-size:11px;color:rgba(255,255,255,.2);display:flex;align-items:center;gap:6px}
+/* Nav buttons — solid gradients */
+.nav-btn{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;cursor:pointer;transition:all .15s;color:#fff;border:none}
+.nav-btn:active{transform:scale(.97)}
+.nav-btn.primary{background:linear-gradient(135deg,#1a6ef5 0%,#0540b0 100%);box-shadow:0 4px 20px rgba(26,110,245,.4)}
+.nav-btn.primary:hover{background:linear-gradient(135deg,#2a7eff 0%,#0a50c0 100%)}
+.nav-btn.secondary{background:rgba(13,255,222,.1);border:1.5px solid rgba(13,255,222,.28)!important}
+.nav-btn.secondary:hover{background:rgba(13,255,222,.18);border-color:rgba(13,255,222,.5)!important}
+.nav-btn.tertiary{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14)!important}
+.nav-btn.tertiary:hover{background:rgba(255,255,255,.12)}
+.nav-btn-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0}
+.nav-btn-label{font-size:14px;font-weight:800;letter-spacing:.4px}
 
-/* Right panel — services */
-.home-right{display:flex;flex-direction:column;padding:24px 24px 24px 28px;gap:14px}
+.home-footer{font-size:11px;color:rgba(255,255,255,.18);display:flex;align-items:center;gap:5px}
+
+/* Right panel */
+.home-right{display:flex;flex-direction:column;padding:22px 22px 22px 26px;gap:12px}
 .svc-section-hdr{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.svc-section-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase}
-.svc-count-pill{background:rgba(13,255,222,.1);border:1px solid rgba(13,255,222,.2);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;color:#0DFFDE}
+.svc-section-title{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1.2px;text-transform:uppercase}
+.svc-count-pill{background:rgba(13,255,222,.12);border:1px solid rgba(13,255,222,.25);border-radius:999px;padding:4px 12px;font-size:11px;font-weight:700;color:#0DFFDE}
 
 /* Services grid — 5 cols × 2 rows */
-.svc-grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:10px;min-height:0}
-.card-feat{grid-column:1/3;grid-row:1/3;background:linear-gradient(145deg,#1260d4,#0838a0);border:1px solid rgba(13,255,222,.25);border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;position:relative;transition:filter .15s}
-.card-feat::before{content:'';position:absolute;right:-30px;top:-30px;width:160px;height:160px;background:rgba(255,255,255,.05);border-radius:50%}
-.card-feat:hover{filter:brightness(1.1)}
-.svc-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s}
-.svc-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
-.svc-card.off{opacity:.35}
-.svc-card.off:hover{background:rgba(255,255,255,.06)}
+.svc-grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:9px;min-height:0}
+
+/* Featured Cắt Cam */
+.card-feat{grid-column:1/3;grid-row:1/3;background:linear-gradient(145deg,#1a6ef5 0%,#0638c4 50%,#031e8a 100%);border:1px solid rgba(13,255,222,.3);border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;position:relative;transition:filter .15s;box-shadow:0 8px 32px rgba(26,110,245,.3)}
+.card-feat::before{content:'';position:absolute;right:-20px;top:-20px;width:150px;height:150px;background:rgba(255,255,255,.06);border-radius:50%}
+.card-feat::after{content:'';position:absolute;left:-30px;bottom:-30px;width:120px;height:120px;background:rgba(13,255,222,.06);border-radius:50%}
+.card-feat:hover{filter:brightness(1.08)}
+
+/* Individual card colors — Arena blue gradient family */
+.svc-card{border-radius:13px;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:filter .15s;position:relative;overflow:hidden;border:1px solid transparent}
+.svc-card:hover{filter:brightness(1.1)}
+.svc-card.off{opacity:.32;filter:grayscale(.5)}
+.svc-card.off:hover{filter:grayscale(.5) brightness(.9)}
+
+/* Each card gets its own Arena-tinted gradient */
+.card-tournament{background:linear-gradient(145deg,#0f4fc7,#083a9a);border-color:rgba(99,150,255,.2)!important}
+.card-challenge{background:linear-gradient(145deg,#5b21b6,#3b0f8c);border-color:rgba(167,139,250,.2)!important}
+.card-voucher{background:linear-gradient(145deg,#065f46,#043d2e);border-color:rgba(52,211,153,.2)!important}
+.card-ranking{background:linear-gradient(145deg,#92400e,#6b2d0a);border-color:rgba(245,158,11,.2)!important}
+.card-academy{background:linear-gradient(145deg,#1e40af,#102880);border-color:rgba(96,165,250,.2)!important}
+.card-booking{background:linear-gradient(145deg,#0e7490,#0a4d66);border-color:rgba(34,211,238,.2)!important}
+.card-score{background:linear-gradient(145deg,#1260d4,#0840a8);border-color:rgba(96,165,250,.2)!important}
+.card-fnb{background:linear-gradient(145deg,#9a3412,#7c1f06);border-color:rgba(251,146,60,.2)!important}
+.card-ai{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)!important}
+
 .badge{display:inline-flex;padding:3px 7px;border-radius:5px;font-size:10px;font-weight:700;align-self:flex-start;letter-spacing:.2px}
 .b-live{background:#ef4444;color:#fff}
 .b-ai{background:#8b5cf6;color:#fff}
 .b-gold{background:#f59e0b;color:#fff}
-.b-blue{background:#3b82f6;color:#fff}
+.b-blue{background:rgba(255,255,255,.2);color:#fff}
 .b-grn{background:#10b981;color:#fff}
-.b-gray{background:rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+.b-teal{background:rgba(34,211,238,.25);color:#67e8f9}
+.b-gray{background:rgba(255,255,255,.08);color:rgba(255,255,255,.35)}
 .cb{display:flex;align-items:center;gap:8px}
 .ico{font-size:20px;line-height:1}
 .ico-lg{font-size:32px;line-height:1}
-.cname{font-size:13px;font-weight:700;color:rgba(255,255,255,.88)}
+.cname{font-size:13px;font-weight:700;color:rgba(255,255,255,.92)}
 .cname-lg{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
 /* ─────────────────────────────────────
@@ -198,11 +220,11 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <div class="nav-btn-icon">▶</div>
           <div class="nav-btn-label">TRẬN MỚI</div>
         </div>
-        <div class="nav-btn" onclick="showScreen('ranking')">
+        <div class="nav-btn secondary" onclick="showScreen('ranking')">
           <div class="nav-btn-icon">🏆</div>
           <div class="nav-btn-label">BẢNG XẾP HẠNG</div>
         </div>
-        <div class="nav-btn" onclick="showScreen('history')">
+        <div class="nav-btn tertiary" onclick="showScreen('history')">
           <div class="nav-btn-icon">📋</div>
           <div class="nav-btn-label">LỊCH SỬ TRẬN ĐẤU</div>
         </div>
@@ -225,15 +247,15 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
       <div class="svc-grid">
         <div class="card-feat"><div class="badge b-live">● LIVE</div><div class="cb" style="margin-top:auto"><div class="ico-lg">📷</div><div class="cname-lg">Cắt Cam</div></div></div>
-        <div class="svc-card"><div class="badge b-gold">2 GIẢI HS</div><div class="cb"><div class="ico">🏆</div><div class="cname">Giải đấu</div></div></div>
-        <div class="svc-card"><div class="badge b-ai">AI · MỚI</div><div class="cb"><div class="ico">🎯</div><div class="cname">Thử thách</div></div></div>
-        <div class="svc-card"><div class="badge b-grn">3 ƯU ĐÃI</div><div class="cb"><div class="ico">🎟️</div><div class="cname">Voucher HS</div></div></div>
-        <div class="svc-card"><div class="badge b-gold">TOP HS</div><div class="cb"><div class="ico">🥇</div><div class="cname">Xếp hạng</div></div></div>
-        <div class="svc-card"><div class="badge b-blue">VIDEO</div><div class="cb"><div class="ico">🎓</div><div class="cname">Academy</div></div></div>
-        <div class="svc-card"><div class="badge b-grn">CÒN SLOT</div><div class="cb"><div class="ico">📅</div><div class="cname">Đặt bàn</div></div></div>
-        <div class="svc-card"><div class="badge b-blue">REAL-TIME</div><div class="cb"><div class="ico">📊</div><div class="cname">Bảng điểm</div></div></div>
-        <div class="svc-card"><div class="badge b-blue">MENU</div><div class="cb"><div class="ico">🍺</div><div class="cname">Gọi đồ</div></div></div>
-        <div class="svc-card off"><div class="badge b-gray">BETA</div><div class="cb"><div class="ico">🤖</div><div class="cname">AI phân tích</div></div></div>
+        <div class="svc-card card-tournament"><div class="badge b-gold">2 GIẢI HS</div><div class="cb"><div class="ico">🏆</div><div class="cname">Giải đấu</div></div></div>
+        <div class="svc-card card-challenge"><div class="badge b-ai">AI · MỚI</div><div class="cb"><div class="ico">🎯</div><div class="cname">Thử thách</div></div></div>
+        <div class="svc-card card-voucher"><div class="badge b-grn">3 ƯU ĐÃI</div><div class="cb"><div class="ico">🎟️</div><div class="cname">Voucher HS</div></div></div>
+        <div class="svc-card card-ranking"><div class="badge b-gold">TOP HS</div><div class="cb"><div class="ico">🥇</div><div class="cname">Xếp hạng</div></div></div>
+        <div class="svc-card card-academy"><div class="badge b-blue">VIDEO</div><div class="cb"><div class="ico">🎓</div><div class="cname">Academy</div></div></div>
+        <div class="svc-card card-booking"><div class="badge b-teal">CÒN SLOT</div><div class="cb"><div class="ico">📅</div><div class="cname">Đặt bàn</div></div></div>
+        <div class="svc-card card-score"><div class="badge b-blue">REAL-TIME</div><div class="cb"><div class="ico">📊</div><div class="cname">Bảng điểm</div></div></div>
+        <div class="svc-card card-fnb"><div class="badge b-live" style="background:#f97316">MENU</div><div class="cb"><div class="ico">🍺</div><div class="cname">Gọi đồ</div></div></div>
+        <div class="svc-card card-ai off"><div class="badge b-gray">BETA</div><div class="cb"><div class="ico">🤖</div><div class="cname">AI phân tích</div></div></div>
       </div>
     </div>
   </div>
@@ -310,8 +332,11 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     <!-- Center -->
     <div class="game-center">
       <div class="game-topbar">
-        <div class="game-mode-lbl">Pool 9-ball · Hoàng Sao · Bàn 07</div>
+        <div>
+          <div class="game-mode-lbl">Pool 9-ball · Hoàng Sao · Bàn 07</div>
+        </div>
         <div class="game-timer" id="gtimer">00:00</div>
+        <div class="back-btn" onclick="stopGame();showScreen('home')" style="font-size:11px;padding:5px 12px">✕ Thoát</div>
       </div>
       <div class="cam-box">
         <img id="camFeed" alt="camera">
