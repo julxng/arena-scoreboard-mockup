@@ -51,67 +51,67 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .back-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.75);user-select:none}
 .back-btn:hover{background:rgba(255,255,255,.14);color:#fff}
 
-/* ══ HOME ══ */
-:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.1);--cc3:rgba(13,255,222,.22);--bg-tint:rgba(0,22,40,.88)}
-#home{background:url('flaming_8_ball_home.png') center/cover no-repeat}
-#home .overlay{background:linear-gradient(105deg,rgba(2,6,20,.97) 0%,var(--bg-tint) 30%,rgba(4,11,34,.72) 60%,rgba(2,6,20,.92) 100%)}
-#home .layout{position:relative;z-index:1;display:grid;grid-template-columns:64px 1fr;height:100%}
+/* ══ HOME (production-matching layout) ══ */
+:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.1);--cc3:rgba(13,255,222,.22);--hbg:radial-gradient(ellipse at 50% 35%,#1a3870 0%,#0d1f50 30%,#060f28 65%,#040c1e 100%)}
+#home{background:var(--hbg)}
 
-/* Nav rail */
-.hnav{display:flex;flex-direction:column;align-items:center;padding:14px 0 12px;border-right:1px solid rgba(255,255,255,.05);background:rgba(0,3,14,.5);gap:2px}
-.hnav-logo{width:40px;height:40px;border-radius:11px;overflow:hidden;margin-bottom:14px;cursor:pointer;flex-shrink:0}
-.hnav-logo img{width:100%;height:100%;object-fit:cover}
-.nitem{width:44px;height:44px;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:rgba(255,255,255,.35);flex-shrink:0;transition:all .15s}
-.nitem:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
-.nitem.active{background:var(--cc2);color:var(--cc)}
-.nitem-ico{font-size:17px;line-height:1}
-.nitem-lbl{font-size:7px;font-weight:700;letter-spacing:.2px}
-.hnav-sp{flex:1}
-.hnav-cfg{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;color:rgba(255,255,255,.4)}
-.hnav-cfg:hover{background:rgba(255,255,255,.1);color:#fff}
+/* Top header bar */
+.home-hdr{position:relative;z-index:2;display:flex;align-items:center;padding:14px 20px;gap:10px;flex-shrink:0}
+.hbp{display:flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,.1);border-radius:999px;backdrop-filter:blur(8px);cursor:default}
+.hbp img{height:28px;object-fit:contain;filter:brightness(0) invert(1)}
+.hbp-txt{font-size:15px;font-weight:900;color:#fff;letter-spacing:.5px}
+.hdr-sp{flex:1}
+.hdr-lang{display:flex;align-items:center;padding:8px 16px;background:rgba(255,255,255,.1);border-radius:999px;font-size:13px;font-weight:700;color:#fff;cursor:pointer;backdrop-filter:blur(8px)}
+.hdr-lang:hover{background:rgba(255,255,255,.16)}
+.hdr-cfg{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;backdrop-filter:blur(8px)}
+.hdr-cfg:hover{background:rgba(255,255,255,.18)}
 
-/* Main */
-.hmain{display:flex;flex-direction:column;position:relative;overflow:hidden;flex:1;min-width:0}
+/* Center body — watermark + services */
+.home-body{flex:1;position:relative;display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:10px 20px 0}
 
-/* Top bar */
-.htop{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);flex-shrink:0}
-.htop-brand{display:flex;align-items:center;gap:8px}
-.htop-brand img.al{height:26px;object-fit:contain}
-.htop-brand .bs{width:1px;height:18px;background:rgba(255,255,255,.15)}
-.htop-brand img.cl{height:24px;width:24px;object-fit:contain;border-radius:6px;background:#fff;padding:2px}
-.htop-cname{font-size:14px;font-weight:800;color:#fff}
-.htop-sp{flex:1}
-.htop-live{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--cc);font-weight:600}
-.htop-cta{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(26,110,245,.4);border:none;user-select:none}
-.htop-cta:hover{box-shadow:0 6px 22px rgba(26,110,245,.6)}
-.htop-cta:active{transform:scale(.97)}
+/* Arena watermark behind grid */
+.home-wm{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:0;gap:4px}
+.wm-logo{height:clamp(80px,16vh,160px);object-fit:contain;opacity:.07;filter:brightness(0) invert(1)}
+.wm-sub{font-size:clamp(11px,2vw,18px);font-weight:900;color:rgba(255,255,255,.06);letter-spacing:clamp(4px,1.5vw,12px);text-transform:uppercase}
 
 /* Services grid */
-.sgrid-wrap{flex:1;padding:12px 18px 0;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
+.sgrid-wrap{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
 .sgrid-lbl{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.2px;text-transform:uppercase;display:flex;align-items:center;gap:6px;flex-shrink:0}
 .sgrid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:8px;min-height:0}
 .cfeat{grid-column:1/3;grid-row:1/3;background:linear-gradient(150deg,#1b6ff5 0%,#0435bb 55%,#011889 100%);border:1px solid rgba(13,255,222,.2);border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;position:relative;box-shadow:0 6px 24px rgba(26,110,245,.28)}
 .cfeat::before{content:'';position:absolute;right:-20px;top:-20px;width:150px;height:150px;background:rgba(255,255,255,.05);border-radius:50%}
 .cfeat:hover{box-shadow:0 10px 32px rgba(26,110,245,.48)}
-.sc{background:rgba(4,10,32,.8);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s}
-.sc:hover{background:rgba(8,18,52,.92);border-color:rgba(255,255,255,.14)}
+.sc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s;backdrop-filter:blur(4px)}
+.sc:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.16)}
 .sc.off{opacity:.22}
 
+/* Bottom nav — 3 buttons matching production app */
+.home-nav{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:0;margin:12px 20px 10px;background:rgba(255,255,255,.07);border-radius:20px;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);overflow:hidden}
+.hnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 8px;cursor:pointer;transition:background .15s;position:relative}
+.hnav-btn:hover{background:rgba(255,255,255,.06)}
+.hnav-btn.primary{background:rgba(255,255,255,.06)}
+.hnav-btn:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.1)}
+.hnav-ico{font-size:28px;line-height:1}
+.hnav-ico.grid{font-size:24px;color:#3b82f6}
+.hnav-ico.play{width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;color:#111;box-shadow:0 4px 16px rgba(255,255,255,.25)}
+.hnav-ico.hist{font-size:24px;color:#f97316}
+.hnav-lbl{font-size:11px;font-weight:800;color:#fff;letter-spacing:.8px;text-transform:uppercase}
+
 /* Ad ticker */
-.ad-ticker{flex-shrink:0;height:44px;background:rgba(0,3,14,.7);border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;overflow:hidden}
+.ad-ticker{flex-shrink:0;height:40px;background:rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;overflow:hidden}
 .ad-track{display:flex;animation:ticker 32s linear infinite;white-space:nowrap}
 .ad-track:hover{animation-play-state:paused}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ad-item{display:flex;align-items:center;gap:10px;padding:0 28px;border-right:1px solid rgba(255,255,255,.06);cursor:pointer;height:44px;flex-shrink:0}
+.ad-item{display:flex;align-items:center;gap:10px;padding:0 28px;border-right:1px solid rgba(255,255,255,.06);cursor:pointer;height:40px;flex-shrink:0}
 .ad-item:hover{background:rgba(255,255,255,.04)}
 .ad-spon{font-size:9px;font-weight:700;color:rgba(255,255,255,.25);letter-spacing:.8px;text-transform:uppercase;background:rgba(255,255,255,.07);padding:2px 6px;border-radius:3px}
-.ad-ico{font-size:18px;flex-shrink:0}
+.ad-ico{font-size:16px;flex-shrink:0}
 .ad-txt{font-size:12px;font-weight:700;color:rgba(255,255,255,.75)}
 .ad-price{font-size:12px;font-weight:800;color:var(--cc)}
 .ad-cta{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;background:var(--cc2);color:var(--cc);border:1px solid var(--cc3);white-space:nowrap}
 
-/* Theme picker */
-.theme-panel{position:absolute;left:74px;bottom:54px;background:rgba(4,10,32,.97);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px;width:252px;display:none;flex-direction:column;gap:8px;z-index:20;box-shadow:0 14px 44px rgba(0,0,0,.7)}
+/* Theme picker — opens from top-right cfg */
+.theme-panel{position:absolute;right:20px;top:70px;background:rgba(4,10,32,.97);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px;width:252px;display:none;flex-direction:column;gap:8px;z-index:30;box-shadow:0 14px 44px rgba(0,0,0,.7)}
 .theme-panel.open{display:flex}
 .tp-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
 .tclub{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:9px;cursor:pointer;border:1.5px solid transparent}
@@ -317,115 +317,105 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 <!-- ══ HOME ══ -->
 <div class="screen active" id="home">
-  <div class="overlay"></div>
-  <div class="layout">
 
-    <div class="hnav">
-      <div class="hnav-logo" onclick="toggleTheme()">
-        <img src="logo-hoangsao.jpg" id="navLogo" alt="Club">
-      </div>
-      <div class="nitem active" title="Home">
-        <div class="nitem-ico">🏠</div><div class="nitem-lbl">Home</div>
-      </div>
-      <div class="nitem" title="Xếp hạng" onclick="showScreen('ranking')">
-        <div class="nitem-ico">🏆</div><div class="nitem-lbl">Xếp hạng</div>
-      </div>
-      <div class="nitem" title="Lịch sử" onclick="showScreen('history')">
-        <div class="nitem-ico">📋</div><div class="nitem-lbl">Lịch sử</div>
-      </div>
-      <div class="nitem" title="Chấm điểm" onclick="showScreen('game');startGame()">
-        <div class="nitem-ico">🎱</div><div class="nitem-lbl">Chơi</div>
-      </div>
-      <div class="hnav-sp"></div>
-      <div class="hnav-cfg" onclick="toggleTheme()" title="Đổi club">⚙️</div>
+  <!-- Top header -->
+  <div class="home-hdr">
+    <div class="hbp">
+      <img src="logo_arena.png" alt="Arena">
+      <span class="hbp-txt">ARENA SCOREBOARD</span>
+    </div>
+    <div class="hdr-sp"></div>
+    <div class="hdr-lang" id="topClubName">Hoàng Sao</div>
+    <div class="hdr-cfg" onclick="toggleTheme()" title="Đổi club">⚙️</div>
+  </div>
+
+  <!-- Center: watermark + services -->
+  <div class="home-body">
+    <div class="home-wm">
+      <img src="logo_arena.png" class="wm-logo" alt="">
+      <div class="wm-sub">PLAY BETTER</div>
     </div>
 
-    <div class="hmain">
-      <div class="htop">
-        <div class="htop-brand">
-          <img src="logo_arena.png" class="al" alt="Arena">
-          <div class="bs"></div>
-          <img id="topClubLogo" src="logo-hoangsao.jpg" class="cl" alt="Club">
-          <span class="htop-cname" id="topClubName">Hoàng Sao Billiards</span>
-        </div>
-        <div class="htop-sp"></div>
-        <div class="htop-live"><div class="dot-live"></div>Livestream đang chạy</div>
-        <button class="htop-cta" onclick="showScreen('game');startGame()">🎱 Bấm điểm</button>
-      </div>
-
-      <div class="sgrid-wrap">
-        <div class="sgrid-lbl"><div class="dot-live"></div>DỊCH VỤ TẠI CLUB</div>
-        <div class="sgrid">
-          <div class="cfeat" onclick="openModal('catcam')">
-            <div class="bdg bl">● LIVE</div>
-            <div class="cr" style="margin-top:auto">
-              <div class="ico-cl i-cam">📷</div>
-              <div class="cnl">Cắt Cam</div>
-            </div>
-          </div>
-          <div class="sc" onclick="openModal('giai-dau')"><div class="bdg bg" id="bdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
-          <div class="sc" onclick="openModal('thu-thach')"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
-          <div class="sc" onclick="openModal('voucher')"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
-          <div class="sc" onclick="openModal('xep-hang')"><div class="bdg bg" id="bdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
-          <div class="sc" onclick="openModal('academy')"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
-          <div class="sc" onclick="openModal('dat-ban')"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
-          <div class="sc" onclick="openModal('bang-diem')"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
-          <div class="sc" onclick="openModal('goi-do')"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
-          <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
-        </div>
-        <div class="ad-ticker">
-          <div class="ad-track">
-            <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <!-- duplicate for seamless loop -->
-            <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
-            <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+    <div class="sgrid-wrap">
+      <div class="sgrid-lbl"><div class="dot-live"></div>DỊCH VỤ TẠI CLUB</div>
+      <div class="sgrid">
+        <div class="cfeat" onclick="openModal('catcam')">
+          <div class="bdg bl">● LIVE</div>
+          <div class="cr" style="margin-top:auto">
+            <div class="ico-cl i-cam">📷</div>
+            <div class="cnl">Cắt Cam</div>
           </div>
         </div>
-      </div>
-
-      <!-- Quick FAB -->
-      <div class="qfab">
-        <div class="qfab-actions" id="qfabActions">
-          <div class="qfab-btn qb1" onclick="showScreen('game');startGame();closeQfab()">🎱 Bấm điểm</div>
-          <div class="qfab-btn qb2" onclick="showScreen('game');startGame();closeQfab()">⚡ Đấu nhanh</div>
-          <div class="qfab-btn qb3" onclick="showScreen('history');closeQfab()">📋 Lịch sử</div>
-        </div>
-        <button class="qfab-trigger" id="qfabTrigger" onclick="toggleQfab()">☰</button>
-      </div>
-
-      <!-- Club theme picker -->
-      <div class="theme-panel" id="themePanel">
-        <div class="tp-title">CHỌN CLUB DEMO</div>
-        <div class="tclub sel" id="tc0" onclick="setClub(0)">
-          <img src="logo-hoangsao.jpg" class="tclub-logo" alt="">
-          <div class="tclub-info"><div class="tclub-name">Hoàng Sao Billiards</div><div class="tclub-sub">Cyan · #0DFFDE</div></div>
-          <div class="tclub-dot" style="background:#0DFFDE"></div>
-        </div>
-        <div class="tclub" id="tc1" onclick="setClub(1)">
-          <div class="tclub-init" style="background:linear-gradient(135deg,#1d4ed8,#1e3a8a)">G8</div>
-          <div class="tclub-info"><div class="tclub-name">G8 Billiards</div><div class="tclub-sub">Blue · #3b82f6</div></div>
-          <div class="tclub-dot" style="background:#3b82f6"></div>
-        </div>
-        <div class="tclub" id="tc2" onclick="setClub(2)">
-          <img src="logo_arena.png" class="tclub-logo" alt="">
-          <div class="tclub-info"><div class="tclub-name">Arena Q1</div><div class="tclub-sub">Gold · #f59e0b</div></div>
-          <div class="tclub-dot" style="background:#f59e0b"></div>
-        </div>
-        <div class="tclub" id="tc3" onclick="setClub(3)">
-          <div class="tclub-init" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">PL</div>
-          <div class="tclub-info"><div class="tclub-name">Phúc Lợi Billiards</div><div class="tclub-sub">Purple · #a855f7</div></div>
-          <div class="tclub-dot" style="background:#a855f7"></div>
-        </div>
+        <div class="sc" onclick="openModal('giai-dau')"><div class="bdg bg" id="bdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
+        <div class="sc" onclick="openModal('thu-thach')"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
+        <div class="sc" onclick="openModal('voucher')"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
+        <div class="sc" onclick="openModal('xep-hang')"><div class="bdg bg" id="bdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
+        <div class="sc" onclick="openModal('academy')"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
+        <div class="sc" onclick="openModal('dat-ban')"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
+        <div class="sc" onclick="openModal('bang-diem')"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
+        <div class="sc" onclick="openModal('goi-do')"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
+        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
       </div>
     </div>
   </div>
+
+  <!-- Bottom nav bar — matches production app -->
+  <div class="home-nav">
+    <div class="hnav-btn" onclick="showScreen('ranking')">
+      <div class="hnav-ico grid">⊞</div>
+      <div class="hnav-lbl">Bảng điểm</div>
+    </div>
+    <div class="hnav-btn primary" onclick="showScreen('game');startGame()">
+      <div class="hnav-ico play">▶</div>
+      <div class="hnav-lbl">Đánh nhanh</div>
+    </div>
+    <div class="hnav-btn" onclick="showScreen('history')">
+      <div class="hnav-ico hist">↺</div>
+      <div class="hnav-lbl">Lịch sử</div>
+    </div>
+  </div>
+
+  <!-- Ad ticker -->
+  <div class="ad-ticker">
+    <div class="ad-track">
+      <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+    </div>
+  </div>
+
+  <!-- Club theme picker -->
+  <div class="theme-panel" id="themePanel">
+    <div class="tp-title">CHỌN CLUB DEMO</div>
+    <div class="tclub sel" id="tc0" onclick="setClub(0)">
+      <img src="logo-hoangsao.jpg" class="tclub-logo" alt="">
+      <div class="tclub-info"><div class="tclub-name">Hoàng Sao Billiards</div><div class="tclub-sub">Cyan · #0DFFDE</div></div>
+      <div class="tclub-dot" style="background:#0DFFDE"></div>
+    </div>
+    <div class="tclub" id="tc1" onclick="setClub(1)">
+      <div class="tclub-init" style="background:linear-gradient(135deg,#1d4ed8,#1e3a8a)">G8</div>
+      <div class="tclub-info"><div class="tclub-name">G8 Billiards</div><div class="tclub-sub">Blue · #3b82f6</div></div>
+      <div class="tclub-dot" style="background:#3b82f6"></div>
+    </div>
+    <div class="tclub" id="tc2" onclick="setClub(2)">
+      <img src="logo_arena.png" class="tclub-logo" alt="">
+      <div class="tclub-info"><div class="tclub-name">Arena Q1</div><div class="tclub-sub">Gold · #f59e0b</div></div>
+      <div class="tclub-dot" style="background:#f59e0b"></div>
+    </div>
+    <div class="tclub" id="tc3" onclick="setClub(3)">
+      <div class="tclub-init" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">PL</div>
+      <div class="tclub-info"><div class="tclub-name">Phúc Lợi Billiards</div><div class="tclub-sub">Purple · #a855f7</div></div>
+      <div class="tclub-dot" style="background:#a855f7"></div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ══ RANKING ══ -->
@@ -682,17 +672,12 @@ function showScreen(id){
   if(id==='home') resetIdle(); else clearTimeout(_idleTimer);
 }
 
-// ── Quick FAB ──
-let qOpen=false;
-function toggleQfab(){ qOpen=!qOpen; document.getElementById('qfabActions').classList.toggle('open',qOpen); document.getElementById('qfabTrigger').classList.toggle('open',qOpen); document.getElementById('qfabTrigger').textContent=qOpen?'✕':'☰'; if(qOpen) closeTheme(); }
-function closeQfab(){ qOpen=false; document.getElementById('qfabActions').classList.remove('open'); document.getElementById('qfabTrigger').classList.remove('open'); document.getElementById('qfabTrigger').textContent='☰'; }
-
 // ── Club themes ──
 const CLUBS=[
-  {name:'Hoàng Sao Billiards',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.25)',bgTint:'rgba(0,22,40,.88)',short:'HS'},
-  {name:'G8 Billiards',logo:null,cc:'#3b82f6',cc2:'rgba(59,130,246,.12)',cc3:'rgba(59,130,246,.28)',bgTint:'rgba(3,12,42,.9)',short:'G8'},
-  {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',bgTint:'rgba(30,16,2,.9)',short:'A1'},
-  {name:'Phúc Lợi Billiards',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',bgTint:'rgba(16,3,32,.9)',short:'PL'},
+  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.25)',hbg:'radial-gradient(ellipse at 50% 35%,#0e3358 0%,#06192e 35%,#040c1e 100%)',short:'HS'},
+  {name:'G8 Billiards',logo:null,cc:'#3b82f6',cc2:'rgba(59,130,246,.12)',cc3:'rgba(59,130,246,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#1a3870 0%,#0d1f50 35%,#060f2a 100%)',short:'G8'},
+  {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#3d1e00 0%,#1e0e00 35%,#100700 100%)',short:'A1'},
+  {name:'Phúc Lợi',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#2d1060 0%,#16082e 35%,#0a0516 100%)',short:'PL'},
 ];
 let curClub=0;
 
@@ -703,10 +688,9 @@ function setClub(i){
   r.setProperty('--cc',c.cc);
   r.setProperty('--cc2',c.cc2);
   r.setProperty('--cc3',c.cc3);
-  r.setProperty('--bg-tint',c.bgTint);
+  r.setProperty('--hbg',c.hbg);
+  document.getElementById('home').style.background=c.hbg;
   document.getElementById('topClubName').textContent=c.name;
-  const nl=document.getElementById('navLogo'), tl=document.getElementById('topClubLogo');
-  if(c.logo){ nl.src=c.logo; tl.src=c.logo; } else { nl.src='logo_arena.png'; tl.src='logo_arena.png'; }
   const bt=document.getElementById('bdg-trp'); if(bt) bt.textContent='2 GIẢI '+c.short;
   const br=document.getElementById('bdg-rk'); if(br) br.textContent='TOP '+c.short;
   document.querySelectorAll('.tclub').forEach((el,j)=>el.classList.toggle('sel',j===i));
@@ -714,12 +698,12 @@ function setClub(i){
 }
 
 let tOpen=false;
-function toggleTheme(){ tOpen=!tOpen; document.getElementById('themePanel').classList.toggle('open',tOpen); if(tOpen) closeQfab(); }
+function toggleTheme(){ tOpen=!tOpen; document.getElementById('themePanel').classList.toggle('open',tOpen); }
 function closeTheme(){ tOpen=false; document.getElementById('themePanel').classList.remove('open'); }
+function closeQfab(){}  // no-op, kept for compatibility
 
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.theme-panel')&&!e.target.closest('.hnav-cfg')&&!e.target.closest('.hnav-logo')) closeTheme();
-  if(!e.target.closest('.qfab')) closeQfab();
+  if(!e.target.closest('.theme-panel')&&!e.target.closest('.hdr-cfg')) closeTheme();
 });
 
 // ── Tabs ──
