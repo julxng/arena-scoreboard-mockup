@@ -19,18 +19,15 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 14px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
 .modal-title{font-size:18px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px}
 .modal-badge{padding:3px 9px;border-radius:5px;font-size:11px;font-weight:700}
-.modal-close{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.6);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.modal-close{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.6);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .modal-close:hover{background:rgba(255,255,255,.16);color:#fff}
 .modal-body{padding:18px 20px;overflow-y:auto;flex:1}
 .modal-body::-webkit-scrollbar{width:4px}
 .modal-body::-webkit-scrollbar-thumb{background:rgba(13,255,222,.2);border-radius:2px}
-
-/* modal content components */
 .m-stat-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
 .m-stat{flex:1;min-width:100px;background:rgba(255,255,255,.05);border-radius:10px;padding:12px 14px;border:1px solid rgba(255,255,255,.07)}
 .m-stat-val{font-size:22px;font-weight:900;color:#0DFFDE}
 .m-stat-lbl{font-size:11px;color:rgba(255,255,255,.45);margin-top:2px;font-weight:600}
-
 .m-list{display:flex;flex-direction:column;gap:7px}
 .m-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.06)}
 .m-item-ico{font-size:20px;flex-shrink:0}
@@ -38,149 +35,138 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .m-item-name{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .m-item-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:1px}
 .m-item-right{font-size:14px;font-weight:800;color:#0DFFDE;flex-shrink:0;white-space:nowrap}
-.m-item-tag{padding:3px 8px;border-radius:5px;font-size:10px;font-weight:700;flex-shrink:0}
-
+.m-item-tag{padding:3px 8px;border-radius:5px;font-size:10px;font-weight:700;flex-shrink:0;color:#fff}
 .m-section{font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase;margin:14px 0 8px}
-.m-cta{width:100%;padding:13px;border-radius:11px;border:none;background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff;font-size:14px;font-weight:800;cursor:pointer;margin-top:14px;transition:filter .15s}
+.m-cta{width:100%;padding:13px;border-radius:11px;border:none;background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff;font-size:14px;font-weight:800;cursor:pointer;margin-top:14px}
 .m-cta:hover{filter:brightness(1.12)}
 .m-cta.yellow{background:#FFCF19;color:#000}
 .m-cta.grn{background:#059669;color:#fff}
 .m-coming{text-align:center;padding:30px 0}
 .m-coming-ico{font-size:48px;margin-bottom:12px}
 .m-coming-txt{font-size:16px;font-weight:700;color:rgba(255,255,255,.5)}
+
+/* ── Shared ── */
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.dot-live{width:8px;height:8px;border-radius:50%;background:#0DFFDE;animation:blink 2s infinite;flex-shrink:0}
-.back-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.75);transition:all .15s;white-space:nowrap;user-select:none}
+.dot-live{width:8px;height:8px;border-radius:50%;background:var(--cc);animation:blink 2s infinite;flex-shrink:0}
+.back-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.75);user-select:none}
 .back-btn:hover{background:rgba(255,255,255,.14);color:#fff}
 
-/* ══ SCREEN 1: HOME ══ */
-:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.12);--cc3:rgba(13,255,222,.25)}
+/* ══ HOME ══ */
+:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.1);--cc3:rgba(13,255,222,.22);--bg-tint:rgba(0,22,40,.88)}
 #home{background:url('flaming_8_ball_home.png') center/cover no-repeat}
-#home .overlay{background:linear-gradient(105deg,rgba(2,7,24,.97) 0%,rgba(3,10,32,.88) 25%,rgba(4,12,38,.72) 55%,rgba(2,7,24,.88) 100%)}
-#home .layout{position:relative;z-index:1;display:grid;grid-template-columns:72px 1fr;height:100%}
+#home .overlay{background:linear-gradient(105deg,rgba(2,6,20,.97) 0%,var(--bg-tint) 30%,rgba(4,11,34,.72) 60%,rgba(2,6,20,.92) 100%)}
+#home .layout{position:relative;z-index:1;display:grid;grid-template-columns:64px 1fr;height:100%}
 
-/* ── Left nav bar (slim icon rail) ── */
-.hnav{display:flex;flex-direction:column;align-items:center;padding:16px 0 14px;border-right:1px solid rgba(255,255,255,.06);background:rgba(1,5,18,.55);gap:4px}
-.hnav-logo{width:44px;height:44px;border-radius:12px;overflow:hidden;margin-bottom:12px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.4);flex-shrink:0;position:relative}
+/* Nav rail */
+.hnav{display:flex;flex-direction:column;align-items:center;padding:14px 0 12px;border-right:1px solid rgba(255,255,255,.05);background:rgba(0,3,14,.5);gap:2px}
+.hnav-logo{width:40px;height:40px;border-radius:11px;overflow:hidden;margin-bottom:14px;cursor:pointer;flex-shrink:0}
 .hnav-logo img{width:100%;height:100%;object-fit:cover}
-.hnav-logo:hover::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.1);border-radius:12px}
-.nitem{width:48px;height:48px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;transition:all .15s;color:rgba(255,255,255,.4);border:1px solid transparent;flex-shrink:0}
-.nitem:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
-.nitem.active{background:var(--cc2);border-color:var(--cc3);color:var(--cc)}
-.nitem-ico{font-size:18px;line-height:1}
-.nitem-lbl{font-size:8px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
-.hnav-spacer{flex:1}
-.hnav-theme{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:all .15s;flex-shrink:0}
-.hnav-theme:hover{background:rgba(255,255,255,.12)}
+.nitem{width:44px;height:44px;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:rgba(255,255,255,.35);flex-shrink:0;transition:all .15s}
+.nitem:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
+.nitem.active{background:var(--cc2);color:var(--cc)}
+.nitem-ico{font-size:17px;line-height:1}
+.nitem-lbl{font-size:7px;font-weight:700;letter-spacing:.2px}
+.hnav-sp{flex:1}
+.hnav-cfg{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;color:rgba(255,255,255,.4)}
+.hnav-cfg:hover{background:rgba(255,255,255,.1);color:#fff}
 
-/* ── Main content area ── */
-.hmain{display:flex;flex-direction:column;padding:18px 20px 18px 20px;gap:12px;position:relative}
+/* Main */
+.hmain{display:flex;flex-direction:column;position:relative;overflow:hidden;flex:1;min-width:0}
 
 /* Top bar */
-.hmain-top{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.hmain-brand{display:flex;align-items:center;gap:10px}
-.hmain-brand img.al{height:32px;object-fit:contain}
-.hmain-brand .bsep{width:1px;height:22px;background:rgba(255,255,255,.15)}
-.hmain-brand img.cl{height:30px;width:30px;object-fit:contain;border-radius:7px;background:#fff;padding:2px}
-.hmain-clubname{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px}
-.hmain-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:1px}
-.hmain-spacer{flex:1}
-.hst{display:flex;align-items:center;gap:6px;background:var(--cc2);border:1px solid var(--cc3);border-radius:999px;padding:5px 12px}
-.hst span{font-size:11px;color:var(--cc);font-weight:700}
-.spill{background:var(--cc2);border:1px solid var(--cc3);border-radius:999px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--cc)}
+.htop{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);flex-shrink:0}
+.htop-brand{display:flex;align-items:center;gap:8px}
+.htop-brand img.al{height:26px;object-fit:contain}
+.htop-brand .bs{width:1px;height:18px;background:rgba(255,255,255,.15)}
+.htop-brand img.cl{height:24px;width:24px;object-fit:contain;border-radius:6px;background:#fff;padding:2px}
+.htop-cname{font-size:14px;font-weight:800;color:#fff}
+.htop-sp{flex:1}
+.htop-live{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--cc);font-weight:600}
+.htop-cta{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(26,110,245,.4);border:none;user-select:none}
+.htop-cta:hover{box-shadow:0 6px 22px rgba(26,110,245,.6)}
+.htop-cta:active{transform:scale(.97)}
 
-/* Section label */
-.shdr{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.shdr-l{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:1.2px;text-transform:uppercase}
-
-/* 5×2 grid */
+/* Services grid */
+.sgrid-wrap{flex:1;padding:12px 18px 0;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
+.sgrid-lbl{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.2px;text-transform:uppercase;display:flex;align-items:center;gap:6px;flex-shrink:0}
 .sgrid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:8px;min-height:0}
+.cfeat{grid-column:1/3;grid-row:1/3;background:linear-gradient(150deg,#1b6ff5 0%,#0435bb 55%,#011889 100%);border:1px solid rgba(13,255,222,.2);border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;position:relative;box-shadow:0 6px 24px rgba(26,110,245,.28)}
+.cfeat::before{content:'';position:absolute;right:-20px;top:-20px;width:150px;height:150px;background:rgba(255,255,255,.05);border-radius:50%}
+.cfeat:hover{box-shadow:0 10px 32px rgba(26,110,245,.48)}
+.sc{background:rgba(4,10,32,.8);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s}
+.sc:hover{background:rgba(8,18,52,.92);border-color:rgba(255,255,255,.14)}
+.sc.off{opacity:.22}
 
-/* Featured */
-.cfeat{grid-column:1/3;grid-row:1/3;background:linear-gradient(150deg,#1b6ff5 0%,#0435bb 55%,#011889 100%);border:1px solid rgba(13,255,222,.22);border-radius:15px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;position:relative;box-shadow:0 6px 28px rgba(26,110,245,.3);transition:box-shadow .15s}
-.cfeat::before{content:'';position:absolute;right:-24px;top:-24px;width:160px;height:160px;background:rgba(255,255,255,.05);border-radius:50%}
-.cfeat:hover{box-shadow:0 10px 36px rgba(26,110,245,.5)}
+/* Ad ticker */
+.ad-ticker{flex-shrink:0;height:44px;background:rgba(0,3,14,.7);border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;overflow:hidden}
+.ad-track{display:flex;animation:ticker 32s linear infinite;white-space:nowrap}
+.ad-track:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ad-item{display:flex;align-items:center;gap:10px;padding:0 28px;border-right:1px solid rgba(255,255,255,.06);cursor:pointer;height:44px;flex-shrink:0}
+.ad-item:hover{background:rgba(255,255,255,.04)}
+.ad-spon{font-size:9px;font-weight:700;color:rgba(255,255,255,.25);letter-spacing:.8px;text-transform:uppercase;background:rgba(255,255,255,.07);padding:2px 6px;border-radius:3px}
+.ad-ico{font-size:18px;flex-shrink:0}
+.ad-txt{font-size:12px;font-weight:700;color:rgba(255,255,255,.75)}
+.ad-price{font-size:12px;font-weight:800;color:var(--cc)}
+.ad-cta{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;background:var(--cc2);color:var(--cc);border:1px solid var(--cc3);white-space:nowrap}
 
-/* Regular cards */
-.sc{background:rgba(5,12,38,.78);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:11px 12px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .15s}
-.sc:hover{background:rgba(9,20,58,.9);border-color:rgba(255,255,255,.15)}
-.sc.off{opacity:.25}
-
-/* ── Quick action FAB ── */
-.qfab{position:absolute;right:20px;bottom:20px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:10}
-.qfab-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;transition:all .2s;overflow:hidden;max-height:0;opacity:0}
-.qfab-actions.open{max-height:240px;opacity:1}
-.qfab-btn{display:flex;align-items:center;gap:10px;padding:11px 18px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:800;color:#fff;transition:all .15s;user-select:none;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.4)}
-.qfab-btn:active{transform:scale(.96)}
-.qfab-btn.qb1{background:linear-gradient(135deg,#1a6ef5,#0535b2)}
-.qfab-btn.qb2{background:linear-gradient(135deg,#059669,#047857)}
-.qfab-btn.qb3{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
-.qfab-trigger{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#1a6ef5,#0535b2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;box-shadow:0 6px 20px rgba(26,110,245,.5);transition:all .15s;user-select:none;flex-shrink:0}
-.qfab-trigger:hover{box-shadow:0 8px 28px rgba(26,110,245,.7)}
-.qfab-trigger.open{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);box-shadow:none}
-
-/* ── Theme picker modal ── */
-.theme-panel{position:absolute;left:82px;bottom:20px;background:rgba(6,14,40,.97);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;width:260px;display:none;flex-direction:column;gap:10px;z-index:20;box-shadow:0 16px 48px rgba(0,0,0,.6)}
+/* Theme picker */
+.theme-panel{position:absolute;left:74px;bottom:54px;background:rgba(4,10,32,.97);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px;width:252px;display:none;flex-direction:column;gap:8px;z-index:20;box-shadow:0 14px 44px rgba(0,0,0,.7)}
 .theme-panel.open{display:flex}
-.theme-panel-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.theme-club{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;transition:all .15s}
-.theme-club:hover{background:rgba(255,255,255,.06)}
-.theme-club.selected{border-color:var(--cc);background:var(--cc2)}
-.theme-club-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.theme-club-info{flex:1;min-width:0}
-.theme-club-name{font-size:13px;font-weight:700;color:#fff}
-.theme-club-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:1px}
-.theme-club-logo{width:32px;height:32px;border-radius:8px;object-fit:contain;background:#fff;padding:3px;flex-shrink:0}
-.theme-club-init{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;flex-shrink:0}
+.tp-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.tclub{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:9px;cursor:pointer;border:1.5px solid transparent}
+.tclub:hover{background:rgba(255,255,255,.05)}
+.tclub.sel{border-color:var(--cc);background:var(--cc2)}
+.tclub-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.tclub-info{flex:1;min-width:0}
+.tclub-name{font-size:12px;font-weight:700;color:#fff}
+.tclub-sub{font-size:10px;color:rgba(255,255,255,.3)}
+.tclub-logo{width:28px;height:28px;border-radius:7px;object-fit:contain;background:#fff;padding:2px;flex-shrink:0}
+.tclub-init{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;flex-shrink:0}
+
+/* Quick FAB */
+.qfab{position:absolute;right:18px;bottom:54px;display:flex;flex-direction:column;align-items:flex-end;gap:7px;z-index:15}
+.qfab-actions{display:none;flex-direction:column;align-items:flex-end;gap:6px}
+.qfab-actions.open{display:flex}
+.qfab-btn{padding:8px 16px;border-radius:999px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;user-select:none;border:none}
+.qb1{background:var(--cc);color:#061428}
+.qb2{background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff}
+.qb3{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)!important}
+.qfab-trigger{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(26,110,245,.5);user-select:none;border:none}
+.qfab-trigger.open{background:rgba(255,255,255,.15);box-shadow:none}
 
 /* Badges */
-.bdg{display:inline-flex;padding:3px 7px;border-radius:5px;font-size:10px;font-weight:700;letter-spacing:.2px;white-space:nowrap;align-self:flex-start}
-.bl{background:#dc2626;color:#fff}
-.bai{background:#7c3aed;color:#fff}
-.bg{background:#b45309;color:#fff}
-.bb{background:#1d4ed8;color:#fff}
-.bgn{background:#047857;color:#fff}
-.bt{background:#0e7490;color:#fff}
-.bo{background:#c2410c;color:#fff}
-.bz{background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)}
+.bdg{display:inline-flex;padding:3px 7px;border-radius:5px;font-size:10px;font-weight:700;white-space:nowrap;align-self:flex-start}
+.bl{background:#dc2626;color:#fff}.bai{background:#7c3aed;color:#fff}.bg{background:#b45309;color:#fff}
+.bb{background:#1d4ed8;color:#fff}.bgn{background:#047857;color:#fff}.bt{background:#0e7490;color:#fff}
+.bo{background:#c2410c;color:#fff}.bz{background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)}
 
-/* App-icon style — gradient + inner highlight + shadow */
+/* App icons */
 .ico-c{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2)}
 .ico-cl{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;box-shadow:0 6px 16px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2)}
-/* Per-icon color */
-.i-cam  {background:linear-gradient(145deg,#3b82f6,#1d4ed8)}
-.i-trp  {background:linear-gradient(145deg,#f59e0b,#b45309)}
-.i-ch   {background:linear-gradient(145deg,#a855f7,#7c3aed)}
-.i-vc   {background:linear-gradient(145deg,#10b981,#047857)}
-.i-rk   {background:linear-gradient(145deg,#f97316,#c2410c)}
-.i-ac   {background:linear-gradient(145deg,#38bdf8,#0284c7)}
-.i-bk   {background:linear-gradient(145deg,#22d3ee,#0e7490)}
-.i-sc   {background:linear-gradient(145deg,#818cf8,#4338ca)}
-.i-fn   {background:linear-gradient(145deg,#fb923c,#dc2626)}
-.i-ai   {background:linear-gradient(145deg,#4b5563,#1f2937)}
+.i-cam{background:linear-gradient(145deg,#3b82f6,#1d4ed8)}.i-trp{background:linear-gradient(145deg,#f59e0b,#b45309)}
+.i-ch{background:linear-gradient(145deg,#a855f7,#7c3aed)}.i-vc{background:linear-gradient(145deg,#10b981,#047857)}
+.i-rk{background:linear-gradient(145deg,#f97316,#c2410c)}.i-ac{background:linear-gradient(145deg,#38bdf8,#0284c7)}
+.i-bk{background:linear-gradient(145deg,#22d3ee,#0e7490)}.i-sc{background:linear-gradient(145deg,#818cf8,#4338ca)}
+.i-fn{background:linear-gradient(145deg,#fb923c,#dc2626)}.i-ai{background:linear-gradient(145deg,#4b5563,#1f2937)}
 .cr{display:flex;align-items:center;gap:9px}
 .cn{font-size:12px;font-weight:700;color:rgba(255,255,255,.9)}
 .cnl{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
-/* ══ SCREEN 2: RANKING ══ */
+/* ══ RANKING ══ */
 #ranking{background:url('background_ranking.jpg') center/cover no-repeat}
 #ranking .overlay{background:linear-gradient(120deg,rgba(2,8,30,.92) 0%,rgba(3,10,36,.8) 50%,rgba(2,8,30,.9) 100%)}
 #ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto 1fr;height:100%;padding:24px 28px;gap:0;color:#fff}
-
-/* Header spans full width */
 .phdr{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:20px}
 .ptitle{font-size:clamp(22px,3vw,40px);font-weight:900;letter-spacing:-.5px;flex:1}
 .rtabs{display:flex;gap:7px}
-.rtab{padding:7px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:2px solid rgba(13,255,222,.28);background:transparent;color:rgba(255,255,255,.45);transition:all .15s}
+.rtab{padding:7px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:2px solid rgba(13,255,222,.28);background:transparent;color:rgba(255,255,255,.45)}
 .rtab.active{background:#0DFFDE;border-color:#0DFFDE;color:#061428}
-
-/* Leaderboard (left) */
 .lboard{display:flex;flex-direction:column;gap:6px;padding-right:24px}
 .lhdr{display:grid;grid-template-columns:52px 1fr 90px;padding:6px 16px;margin-bottom:2px}
 .lhc{font-size:clamp(11px,1.2vw,16px);font-weight:700;color:rgba(13,255,222,.7);text-transform:uppercase;letter-spacing:.5px}
-.lhc.nm{text-align:left}
-.lhc:not(.nm){text-align:center}
-.lr{display:grid;grid-template-columns:52px 1fr 90px;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:11px;align-items:center;transition:background .15s;cursor:default}
+.lhc.nm{text-align:left}.lhc:not(.nm){text-align:center}
+.lr{display:grid;grid-template-columns:52px 1fr 90px;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:11px;align-items:center;cursor:default}
 .lr:hover{background:rgba(255,255,255,.08)}
 .lr.r1{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.22)}
 .lr.r2{background:rgba(148,163,184,.06);border-color:rgba(148,163,184,.15)}
@@ -188,29 +174,26 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .lpos{font-size:clamp(16px,1.6vw,22px);font-weight:900;text-align:center}
 .lname{font-size:clamp(13px,1.4vw,19px);font-weight:700}
 .lelo{font-size:clamp(14px,1.5vw,20px);font-weight:800;color:#0DFFDE;text-align:center}
-
-/* Podium (right) */
 .podium{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:16px;gap:12px}
 .pod-row{display:flex;gap:14px;align-items:flex-end}
 .pi{display:flex;flex-direction:column;align-items:center;gap:6px}
 .pav{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
 .p1 .pav{width:88px;height:88px;font-size:28px;background:linear-gradient(145deg,#fbbf24,#d97706);border:3px solid #fbbf24;box-shadow:0 0 24px rgba(251,191,36,.4)}
-.p2 .pav{width:68px;height:68px;font-size:22px;background:linear-gradient(145deg,#94a3b8,#475569);box-shadow:0 0 14px rgba(148,163,184,.25)}
-.p3 .pav{width:68px;height:68px;font-size:22px;background:linear-gradient(145deg,#cd7f32,#92400e);box-shadow:0 0 14px rgba(205,127,50,.2)}
+.p2 .pav{width:68px;height:68px;font-size:22px;background:linear-gradient(145deg,#94a3b8,#475569)}
+.p3 .pav{width:68px;height:68px;font-size:22px;background:linear-gradient(145deg,#cd7f32,#92400e)}
 .pname{font-size:12px;font-weight:700;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
 .pelo{font-size:15px;font-weight:800;color:#0DFFDE}
-.pbase{display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:rgba(255,255,255,.5);background-size:100% 100%;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.pbase{display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:rgba(255,255,255,.5);background-size:100% 100%}
 .p1 .pbase{width:120px;height:130px;background-image:url('top1.png')}
 .p2 .pbase,.p3 .pbase{width:100px;height:110px}
-.p2 .pbase{background-image:url('top2.png')}
-.p3 .pbase{background-image:url('top3.png')}
+.p2 .pbase{background-image:url('top2.png')}.p3 .pbase{background-image:url('top3.png')}
 
-/* ══ SCREEN 3: HISTORY ══ */
+/* ══ HISTORY ══ */
 #history{background:url('bg_history.png') center/cover no-repeat}
 #history .overlay{background:rgba(0,0,0,.77)}
 #history .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px;gap:14px;color:#fff}
 .hlist{flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
-.hrow{display:flex;align-items:center;gap:13px;padding:12px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:9px;transition:background .13s}
+.hrow{display:flex;align-items:center;gap:13px;padding:12px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:9px}
 .hrow:hover{background:rgba(255,255,255,.08)}
 .ht{padding:4px 9px;border-radius:5px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0}
 .hp{background:rgba(13,255,222,.1);color:#0DFFDE;border:1px solid rgba(13,255,222,.22)}
@@ -219,93 +202,115 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .hsc{font-size:clamp(17px,1.9vw,24px);font-weight:900;letter-spacing:-1px;flex-shrink:0}
 .htm{font-size:11px;color:rgba(255,255,255,.3);flex-shrink:0}
 
-/* ══ SCREEN 4: GAME — dark Arena theme ══ */
+/* ══ GAME ══ */
 #game{background:url('bg_mode.png') center/cover no-repeat}
 #game .overlay{background:rgba(2,7,28,.88)}
 #game .gc{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.5fr 1fr;height:100%;color:#fff}
-
-/* Player panels — dark with colored left accent */
 .pp{display:flex;flex-direction:column;height:100%;border-right:1px solid rgba(255,255,255,.07)}
 .pp1{background:rgba(4,12,42,.8);border-left:4px solid #0DFFDE}
 .pp2{background:rgba(4,12,42,.8);border-right:4px solid #FFCF19;border-left:none}
-
 .pp-header{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 10px;flex-shrink:0}
-.pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;letter-spacing:-.3px;color:#fff}
-.pp-login{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.7);transition:all .15s}
-.pp-login:hover{background:rgba(255,255,255,.14);color:#fff}
-
-/* Score buttons */
+.pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;color:#fff}
+.pp-login{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.7)}
 .score-btns-top,.score-btns-bot{display:flex;gap:5px;padding:6px 10px;flex-shrink:0}
-.sbt{flex:1;padding:9px 4px;border-radius:999px;font-size:clamp(13px,1.6vw,18px);font-weight:900;cursor:pointer;text-align:center;user-select:none;transition:all .12s;border:none}
+.sbt{flex:1;padding:9px 4px;border-radius:999px;font-size:clamp(13px,1.6vw,18px);font-weight:900;cursor:pointer;text-align:center;user-select:none;border:none}
 .sbt:active{transform:scale(.9)}
-/* P1 buttons: cyan */
 .pp1 .score-btns-top .sbt{background:rgba(13,255,222,.12);color:#0DFFDE;border:1.5px solid rgba(13,255,222,.35)!important}
 .pp1 .score-btns-top .sbt:hover{background:rgba(13,255,222,.25)}
 .pp1 .score-btns-bot .sbt{background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);border:1.5px solid rgba(255,255,255,.14)!important}
-.pp1 .score-btns-bot .sbt:hover{background:rgba(255,255,255,.1)}
-/* P2 buttons: amber */
 .pp2 .score-btns-top .sbt{background:rgba(255,207,25,.1);color:#FFCF19;border:1.5px solid rgba(255,207,25,.35)!important}
 .pp2 .score-btns-top .sbt:hover{background:rgba(255,207,25,.2)}
 .pp2 .score-btns-bot .sbt{background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);border:1.5px solid rgba(255,255,255,.14)!important}
-.pp2 .score-btns-bot .sbt:hover{background:rgba(255,255,255,.1)}
-
-/* Score */
 .score-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
 .score-sub{font-size:clamp(11px,1.2vw,15px);font-weight:700;position:absolute;top:12px;right:14px;color:rgba(255,255,255,.3)}
-.score-num{font-size:clamp(110px,18vw,210px);font-weight:900;line-height:.9;font-variant-numeric:tabular-nums;user-select:none;transition:opacity .1s}
-.pp1 .score-num{color:#0DFFDE}
-.pp2 .score-num{color:#FFCF19}
-
-/* Center panel */
+.score-num{font-size:clamp(110px,18vw,210px);font-weight:900;line-height:.9;font-variant-numeric:tabular-nums;user-select:none}
+.pp1 .score-num{color:#0DFFDE}.pp2 .score-num{color:#FFCF19}
 .gcp{display:flex;flex-direction:column;background:rgba(3,9,30,.9);height:100%;border-left:1px solid rgba(255,255,255,.07);border-right:1px solid rgba(255,255,255,.07)}
-
-/* Top bar */
 .gtopbar{display:flex;align-items:center;gap:7px;padding:8px 10px;background:rgba(4,15,50,.95);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
 .gvol{font-size:18px;cursor:pointer;color:rgba(255,255,255,.6)}
-.gcall-btn{background:rgba(13,255,222,.12);border:1px solid rgba(13,255,222,.3);border-radius:8px;padding:6px 11px;font-size:11px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:4px;color:#0DFFDE;transition:all .15s}
+.gcall-btn{background:rgba(13,255,222,.12);border:1px solid rgba(13,255,222,.3);border-radius:8px;padding:6px 11px;font-size:11px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:4px;color:#0DFFDE}
 .gcall-btn:hover{background:rgba(13,255,222,.22)}
 .gmode{font-size:12px;font-weight:900;color:rgba(255,255,255,.6);flex:1;text-align:center;letter-spacing:.8px;text-transform:uppercase}
 .gtimer{font-size:clamp(16px,1.8vw,22px);font-weight:900;color:#0DFFDE;font-variant-numeric:tabular-nums}
 .gtop-icons{display:flex;align-items:center;gap:6px}
-.gico{font-size:16px;cursor:pointer;color:rgba(255,255,255,.55);transition:color .15s}
+.gico{font-size:16px;cursor:pointer;color:rgba(255,255,255,.55)}
 .gico:hover{color:#fff}
 .gico.exit{font-size:12px;font-weight:700;color:rgba(255,255,255,.5);padding:4px 8px;border:1px solid rgba(255,255,255,.15);border-radius:6px}
-.gico.exit:hover{color:#fff;border-color:rgba(255,255,255,.3)}
-
-/* Pause / End */
 .gbtns{display:flex;gap:6px;padding:8px 10px;flex-shrink:0}
-.gbtn{flex:1;padding:11px;font-size:12px;font-weight:800;cursor:pointer;text-align:center;border:none;border-radius:9px;transition:all .15s;user-select:none}
+.gbtn{flex:1;padding:11px;font-size:12px;font-weight:800;cursor:pointer;text-align:center;border:none;border-radius:9px;user-select:none}
 .gbtn:active{transform:scale(.97)}
 .gbtn-pause{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)!important}
 .gbtn-pause:hover{background:rgba(255,255,255,.14)}
 .gbtn-pause.paused{background:rgba(13,255,222,.15);color:#0DFFDE;border-color:rgba(13,255,222,.4)!important}
 .gbtn-end{background:rgba(220,38,38,.15);color:#f87171;border:1px solid rgba(220,38,38,.3)!important}
 .gbtn-end:hover{background:rgba(220,38,38,.25)}
-
-/* Tabs */
-.gtabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;background:transparent}
-.gtab{flex:1;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.35);border-bottom:2px solid transparent;transition:all .15s}
-.gtab:hover{color:rgba(255,255,255,.65)}
+.gtabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.gtab{flex:1;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.35);border-bottom:2px solid transparent}
 .gtab.active{color:#0DFFDE;border-bottom-color:#0DFFDE}
-
-/* Action bar */
 .gactions{display:flex;align-items:center;padding:4px 6px;background:rgba(0,0,0,.2);flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.05);overflow-x:auto}
 .gactions::-webkit-scrollbar{display:none}
-.gact{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 7px;cursor:pointer;min-width:48px;flex-shrink:0;opacity:.7;transition:opacity .15s}
+.gact{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 7px;cursor:pointer;min-width:48px;flex-shrink:0;opacity:.7}
 .gact:hover{opacity:1}
 .gact-ico{font-size:16px}
 .gact-lbl{font-size:9px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap}
 .gact-lbl.live{color:#ef4444}
 .turn-row{display:flex;align-items:center;gap:5px;padding:4px 7px;color:rgba(255,255,255,.4);font-size:10px;font-weight:600;flex-shrink:0;white-space:nowrap}
-
-/* Camera */
 .gcam{flex:1;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .gcam img{width:100%;height:100%;object-fit:cover}
 .gcam-ph{color:rgba(255,255,255,.2);text-align:center;font-size:11px}
-
-/* Clip thumbnails */
 .gclips{display:flex;gap:4px;padding:5px;background:rgba(0,0,0,.4);flex-shrink:0;height:68px;border-top:1px solid rgba(255,255,255,.06)}
 .gclip{flex:1;background:rgba(255,255,255,.06);border-radius:5px;border:1px solid rgba(255,255,255,.06)}
+
+/* ══ POST GAME ══ */
+#postgame{background:url('bg_mode.png') center/cover no-repeat;color:#fff}
+#postgame .overlay{background:rgba(2,6,20,.92)}
+#postgame .pgc{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;height:100%}
+.pg-result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px;border-right:1px solid rgba(255,255,255,.07)}
+.pg-winner-label{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
+.pg-winner-name{font-size:clamp(28px,4vw,48px);font-weight:900;text-align:center}
+.pg-scores{display:flex;align-items:center;gap:20px}
+.pg-score{display:flex;flex-direction:column;align-items:center;gap:4px}
+.pg-score-num{font-size:clamp(52px,8vw,88px);font-weight:900;line-height:1}
+.pg-score-p{font-size:13px;color:rgba(255,255,255,.5);font-weight:600}
+.pg-vs{font-size:20px;color:rgba(255,255,255,.2);font-weight:900}
+.pg-elo{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.pg-elo-up{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.25)}
+.pg-elo-dn{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:rgba(239,68,68,.12);color:#ef4444;border:1px solid rgba(239,68,68,.22)}
+.pg-home-btn{margin-top:8px;padding:11px 28px;border-radius:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+.pg-home-btn:hover{background:rgba(255,255,255,.14)}
+.pg-ads{display:flex;flex-direction:column;padding:28px;gap:14px;overflow:hidden}
+.pg-ads-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.pg-ads-title span{background:rgba(255,207,25,.1);border:1px solid rgba(255,207,25,.25);color:#FFCF19;padding:2px 8px;border-radius:4px;font-size:10px}
+.merch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
+.merch-card{background:rgba(5,12,38,.8);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
+.merch-card:hover{border-color:rgba(255,255,255,.18)}
+.merch-img{height:90px;background:linear-gradient(135deg,#1a2060,#0d1440);display:flex;align-items:center;justify-content:center;font-size:36px}
+.merch-info{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:4px}
+.merch-name{font-size:12px;font-weight:700;color:#fff}
+.merch-price{font-size:14px;font-weight:900;color:var(--cc)}
+.merch-aff{font-size:10px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:4px}
+.merch-aff-pct{color:#FFCF19;font-weight:700}
+.merch-buy{margin:0 12px 12px;padding:8px;border-radius:8px;background:linear-gradient(135deg,#1a6ef5,#0535b2);color:#fff;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
+.pg-aff-note{font-size:10px;color:rgba(255,255,255,.2);text-align:center;display:flex;align-items:center;gap:5px;justify-content:center;flex-shrink:0}
+
+/* ══ IDLE OVERLAY (digital signage) ══ */
+#idleOverlay{position:fixed;inset:0;z-index:200;background:rgba(2,6,20,.98);display:none;cursor:pointer}
+#idleOverlay.show{display:block}
+.idle-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;opacity:0;transition:opacity 1s;pointer-events:none}
+.idle-slide.on{opacity:1}
+.idle-product-ico{font-size:min(18vw,140px);margin-bottom:20px;line-height:1}
+.idle-product-name{font-size:clamp(26px,4vw,54px);font-weight:900;color:#fff;text-align:center;margin-bottom:6px}
+.idle-product-price{font-size:clamp(20px,2.5vw,38px);font-weight:900;color:var(--cc);margin-bottom:6px}
+.idle-product-sub{font-size:clamp(12px,1.4vw,17px);color:rgba(255,255,255,.35);text-align:center;margin-bottom:28px}
+.idle-qr{width:clamp(120px,15vw,170px);height:clamp(120px,15vw,170px);background:#fff;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:min(10vw,96px);margin-bottom:12px}
+.idle-scan{font-size:13px;color:rgba(255,255,255,.3);text-align:center}
+.idle-aff{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(255,207,25,.08);border:1px solid rgba(255,207,25,.2);border-radius:8px;padding:6px 16px}
+.idle-aff-txt{font-size:12px;color:rgba(255,255,255,.4)}
+.idle-aff-pct{font-size:13px;font-weight:800;color:#FFCF19}
+.idle-tap{position:absolute;top:24px;right:28px;font-size:12px;color:rgba(255,255,255,.2);letter-spacing:1px;text-transform:uppercase;animation:blink 3s infinite}
+.idle-dots{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.idle-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2)}
+.idle-dot.on{background:var(--cc)}
 </style>
 </head>
 <body>
@@ -315,102 +320,108 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
   <div class="overlay"></div>
   <div class="layout">
 
-    <!-- Left icon nav rail -->
     <div class="hnav">
-      <!-- Club logo -->
       <div class="hnav-logo" onclick="toggleTheme()">
         <img src="logo-hoangsao.jpg" id="navLogo" alt="Club">
       </div>
-      <!-- Nav items -->
       <div class="nitem active" title="Home">
-        <div class="nitem-ico">🏠</div>
-        <div class="nitem-lbl">Home</div>
+        <div class="nitem-ico">🏠</div><div class="nitem-lbl">Home</div>
       </div>
       <div class="nitem" title="Xếp hạng" onclick="showScreen('ranking')">
-        <div class="nitem-ico">🏆</div>
-        <div class="nitem-lbl">Xếp hạng</div>
+        <div class="nitem-ico">🏆</div><div class="nitem-lbl">Xếp hạng</div>
       </div>
       <div class="nitem" title="Lịch sử" onclick="showScreen('history')">
-        <div class="nitem-ico">📋</div>
-        <div class="nitem-lbl">Lịch sử</div>
+        <div class="nitem-ico">📋</div><div class="nitem-lbl">Lịch sử</div>
       </div>
       <div class="nitem" title="Chấm điểm" onclick="showScreen('game');startGame()">
-        <div class="nitem-ico">🎱</div>
-        <div class="nitem-lbl">Chơi</div>
+        <div class="nitem-ico">🎱</div><div class="nitem-lbl">Chơi</div>
       </div>
-      <div class="hnav-spacer"></div>
-      <div class="hnav-theme" onclick="toggleTheme()" title="Đổi club">⚙️</div>
+      <div class="hnav-sp"></div>
+      <div class="hnav-cfg" onclick="toggleTheme()" title="Đổi club">⚙️</div>
     </div>
 
-    <!-- Main content -->
     <div class="hmain">
-      <!-- Top bar -->
-      <div class="hmain-top">
-        <div class="hmain-brand">
+      <div class="htop">
+        <div class="htop-brand">
           <img src="logo_arena.png" class="al" alt="Arena">
-          <div class="bsep"></div>
+          <div class="bs"></div>
           <img id="topClubLogo" src="logo-hoangsao.jpg" class="cl" alt="Club">
-          <div>
-            <div class="hmain-clubname" id="topClubName">Hoàng Sao Billiards Club</div>
-            <div class="hmain-sub">Arena Scoreboard · Bàn 07</div>
+          <span class="htop-cname" id="topClubName">Hoàng Sao Billiards</span>
+        </div>
+        <div class="htop-sp"></div>
+        <div class="htop-live"><div class="dot-live"></div>Livestream đang chạy</div>
+        <button class="htop-cta" onclick="showScreen('game');startGame()">🎱 Bấm điểm</button>
+      </div>
+
+      <div class="sgrid-wrap">
+        <div class="sgrid-lbl"><div class="dot-live"></div>DỊCH VỤ TẠI CLUB</div>
+        <div class="sgrid">
+          <div class="cfeat" onclick="openModal('catcam')">
+            <div class="bdg bl">● LIVE</div>
+            <div class="cr" style="margin-top:auto">
+              <div class="ico-cl i-cam">📷</div>
+              <div class="cnl">Cắt Cam</div>
+            </div>
+          </div>
+          <div class="sc" onclick="openModal('giai-dau')"><div class="bdg bg" id="bdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
+          <div class="sc" onclick="openModal('thu-thach')"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
+          <div class="sc" onclick="openModal('voucher')"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
+          <div class="sc" onclick="openModal('xep-hang')"><div class="bdg bg" id="bdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
+          <div class="sc" onclick="openModal('academy')"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
+          <div class="sc" onclick="openModal('dat-ban')"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
+          <div class="sc" onclick="openModal('bang-diem')"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
+          <div class="sc" onclick="openModal('goi-do')"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
+          <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
+        </div>
+        <div class="ad-ticker">
+          <div class="ad-track">
+            <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <!-- duplicate for seamless loop -->
+            <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+            <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
           </div>
         </div>
-        <div class="hmain-spacer"></div>
-        <div class="hst"><div class="dot-live"></div><span>Livestream đang chạy</span></div>
-        <div class="spill">10/10 active</div>
       </div>
 
-      <!-- Section label -->
-      <div class="shdr">
-        <div class="shdr-l"><div class="dot-live"></div>Dịch vụ tại club</div>
-      </div>
-
-      <!-- Services grid -->
-      <div class="sgrid">
-        <div class="cfeat"><div class="bdg bl">● LIVE</div><div class="cr" style="margin-top:auto"><div class="ico-cl i-cam">📷</div><div class="cnl">Cắt Cam</div></div></div>
-        <div class="sc"><div class="bdg bg" id="bdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
-        <div class="sc"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
-        <div class="sc"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
-        <div class="sc"><div class="bdg bg" id="bdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
-        <div class="sc"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
-        <div class="sc"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
-        <div class="sc"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
-        <div class="sc"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
-        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
-      </div>
-
-      <!-- Quick action FAB (bottom-right) -->
+      <!-- Quick FAB -->
       <div class="qfab">
         <div class="qfab-actions" id="qfabActions">
           <div class="qfab-btn qb1" onclick="showScreen('game');startGame();closeQfab()">🎱 Bấm điểm</div>
           <div class="qfab-btn qb2" onclick="showScreen('game');startGame();closeQfab()">⚡ Đấu nhanh</div>
           <div class="qfab-btn qb3" onclick="showScreen('history');closeQfab()">📋 Lịch sử</div>
         </div>
-        <div class="qfab-trigger" id="qfabTrigger" onclick="toggleQfab()">☰</div>
+        <button class="qfab-trigger" id="qfabTrigger" onclick="toggleQfab()">☰</button>
       </div>
 
       <!-- Club theme picker -->
       <div class="theme-panel" id="themePanel">
-        <div class="theme-panel-title">Chọn club demo</div>
-        <div class="theme-club selected" id="tc0" onclick="setClub(0)">
-          <img src="logo-hoangsao.jpg" class="theme-club-logo" alt="">
-          <div class="theme-club-info"><div class="theme-club-name">Hoàng Sao Billiards</div><div class="theme-club-sub">Cyan · #0DFFDE</div></div>
-          <div class="theme-club-dot" style="background:#0DFFDE"></div>
+        <div class="tp-title">CHỌN CLUB DEMO</div>
+        <div class="tclub sel" id="tc0" onclick="setClub(0)">
+          <img src="logo-hoangsao.jpg" class="tclub-logo" alt="">
+          <div class="tclub-info"><div class="tclub-name">Hoàng Sao Billiards</div><div class="tclub-sub">Cyan · #0DFFDE</div></div>
+          <div class="tclub-dot" style="background:#0DFFDE"></div>
         </div>
-        <div class="theme-club" id="tc1" onclick="setClub(1)">
-          <div class="theme-club-init" style="background:linear-gradient(135deg,#1d4ed8,#1e3a8a)">G8</div>
-          <div class="theme-club-info"><div class="theme-club-name">G8 Billiards</div><div class="theme-club-sub">Blue · #3b82f6</div></div>
-          <div class="theme-club-dot" style="background:#3b82f6"></div>
+        <div class="tclub" id="tc1" onclick="setClub(1)">
+          <div class="tclub-init" style="background:linear-gradient(135deg,#1d4ed8,#1e3a8a)">G8</div>
+          <div class="tclub-info"><div class="tclub-name">G8 Billiards</div><div class="tclub-sub">Blue · #3b82f6</div></div>
+          <div class="tclub-dot" style="background:#3b82f6"></div>
         </div>
-        <div class="theme-club" id="tc2" onclick="setClub(2)">
-          <img src="logo_arena.png" class="theme-club-logo" alt="">
-          <div class="theme-club-info"><div class="theme-club-name">Arena Q1</div><div class="theme-club-sub">Gold · #f59e0b</div></div>
-          <div class="theme-club-dot" style="background:#f59e0b"></div>
+        <div class="tclub" id="tc2" onclick="setClub(2)">
+          <img src="logo_arena.png" class="tclub-logo" alt="">
+          <div class="tclub-info"><div class="tclub-name">Arena Q1</div><div class="tclub-sub">Gold · #f59e0b</div></div>
+          <div class="tclub-dot" style="background:#f59e0b"></div>
         </div>
-        <div class="theme-club" id="tc3" onclick="setClub(3)">
-          <div class="theme-club-init" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">PL</div>
-          <div class="theme-club-info"><div class="theme-club-name">Phúc Lợi Billiards</div><div class="theme-club-sub">Purple · #a855f7</div></div>
-          <div class="theme-club-dot" style="background:#a855f7"></div>
+        <div class="tclub" id="tc3" onclick="setClub(3)">
+          <div class="tclub-init" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">PL</div>
+          <div class="tclub-info"><div class="tclub-name">Phúc Lợi Billiards</div><div class="tclub-sub">Purple · #a855f7</div></div>
+          <div class="tclub-dot" style="background:#a855f7"></div>
         </div>
       </div>
     </div>
@@ -421,7 +432,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 <div class="screen" id="ranking">
   <div class="overlay"></div>
   <div class="content">
-    <!-- Header (spans both columns) -->
     <div class="phdr">
       <div class="ptitle">BẢNG XẾP HẠNG</div>
       <div class="rtabs">
@@ -430,8 +440,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       </div>
       <div class="back-btn" onclick="showScreen('home')">← Quay lại</div>
     </div>
-
-    <!-- Left: full leaderboard -->
     <div class="lboard">
       <div class="lhdr"><div class="lhc">Hạng</div><div class="lhc nm">Cơ thủ</div><div class="lhc">ELO</div></div>
       <div class="lr r1"><div class="lpos">🥇</div><div class="lname">Nguyễn Văn An</div><div class="lelo">2,840</div></div>
@@ -442,28 +450,11 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       <div class="lr"><div class="lpos" style="font-size:16px;color:rgba(255,255,255,.4)">6</div><div class="lname">Đặng Thanh Tùng</div><div class="lelo" style="color:rgba(255,255,255,.45)">2,441</div></div>
       <div class="lr"><div class="lpos" style="font-size:16px;color:rgba(255,255,255,.4)">7</div><div class="lname">Vũ Thành Long</div><div class="lelo" style="color:rgba(255,255,255,.45)">2,387</div></div>
     </div>
-
-    <!-- Right: big podium -->
     <div class="podium">
       <div class="pod-row">
-        <div class="pi p2">
-          <div class="pav">T</div>
-          <div class="pname">Trần Minh Tuấn</div>
-          <div class="pelo">2,712</div>
-          <div class="pbase p2">2</div>
-        </div>
-        <div class="pi p1">
-          <div class="pav">A</div>
-          <div class="pname">Nguyễn Văn An</div>
-          <div class="pelo">2,840</div>
-          <div class="pbase p1">1</div>
-        </div>
-        <div class="pi p3">
-          <div class="pav">L</div>
-          <div class="pname">Lê Hoàng Phúc</div>
-          <div class="pelo">2,655</div>
-          <div class="pbase p3">3</div>
-        </div>
+        <div class="pi p2"><div class="pav">T</div><div class="pname">Trần Minh Tuấn</div><div class="pelo">2,712</div><div class="pbase p2">2</div></div>
+        <div class="pi p1"><div class="pav">A</div><div class="pname">Nguyễn Văn An</div><div class="pelo">2,840</div><div class="pbase p1">1</div></div>
+        <div class="pi p3"><div class="pav">L</div><div class="pname">Lê Hoàng Phúc</div><div class="pelo">2,655</div><div class="pbase p3">3</div></div>
       </div>
     </div>
   </div>
@@ -492,8 +483,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 <div class="screen" id="game">
   <div class="overlay"></div>
   <div class="gc">
-
-    <!-- Player 1 (left — dark blue) -->
+    <!-- Player 1 -->
     <div class="pp pp1">
       <div class="pp-header">
         <div class="pp-name">Player 1</div>
@@ -516,10 +506,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="sbt" onclick="addScore('s1',-4)">-4</div>
       </div>
     </div>
-
     <!-- Center -->
     <div class="gcp">
-      <!-- Top bar -->
       <div class="gtopbar">
         <div class="gvol">🔊</div>
         <button class="gcall-btn">🔔 GỌI NHÂN VIÊN</button>
@@ -529,17 +517,13 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <span class="gico">🪙</span>
           <span class="gico">🔄</span>
           <span class="gico" id="pcount">👥 2</span>
-          <span class="gico exit">← Thoát</span>
+          <span class="gico exit" id="exitBtn">← Thoát</span>
         </div>
       </div>
-
-      <!-- Pause / End -->
       <div class="gbtns">
         <div class="gbtn gbtn-pause" id="pauseBtn" onclick="togglePause()">TAM DỪNG</div>
         <div class="gbtn gbtn-end" onclick="endGame()">KẾT THÚC</div>
       </div>
-
-      <!-- Tabs -->
       <div class="gtabs">
         <div class="gtab active" onclick="switchGTab(this)">▶ Video</div>
         <div class="gtab" onclick="switchGTab(this)">⊙ Ghi</div>
@@ -547,8 +531,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="gtab" onclick="switchGTab(this)">↩ Xem lại</div>
         <div class="gtab" onclick="switchGTab(this)">⛶ Full</div>
       </div>
-
-      <!-- Action bar -->
       <div class="gactions">
         <div class="turn-row">đến lượt quay &nbsp;10'&nbsp; 🎱</div>
         <div class="gact"><div class="gact-ico">📡</div><div class="gact-lbl live">Livestream</div></div>
@@ -558,8 +540,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="gact"><div class="gact-ico">💬</div><div class="gact-lbl">Feedback</div></div>
         <div class="gact"><div class="gact-ico">🏅</div><div class="gact-lbl">Top Series</div></div>
       </div>
-
-      <!-- Camera -->
       <div class="gcam">
         <img id="camFeed" style="display:none" alt="cam">
         <div id="camPh" class="gcam-ph">
@@ -567,18 +547,12 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <div>AI ARENA &nbsp;·&nbsp; Camera feed</div>
         </div>
       </div>
-
-      <!-- Clip thumbnails -->
       <div class="gclips">
-        <div class="gclip"></div>
-        <div class="gclip"></div>
-        <div class="gclip"></div>
-        <div class="gclip"></div>
-        <div class="gclip"></div>
+        <div class="gclip"></div><div class="gclip"></div><div class="gclip"></div>
+        <div class="gclip"></div><div class="gclip"></div>
       </div>
     </div>
-
-    <!-- Player 2 (right — yellow) -->
+    <!-- Player 2 -->
     <div class="pp pp2">
       <div class="pp-header">
         <div class="pp-name">Player 2</div>
@@ -591,7 +565,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="sbt" onclick="addScore('s2',5)">+5</div>
       </div>
       <div class="score-main">
-        <div class="score-sub" id="sub2" style="color:rgba(0,0,0,.35)">0</div>
+        <div class="score-sub" id="sub2">0</div>
         <div class="score-num" id="s2">0</div>
       </div>
       <div class="score-btns-bot">
@@ -601,55 +575,141 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="sbt" onclick="addScore('s2',-4)">-4</div>
       </div>
     </div>
+  </div>
+</div>
 
+<!-- ══ POST GAME ══ -->
+<div class="screen" id="postgame">
+  <div class="overlay"></div>
+  <div class="pgc">
+    <div class="pg-result">
+      <div class="pg-winner-label">🏆 CHIẾN THẮNG</div>
+      <div class="pg-winner-name" id="pg-winner">Player 1</div>
+      <div class="pg-scores">
+        <div class="pg-score">
+          <div class="pg-score-num" id="pg-s1" style="color:#0DFFDE">0</div>
+          <div class="pg-score-p">Player 1</div>
+        </div>
+        <div class="pg-vs">–</div>
+        <div class="pg-score">
+          <div class="pg-score-num" id="pg-s2" style="color:#FFCF19">0</div>
+          <div class="pg-score-p">Player 2</div>
+        </div>
+      </div>
+      <div class="pg-elo">
+        <div class="pg-elo-up">▲ +28 ELO</div>
+        <div class="pg-elo-dn">▼ -28 ELO</div>
+      </div>
+      <button class="pg-home-btn" onclick="showScreen('home')">← Về trang chủ</button>
+    </div>
+    <div class="pg-ads">
+      <div class="pg-ads-title">
+        MUA SẮM TẠI CLB
+        <span>Club hoa hồng 12%</span>
+      </div>
+      <div class="merch-grid">
+        <div class="merch-card">
+          <div class="merch-img">🎱</div>
+          <div class="merch-info">
+            <div class="merch-name">Cơ Arena Signature</div>
+            <div class="merch-price">3.200.000 ₫</div>
+            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">12%</span></div>
+          </div>
+          <div class="merch-buy">Quét QR mua ngay</div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img">👕</div>
+          <div class="merch-info">
+            <div class="merch-name">Áo Arena Team 2025</div>
+            <div class="merch-price">450.000 ₫</div>
+            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">15%</span></div>
+          </div>
+          <div class="merch-buy">Quét QR mua ngay</div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img">🎒</div>
+          <div class="merch-info">
+            <div class="merch-name">Hộp cơ Pro 2×2</div>
+            <div class="merch-price">890.000 ₫</div>
+            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">10%</span></div>
+          </div>
+          <div class="merch-buy">Quét QR mua ngay</div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img">🧤</div>
+          <div class="merch-info">
+            <div class="merch-name">Găng tay cao cấp</div>
+            <div class="merch-price">185.000 ₫</div>
+            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">15%</span></div>
+          </div>
+          <div class="merch-buy">Quét QR mua ngay</div>
+        </div>
+      </div>
+      <div class="pg-aff-note">🏪 Mỗi đơn hàng quét tại club, club nhận hoa hồng tự động qua Arena Platform</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ IDLE OVERLAY ══ -->
+<div id="idleOverlay">
+  <div class="idle-tap">CHẠM ĐỂ TIẾP TỤC</div>
+  <div id="idleSlides"></div>
+  <div class="idle-dots" id="idleDots"></div>
+  <div class="idle-aff">
+    <div class="idle-aff-txt">Club hoa hồng</div>
+    <div class="idle-aff-pct" id="idleAffPct">12%</div>
+    <div class="idle-aff-txt">mỗi đơn hàng</div>
+  </div>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-title" id="modalTitle"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
 <script>
+// ── Screen routing ──
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   closeQfab(); closeTheme();
+  if(id==='home') resetIdle(); else clearTimeout(_idleTimer);
 }
 
-// Quick FAB
+// ── Quick FAB ──
 let qOpen=false;
-function toggleQfab(){
-  qOpen=!qOpen;
-  document.getElementById('qfabActions').classList.toggle('open',qOpen);
-  document.getElementById('qfabTrigger').classList.toggle('open',qOpen);
-  document.getElementById('qfabTrigger').textContent=qOpen?'✕':'☰';
-  if(qOpen) closeTheme();
-}
+function toggleQfab(){ qOpen=!qOpen; document.getElementById('qfabActions').classList.toggle('open',qOpen); document.getElementById('qfabTrigger').classList.toggle('open',qOpen); document.getElementById('qfabTrigger').textContent=qOpen?'✕':'☰'; if(qOpen) closeTheme(); }
 function closeQfab(){ qOpen=false; document.getElementById('qfabActions').classList.remove('open'); document.getElementById('qfabTrigger').classList.remove('open'); document.getElementById('qfabTrigger').textContent='☰'; }
 
-// Club themes
+// ── Club themes ──
 const CLUBS=[
-  {name:'Hoàng Sao Billiards Club',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.25)',short:'HS'},
-  {name:'G8 Billiards',logo:null,cc:'#3b82f6',cc2:'rgba(59,130,246,.12)',cc3:'rgba(59,130,246,.28)',short:'G8'},
-  {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',short:'A1'},
-  {name:'Phúc Lợi Billiards',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',short:'PL'},
+  {name:'Hoàng Sao Billiards',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.25)',bgTint:'rgba(0,22,40,.88)',short:'HS'},
+  {name:'G8 Billiards',logo:null,cc:'#3b82f6',cc2:'rgba(59,130,246,.12)',cc3:'rgba(59,130,246,.28)',bgTint:'rgba(3,12,42,.9)',short:'G8'},
+  {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',bgTint:'rgba(30,16,2,.9)',short:'A1'},
+  {name:'Phúc Lợi Billiards',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',bgTint:'rgba(16,3,32,.9)',short:'PL'},
 ];
 let curClub=0;
 
 function setClub(i){
   curClub=i;
   const c=CLUBS[i];
-  // Update CSS vars
-  document.documentElement.style.setProperty('--cc',c.cc);
-  document.documentElement.style.setProperty('--cc2',c.cc2);
-  document.documentElement.style.setProperty('--cc3',c.cc3);
-  // Update text/logo
+  const r=document.documentElement.style;
+  r.setProperty('--cc',c.cc);
+  r.setProperty('--cc2',c.cc2);
+  r.setProperty('--cc3',c.cc3);
+  r.setProperty('--bg-tint',c.bgTint);
   document.getElementById('topClubName').textContent=c.name;
-  const navLogo=document.getElementById('navLogo');
-  const topLogo=document.getElementById('topClubLogo');
-  if(c.logo){ navLogo.src=c.logo; navLogo.style.display='block'; topLogo.src=c.logo; topLogo.style.display='inline-block'; }
-  else{ navLogo.src='logo_arena.png'; topLogo.src='logo_arena.png'; }
-  // Update badges with club short name
-  const bdgTrp=document.getElementById('bdg-trp'); if(bdgTrp) bdgTrp.textContent='2 GIẢI '+c.short;
-  const bdgRk=document.getElementById('bdg-rk'); if(bdgRk) bdgRk.textContent='TOP '+c.short;
-  // Selected state
-  document.querySelectorAll('.theme-club').forEach((el,j)=>el.classList.toggle('selected',j===i));
+  const nl=document.getElementById('navLogo'), tl=document.getElementById('topClubLogo');
+  if(c.logo){ nl.src=c.logo; tl.src=c.logo; } else { nl.src='logo_arena.png'; tl.src='logo_arena.png'; }
+  const bt=document.getElementById('bdg-trp'); if(bt) bt.textContent='2 GIẢI '+c.short;
+  const br=document.getElementById('bdg-rk'); if(br) br.textContent='TOP '+c.short;
+  document.querySelectorAll('.tclub').forEach((el,j)=>el.classList.toggle('sel',j===i));
   closeTheme();
 }
 
@@ -657,70 +717,125 @@ let tOpen=false;
 function toggleTheme(){ tOpen=!tOpen; document.getElementById('themePanel').classList.toggle('open',tOpen); if(tOpen) closeQfab(); }
 function closeTheme(){ tOpen=false; document.getElementById('themePanel').classList.remove('open'); }
 
-// Close panels when clicking outside
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.theme-panel')&&!e.target.closest('.hnav-theme')&&!e.target.closest('.hnav-logo')) closeTheme();
+  if(!e.target.closest('.theme-panel')&&!e.target.closest('.hnav-cfg')&&!e.target.closest('.hnav-logo')) closeTheme();
   if(!e.target.closest('.qfab')) closeQfab();
 });
-function switchTab(el){
-  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-}
-function switchGTab(el){
-  document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-}
 
-// Wire top-bar ← Thoát
-document.querySelector('.gtop-icons').lastElementChild.onclick = () => { stopGame(); showScreen('home'); };
+// ── Tabs ──
+function switchTab(el){ document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
+function switchGTab(el){ document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
 
-// Timer
+// ── Exit button ──
+document.getElementById('exitBtn').onclick = ()=>{ stopGame(); showScreen('home'); };
+
+// ── Timer ──
 let _t=null,_s=0,_p=false;
 function startGame(){
-  // Reset scores
-  ['s1','s2'].forEach(id=>{ document.getElementById(id).textContent='0'; });
+  ['s1','s2'].forEach(id=>document.getElementById(id).textContent='0');
   document.getElementById('sub1').textContent='0';
   document.getElementById('sub2').textContent='0';
-  _s=0;_p=false;clearInterval(_t);
-  _t=setInterval(()=>{
-    if(!_p){
-      _s++;
-      const h=Math.floor(_s/3600),m=Math.floor((_s%3600)/60),s=_s%60;
-      document.getElementById('gtimer').textContent=
-        String(h).padStart(2,'0')+' : '+String(m).padStart(2,'0')+' : '+String(s).padStart(2,'0');
-    }
-  },1000);
+  _s=0; _p=false; clearInterval(_t);
+  _t=setInterval(()=>{ if(!_p){ _s++; const h=Math.floor(_s/3600),m=Math.floor((_s%3600)/60),s=_s%60; document.getElementById('gtimer').textContent=String(h).padStart(2,'0')+' : '+String(m).padStart(2,'0')+' : '+String(s).padStart(2,'0'); } },1000);
   initCamera();
+  clearTimeout(_idleTimer);
 }
 function stopGame(){ clearInterval(_t); }
-function togglePause(){
-  _p=!_p;
-  document.getElementById('pauseBtn').textContent=_p?'TIẾP TỤC':'TAM DỪNG';
+function togglePause(){ _p=!_p; const b=document.getElementById('pauseBtn'); b.textContent=_p?'TIẾP TỤC':'TAM DỪNG'; b.classList.toggle('paused',_p); }
+function endGame(){
+  stopGame();
+  const s1=parseInt(document.getElementById('s1').textContent);
+  const s2=parseInt(document.getElementById('s2').textContent);
+  document.getElementById('pg-winner').textContent = s1>=s2 ? 'Player 1' : 'Player 2';
+  document.getElementById('pg-s1').textContent=s1;
+  document.getElementById('pg-s2').textContent=s2;
+  showScreen('postgame');
 }
-function endGame(){ stopGame(); showScreen('home'); }
 
-function addScore(id, delta){
+function addScore(id,delta){
   const el=document.getElementById(id);
   const sub=document.getElementById(id==='s1'?'sub1':'sub2');
-  const v=Math.max(0, parseInt(el.textContent)+delta);
-  el.textContent=v;
-  sub.textContent=v;
-  // flash
-  el.style.opacity='.6';
-  setTimeout(()=>el.style.opacity='1', 100);
+  const v=Math.max(0,parseInt(el.textContent)+delta);
+  el.textContent=v; sub.textContent=v;
+  el.style.opacity='.6'; setTimeout(()=>el.style.opacity='1',100);
 }
 
-// Camera
+// ── Camera ──
 function initCamera(){
-  const img=document.getElementById('camFeed');
-  const ph=document.getElementById('camPh');
+  const img=document.getElementById('camFeed'), ph=document.getElementById('camPh');
   const url='/api/snapshot?host=arenahoangsaoshop.cameraddns.net&port=80&user=admin&pass=Ktsmart2025&ch=1';
   let ok=false;
   function load(){ img.src=url+'&t='+Date.now(); }
   img.onload=()=>{ if(!ok){ok=true;ph.style.display='none';img.style.display='block';} setTimeout(load,600); };
-  img.onerror=()=>{ ph.innerHTML='<div style="font-size:32px;opacity:.2;margin-bottom:6px">📹</div><div>AI ARENA · Camera offline</div>'; };
+  img.onerror=()=>{ ph.innerHTML='<div style="font-size:32px;opacity:.2;margin-bottom:6px">📹</div><div>Camera offline · Chỉ khả dụng trong club</div>'; };
   load();
 }
+
+// ── Modal ──
+const MODAL_DATA={
+  'catcam':{title:'📷 Cắt Cam',badge:'● LIVE',bc:'bl',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">1,248</div><div class="m-stat-lbl">Lượt xem hôm nay</div></div><div class="m-stat"><div class="m-stat-val">3</div><div class="m-stat-lbl">Bàn đang quay</div></div><div class="m-stat"><div class="m-stat-val">LIVE</div><div class="m-stat-lbl">Trạng thái</div></div></div><div class="m-section">Đang livestream</div><div class="m-list"><div class="m-item"><div class="m-item-ico">📺</div><div class="m-item-info"><div class="m-item-name">Bàn 07 — Pool 9-ball</div><div class="m-item-sub">Nguyễn Văn An vs Trần Minh Tuấn</div></div><div class="m-item-right">LIVE</div></div><div class="m-item"><div class="m-item-ico">📺</div><div class="m-item-info"><div class="m-item-name">Bàn 03 — Carom 3C</div><div class="m-item-sub">Lê Hoàng Phúc vs Phạm Quốc Bảo</div></div><div class="m-item-right">LIVE</div></div></div><button class="m-cta" onclick="closeModal();showScreen('game');startGame()">📹 Chấm điểm & xem camera</button>`},
+  'giai-dau':{title:'🏆 Giải đấu',badge:'GIẢI ĐẤU',bc:'bg',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">2</div><div class="m-stat-lbl">Giải đang diễn ra</div></div><div class="m-stat"><div class="m-stat-val">48</div><div class="m-stat-lbl">Cơ thủ tham dự</div></div><div class="m-stat"><div class="m-stat-val">15tr ₫</div><div class="m-stat-lbl">Tổng giải thưởng</div></div></div><div class="m-section">Giải đang diễn ra</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🥊</div><div class="m-item-info"><div class="m-item-name">Hoàng Sao Open 2025</div><div class="m-item-sub">Pool 9-ball · Vòng tứ kết</div></div><div class="m-item-tag" style="background:#b45309">Đang chơi</div></div><div class="m-item"><div class="m-item-ico">🎱</div><div class="m-item-info"><div class="m-item-name">Carom Championship Q2</div><div class="m-item-sub">Carom 3C · Vòng loại</div></div><div class="m-item-tag" style="background:#1d4ed8">Sắp diễn ra</div></div></div><button class="m-cta yellow">🏆 Đăng ký thi đấu ngay</button>`},
+  'thu-thach':{title:'🎯 Thử thách AI',badge:'AI · MỚI',bc:'bai',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">95%</div><div class="m-stat-lbl">Độ chính xác AI</div></div><div class="m-stat"><div class="m-stat-val">3,200</div><div class="m-stat-lbl">Thử thách hoàn thành</div></div></div><div class="m-section">Thử thách hôm nay</div><div class="m-list"><div class="m-item"><div class="m-item-ico">⭐</div><div class="m-item-info"><div class="m-item-name">Ghi 5 điểm liên tiếp</div><div class="m-item-sub">Thưởng: +50 ELO · Hết hạn 23:59</div></div><div class="m-item-tag" style="background:#047857">+50 ELO</div></div><div class="m-item"><div class="m-item-ico">💡</div><div class="m-item-info"><div class="m-item-name">Carom 30 điểm không fault</div><div class="m-item-sub">Thưởng: Voucher 50k</div></div><div class="m-item-tag" style="background:#b45309">Voucher</div></div></div><button class="m-cta">🎯 Bắt đầu thử thách</button>`},
+  'voucher':{title:'🎟️ Voucher',badge:'ƯU ĐÃI',bc:'bgn',body:`<div class="m-section">Voucher của bạn (3)</div><div class="m-list"><div class="m-item"><div class="m-item-ico">💵</div><div class="m-item-info"><div class="m-item-name">Giảm 100k — Bàn Pool</div><div class="m-item-sub">Hết hạn: 30/05/2025</div></div><div class="m-item-right">-100k</div></div><div class="m-item"><div class="m-item-ico">🍺</div><div class="m-item-info"><div class="m-item-name">1 ly nước miễn phí</div><div class="m-item-sub">Hết hạn: 31/05/2025</div></div><div class="m-item-right">Miễn phí</div></div><div class="m-item"><div class="m-item-ico">🏆</div><div class="m-item-info"><div class="m-item-name">Ưu tiên đăng ký giải</div><div class="m-item-sub">Hoàng Sao Open 2025</div></div><div class="m-item-right">VIP</div></div></div><button class="m-cta grn">🎟️ Đổi voucher mới</button>`},
+  'xep-hang':{title:'🥇 Xếp hạng',badge:'ELO',bc:'bg',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">#1</div><div class="m-stat-lbl">Nguyễn Văn An</div></div><div class="m-stat"><div class="m-stat-val">2,840</div><div class="m-stat-lbl">ELO cao nhất</div></div><div class="m-stat"><div class="m-stat-val">156</div><div class="m-stat-lbl">Cơ thủ ranked</div></div></div><button class="m-cta" onclick="closeModal();showScreen('ranking')">🏆 Xem bảng đầy đủ</button>`},
+  'academy':{title:'🎓 Academy',badge:'VIDEO',bc:'bb',body:`<div class="m-coming"><div class="m-coming-ico">🎓</div><div class="m-coming-txt">Nội dung học thuật đang cập nhật</div></div>`},
+  'dat-ban':{title:'📅 Đặt bàn',badge:'CÒN SLOT',bc:'bt',body:`<div class="m-coming"><div class="m-coming-ico">📅</div><div class="m-coming-txt">Đặt bàn online — ra mắt tháng 6/2025</div></div>`},
+  'bang-diem':{title:'📊 Bảng điểm',badge:'REAL-TIME',bc:'bb',body:`<div class="m-coming"><div class="m-coming-ico">📊</div><div class="m-coming-txt">Đang kết nối dữ liệu thời gian thực</div></div>`},
+  'goi-do':{title:'🍺 Gọi đồ',badge:'MENU',bc:'bo',body:`<div class="m-section">Menu phổ biến</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🍺</div><div class="m-item-info"><div class="m-item-name">Bia Tiger — lon 330ml</div><div class="m-item-sub">Lạnh sẵn · Giao tại bàn</div></div><div class="m-item-right">35k ₫</div></div><div class="m-item"><div class="m-item-ico">🥤</div><div class="m-item-info"><div class="m-item-name">Nước ngọt các loại</div><div class="m-item-sub">Pepsi / 7UP / Mirinda</div></div><div class="m-item-right">20k ₫</div></div><div class="m-item"><div class="m-item-ico">☕</div><div class="m-item-info"><div class="m-item-name">Cà phê sữa đá</div><div class="m-item-sub">Phin · Trung Nguyên</div></div><div class="m-item-right">25k ₫</div></div><div class="m-item"><div class="m-item-ico">🍜</div><div class="m-item-info"><div class="m-item-name">Mì ly các loại</div><div class="m-item-sub">Hảo Hảo / Omachi</div></div><div class="m-item-right">15k ₫</div></div></div><button class="m-cta yellow">🔔 Gọi nhân viên ngay</button>`},
+};
+
+function openModal(key){
+  const d=MODAL_DATA[key]; if(!d) return;
+  document.getElementById('modalTitle').innerHTML=d.title+(d.badge?` <span class="modal-badge ${d.bc}">${d.badge}</span>`:'');
+  document.getElementById('modalBody').innerHTML=d.body;
+  document.getElementById('modalBg').classList.add('open');
+}
+function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
+document.getElementById('modalBg').addEventListener('click',e=>{ if(e.target===document.getElementById('modalBg')) closeModal(); });
+
+// ── Idle overlay ──
+const IDLE_PRODUCTS=[
+  {ico:'🎱',name:'Cơ Arena Signature',price:'3.200.000 ₫',sub:'Limited Edition 2025 · Chỉ còn 12 chiếc',aff:'12%'},
+  {ico:'👕',name:'Áo Arena Team 2025',price:'450.000 ₫',sub:'Thêu logo nổi · Vải thể thao cao cấp',aff:'15%'},
+  {ico:'🎒',name:'Hộp cơ Arena Pro 2×2',price:'890.000 ₫',sub:'Carbon fiber · Khóa số · Chống thấm',aff:'10%'},
+  {ico:'🧤',name:'Găng tay cao cấp',price:'185.000 ₫',sub:'Chống trơn · Co giãn 4 chiều · Size S–XL',aff:'15%'},
+  {ico:'🔵',name:'Phấn Predator 1080',price:'220.000 ₫',sub:'Hộp 5 viên · Phấn xanh đặc trưng',aff:'12%'},
+];
+
+const slidesEl=document.getElementById('idleSlides');
+const dotsEl=document.getElementById('idleDots');
+IDLE_PRODUCTS.forEach((p,i)=>{
+  slidesEl.insertAdjacentHTML('beforeend',`<div class="idle-slide${i===0?' on':''}" id="is${i}"><div class="idle-product-ico">${p.ico}</div><div class="idle-product-name">${p.name}</div><div class="idle-product-price">${p.price}</div><div class="idle-product-sub">${p.sub}</div><div class="idle-qr">🔲</div><div class="idle-scan">Quét QR để mua · Giao hàng tại bàn</div></div>`);
+  dotsEl.insertAdjacentHTML('beforeend',`<div class="idle-dot${i===0?' on':''}" id="id${i}"></div>`);
+});
+
+let _idleTimer=null, _idleSlide=0, _idleSlideTmr=null;
+const IDLE_MS = 2*60*1000;
+
+function resetIdle(){
+  clearTimeout(_idleTimer);
+  _idleTimer=setTimeout(showIdle, IDLE_MS);
+}
+function showIdle(){
+  document.getElementById('idleOverlay').classList.add('show');
+  _idleSlide=0; showIdleSlide(0);
+  clearInterval(_idleSlideTmr);
+  _idleSlideTmr=setInterval(()=>{ _idleSlide=(_idleSlide+1)%IDLE_PRODUCTS.length; showIdleSlide(_idleSlide); },5000);
+}
+function hideIdle(){
+  document.getElementById('idleOverlay').classList.remove('show');
+  clearInterval(_idleSlideTmr);
+  resetIdle();
+}
+function showIdleSlide(i){
+  IDLE_PRODUCTS.forEach((_,j)=>{ document.getElementById('is'+j).classList.toggle('on',j===i); document.getElementById('id'+j).classList.toggle('on',j===i); });
+  document.getElementById('idleAffPct').textContent=IDLE_PRODUCTS[i].aff;
+}
+document.getElementById('idleOverlay').addEventListener('click', hideIdle);
+
+// Only track idle on home screen
+['mousemove','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev,()=>{ if(document.getElementById('home').classList.contains('active')) resetIdle(); }));
+resetIdle();
 </script>
 </body>
 </html>
