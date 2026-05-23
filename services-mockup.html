@@ -66,16 +66,13 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .hdr-cfg{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;backdrop-filter:blur(8px)}
 .hdr-cfg:hover{background:rgba(255,255,255,.18)}
 
-/* Center body — watermark + services */
-.home-body{flex:1;position:relative;display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:10px 20px 0}
+/* Center body — clean centered logo */
+.home-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.hc-logo{height:clamp(90px,22vh,200px);object-fit:contain;opacity:.18;filter:brightness(0) invert(1)}
+.hc-sub{font-size:clamp(12px,2vw,20px);font-weight:900;color:rgba(255,255,255,.1);letter-spacing:clamp(5px,2vw,16px);text-transform:uppercase}
 
-/* Arena watermark behind grid */
-.home-wm{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:0;gap:4px}
-.wm-logo{height:clamp(80px,16vh,160px);object-fit:contain;opacity:.07;filter:brightness(0) invert(1)}
-.wm-sub{font-size:clamp(11px,2vw,18px);font-weight:900;color:rgba(255,255,255,.06);letter-spacing:clamp(4px,1.5vw,12px);text-transform:uppercase}
-
-/* Services grid */
-.sgrid-wrap{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
+/* Services grid (used on #services screen) */
+.sgrid-wrap{flex:1;padding:14px 20px 0;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
 .sgrid-lbl{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.2px;text-transform:uppercase;display:flex;align-items:center;gap:6px;flex-shrink:0}
 .sgrid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:8px;min-height:0}
 .cfeat{grid-column:1/3;grid-row:1/3;background:linear-gradient(150deg,#1b6ff5 0%,#0435bb 55%,#011889 100%);border:1px solid rgba(13,255,222,.2);border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden;position:relative;box-shadow:0 6px 24px rgba(26,110,245,.28)}
@@ -329,41 +326,17 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     <div class="hdr-cfg" onclick="toggleTheme()" title="Đổi club">⚙️</div>
   </div>
 
-  <!-- Center: watermark + services -->
+  <!-- Center: clean watermark logo -->
   <div class="home-body">
-    <div class="home-wm">
-      <img src="logo_arena.png" class="wm-logo" alt="">
-      <div class="wm-sub">PLAY BETTER</div>
-    </div>
-
-    <div class="sgrid-wrap">
-      <div class="sgrid-lbl"><div class="dot-live"></div>DỊCH VỤ TẠI CLUB</div>
-      <div class="sgrid">
-        <div class="cfeat" onclick="openModal('catcam')">
-          <div class="bdg bl">● LIVE</div>
-          <div class="cr" style="margin-top:auto">
-            <div class="ico-cl i-cam">📷</div>
-            <div class="cnl">Cắt Cam</div>
-          </div>
-        </div>
-        <div class="sc" onclick="openModal('giai-dau')"><div class="bdg bg" id="bdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
-        <div class="sc" onclick="openModal('thu-thach')"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
-        <div class="sc" onclick="openModal('voucher')"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
-        <div class="sc" onclick="openModal('xep-hang')"><div class="bdg bg" id="bdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
-        <div class="sc" onclick="openModal('academy')"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
-        <div class="sc" onclick="openModal('dat-ban')"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
-        <div class="sc" onclick="openModal('bang-diem')"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
-        <div class="sc" onclick="openModal('goi-do')"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
-        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
-      </div>
-    </div>
+    <img src="logo_arena.png" class="hc-logo" alt="Arena">
+    <div class="hc-sub">PLAY BETTER</div>
   </div>
 
-  <!-- Bottom nav bar — matches production app -->
+  <!-- Bottom nav — 3 buttons matching production app -->
   <div class="home-nav">
-    <div class="hnav-btn" onclick="showScreen('ranking')">
+    <div class="hnav-btn" onclick="showScreen('services')">
       <div class="hnav-ico grid">⊞</div>
-      <div class="hnav-lbl">Bảng điểm</div>
+      <div class="hnav-lbl">Dịch vụ</div>
     </div>
     <div class="hnav-btn primary" onclick="showScreen('game');startGame()">
       <div class="hnav-ico play">▶</div>
@@ -416,6 +389,57 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     </div>
   </div>
 
+</div>
+
+<!-- ══ SERVICES ══ -->
+<div class="screen" id="services">
+  <div class="overlay" style="background:rgba(4,11,34,.92)"></div>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;background:var(--hbg)">
+    <div class="home-hdr">
+      <div class="hbp">
+        <img src="logo_arena.png" alt="Arena">
+        <span class="hbp-txt">DỊCH VỤ ARENA</span>
+      </div>
+      <div class="hdr-sp"></div>
+      <div class="hdr-lang" id="svcClubName">Hoàng Sao</div>
+      <div class="back-btn" onclick="showScreen('home')" style="border-radius:999px;padding:8px 16px">← Quay lại</div>
+    </div>
+    <div class="sgrid-wrap">
+      <div class="sgrid-lbl"><div class="dot-live"></div>10 DỊCH VỤ TẠI CLUB</div>
+      <div class="sgrid">
+        <div class="cfeat" onclick="openModal('catcam')">
+          <div class="bdg bl">● LIVE</div>
+          <div class="cr" style="margin-top:auto">
+            <div class="ico-cl i-cam">📷</div>
+            <div class="cnl">Cắt Cam</div>
+          </div>
+        </div>
+        <div class="sc" onclick="openModal('giai-dau')"><div class="bdg bg" id="sbdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
+        <div class="sc" onclick="openModal('thu-thach')"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
+        <div class="sc" onclick="openModal('voucher')"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
+        <div class="sc" onclick="openModal('xep-hang')"><div class="bdg bg" id="sbdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
+        <div class="sc" onclick="openModal('academy')"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
+        <div class="sc" onclick="openModal('dat-ban')"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
+        <div class="sc" onclick="openModal('bang-diem')"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
+        <div class="sc" onclick="openModal('goi-do')"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
+        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
+      </div>
+    </div>
+    <div class="ad-ticker">
+      <div class="ad-track">
+        <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">🔵</div><div class="ad-txt">Phấn Predator 1080 Fresh — hộp 5 viên</div><div class="ad-price">220.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">👕</div><div class="ad-txt">Áo Arena Team 2025 — thêu logo nổi</div><div class="ad-price">450.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+        <div class="ad-item"><div class="ad-ico">🎒</div><div class="ad-txt">Hộp cơ Arena Pro 2×2 — carbon fiber</div><div class="ad-price">890.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ══ RANKING ══ -->
@@ -691,8 +715,9 @@ function setClub(i){
   r.setProperty('--hbg',c.hbg);
   document.getElementById('home').style.background=c.hbg;
   document.getElementById('topClubName').textContent=c.name;
-  const bt=document.getElementById('bdg-trp'); if(bt) bt.textContent='2 GIẢI '+c.short;
-  const br=document.getElementById('bdg-rk'); if(br) br.textContent='TOP '+c.short;
+  const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
+  ['bdg-trp','sbdg-trp'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='2 GIẢI '+c.short; });
+  ['bdg-rk','sbdg-rk'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='TOP '+c.short; });
   document.querySelectorAll('.tclub').forEach((el,j)=>el.classList.toggle('sel',j===i));
   closeTheme();
 }
