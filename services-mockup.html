@@ -52,15 +52,17 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .back-btn:hover{background:rgba(255,255,255,.14);color:#fff}
 
 /* ══ HOME (production-matching layout) ══ */
-:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.1);--cc3:rgba(13,255,222,.22);--hbg:radial-gradient(ellipse at 50% 35%,#1a3870 0%,#0d1f50 30%,#060f28 65%,#040c1e 100%)}
+:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.12);--cc3:rgba(13,255,222,.28);--hbg:radial-gradient(ellipse at 50% 35%,#2a1d5c 0%,#16113a 35%,#0c0920 65%,#060516 100%)}
 #home{background:var(--hbg)}
 
 /* Top header bar */
 .home-hdr{position:relative;z-index:2;display:flex;align-items:center;padding:14px 20px;gap:10px;flex-shrink:0}
-.hbp{display:flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,.1);border-radius:999px;backdrop-filter:blur(8px);cursor:default}
-.hbp img{height:28px;object-fit:contain;filter:brightness(0) invert(1)}
-.hbp-txt{font-size:15px;font-weight:900;color:#fff;letter-spacing:.5px}
+.hbp{display:flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:999px;backdrop-filter:blur(12px);cursor:default}
+.hbp img{height:30px;object-fit:contain;filter:brightness(0) invert(1)}
+.hbp-txt{font-size:15px;font-weight:900;color:#fff;letter-spacing:.8px;text-transform:uppercase}
 .hdr-sp{flex:1}
+.hdr-info{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.hdr-table{font-size:11px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.5px;text-transform:uppercase}
 .hdr-lang{display:flex;align-items:center;padding:8px 16px;background:rgba(255,255,255,.1);border-radius:999px;font-size:13px;font-weight:700;color:#fff;cursor:pointer;backdrop-filter:blur(8px)}
 .hdr-lang:hover{background:rgba(255,255,255,.16)}
 .hdr-cfg{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;backdrop-filter:blur(8px)}
@@ -68,8 +70,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* Center body — clean centered logo */
 .home-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
-.hc-logo{height:clamp(90px,22vh,200px);object-fit:contain;opacity:.18;filter:brightness(0) invert(1)}
-.hc-sub{font-size:clamp(12px,2vw,20px);font-weight:900;color:rgba(255,255,255,.1);letter-spacing:clamp(5px,2vw,16px);text-transform:uppercase}
+.hc-logo{height:clamp(110px,26vh,240px);object-fit:contain;opacity:.28;filter:brightness(0) invert(1)}
+.hc-sub{font-size:clamp(11px,1.6vw,18px);font-weight:900;color:rgba(255,255,255,.14);letter-spacing:clamp(8px,2.5vw,20px);text-transform:uppercase;margin-top:4px}
 
 /* Services grid (used on #services screen) */
 .sgrid-wrap{flex:1;padding:14px 20px 0;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
@@ -83,16 +85,16 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .sc.off{opacity:.22}
 
 /* Bottom nav — 3 buttons matching production app */
-.home-nav{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:0;margin:12px 20px 10px;background:rgba(255,255,255,.07);border-radius:20px;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);overflow:hidden}
-.hnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 8px;cursor:pointer;transition:background .15s;position:relative}
-.hnav-btn:hover{background:rgba(255,255,255,.06)}
-.hnav-btn.primary{background:rgba(255,255,255,.06)}
-.hnav-btn:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.1)}
+.home-nav{flex-shrink:0;display:flex;align-items:stretch;gap:0;margin:10px 20px 14px;background:rgba(255,255,255,.07);border-radius:22px;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);overflow:hidden;min-height:86px}
+.hnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px 8px;cursor:pointer;transition:background .15s;position:relative}
+.hnav-btn:hover{background:rgba(255,255,255,.07)}
+.hnav-btn.primary{background:rgba(255,255,255,.08)}
+.hnav-btn:not(:last-child)::after{content:'';position:absolute;right:0;top:18%;height:64%;width:1px;background:rgba(255,255,255,.12)}
 .hnav-ico{font-size:28px;line-height:1}
-.hnav-ico.grid{font-size:24px;color:#3b82f6}
-.hnav-ico.play{width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;color:#111;box-shadow:0 4px 16px rgba(255,255,255,.25)}
-.hnav-ico.hist{font-size:24px;color:#f97316}
-.hnav-lbl{font-size:11px;font-weight:800;color:#fff;letter-spacing:.8px;text-transform:uppercase}
+.hnav-ico.grid{width:44px;height:44px;border-radius:12px;background:rgba(59,130,246,.2);border:1px solid rgba(59,130,246,.35);display:flex;align-items:center;justify-content:center;font-size:22px}
+.hnav-ico.play{width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;color:#111;box-shadow:0 4px 20px rgba(255,255,255,.3)}
+.hnav-ico.hist{width:44px;height:44px;border-radius:12px;background:rgba(249,115,22,.2);border:1px solid rgba(249,115,22,.35);display:flex;align-items:center;justify-content:center;font-size:22px}
+.hnav-lbl{font-size:11px;font-weight:800;color:rgba(255,255,255,.85);letter-spacing:.8px;text-transform:uppercase}
 
 /* Ad ticker */
 .ad-ticker{flex-shrink:0;height:40px;background:rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;overflow:hidden}
@@ -151,7 +153,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .cnl{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
 /* ══ RANKING ══ */
-#ranking{background:url('background_ranking.jpg') center/cover no-repeat}
+#ranking{background:#0c0e2a url('background_ranking.jpg') center/cover no-repeat}
 #ranking .overlay{background:linear-gradient(120deg,rgba(2,8,30,.92) 0%,rgba(3,10,36,.8) 50%,rgba(2,8,30,.9) 100%)}
 #ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto 1fr;height:100%;padding:18px 24px;gap:14px;color:#fff}
 .phdr{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:4px}
@@ -162,11 +164,21 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .rtab.active{background:#0DFFDE;border-color:#0DFFDE;color:#061428}
 
 /* Top Serie header strip */
-.tser-bar{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto auto auto auto;align-items:center;gap:18px;padding:10px 16px;background:linear-gradient(90deg,rgba(13,255,222,.06),rgba(255,207,25,.04));border:1px solid rgba(13,255,222,.18);border-radius:12px;margin-bottom:6px}
-.tser-pool{display:flex;align-items:center;gap:10px}
-.tser-pool-ic{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#FFCF19,#FF9500);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 4px 12px rgba(255,207,25,.3)}
-.tser-pool-l{font-size:9px;font-weight:800;color:rgba(255,207,25,.85);letter-spacing:.2em;text-transform:uppercase}
-.tser-pool-v{font-size:20px;font-weight:900;color:#FFCF19;line-height:1;margin-top:1px;font-variant-numeric:tabular-nums}
+.tser-bar{grid-column:1/-1;display:grid;grid-template-columns:auto auto 1fr auto auto auto;align-items:center;gap:14px;padding:10px 16px;background:linear-gradient(90deg,rgba(13,255,222,.06),rgba(255,207,25,.04));border:1px solid rgba(13,255,222,.18);border-radius:12px;margin-bottom:6px}
+.tser-pools{display:flex;gap:8px;align-items:center}
+.tser-poolc{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:10px;border:1px solid transparent;transition:.2s}
+.tser-poolc.club{border-color:rgba(255,207,25,.2);background:rgba(255,207,25,.04)}
+.tser-poolc.system{border-color:rgba(13,255,222,.18);background:rgba(13,255,222,.04)}
+.tser-poolc.on{box-shadow:0 0 0 2px rgba(13,255,222,.4);background:rgba(13,255,222,.1)}
+.tser-poolc.club.on{box-shadow:0 0 0 2px rgba(255,207,25,.5);background:rgba(255,207,25,.12)}
+.tser-pool-ic{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#FFCF19,#FF9500);display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 3px 9px rgba(255,207,25,.3);flex-shrink:0}
+.tser-pool-l{font-size:8px;font-weight:800;color:rgba(255,207,25,.85);letter-spacing:.18em;text-transform:uppercase}
+.tser-pool-v{font-size:17px;font-weight:900;color:#FFCF19;line-height:1;margin-top:1px;font-variant-numeric:tabular-nums}
+
+/* Scope toggle */
+.tser-scope{display:flex;background:rgba(255,255,255,.04);border-radius:8px;padding:2px;gap:2px}
+.tser-scope-b{padding:5px 10px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;white-space:nowrap}
+.tser-scope-b.on{background:rgba(13,255,222,.15);color:#0DFFDE;box-shadow:0 0 0 1px rgba(13,255,222,.3)}
 .tser-stats{display:flex;gap:24px;justify-content:flex-end}
 .tser-stat{text-align:center}
 .tser-stat-l{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
@@ -252,6 +264,13 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .live-c-n{font-size:10px;font-weight:700;color:#fff;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .live-c-v{font-size:14px;font-weight:900;color:#0DFFDE;margin-top:1px}
 
+.tser-adstrip{grid-column:1/-1;margin-top:6px;padding:8px 14px;background:linear-gradient(90deg,rgba(255,207,25,.08),rgba(255,138,30,.06));border:2px dashed rgba(255,207,25,.35);border-radius:10px;display:flex;align-items:center;gap:14px;position:relative}
+.tser-ad-tag{position:absolute;top:-8px;right:14px;background:#FFCF19;color:#0d1f50;font-size:9px;font-weight:900;letter-spacing:.16em;padding:2px 8px;border-radius:4px}
+.tser-ad-content{display:flex;align-items:center;gap:16px;flex:1;justify-content:space-between}
+.tser-ad-logos{display:flex;gap:16px;align-items:center}
+.tser-ad-logo{font-family:'Inter',sans-serif;font-weight:900;font-size:13px;letter-spacing:.15em;color:rgba(255,255,255,.55);padding:4px 8px;border:1px solid rgba(255,255,255,.12);border-radius:5px;background:rgba(255,255,255,.03)}
+.tser-ad-cta{font-size:11px;color:rgba(255,207,25,.8);font-weight:600;text-align:right}
+
 .tser-marquee{grid-column:1/-1;margin-top:8px;padding:8px 18px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;font-size:12px;color:rgba(255,255,255,.6)}
 .tser-marquee b{color:#FFCF19;font-weight:800}
 .tser-marquee i{color:#0DFFDE;font-style:normal;font-weight:800}
@@ -259,7 +278,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 @keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
 /* ══ HISTORY ══ */
-#history{background:url('bg_history.png') center/cover no-repeat}
+#history{background:#0c0e2a url('bg_history.png') center/cover no-repeat}
 #history .overlay{background:rgba(0,0,0,.77)}
 #history .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px;gap:14px;color:#fff}
 .hlist{flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
@@ -395,7 +414,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       <span class="hbp-txt">ARENA SCOREBOARD</span>
     </div>
     <div class="hdr-sp"></div>
-    <div class="hdr-lang" id="topClubName">Hoàng Sao</div>
+    <div class="hdr-info">
+      <div class="hdr-table">Bàn 07</div>
+      <div class="hdr-lang" id="topClubName">Hoàng Sao</div>
+    </div>
     <div class="hdr-cfg" onclick="toggleTheme()" title="Đổi club">⚙️</div>
   </div>
 
@@ -466,15 +488,18 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 <!-- ══ SERVICES ══ -->
 <div class="screen" id="services">
-  <div class="overlay" style="background:rgba(4,11,34,.92)"></div>
-  <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;background:var(--hbg)">
+  <div class="overlay" style="background:rgba(0,0,0,.15)"></div>
+  <div id="svcInner" style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%">
     <div class="home-hdr">
       <div class="hbp">
         <img src="logo_arena.png" alt="Arena">
         <span class="hbp-txt">DỊCH VỤ ARENA</span>
       </div>
       <div class="hdr-sp"></div>
-      <div class="hdr-lang" id="svcClubName">Hoàng Sao</div>
+      <div class="hdr-info">
+        <div class="hdr-table">Bàn 07</div>
+        <div class="hdr-lang" id="svcClubName">Hoàng Sao</div>
+      </div>
       <div class="back-btn" onclick="showScreen('home')" style="border-radius:999px;padding:8px 16px">← Quay lại</div>
     </div>
     <div class="sgrid-wrap">
@@ -532,12 +557,25 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     </div>
 
     <div class="tser-bar">
-      <div class="tser-pool">
-        <div class="tser-pool-ic">🪙</div>
-        <div>
-          <div class="tser-pool-l">Quỹ heo vàng</div>
-          <div class="tser-pool-v" id="rankPool">— M ₫</div>
+      <div class="tser-pools">
+        <div class="tser-poolc club" id="poolClub">
+          <div class="tser-pool-ic">🪙</div>
+          <div>
+            <div class="tser-pool-l">Heo vàng club này</div>
+            <div class="tser-pool-v" id="rankPoolClub">— K ₫</div>
+          </div>
         </div>
+        <div class="tser-poolc system on" id="poolSystem">
+          <div class="tser-pool-ic" style="background:linear-gradient(135deg,#0DFFDE,#1a6ef5);font-size:14px">🏆</div>
+          <div>
+            <div class="tser-pool-l" style="color:rgba(13,255,222,.85)">Toàn hệ thống Arena</div>
+            <div class="tser-pool-v" id="rankPool" style="color:#0DFFDE">— M ₫</div>
+          </div>
+        </div>
+      </div>
+      <div class="tser-scope">
+        <button class="tser-scope-b" onclick="switchScope(this,'club')">📍 Club này</button>
+        <button class="tser-scope-b on" onclick="switchScope(this,'system')">🌐 Hệ thống Arena</button>
       </div>
       <div class="tser-tier">
         <button class="tser-tier-b on" onclick="filterTier(this,'all')">Tất cả</button>
@@ -546,15 +584,11 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <button class="tser-tier-b" onclick="filterTier(this,'C')">C</button>
       </div>
       <div class="tser-stat">
-        <div class="tser-stat-l">Ngày</div>
-        <div class="tser-stat-v" id="rankDate">—</div>
-      </div>
-      <div class="tser-stat">
         <div class="tser-stat-l">Giờ</div>
         <div class="tser-stat-v cc" id="rankClock">—</div>
       </div>
       <div class="tser-stat">
-        <div class="tser-stat-l">Cơ thủ ranked</div>
+        <div class="tser-stat-l">Cơ thủ</div>
         <div class="tser-stat-v" id="rankCount">—</div>
       </div>
       <div class="tser-live">
@@ -588,6 +622,19 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       <div class="tser-panel live">
         <div class="tser-panel-h">⚡ Đang chạy bàn</div>
         <div class="live-grid" id="rankLive"></div>
+      </div>
+    </div>
+
+    <div class="tser-adstrip">
+      <div class="tser-ad-tag">AD SLOT · placeholder</div>
+      <div class="tser-ad-content">
+        <div class="tser-ad-logos">
+          <div class="tser-ad-logo">PREDATOR</div>
+          <div class="tser-ad-logo">SIMONIS</div>
+          <div class="tser-ad-logo">HEINEKEN</div>
+          <div class="tser-ad-logo">ARAMITH</div>
+        </div>
+        <div class="tser-ad-cta">600 bảng điểm · 40% affiliate → chủ club · Liên hệ Arena để đăng ký quảng cáo</div>
       </div>
     </div>
 
@@ -744,7 +791,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
     <div class="pg-ads">
       <div class="pg-ads-title">
         MUA SẮM TẠI CLB
-        <span>Club hoa hồng 12%</span>
       </div>
       <div class="merch-grid">
         <div class="merch-card">
@@ -752,7 +798,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <div class="merch-info">
             <div class="merch-name">Cơ Arena Signature</div>
             <div class="merch-price">3.200.000 ₫</div>
-            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">12%</span></div>
           </div>
           <div class="merch-buy">Quét QR mua ngay</div>
         </div>
@@ -761,7 +806,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <div class="merch-info">
             <div class="merch-name">Áo Arena Team 2025</div>
             <div class="merch-price">450.000 ₫</div>
-            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">15%</span></div>
           </div>
           <div class="merch-buy">Quét QR mua ngay</div>
         </div>
@@ -770,7 +814,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <div class="merch-info">
             <div class="merch-name">Hộp cơ Pro 2×2</div>
             <div class="merch-price">890.000 ₫</div>
-            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">10%</span></div>
           </div>
           <div class="merch-buy">Quét QR mua ngay</div>
         </div>
@@ -779,12 +822,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
           <div class="merch-info">
             <div class="merch-name">Găng tay cao cấp</div>
             <div class="merch-price">185.000 ₫</div>
-            <div class="merch-aff">Club hoa hồng: <span class="merch-aff-pct">15%</span></div>
           </div>
           <div class="merch-buy">Quét QR mua ngay</div>
         </div>
       </div>
-      <div class="pg-aff-note">🏪 Mỗi đơn hàng quét tại club, club nhận hoa hồng tự động qua Arena Platform</div>
     </div>
   </div>
 </div>
@@ -794,11 +835,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
   <div class="idle-tap">CHẠM ĐỂ TIẾP TỤC</div>
   <div id="idleSlides"></div>
   <div class="idle-dots" id="idleDots"></div>
-  <div class="idle-aff">
-    <div class="idle-aff-txt">Club hoa hồng</div>
-    <div class="idle-aff-pct" id="idleAffPct">12%</div>
-    <div class="idle-aff-txt">mỗi đơn hàng</div>
-  </div>
 </div>
 
 <!-- ══ MODAL ══ -->
@@ -830,8 +866,8 @@ window.addEventListener('hashchange',()=>{const h=(location.hash||'').replace(/^
 
 // ── Club themes ──
 const CLUBS=[
-  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.25)',hbg:'radial-gradient(ellipse at 50% 35%,#0e3358 0%,#06192e 35%,#040c1e 100%)',short:'HS'},
-  {name:'G8 Billiards',logo:null,cc:'#3b82f6',cc2:'rgba(59,130,246,.12)',cc3:'rgba(59,130,246,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#1a3870 0%,#0d1f50 35%,#060f2a 100%)',short:'G8'},
+  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#2a1d5c 0%,#16113a 35%,#0c0920 65%,#060516 100%)',short:'HS'},
+  {name:'G8 Billiards',logo:null,cc:'#1a6ef5',cc2:'rgba(26,110,245,.12)',cc3:'rgba(26,110,245,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#0d2d6e 0%,#071a48 35%,#040e2c 65%,#020818 100%)',short:'G8'},
   {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#3d1e00 0%,#1e0e00 35%,#100700 100%)',short:'A1'},
   {name:'Phúc Lợi',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#2d1060 0%,#16082e 35%,#0a0516 100%)',short:'PL'},
 ];
@@ -846,6 +882,7 @@ function setClub(i){
   r.setProperty('--cc3',c.cc3);
   r.setProperty('--hbg',c.hbg);
   document.getElementById('home').style.background=c.hbg;
+  const si=document.getElementById('svcInner'); if(si) si.style.background=c.hbg;
   document.getElementById('topClubName').textContent=c.name;
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
   const rn=document.getElementById('rankClubName'); if(rn) rn.textContent=c.name+' · Bảng xếp hạng ngày';
@@ -869,9 +906,10 @@ function switchTab(el){ document.querySelectorAll('.rtab').forEach(t=>t.classLis
 function switchGTab(el){ document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
 function switchRankTab(el,kind){ document.querySelectorAll('#ranking .rtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); rankDiscipline=kind; renderRanking(); }
 function filterTier(el,t){ document.querySelectorAll('.tser-tier-b').forEach(b=>{b.classList.remove('on','A','B','C');}); el.classList.add('on'); if(t!=='all')el.classList.add(t); rankTier=t; renderRanking(); }
+function switchScope(el,s){ document.querySelectorAll('.tser-scope-b').forEach(b=>b.classList.remove('on')); el.classList.add('on'); document.querySelectorAll('.tser-poolc').forEach(p=>p.classList.remove('on')); document.getElementById(s==='club'?'poolClub':'poolSystem').classList.add('on'); rankScope=s; renderRanking(); }
 
 // ── Top Serie data ──
-let rankData=null, rankTier='all', rankDiscipline='carom';
+let rankData=null, rankTier='all', rankDiscipline='carom', rankScope='system';
 const RANK_API='https://arenaweb.vercel.app/api/demo/top-serie-3c';
 
 function rankInitials(n){return n.split(' ').slice(-2).map(s=>s[0]||'').join('').toUpperCase();}
@@ -900,9 +938,17 @@ async function loadRanking(){
 function renderRanking(){
   if(!rankData)return;
   const all=rankData.players||[];
-  const filtered=rankTier==='all'?all:all.filter(p=>p.tier===rankTier);
+  const clubs=rankData.clubs||[];
+  const myClubName=clubs[0]?.name;
+  let filtered=all;
+  if(rankScope==='club'&&myClubName){filtered=filtered.filter(p=>p.club===myClubName);}
+  if(rankTier!=='all'){filtered=filtered.filter(p=>p.tier===rankTier);}
   document.getElementById('rankCount').textContent=filtered.length;
-  document.getElementById('rankPool').textContent=`${((rankData.totalHeoVangPool||0)/1e6).toFixed(1)}M ₫`;
+  const sysPool=rankData.totalHeoVangPool||0;
+  const clubPool=clubs[0]?.heoVangPool||0;
+  document.getElementById('rankPool').textContent=`${(sysPool/1e6).toFixed(1)}M ₫`;
+  const clubPoolEl=document.getElementById('rankPoolClub');
+  if(clubPoolEl)clubPoolEl.textContent=`${(clubPool/1e6).toFixed(2)}M ₫`;
   // Podium
   const podiumEl=document.getElementById('rankPodium');
   const top3=filtered.slice(0,3);
@@ -1033,11 +1079,11 @@ document.getElementById('modalBg').addEventListener('click',e=>{ if(e.target===d
 
 // ── Idle overlay ──
 const IDLE_PRODUCTS=[
-  {ico:'🎱',name:'Cơ Arena Signature',price:'3.200.000 ₫',sub:'Limited Edition 2025 · Chỉ còn 12 chiếc',aff:'12%'},
-  {ico:'👕',name:'Áo Arena Team 2025',price:'450.000 ₫',sub:'Thêu logo nổi · Vải thể thao cao cấp',aff:'15%'},
-  {ico:'🎒',name:'Hộp cơ Arena Pro 2×2',price:'890.000 ₫',sub:'Carbon fiber · Khóa số · Chống thấm',aff:'10%'},
-  {ico:'🧤',name:'Găng tay cao cấp',price:'185.000 ₫',sub:'Chống trơn · Co giãn 4 chiều · Size S–XL',aff:'15%'},
-  {ico:'🔵',name:'Phấn Predator 1080',price:'220.000 ₫',sub:'Hộp 5 viên · Phấn xanh đặc trưng',aff:'12%'},
+  {ico:'🎱',name:'Cơ Arena Signature',price:'3.200.000 ₫',sub:'Limited Edition 2025 · Chỉ còn 12 chiếc'},
+  {ico:'👕',name:'Áo Arena Team 2025',price:'450.000 ₫',sub:'Thêu logo nổi · Vải thể thao cao cấp'},
+  {ico:'🎒',name:'Hộp cơ Arena Pro 2×2',price:'890.000 ₫',sub:'Carbon fiber · Khóa số · Chống thấm'},
+  {ico:'🧤',name:'Găng tay cao cấp',price:'185.000 ₫',sub:'Chống trơn · Co giãn 4 chiều · Size S–XL'},
+  {ico:'🔵',name:'Phấn Predator 1080',price:'220.000 ₫',sub:'Hộp 5 viên · Phấn xanh đặc trưng'},
 ];
 
 const slidesEl=document.getElementById('idleSlides');
@@ -1067,12 +1113,12 @@ function hideIdle(){
 }
 function showIdleSlide(i){
   IDLE_PRODUCTS.forEach((_,j)=>{ document.getElementById('is'+j).classList.toggle('on',j===i); document.getElementById('id'+j).classList.toggle('on',j===i); });
-  document.getElementById('idleAffPct').textContent=IDLE_PRODUCTS[i].aff;
 }
 document.getElementById('idleOverlay').addEventListener('click', hideIdle);
 
 // Only track idle on home screen
 ['mousemove','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev,()=>{ if(document.getElementById('home').classList.contains('active')) resetIdle(); }));
+setClub(0);
 resetIdle();
 </script>
 </body>
