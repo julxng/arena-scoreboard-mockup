@@ -226,33 +226,30 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .cn{font-size:12px;font-weight:700;color:rgba(255,255,255,.9)}
 .cnl{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
-/* ══ RANKING — Arena Top Serie brand ══ */
+/* ══ RANKING — Arena Top Serie brand (mirror app sections) ══ */
 #ranking{background:#0A1530 url('background_ranking.jpg') center/cover no-repeat;font-family:'Inter',sans-serif}
 #ranking .overlay{background:linear-gradient(120deg,rgba(10,21,48,.94) 0%,rgba(14,26,56,.86) 50%,rgba(7,14,31,.92) 100%)}
-#ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto auto 1fr auto;height:100%;padding:18px 24px;gap:12px;color:#fff}
-.phdr{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:0}
-.ptitle{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,2.5vw,30px);font-weight:800;letter-spacing:-.02em;display:flex;flex-direction:column;flex:1}
+#ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto 1fr auto;height:100%;padding:14px 22px;gap:10px;color:#fff;overflow:hidden}
+.phdr{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-bottom:0}
+.ptitle{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(18px,2vw,26px);font-weight:800;letter-spacing:-.02em;display:flex;flex-direction:column;flex:1}
 .ptitle small{font-family:'Inter',sans-serif;font-size:10px;font-weight:800;color:#00C4FF;letter-spacing:.3em;text-transform:uppercase;margin-bottom:2px}
 .rtabs{display:flex;gap:6px}
-.rtab{padding:7px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid rgba(0,103,232,.35);background:transparent;color:rgba(255,255,255,.55)}
+.rtab{padding:6px 14px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;border:1.5px solid rgba(0,103,232,.35);background:transparent;color:rgba(255,255,255,.55)}
 .rtab.active{background:linear-gradient(135deg,#0067E8,#0550B5);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(0,103,232,.4)}
+.phdr-meta{display:flex;align-items:center;gap:10px}
+.phdr-clock{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#00C4FF;font-variant-numeric:tabular-nums}
 
-/* Top Serie header strip */
-.tser-bar{grid-column:1/-1;display:grid;grid-template-columns:auto auto 1fr auto auto auto;align-items:center;gap:14px;padding:10px 16px;background:linear-gradient(90deg,rgba(0,196,255,.08),rgba(0,103,232,.04));border:1px solid rgba(0,103,232,.25);border-radius:12px;margin-bottom:0}
-.tser-pools{display:flex;gap:8px;align-items:center}
-.tser-poolc{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:10px;border:1px solid transparent;transition:.2s}
-.tser-poolc.club{border-color:rgba(0,196,255,.35);background:rgba(0,196,255,.06)}
-.tser-poolc.system{border-color:rgba(0,103,232,.25);background:rgba(0,103,232,.06)}
-.tser-poolc.on{box-shadow:0 0 0 2px rgba(0,103,232,.5);background:rgba(0,103,232,.12)}
-.tser-poolc.club.on{box-shadow:0 0 0 2px rgba(0,196,255,.6);background:rgba(0,196,255,.16)}
-.tser-pool-ic{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 3px 9px rgba(0,103,232,.4);flex-shrink:0}
-.tser-pool-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:8px;font-weight:800;color:rgba(0,196,255,.9);letter-spacing:.18em;text-transform:uppercase}
-.tser-pool-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;color:#00C4FF;line-height:1;margin-top:1px;font-variant-numeric:tabular-nums}
+/* Compact filter bar — single row */
+.tser-filter{grid-column:1/-1;display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.02);border:1px solid rgba(0,103,232,.18);border-radius:10px}
+.tser-frange{display:flex;gap:4px;background:rgba(255,255,255,.04);border-radius:8px;padding:2px}
+.tser-frange-b{padding:5px 12px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif}
+.tser-frange-b.on{background:linear-gradient(135deg,#0067E8,#0550B5);color:#fff;box-shadow:0 2px 8px rgba(0,103,232,.3)}
+.tser-fsep{width:1px;height:18px;background:rgba(255,255,255,.1)}
 
 /* Scope toggle */
 .tser-scope{display:flex;background:rgba(255,255,255,.04);border-radius:8px;padding:2px;gap:2px}
-.tser-scope-b{padding:5px 10px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;white-space:nowrap}
-.tser-scope-b.on{background:rgba(0,103,232,.2);color:#00B5E8;box-shadow:0 0 0 1px rgba(0,103,232,.4)}
+.tser-scope-b{padding:5px 11px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;white-space:nowrap}
+.tser-scope-b.on{background:linear-gradient(135deg,#00B5E8,#0067E8);color:#fff;box-shadow:0 2px 6px rgba(0,103,232,.3)}
 .tser-stats{display:flex;gap:24px;justify-content:flex-end}
 .tser-stat{text-align:center}
 .tser-stat-l{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
@@ -369,14 +366,56 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .tser-marquee span{display:inline-block;animation:scroll 50s linear infinite;white-space:nowrap}
 @keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
-/* Achievement badges */
-.achv-list{display:flex;flex-direction:column;gap:6px;flex:1;overflow-y:auto;min-height:0}
-.achv-item{display:flex;align-items:center;gap:9px;padding:6px 8px;background:rgba(0,196,255,.05);border:1px solid rgba(0,103,232,.18);border-radius:8px}
-.achv-ic{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff}
-.achv-i{flex:1;min-width:0}
-.achv-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.achv-d{font-size:9px;color:rgba(255,255,255,.5);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.achv-meta{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;color:#00C4FF}
+/* Status banner (match app) */
+.tser-status{display:flex;align-items:center;gap:11px;padding:9px 13px;background:linear-gradient(90deg,rgba(0,196,255,.14),rgba(0,103,232,.04));border:1px solid rgba(0,103,232,.3);border-radius:11px;margin-bottom:8px}
+.tser-status-rk{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;flex-shrink:0}
+.tser-status-i{flex:1;min-width:0}
+.tser-status-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:#fff}
+.tser-status-d{font-size:11px;color:rgba(255,255,255,.55);margin-top:1px}
+.tser-status-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:5px;overflow:hidden}
+.tser-status-bar-f{height:100%;width:72%;background:linear-gradient(90deg,#00C4FF,#0067E8,#0550B5);border-radius:2px}
+
+/* Pool dual cards (match app pattern) */
+.tser-pools-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.tser-poolc{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:11px;border:1.5px solid transparent;transition:.2s}
+.tser-poolc.club{border-color:rgba(0,196,255,.45);background:linear-gradient(135deg,rgba(0,196,255,.1),rgba(0,103,232,.04))}
+.tser-poolc.system{border-color:rgba(5,80,181,.5);background:linear-gradient(135deg,rgba(5,80,181,.12),rgba(1,52,107,.04))}
+.tser-poolc.on{box-shadow:0 0 0 2px rgba(0,103,232,.5)}
+.tser-poolc.club.on{box-shadow:0 0 0 2px rgba(0,196,255,.6)}
+.tser-pool-ic{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;box-shadow:0 3px 9px rgba(0,103,232,.4);flex-shrink:0}
+.tser-poolc.system .tser-pool-ic{background:linear-gradient(135deg,#0067E8,#0550B5);box-shadow:0 3px 9px rgba(5,80,181,.4)}
+.tser-pool-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:800;color:#00C4FF;letter-spacing:.16em;text-transform:uppercase}
+.tser-poolc.system .tser-pool-l{color:#3B8FF3}
+.tser-pool-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:#00C4FF;line-height:1;margin-top:2px;font-variant-numeric:tabular-nums}
+.tser-poolc.system .tser-pool-v{color:#3B8FF3}
+.tser-pool-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px}
+
+/* Streak meter (match app) */
+.tser-streak{padding:10px 13px;background:rgba(255,255,255,.03);border:1px solid rgba(0,103,232,.18);border-radius:11px;margin-bottom:8px}
+.tser-streak-hd{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.tser-streak-ic{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0}
+.tser-streak-i{flex:1}
+.tser-streak-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.16em;text-transform:uppercase}
+.tser-streak-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#fff;margin-top:1px}
+.tser-streak-v span{color:#00C4FF;font-size:11px;margin-left:6px;font-weight:700}
+.tser-streak-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.tser-streak-d{height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;background:rgba(255,255,255,.04);color:rgba(255,255,255,.3)}
+.tser-streak-d.on{background:linear-gradient(135deg,#00C4FF,#0067E8);color:#fff;box-shadow:0 2px 6px rgba(0,103,232,.3)}
+
+/* Achievement 4-col grid (match app) */
+.achv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.achv-card{text-align:center;padding:10px 6px;border-radius:11px}
+.achv-card.cyan{background:linear-gradient(135deg,rgba(0,196,255,.14),rgba(0,181,232,.04));border:1px solid rgba(0,196,255,.35)}
+.achv-card.light{background:linear-gradient(135deg,rgba(0,181,232,.14),rgba(0,103,232,.04));border:1px solid rgba(0,103,232,.4)}
+.achv-card.brand{background:linear-gradient(135deg,rgba(0,103,232,.14),rgba(5,80,181,.04));border:1px solid rgba(0,103,232,.4)}
+.achv-card.dark{background:linear-gradient(135deg,rgba(5,80,181,.14),rgba(1,52,107,.04));border:1px solid rgba(5,80,181,.45)}
+.achv-card-ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;margin:0 auto 5px}
+.achv-card.cyan .achv-card-ic{background:linear-gradient(135deg,#00C4FF,#00B5E8)}
+.achv-card.light .achv-card-ic{background:linear-gradient(135deg,#00B5E8,#0067E8)}
+.achv-card.brand .achv-card-ic{background:linear-gradient(135deg,#0067E8,#0550B5)}
+.achv-card.dark .achv-card-ic{background:linear-gradient(135deg,#0550B5,#01346B)}
+.achv-card-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;color:#fff;line-height:1.2}
+.achv-card-d{font-size:9px;color:rgba(255,255,255,.5);margin-top:2px}
 
 /* ══ HISTORY ══ */
 #history{background:#0c0e2a url('bg_history.png') center/cover no-repeat}
@@ -645,6 +684,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 <div class="screen" id="ranking">
   <div class="overlay"></div>
   <div class="content">
+    <!-- Row 1: header (full width) -->
     <div class="phdr">
       <div class="ptitle">
         <small>Top Serie · Bảng xếp hạng ngày</small>
@@ -654,57 +694,76 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         <div class="rtab" onclick="switchRankTab(this,'pool')">Pool 9-ball</div>
         <div class="rtab active" onclick="switchRankTab(this,'carom')">Carom 3C</div>
       </div>
-      <div class="back-btn" onclick="showScreen('home')">← Quay lại</div>
+      <div class="phdr-meta">
+        <div class="phdr-clock" id="rankClock">—</div>
+        <div class="tser-live"><div class="tser-live-d"></div><div class="tser-live-t">LIVE</div></div>
+        <div class="back-btn" onclick="showScreen('home')">← Quay lại</div>
+      </div>
     </div>
 
-    <div class="tser-bar">
-      <div class="tser-pools">
-        <div class="tser-poolc club" id="poolClub">
-          <div class="tser-pool-ic">🪙</div>
-          <div>
-            <div class="tser-pool-l">Heo vàng club này</div>
-            <div class="tser-pool-v" id="rankPoolClub">— K ₫</div>
-          </div>
-        </div>
-        <div class="tser-poolc system on" id="poolSystem">
-          <div class="tser-pool-ic" style="background:linear-gradient(135deg,#0DFFDE,#1a6ef5);font-size:14px">🏆</div>
-          <div>
-            <div class="tser-pool-l" style="color:rgba(13,255,222,.85)">Toàn hệ thống Arena</div>
-            <div class="tser-pool-v" id="rankPool" style="color:#0DFFDE">— M ₫</div>
-          </div>
-        </div>
+    <!-- Row 2: compact filter bar (full width) -->
+    <div class="tser-filter">
+      <div class="tser-frange">
+        <button class="tser-frange-b on">Hôm nay</button>
+        <button class="tser-frange-b">Tháng</button>
+        <button class="tser-frange-b">Quý</button>
+        <button class="tser-frange-b">Grand Series</button>
       </div>
+      <div class="tser-fsep"></div>
       <div class="tser-scope">
         <button class="tser-scope-b" onclick="switchScope(this,'club')">📍 Club này</button>
         <button class="tser-scope-b on" onclick="switchScope(this,'system')">🌐 Hệ thống Arena</button>
       </div>
+      <div class="tser-fsep"></div>
       <div class="tser-tier">
         <button class="tser-tier-b on" onclick="filterTier(this,'all')">Tất cả</button>
         <button class="tser-tier-b" onclick="filterTier(this,'A')">A</button>
         <button class="tser-tier-b" onclick="filterTier(this,'B')">B</button>
         <button class="tser-tier-b" onclick="filterTier(this,'C')">C</button>
       </div>
-      <div class="tser-stat">
-        <div class="tser-stat-l">Giờ</div>
-        <div class="tser-stat-v cc" id="rankClock">—</div>
-      </div>
-      <div class="tser-stat">
-        <div class="tser-stat-l">Cơ thủ</div>
-        <div class="tser-stat-v" id="rankCount">—</div>
-      </div>
-      <div class="tser-live">
-        <div class="tser-live-d"></div>
-        <div class="tser-live-t">LIVE</div>
+      <div style="margin-left:auto;font-size:11px;color:rgba(255,255,255,.5)">
+        <span id="rankCount">—</span> cơ thủ ranked
       </div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden">
-      <!-- Featured player of today -->
+    <!-- Row 3: main 2-col content -->
+    <div style="display:flex;flex-direction:column;gap:0;min-height:0;overflow:hidden">
+      <!-- Status banner (mirror app) -->
+      <div class="tser-status">
+        <div class="tser-status-rk">#6</div>
+        <div class="tser-status-i">
+          <div class="tser-status-t">Bạn đang #6 · sắp chốt top 5</div>
+          <div class="tser-status-d">Còn 12 pt nữa để vào podium</div>
+          <div class="tser-status-bar"><div class="tser-status-bar-f"></div></div>
+        </div>
+      </div>
+
+      <!-- Heo vàng dual cards (mirror app) -->
+      <div class="tser-pools-row">
+        <div class="tser-poolc club" id="poolClub">
+          <div class="tser-pool-ic">🪙</div>
+          <div style="flex:1;min-width:0">
+            <div class="tser-pool-l">📍 Heo vàng Club này</div>
+            <div class="tser-pool-v" id="rankPoolClub">— K ₫</div>
+            <div class="tser-pool-sub">Chỉ club này</div>
+          </div>
+        </div>
+        <div class="tser-poolc system on" id="poolSystem">
+          <div class="tser-pool-ic">🏆</div>
+          <div style="flex:1;min-width:0">
+            <div class="tser-pool-l">🌐 Hệ thống Arena</div>
+            <div class="tser-pool-v" id="rankPool">— M ₫</div>
+            <div class="tser-pool-sub">5 clubs · national</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured player -->
       <div class="tser-featured" id="rankFeatured">
         <span class="tser-feat-tag">Vô địch hôm nay</span>
         <div class="tser-feat-av" id="rankFeatAv">NH</div>
         <div class="tser-feat-info">
-          <div class="tser-feat-line">⭐ Spotlight player · Carom 3 băng</div>
+          <div class="tser-feat-line">⭐ Spotlight · Carom 3 băng</div>
           <div class="tser-feat-name" id="rankFeatName">Nguyễn V. Hùng</div>
           <div class="tser-feat-stats">
             <div class="tser-feat-st">Club <b id="rankFeatClub">Arena Q1</b></div>
@@ -719,6 +778,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
         </div>
       </div>
 
+      <!-- Leaderboard -->
       <div class="lboard">
         <div class="lhdr">
           <div class="lhc">#</div>
@@ -732,49 +792,60 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       </div>
     </div>
 
+    <!-- Right column: podium + streak + achievement 4-grid + bảng quý compact -->
     <div class="tser-side">
       <div class="podium">
         <div class="pod-row" id="rankPodium"></div>
       </div>
 
-      <div class="tser-panel gold">
-        <div class="tser-panel-h">👑 Bảng quý · National top 5</div>
-        <div class="tser-pside" id="rankQuarter"></div>
-      </div>
-
-      <div class="tser-panel achv">
-        <div class="tser-panel-h">🏆 Achievement vừa unlock</div>
-        <div class="achv-list">
-          <div class="achv-item">
-            <div class="achv-ic">🔥</div>
-            <div class="achv-i">
-              <div class="achv-t">Streak 7 ngày — +10% bonus</div>
-              <div class="achv-d">Lê M. Tâm · vừa unlock</div>
-            </div>
-            <div class="achv-meta">+50pt</div>
+      <!-- Streak meter + 7-day grid (mirror app) -->
+      <div class="tser-streak">
+        <div class="tser-streak-hd">
+          <div class="tser-streak-ic">⚡</div>
+          <div class="tser-streak-i">
+            <div class="tser-streak-l">Chuyên cần · streak</div>
+            <div class="tser-streak-v">5 ngày<span>+10% bonus</span></div>
           </div>
-          <div class="achv-item">
-            <div class="achv-ic">💯</div>
-            <div class="achv-i">
-              <div class="achv-t">Series ≥15 lần đầu</div>
-              <div class="achv-d">Nguyễn V. Hùng · 17 loạt</div>
-            </div>
-            <div class="achv-meta">+100pt</div>
-          </div>
-          <div class="achv-item">
-            <div class="achv-ic">⚔️</div>
-            <div class="achv-i">
-              <div class="achv-t">Thách loạt thắng × 3</div>
-              <div class="achv-d">Trần Q. Bảo · hôm nay</div>
-            </div>
-            <div class="achv-meta">+30pt</div>
-          </div>
+        </div>
+        <div class="tser-streak-grid">
+          <div class="tser-streak-d on">T2</div>
+          <div class="tser-streak-d on">T3</div>
+          <div class="tser-streak-d on">T4</div>
+          <div class="tser-streak-d on">T5</div>
+          <div class="tser-streak-d on">T6</div>
+          <div class="tser-streak-d">T7</div>
+          <div class="tser-streak-d">CN</div>
         </div>
       </div>
 
-      <div class="tser-panel live">
-        <div class="tser-panel-h">⚡ Đang chạy bàn</div>
-        <div class="live-grid" id="rankLive"></div>
+      <!-- Achievement 4-col grid (mirror app exactly) -->
+      <div class="achv-grid">
+        <div class="achv-card cyan">
+          <div class="achv-card-ic">⚡</div>
+          <div class="achv-card-t">Streak 5d</div>
+          <div class="achv-card-d">+10% bonus</div>
+        </div>
+        <div class="achv-card light">
+          <div class="achv-card-ic">🎯</div>
+          <div class="achv-card-t">PB ≥20</div>
+          <div class="achv-card-d">21 loạt</div>
+        </div>
+        <div class="achv-card brand">
+          <div class="achv-card-ic">⚔️</div>
+          <div class="achv-card-t">Thách thắng × 3</div>
+          <div class="achv-card-d">đối kháng</div>
+        </div>
+        <div class="achv-card dark">
+          <div class="achv-card-ic">🏆</div>
+          <div class="achv-card-t">Top 3 ngày</div>
+          <div class="achv-card-d">chờ unlock</div>
+        </div>
+      </div>
+
+      <!-- Bảng quý compact -->
+      <div class="tser-panel">
+        <div class="tser-panel-h" style="color:#00C4FF">👑 Bảng quý · National top 5</div>
+        <div class="tser-pside" id="rankQuarter"></div>
       </div>
     </div>
 
@@ -1065,7 +1136,7 @@ function switchScope(el,s){ document.querySelectorAll('.tser-scope-b').forEach(b
 
 // ── Top Serie data ──
 let rankData=null, rankTier='all', rankDiscipline='carom', rankScope='system';
-const RANK_API='https://arenaweb.vercel.app/api/demo/top-serie-3c';
+const RANK_API='https://arenaweb-ten.vercel.app/api/demo/top-serie-3c';
 
 function rankInitials(n){return n.split(' ').slice(-2).map(s=>s[0]||'').join('').toUpperCase();}
 
@@ -1162,18 +1233,6 @@ function renderRanking(){
       <div class="tser-prow-v">${(score/100).toFixed(1)}K</div>
     </div>`;
   }).join('');
-  // Live tables
-  const live=filtered.filter(p=>p.isLive).slice(0,4);
-  const liveEl=document.getElementById('rankLive');
-  if(live.length===0){
-    liveEl.innerHTML='<div style="grid-column:span 2;text-align:center;padding:6px;font-size:11px;color:rgba(255,255,255,.3)">Chưa có bàn đang đánh</div>';
-  }else{
-    liveEl.innerHTML=live.map((p,i)=>`<div class="live-c">
-      <div class="live-c-h">Bàn ${i+1}</div>
-      <div class="live-c-n">${p.name}</div>
-      <div class="live-c-v">${p.todayBestSeries}</div>
-    </div>`).join('');
-  }
 }
 
 // ── Exit button ──
