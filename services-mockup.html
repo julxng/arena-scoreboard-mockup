@@ -84,6 +84,47 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .sc:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.16)}
 .sc.off{opacity:.22}
 
+/* ══ SERVICE HUB sidebar layout ══ */
+#services{flex-direction:row!important}
+.svc-sb{width:210px;flex-shrink:0;display:flex;flex-direction:column;background:rgba(0,0,0,.5);border-right:1px solid rgba(255,255,255,.07);backdrop-filter:blur(16px)}
+.svc-sb-top{padding:14px 14px 10px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.05)}
+.svc-sb-logo{display:flex;align-items:center;gap:8px}
+.svc-sb-logo img{height:24px;object-fit:contain;filter:brightness(0) invert(1)}
+.svc-sb-logo-txt{font-size:12px;font-weight:900;color:#fff;letter-spacing:.5px}
+.svc-sb-nav{flex:1;overflow-y:auto;padding:8px 0}
+.svc-sb-nav::-webkit-scrollbar{display:none}
+.svc-sb-item{display:flex;align-items:center;gap:9px;padding:8px 10px;margin:1px 6px;cursor:pointer;transition:background .12s;border-radius:9px;border-left:3px solid transparent}
+.svc-sb-item:hover{background:rgba(255,255,255,.06)}
+.svc-sb-item.sel{background:rgba(255,255,255,.08);border-left-color:var(--cc)}
+.svc-sb-ico{width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.svc-sb-info{flex:1;min-width:0}
+.svc-sb-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.svc-sb-item.sel .svc-sb-name{color:#fff;font-weight:700}
+.svc-sb-cnt{font-size:9px;font-weight:700;color:rgba(255,255,255,.25)}
+.svc-sb-item.sel .svc-sb-cnt{color:var(--cc)}
+.svc-sb-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.svc-sb-footer{padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+/* Main content area */
+.svc-main-hdr{display:flex;align-items:center;padding:13px 16px;gap:10px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.2)}
+.svc-main-title{flex:1;font-size:11px;font-weight:800;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1px}
+.svc-cnt-pill{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);background:rgba(255,255,255,.06);padding:3px 9px;border-radius:999px}
+.svc-grid{flex:1;overflow-y:auto;padding:10px 12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start;min-height:0}
+.svc-grid::-webkit-scrollbar{width:3px}
+.svc-grid::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
+.svc-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all .15s}
+.svc-card:hover:not(.inactive){background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.14)}
+.svc-card.inactive{opacity:.45;cursor:default}
+.svc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+.svc-card-ico{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2)}
+.svc-card-name{font-size:13px;font-weight:800;color:#fff}
+.svc-card-desc{font-size:10px;color:rgba(255,255,255,.3);line-height:1.45}
+.svc-status{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-size:9px;font-weight:700}
+.svc-on{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.22);color:#10b981}
+.svc-off{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.28)}
+.svc-sdot{width:4px;height:4px;border-radius:50%}
+.svc-on .svc-sdot{background:#10b981}
+.svc-off .svc-sdot{background:rgba(255,255,255,.25)}
+
 /* Bottom nav — 3 buttons matching production app */
 .home-nav{flex-shrink:0;display:flex;align-items:stretch;gap:0;margin:10px 20px 14px;background:rgba(255,255,255,.07);border-radius:22px;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);overflow:hidden;min-height:86px}
 .hnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px 8px;cursor:pointer;transition:background .15s;position:relative}
@@ -489,41 +530,33 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 <!-- ══ SERVICES ══ -->
 <div class="screen" id="services">
   <div class="overlay" style="background:rgba(0,0,0,.15)"></div>
-  <div id="svcInner" style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%">
-    <div class="home-hdr">
-      <div class="hbp">
+
+  <!-- Sidebar -->
+  <div class="svc-sb">
+    <div class="svc-sb-top">
+      <div class="svc-sb-logo">
         <img src="logo_arena.png" alt="Arena">
-        <span class="hbp-txt">DỊCH VỤ ARENA</span>
+        <span class="svc-sb-logo-txt">DỊCH VỤ</span>
       </div>
-      <div class="hdr-sp"></div>
-      <div class="hdr-info">
+    </div>
+    <div class="svc-sb-nav" id="svcSbNav"></div>
+    <div class="svc-sb-footer">
+      <div class="back-btn" onclick="showScreen('home')" style="border-radius:9px;padding:8px 14px;text-align:center;display:block">← Trang chủ</div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div id="svcInner" style="flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden">
+    <div class="svc-main-hdr">
+      <div class="svc-main-title" id="svcCatTitle">TẤT CẢ DỊCH VỤ</div>
+      <div class="svc-cnt-pill" id="svcCntPill">7/10 đã kích hoạt</div>
+      <div class="hdr-info" style="margin-left:6px">
         <div class="hdr-table">Bàn 07</div>
         <div class="hdr-lang" id="svcClubName">Hoàng Sao</div>
       </div>
-      <div class="back-btn" onclick="showScreen('home')" style="border-radius:999px;padding:8px 16px">← Quay lại</div>
     </div>
-    <div class="sgrid-wrap">
-      <div class="sgrid-lbl"><div class="dot-live"></div>10 DỊCH VỤ TẠI CLUB</div>
-      <div class="sgrid">
-        <div class="cfeat" onclick="openModal('catcam')">
-          <div class="bdg bl">● LIVE</div>
-          <div class="cr" style="margin-top:auto">
-            <div class="ico-cl i-cam">📷</div>
-            <div class="cnl">Cắt Cam</div>
-          </div>
-        </div>
-        <div class="sc" onclick="openModal('giai-dau')"><div class="bdg bg" id="sbdg-trp">2 GIẢI HS</div><div class="cr"><div class="ico-c i-trp">🏆</div><div class="cn">Giải đấu</div></div></div>
-        <div class="sc" onclick="openModal('thu-thach')"><div class="bdg bai">AI · MỚI</div><div class="cr"><div class="ico-c i-ch">🎯</div><div class="cn">Thử thách</div></div></div>
-        <div class="sc" onclick="openModal('voucher')"><div class="bdg bgn">3 ƯU ĐÃI</div><div class="cr"><div class="ico-c i-vc">🎟️</div><div class="cn">Voucher</div></div></div>
-        <div class="sc" onclick="openModal('xep-hang')"><div class="bdg bg" id="sbdg-rk">TOP HS</div><div class="cr"><div class="ico-c i-rk">🥇</div><div class="cn">Xếp hạng</div></div></div>
-        <div class="sc" onclick="openModal('academy')"><div class="bdg bb">VIDEO</div><div class="cr"><div class="ico-c i-ac">🎓</div><div class="cn">Academy</div></div></div>
-        <div class="sc" onclick="openModal('dat-ban')"><div class="bdg bt">CÒN SLOT</div><div class="cr"><div class="ico-c i-bk">📅</div><div class="cn">Đặt bàn</div></div></div>
-        <div class="sc" onclick="openModal('bang-diem')"><div class="bdg bb">REAL-TIME</div><div class="cr"><div class="ico-c i-sc">📊</div><div class="cn">Bảng điểm</div></div></div>
-        <div class="sc" onclick="openModal('goi-do')"><div class="bdg bo">MENU</div><div class="cr"><div class="ico-c i-fn">🍺</div><div class="cn">Gọi đồ</div></div></div>
-        <div class="sc off"><div class="bdg bz">BETA</div><div class="cr"><div class="ico-c i-ai">🤖</div><div class="cn">AI phân tích</div></div></div>
-      </div>
-    </div>
-    <div class="ad-ticker">
+    <div class="svc-grid" id="svcGrid"></div>
+    <div class="ad-ticker" style="flex-shrink:0">
       <div class="ad-track">
         <div class="ad-item"><div class="ad-spon">AD</div><div class="ad-ico">🎱</div><div class="ad-txt">Cơ Arena Signature — Limited Edition 2025</div><div class="ad-price">3.200.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
         <div class="ad-item"><div class="ad-ico">🧤</div><div class="ad-txt">Găng tay cao cấp chống trơn — size S–XL</div><div class="ad-price">185.000 ₫</div><div class="ad-cta">Quét QR →</div></div>
@@ -882,7 +915,7 @@ function setClub(i){
   r.setProperty('--cc3',c.cc3);
   r.setProperty('--hbg',c.hbg);
   document.getElementById('home').style.background=c.hbg;
-  const si=document.getElementById('svcInner'); if(si) si.style.background=c.hbg;
+  document.getElementById('services').style.background=c.hbg;
   document.getElementById('topClubName').textContent=c.name;
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
   const rn=document.getElementById('rankClubName'); if(rn) rn.textContent=c.name+' · Bảng xếp hạng ngày';
@@ -1116,9 +1149,66 @@ function showIdleSlide(i){
 }
 document.getElementById('idleOverlay').addEventListener('click', hideIdle);
 
+// ── Service Hub ──
+const SVC_CATS=[
+  {id:'all',dot:'var(--cc)',label:'Tất cả dịch vụ',ico:'⊞'},
+  {id:'catcam',dot:'#ef4444',label:'CẮT CAM (IN-APP)',ico:'📹'},
+  {id:'thi-dau',dot:'#f59e0b',label:'THI ĐẤU & GIẢI',ico:'🏆'},
+  {id:'tien-ich',dot:'#10b981',label:'TIỆN ÍCH',ico:'🎯'},
+  {id:'in-game',dot:'#3b82f6',label:'IN-GAME',ico:'📊'},
+];
+const SVC_HUB=[
+  {cat:'catcam',ico:'📷',icoCls:'i-cam',name:'Cắt Cam',badge:'● LIVE',bdgCls:'bl',on:true,desc:'Camera trực tiếp · Cắt Cam LIVE stream',mk:'catcam'},
+  {cat:'catcam',ico:'🤖',icoCls:'i-ai',name:'AI Phân tích',badge:'BETA',bdgCls:'bz',on:false,desc:'Phân tích kỹ thuật bằng AI — đang phát triển',mk:null},
+  {cat:'thi-dau',ico:'🏆',icoCls:'i-trp',name:'Giải đấu',badge:'ĐANG DIỄN RA',bdgCls:'bg',on:true,desc:'Tổ chức · Quản lý · Kết quả giải đấu',mk:'giai-dau'},
+  {cat:'thi-dau',ico:'🎯',icoCls:'i-ch',name:'Thử thách AI',badge:'AI · MỚI',bdgCls:'bai',on:true,desc:'Thử thách hàng ngày · ELO reward',mk:'thu-thach'},
+  {cat:'thi-dau',ico:'🥇',icoCls:'i-rk',name:'Xếp hạng',badge:'ELO',bdgCls:'bg',on:true,desc:'Bảng ELO cơ thủ tại club',mk:'xep-hang'},
+  {cat:'tien-ich',ico:'🎟️',icoCls:'i-vc',name:'Voucher',badge:'3 ƯU ĐÃI',bdgCls:'bgn',on:true,desc:'Ưu đãi · Khuyến mãi · Điểm tích luỹ',mk:'voucher'},
+  {cat:'tien-ich',ico:'🎓',icoCls:'i-ac',name:'Academy',badge:'VIDEO',bdgCls:'bb',on:false,desc:'Video kỹ thuật · Bài giảng billiards',mk:'academy'},
+  {cat:'tien-ich',ico:'📅',icoCls:'i-bk',name:'Đặt bàn',badge:'CÒN SLOT',bdgCls:'bt',on:true,desc:'Đặt bàn online · Quản lý lịch',mk:'dat-ban'},
+  {cat:'in-game',ico:'📊',icoCls:'i-sc',name:'Bảng điểm',badge:'REAL-TIME',bdgCls:'bb',on:true,desc:'Tích điểm · Kết quả trực tiếp theo trận',mk:'bang-diem'},
+  {cat:'in-game',ico:'🍺',icoCls:'i-fn',name:'Gọi đồ',badge:'MENU',bdgCls:'bo',on:false,desc:'Gọi nhân viên · Thực đơn · F&B tại bàn',mk:'goi-do'},
+];
+let curSvcCat='all';
+
+function renderSvcSidebar(){
+  const nav=document.getElementById('svcSbNav'); if(!nav) return;
+  nav.innerHTML='';
+  SVC_CATS.forEach(cat=>{
+    const cnt=cat.id==='all'?SVC_HUB.length:SVC_HUB.filter(s=>s.cat===cat.id).length;
+    const onCnt=cat.id==='all'?SVC_HUB.filter(s=>s.on).length:SVC_HUB.filter(s=>s.cat===cat.id&&s.on).length;
+    nav.insertAdjacentHTML('beforeend',`<div class="svc-sb-item${curSvcCat===cat.id?' sel':''}" onclick="filterSvc('${cat.id}')"><div class="svc-sb-ico">${cat.ico}</div><div class="svc-sb-info"><div class="svc-sb-name">${cat.label}</div><div class="svc-sb-cnt">${onCnt}/${cnt} kích hoạt</div></div><span class="svc-sb-dot" style="background:${cat.dot}"></span></div>`);
+  });
+}
+
+function renderSvcGrid(catId){
+  const grid=document.getElementById('svcGrid');
+  const title=document.getElementById('svcCatTitle');
+  const pill=document.getElementById('svcCntPill');
+  if(!grid) return;
+  const items=catId==='all'?SVC_HUB:SVC_HUB.filter(s=>s.cat===catId);
+  const cat=SVC_CATS.find(c=>c.id===catId);
+  title.textContent=cat?cat.label.toUpperCase():'TẤT CẢ DỊCH VỤ';
+  const onCnt=items.filter(s=>s.on).length;
+  pill.textContent=`${onCnt}/${items.length} đã kích hoạt`;
+  grid.innerHTML=items.map(s=>`<div class="svc-card${s.on?'':' inactive'}" onclick="${s.mk&&s.on?`openModal('${s.mk}')`:''}">`+
+    `<div class="svc-card-top"><div class="svc-card-ico ${s.icoCls}">${s.ico}</div><span class="bdg ${s.bdgCls}">${s.badge}</span></div>`+
+    `<div class="svc-card-name">${s.name}</div>`+
+    `<div class="svc-card-desc">${s.desc}</div>`+
+    `<div class="svc-status ${s.on?'svc-on':'svc-off'}"><span class="svc-sdot"></span>${s.on?'Đã kích hoạt':'Chưa kích hoạt'}</div>`+
+    `</div>`).join('');
+}
+
+function filterSvc(catId){
+  curSvcCat=catId;
+  renderSvcSidebar();
+  renderSvcGrid(catId);
+}
+
 // Only track idle on home screen
 ['mousemove','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev,()=>{ if(document.getElementById('home').classList.contains('active')) resetIdle(); }));
 setClub(0);
+filterSvc('all');
 resetIdle();
 </script>
 </body>
