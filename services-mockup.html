@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Arena Scoreboard — Hoàng Sao</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-serif}
@@ -215,33 +215,33 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .cn{font-size:12px;font-weight:700;color:rgba(255,255,255,.9)}
 .cnl{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
-/* ══ RANKING ══ */
-#ranking{background:#0c0e2a url('background_ranking.jpg') center/cover no-repeat}
-#ranking .overlay{background:linear-gradient(120deg,rgba(2,8,30,.92) 0%,rgba(3,10,36,.8) 50%,rgba(2,8,30,.9) 100%)}
-#ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto 1fr;height:100%;padding:18px 24px;gap:14px;color:#fff}
-.phdr{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:4px}
-.ptitle{font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:-.5px;display:flex;flex-direction:column}
-.ptitle small{font-size:10px;font-weight:800;color:#0DFFDE;letter-spacing:.3em;text-transform:uppercase;margin-bottom:2px}
-.rtabs{display:flex;gap:7px}
-.rtab{padding:7px 18px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:2px solid rgba(13,255,222,.28);background:transparent;color:rgba(255,255,255,.45)}
-.rtab.active{background:#0DFFDE;border-color:#0DFFDE;color:#061428}
+/* ══ RANKING — Arena Top Serie brand ══ */
+#ranking{background:#0A1530 url('background_ranking.jpg') center/cover no-repeat;font-family:'Inter',sans-serif}
+#ranking .overlay{background:linear-gradient(120deg,rgba(10,21,48,.94) 0%,rgba(14,26,56,.86) 50%,rgba(7,14,31,.92) 100%)}
+#ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto auto 1fr auto;height:100%;padding:18px 24px;gap:12px;color:#fff}
+.phdr{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:0}
+.ptitle{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,2.5vw,30px);font-weight:800;letter-spacing:-.02em;display:flex;flex-direction:column;flex:1}
+.ptitle small{font-family:'Inter',sans-serif;font-size:10px;font-weight:800;color:#FF8A1E;letter-spacing:.3em;text-transform:uppercase;margin-bottom:2px}
+.rtabs{display:flex;gap:6px}
+.rtab{padding:7px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid rgba(0,103,232,.35);background:transparent;color:rgba(255,255,255,.55)}
+.rtab.active{background:linear-gradient(135deg,#0067E8,#0550B5);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(0,103,232,.4)}
 
 /* Top Serie header strip */
-.tser-bar{grid-column:1/-1;display:grid;grid-template-columns:auto auto 1fr auto auto auto;align-items:center;gap:14px;padding:10px 16px;background:linear-gradient(90deg,rgba(13,255,222,.06),rgba(255,207,25,.04));border:1px solid rgba(13,255,222,.18);border-radius:12px;margin-bottom:6px}
+.tser-bar{grid-column:1/-1;display:grid;grid-template-columns:auto auto 1fr auto auto auto;align-items:center;gap:14px;padding:10px 16px;background:linear-gradient(90deg,rgba(0,103,232,.06),rgba(255,138,30,.04));border:1px solid rgba(0,103,232,.2);border-radius:12px;margin-bottom:0}
 .tser-pools{display:flex;gap:8px;align-items:center}
 .tser-poolc{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:10px;border:1px solid transparent;transition:.2s}
-.tser-poolc.club{border-color:rgba(255,207,25,.2);background:rgba(255,207,25,.04)}
-.tser-poolc.system{border-color:rgba(13,255,222,.18);background:rgba(13,255,222,.04)}
-.tser-poolc.on{box-shadow:0 0 0 2px rgba(13,255,222,.4);background:rgba(13,255,222,.1)}
-.tser-poolc.club.on{box-shadow:0 0 0 2px rgba(255,207,25,.5);background:rgba(255,207,25,.12)}
-.tser-pool-ic{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#FFCF19,#FF9500);display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 3px 9px rgba(255,207,25,.3);flex-shrink:0}
-.tser-pool-l{font-size:8px;font-weight:800;color:rgba(255,207,25,.85);letter-spacing:.18em;text-transform:uppercase}
-.tser-pool-v{font-size:17px;font-weight:900;color:#FFCF19;line-height:1;margin-top:1px;font-variant-numeric:tabular-nums}
+.tser-poolc.club{border-color:rgba(212,160,23,.3);background:rgba(212,160,23,.05)}
+.tser-poolc.system{border-color:rgba(0,103,232,.25);background:rgba(0,103,232,.06)}
+.tser-poolc.on{box-shadow:0 0 0 2px rgba(0,103,232,.5);background:rgba(0,103,232,.12)}
+.tser-poolc.club.on{box-shadow:0 0 0 2px rgba(212,160,23,.6);background:rgba(212,160,23,.14)}
+.tser-pool-ic{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#F2C233,#D4A017);display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 3px 9px rgba(212,160,23,.35);flex-shrink:0}
+.tser-pool-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:8px;font-weight:800;color:rgba(212,160,23,.9);letter-spacing:.18em;text-transform:uppercase}
+.tser-pool-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;color:#D4A017;line-height:1;margin-top:1px;font-variant-numeric:tabular-nums}
 
 /* Scope toggle */
 .tser-scope{display:flex;background:rgba(255,255,255,.04);border-radius:8px;padding:2px;gap:2px}
 .tser-scope-b{padding:5px 10px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;white-space:nowrap}
-.tser-scope-b.on{background:rgba(13,255,222,.15);color:#0DFFDE;box-shadow:0 0 0 1px rgba(13,255,222,.3)}
+.tser-scope-b.on{background:rgba(0,103,232,.2);color:#00B5E8;box-shadow:0 0 0 1px rgba(0,103,232,.4)}
 .tser-stats{display:flex;gap:24px;justify-content:flex-end}
 .tser-stat{text-align:center}
 .tser-stat-l{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
@@ -261,25 +261,25 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 .lboard{display:flex;flex-direction:column;gap:5px;padding-right:14px;overflow-y:auto;min-height:0}
 .lhdr{display:grid;grid-template-columns:42px 1fr 50px 70px 70px 60px;padding:6px 14px;margin-bottom:2px;gap:8px}
-.lhc{font-size:10px;font-weight:800;color:rgba(13,255,222,.7);text-transform:uppercase;letter-spacing:.16em}
+.lhc{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;color:rgba(0,181,232,.85);text-transform:uppercase;letter-spacing:.16em}
 .lhc.nm{text-align:left}.lhc:not(.nm){text-align:center}
 .lr{display:grid;grid-template-columns:42px 1fr 50px 70px 70px 60px;padding:9px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;align-items:center;cursor:default;gap:8px}
 .lr:hover{background:rgba(255,255,255,.08)}
-.lr.r1{background:rgba(255,207,25,.1);border-color:rgba(255,207,25,.22)}
+.lr.r1{background:rgba(212,160,23,.1);border-color:rgba(212,160,23,.28)}
 .lr.r2{background:rgba(148,163,184,.06);border-color:rgba(148,163,184,.15)}
-.lr.r3{background:rgba(180,83,9,.07);border-color:rgba(180,83,9,.18)}
-.lpos{font-size:18px;font-weight:900;text-align:center;font-variant-numeric:tabular-nums}
+.lr.r3{background:rgba(184,115,51,.08);border-color:rgba(184,115,51,.2)}
+.lpos{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}
 .lname{display:flex;flex-direction:column;gap:1px;min-width:0}
-.lname-n{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:5px}
+.lname-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:5px}
 .lname-c{font-size:10px;color:rgba(255,255,255,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ltier{display:inline-block;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:2px 5px;border-radius:3px;color:#fff;text-align:center}
-.ltier.A{background:linear-gradient(135deg,#f59e0b,#ef4444)}
-.ltier.B{background:#1a6ef5}
-.ltier.C{background:linear-gradient(135deg,#10b981,#14b8a6)}
-.lpro{display:inline-block;font-size:8px;font-weight:900;padding:1px 4px;border-radius:3px;background:rgba(255,207,25,.18);color:#FFCF19;letter-spacing:.1em;margin-left:4px}
+.ltier.A{background:#FF8A1E}
+.ltier.B{background:#0067E8}
+.ltier.C{background:#0550B5}
+.lpro{display:inline-block;font-size:8px;font-weight:900;padding:1px 4px;border-radius:3px;background:rgba(212,160,23,.2);color:#D4A017;letter-spacing:.1em;margin-left:4px}
 .llive{display:inline-block;width:5px;height:5px;border-radius:50%;background:#ef4444;animation:blink 1.5s infinite;margin-left:4px}
-.lelo{font-size:18px;font-weight:900;color:#0DFFDE;text-align:center;font-variant-numeric:tabular-nums}
-.lsmall{font-size:13px;font-weight:700;color:rgba(255,255,255,.7);text-align:center;font-variant-numeric:tabular-nums}
+.lelo{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:#FF8A1E;text-align:center;font-variant-numeric:tabular-nums}
+.lsmall{font-size:13px;font-weight:700;color:rgba(255,255,255,.75);text-align:center;font-variant-numeric:tabular-nums}
 .lstreak{font-size:11px;font-weight:800;text-align:center;color:#FF8A1E;display:inline-flex;align-items:center;justify-content:center;gap:2px}
 .lstreak.cold{color:rgba(255,255,255,.4)}
 
@@ -290,55 +290,82 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .p1 .pav{width:80px;height:80px;font-size:26px;background:linear-gradient(145deg,#fbbf24,#d97706);border:3px solid #fbbf24;box-shadow:0 0 24px rgba(251,191,36,.4)}
 .p2 .pav{width:62px;height:62px;font-size:20px;background:linear-gradient(145deg,#94a3b8,#475569)}
 .p3 .pav{width:62px;height:62px;font-size:20px;background:linear-gradient(145deg,#cd7f32,#92400e)}
-.pname{font-size:12px;font-weight:800;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.pname{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:800;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
 .pclub{font-size:10px;font-weight:600;color:rgba(255,255,255,.5);max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
-.pelo{font-size:18px;font-weight:900;color:#FFCF19;line-height:1;margin-top:2px;font-variant-numeric:tabular-nums}
-.pelo small{font-size:9px;color:rgba(255,255,255,.5);font-weight:600;display:block;text-transform:uppercase;letter-spacing:.16em;margin-top:1px}
+.pelo{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:#D4A017;line-height:1;margin-top:2px;font-variant-numeric:tabular-nums}
+.pelo small{font-family:'Inter',sans-serif;font-size:9px;color:rgba(255,255,255,.55);font-weight:600;display:block;text-transform:uppercase;letter-spacing:.16em;margin-top:1px}
 .pbase{display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:rgba(255,255,255,.5);background-size:100% 100%}
 .p1 .pbase{width:110px;height:120px;background-image:url('top1.png')}
 .p2 .pbase,.p3 .pbase{width:92px;height:100px}
 .p2 .pbase{background-image:url('top2.png')}.p3 .pbase{background-image:url('top3.png')}
 
 /* Side panels */
-.tser-side{display:flex;flex-direction:column;gap:12px;min-height:0}
-.tser-panel{background:rgba(255,255,255,.03);border:1px solid rgba(13,255,222,.16);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;min-height:0}
-.tser-panel.gold{border-color:rgba(255,207,25,.22);background:rgba(255,207,25,.04)}
+.tser-side{display:flex;flex-direction:column;gap:10px;min-height:0}
+.tser-panel{background:rgba(255,255,255,.03);border:1px solid rgba(0,103,232,.2);border-radius:12px;padding:11px 13px;display:flex;flex-direction:column;min-height:0}
+.tser-panel.gold{border-color:rgba(212,160,23,.28);background:rgba(212,160,23,.05)}
 .tser-panel.live{background:rgba(239,68,68,.04);border-color:rgba(239,68,68,.18);padding:10px 12px}
-.tser-panel-h{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#fff;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:7px;display:flex;align-items:center;gap:6px}
-.tser-panel.gold .tser-panel-h{color:#FFCF19}
+.tser-panel.achv{border-color:rgba(255,138,30,.28);background:linear-gradient(135deg,rgba(255,138,30,.06),rgba(212,160,23,.04))}
+.tser-panel-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#fff;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.tser-panel.gold .tser-panel-h{color:#D4A017}
 .tser-panel.live .tser-panel-h{color:#fca5a5;border-bottom:none;margin-bottom:5px;padding-bottom:0}
+.tser-panel.achv .tser-panel-h{color:#FF8A1E}
 .tser-pside{flex:1;overflow-y:auto;min-height:0}
 .tser-pside::-webkit-scrollbar{width:0}
 .tser-prow{display:flex;align-items:center;gap:9px;padding:5px 6px;border-radius:7px}
 .tser-prow:hover{background:rgba(255,255,255,.03)}
-.tser-prow-rk{width:20px;font-size:13px;font-weight:900;text-align:center;color:rgba(255,255,255,.35);font-variant-numeric:tabular-nums}
-.tser-prow-rk.top{color:#FFCF19}
-.tser-prow-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#1e3a8a,#0f1f4d);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
+.tser-prow-rk{width:20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;text-align:center;color:rgba(255,255,255,.35);font-variant-numeric:tabular-nums}
+.tser-prow-rk.top{color:#D4A017}
+.tser-prow-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#0067E8,#0550B5);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;color:#fff}
 .tser-prow-n{flex:1;min-width:0}
-.tser-prow-name{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px}
+.tser-prow-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px}
 .tser-prow-club{font-size:9px;color:rgba(255,255,255,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tser-prow-v{font-size:15px;font-weight:900;color:#0DFFDE;font-variant-numeric:tabular-nums}
-.tser-panel.gold .tser-prow-v{color:#FFCF19}
+.tser-prow-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:#FF8A1E;font-variant-numeric:tabular-nums}
+.tser-panel.gold .tser-prow-v{color:#D4A017}
 
 .live-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .live-c{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:7px;padding:6px 8px}
 .live-c-h{font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fca5a5;display:flex;align-items:center;gap:4px}
 .live-c-h::before{content:'';width:4px;height:4px;border-radius:50%;background:#ef4444;animation:blink 1.5s infinite}
 .live-c-n{font-size:10px;font-weight:700;color:#fff;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.live-c-v{font-size:14px;font-weight:900;color:#0DFFDE;margin-top:1px}
+.live-c-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#FF8A1E;margin-top:1px}
 
-.tser-adstrip{grid-column:1/-1;margin-top:6px;padding:8px 14px;background:linear-gradient(90deg,rgba(255,207,25,.08),rgba(255,138,30,.06));border:2px dashed rgba(255,207,25,.35);border-radius:10px;display:flex;align-items:center;gap:14px;position:relative}
-.tser-ad-tag{position:absolute;top:-8px;right:14px;background:#FFCF19;color:#0d1f50;font-size:9px;font-weight:900;letter-spacing:.16em;padding:2px 8px;border-radius:4px}
+/* Featured player card */
+.tser-featured{display:flex;align-items:center;gap:16px;padding:14px 18px;background:linear-gradient(135deg,rgba(212,160,23,.12),rgba(255,138,30,.06));border:1.5px solid rgba(212,160,23,.4);border-radius:14px;margin-bottom:8px;position:relative;overflow:hidden}
+.tser-featured::before{content:'';position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:radial-gradient(circle,rgba(212,160,23,.18),transparent 70%);pointer-events:none}
+.tser-feat-tag{position:absolute;top:8px;right:14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:800;color:#D4A017;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.tser-feat-tag::before{content:'⭐';font-size:11px}
+.tser-feat-av{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#D4A017,#92400e);border:3px solid #D4A017;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 0 30px rgba(212,160,23,.4)}
+.tser-feat-info{flex:1;min-width:0;position:relative;z-index:2}
+.tser-feat-line{font-size:10px;font-weight:700;color:rgba(255,138,30,.85);text-transform:uppercase;letter-spacing:.16em}
+.tser-feat-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:#fff;letter-spacing:-.01em;margin-top:2px}
+.tser-feat-stats{display:flex;gap:12px;margin-top:4px;align-items:center}
+.tser-feat-st{font-size:11px;color:rgba(255,255,255,.65)}
+.tser-feat-st b{color:#FF8A1E;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
+.tser-feat-big{position:relative;z-index:2;text-align:right}
+.tser-feat-big-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;line-height:1;color:#D4A017;font-variant-numeric:tabular-nums}
+.tser-feat-big-l{font-size:9px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.18em;text-transform:uppercase;margin-top:2px}
+
+.tser-adstrip{grid-column:1/-1;margin-top:6px;padding:8px 14px;background:linear-gradient(90deg,rgba(212,160,23,.08),rgba(255,138,30,.06));border:2px dashed rgba(212,160,23,.4);border-radius:10px;display:flex;align-items:center;gap:14px;position:relative}
+.tser-ad-tag{position:absolute;top:-8px;right:14px;background:#D4A017;color:#0A1530;font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:800;letter-spacing:.16em;padding:2px 8px;border-radius:4px}
 .tser-ad-content{display:flex;align-items:center;gap:16px;flex:1;justify-content:space-between}
-.tser-ad-logos{display:flex;gap:16px;align-items:center}
-.tser-ad-logo{font-family:'Inter',sans-serif;font-weight:900;font-size:13px;letter-spacing:.15em;color:rgba(255,255,255,.55);padding:4px 8px;border:1px solid rgba(255,255,255,.12);border-radius:5px;background:rgba(255,255,255,.03)}
-.tser-ad-cta{font-size:11px;color:rgba(255,207,25,.8);font-weight:600;text-align:right}
+.tser-ad-logos{display:flex;gap:14px;align-items:center}
+.tser-ad-logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.6);padding:5px 10px;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:rgba(255,255,255,.03)}
+.tser-ad-cta{font-size:11px;color:rgba(212,160,23,.85);font-weight:600;text-align:right;font-family:'Inter',sans-serif}
 
-.tser-marquee{grid-column:1/-1;margin-top:8px;padding:8px 18px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;font-size:12px;color:rgba(255,255,255,.6)}
-.tser-marquee b{color:#FFCF19;font-weight:800}
-.tser-marquee i{color:#0DFFDE;font-style:normal;font-weight:800}
+.tser-marquee{grid-column:1/-1;margin-top:6px;padding:8px 18px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;font-size:12px;color:rgba(255,255,255,.6)}
+.tser-marquee b{color:#D4A017;font-weight:800}
+.tser-marquee i{color:#FF8A1E;font-style:normal;font-weight:800}
 .tser-marquee span{display:inline-block;animation:scroll 50s linear infinite;white-space:nowrap}
 @keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+/* Achievement badges */
+.achv-list{display:flex;flex-direction:column;gap:6px;flex:1;overflow-y:auto;min-height:0}
+.achv-item{display:flex;align-items:center;gap:9px;padding:6px 8px;background:rgba(255,138,30,.05);border:1px solid rgba(255,138,30,.15);border-radius:8px}
+.achv-ic{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,#FF8A1E,#E07006);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.achv-i{flex:1;min-width:0}
+.achv-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.achv-d{font-size:9px;color:rgba(255,255,255,.5);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.achv-meta{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;color:#FF8A1E}
 
 /* ══ HISTORY ══ */
 #history{background:#0c0e2a url('bg_history.png') center/cover no-repeat}
@@ -653,16 +680,38 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       </div>
     </div>
 
-    <div class="lboard">
-      <div class="lhdr">
-        <div class="lhc">#</div>
-        <div class="lhc nm">Cơ thủ</div>
-        <div class="lhc">Hạng</div>
-        <div class="lhc">Loạt</div>
-        <div class="lhc">Daily</div>
-        <div class="lhc">Streak</div>
+    <div style="display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden">
+      <!-- Featured player of today -->
+      <div class="tser-featured" id="rankFeatured">
+        <span class="tser-feat-tag">Vô địch hôm nay</span>
+        <div class="tser-feat-av" id="rankFeatAv">NH</div>
+        <div class="tser-feat-info">
+          <div class="tser-feat-line">⭐ Spotlight player · Carom 3 băng</div>
+          <div class="tser-feat-name" id="rankFeatName">Nguyễn V. Hùng</div>
+          <div class="tser-feat-stats">
+            <div class="tser-feat-st">Club <b id="rankFeatClub">Arena Q1</b></div>
+            <div class="tser-feat-st">Hạng <b id="rankFeatTier">A</b></div>
+            <div class="tser-feat-st">Series pt <b id="rankFeatPts">580</b></div>
+            <div class="tser-feat-st">PB <b id="rankFeatPB">21</b></div>
+          </div>
+        </div>
+        <div class="tser-feat-big">
+          <div class="tser-feat-big-n" id="rankFeatBig">17</div>
+          <div class="tser-feat-big-l">Loạt cao nhất</div>
+        </div>
       </div>
-      <div id="rankList"></div>
+
+      <div class="lboard">
+        <div class="lhdr">
+          <div class="lhc">#</div>
+          <div class="lhc nm">Cơ thủ</div>
+          <div class="lhc">Hạng</div>
+          <div class="lhc">Loạt</div>
+          <div class="lhc">Daily</div>
+          <div class="lhc">Streak</div>
+        </div>
+        <div id="rankList"></div>
+      </div>
     </div>
 
     <div class="tser-side">
@@ -673,6 +722,36 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
       <div class="tser-panel gold">
         <div class="tser-panel-h">👑 Bảng quý · National top 5</div>
         <div class="tser-pside" id="rankQuarter"></div>
+      </div>
+
+      <div class="tser-panel achv">
+        <div class="tser-panel-h">🏆 Achievement vừa unlock</div>
+        <div class="achv-list">
+          <div class="achv-item">
+            <div class="achv-ic">🔥</div>
+            <div class="achv-i">
+              <div class="achv-t">Streak 7 ngày — +10% bonus</div>
+              <div class="achv-d">Lê M. Tâm · vừa unlock</div>
+            </div>
+            <div class="achv-meta">+50pt</div>
+          </div>
+          <div class="achv-item">
+            <div class="achv-ic">💯</div>
+            <div class="achv-i">
+              <div class="achv-t">Series ≥15 lần đầu</div>
+              <div class="achv-d">Nguyễn V. Hùng · 17 loạt</div>
+            </div>
+            <div class="achv-meta">+100pt</div>
+          </div>
+          <div class="achv-item">
+            <div class="achv-ic">⚔️</div>
+            <div class="achv-i">
+              <div class="achv-t">Thách loạt thắng × 3</div>
+              <div class="achv-d">Trần Q. Bảo · hôm nay</div>
+            </div>
+            <div class="achv-meta">+30pt</div>
+          </div>
+        </div>
       </div>
 
       <div class="tser-panel live">
@@ -1005,6 +1084,17 @@ function renderRanking(){
   document.getElementById('rankPool').textContent=`${(sysPool/1e6).toFixed(1)}M ₫`;
   const clubPoolEl=document.getElementById('rankPoolClub');
   if(clubPoolEl)clubPoolEl.textContent=`${(clubPool/1e6).toFixed(2)}M ₫`;
+  // Featured player = filtered[0]
+  if(filtered.length>0){
+    const top=filtered[0];
+    document.getElementById('rankFeatAv').textContent=rankInitials(top.name);
+    document.getElementById('rankFeatName').textContent=top.name;
+    document.getElementById('rankFeatClub').textContent=top.club||'Independent';
+    document.getElementById('rankFeatTier').textContent=top.tier;
+    document.getElementById('rankFeatPts').textContent=top.seriesPoints;
+    document.getElementById('rankFeatPB').textContent=top.personalBest.series;
+    document.getElementById('rankFeatBig').textContent=top.todayBestSeries;
+  }
   // Podium
   const podiumEl=document.getElementById('rankPodium');
   const top3=filtered.slice(0,3);
@@ -1120,7 +1210,7 @@ const MODAL_DATA={
   'xep-hang':{title:'🥇 Xếp hạng',badge:'ELO',bc:'bg',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">#1</div><div class="m-stat-lbl">Nguyễn Văn An</div></div><div class="m-stat"><div class="m-stat-val">2,840</div><div class="m-stat-lbl">ELO cao nhất</div></div><div class="m-stat"><div class="m-stat-val">156</div><div class="m-stat-lbl">Cơ thủ ranked</div></div></div><button class="m-cta" onclick="closeModal();showScreen('ranking')">🏆 Xem bảng đầy đủ</button>`},
   'academy':{title:'🎓 Academy',badge:'VIDEO',bc:'bb',body:`<div class="m-coming"><div class="m-coming-ico">🎓</div><div class="m-coming-txt">Nội dung học thuật đang cập nhật</div></div>`},
   'dat-ban':{title:'📅 Đặt bàn',badge:'CÒN SLOT',bc:'bt',body:`<div class="m-coming"><div class="m-coming-ico">📅</div><div class="m-coming-txt">Đặt bàn online — ra mắt tháng 6/2025</div></div>`},
-  'bang-diem':{title:'📊 Bảng điểm',badge:'REAL-TIME',bc:'bb',body:`<div class="m-coming"><div class="m-coming-ico">📊</div><div class="m-coming-txt">Đang kết nối dữ liệu thời gian thực</div></div>`},
+  'bang-diem':{title:'📊 Bảng điểm',badge:'REAL-TIME',bc:'bb',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">5</div><div class="m-stat-lbl">Bàn đang chơi</div></div><div class="m-stat"><div class="m-stat-val">12</div><div class="m-stat-lbl">Trận hôm nay</div></div><div class="m-stat"><div class="m-stat-val">LIVE</div><div class="m-stat-lbl">Cập nhật</div></div></div><div class="m-section">Đang diễn ra</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🎱</div><div class="m-item-info"><div class="m-item-name">Bàn 07 — Pool 9-ball</div><div class="m-item-sub">Nguyễn Văn An vs Trần Minh Tuấn</div></div><div class="m-item-right">5 – 3</div></div><div class="m-item"><div class="m-item-ico">🎯</div><div class="m-item-info"><div class="m-item-name">Bàn 03 — Carom 3C</div><div class="m-item-sub">Lê Hoàng Phúc vs Phạm Quốc Bảo</div></div><div class="m-item-right">28 – 22</div></div><div class="m-item"><div class="m-item-ico">🎱</div><div class="m-item-info"><div class="m-item-name">Bàn 12 — Pool 9-ball</div><div class="m-item-sub">Hoàng Đức Việt vs Vũ Thành Long</div></div><div class="m-item-right">2 – 4</div></div></div><button class="m-cta" onclick="closeModal();showScreen('history')">📊 Xem lịch sử trận đấu</button>`},
   'goi-do':{title:'🍺 Gọi đồ',badge:'MENU',bc:'bo',body:`<div class="m-section">Menu phổ biến</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🍺</div><div class="m-item-info"><div class="m-item-name">Bia Tiger — lon 330ml</div><div class="m-item-sub">Lạnh sẵn · Giao tại bàn</div></div><div class="m-item-right">35k ₫</div></div><div class="m-item"><div class="m-item-ico">🥤</div><div class="m-item-info"><div class="m-item-name">Nước ngọt các loại</div><div class="m-item-sub">Pepsi / 7UP / Mirinda</div></div><div class="m-item-right">20k ₫</div></div><div class="m-item"><div class="m-item-ico">☕</div><div class="m-item-info"><div class="m-item-name">Cà phê sữa đá</div><div class="m-item-sub">Phin · Trung Nguyên</div></div><div class="m-item-right">25k ₫</div></div><div class="m-item"><div class="m-item-ico">🍜</div><div class="m-item-info"><div class="m-item-name">Mì ly các loại</div><div class="m-item-sub">Hảo Hảo / Omachi</div></div><div class="m-item-right">15k ₫</div></div></div><button class="m-cta yellow">🔔 Gọi nhân viên ngay</button>`},
 };
 
@@ -1188,9 +1278,9 @@ const SVC_HUB=[
   {cat:'thi-dau',ico:'🥇',icoCls:'i-rk',name:'Xếp hạng',badge:'ELO',bdgCls:'bg',on:true,desc:'Bảng ELO cơ thủ tại club',mk:'xep-hang'},
   {cat:'tien-ich',ico:'🎟️',icoCls:'i-vc',name:'Voucher',badge:'3 ƯU ĐÃI',bdgCls:'bgn',on:true,desc:'Ưu đãi · Khuyến mãi · Điểm tích luỹ',mk:'voucher'},
   {cat:'tien-ich',ico:'🎓',icoCls:'i-ac',name:'Academy',badge:'VIDEO',bdgCls:'bb',on:false,desc:'Video kỹ thuật · Bài giảng billiards',mk:'academy'},
-  {cat:'tien-ich',ico:'📅',icoCls:'i-bk',name:'Đặt bàn',badge:'CÒN SLOT',bdgCls:'bt',on:true,desc:'Đặt bàn online · Quản lý lịch',mk:'dat-ban'},
+  {cat:'tien-ich',ico:'📅',icoCls:'i-bk',name:'Đặt bàn',badge:'RA MẮT 06/25',bdgCls:'bz',on:false,desc:'Đặt bàn online · Quản lý lịch',mk:'dat-ban'},
   {cat:'in-game',ico:'📊',icoCls:'i-sc',name:'Bảng điểm',badge:'REAL-TIME',bdgCls:'bb',on:true,desc:'Tích điểm · Kết quả trực tiếp theo trận',mk:'bang-diem'},
-  {cat:'in-game',ico:'🍺',icoCls:'i-fn',name:'Gọi đồ',badge:'MENU',bdgCls:'bo',on:false,desc:'Gọi nhân viên · Thực đơn · F&B tại bàn',mk:'goi-do'},
+  {cat:'in-game',ico:'🍺',icoCls:'i-fn',name:'Gọi đồ',badge:'MENU',bdgCls:'bo',on:true,desc:'Gọi nhân viên · Thực đơn · F&B tại bàn',mk:'goi-do'},
 ];
 let curSvcCat='all';
 
