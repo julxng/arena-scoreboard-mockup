@@ -52,7 +52,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .back-btn:hover{background:rgba(255,255,255,.14);color:#fff}
 
 /* ══ HOME (production-matching layout) ══ */
-:root{--cc:#0DFFDE;--cc2:rgba(13,255,222,.12);--cc3:rgba(13,255,222,.28);--hbg:radial-gradient(ellipse at 50% 35%,#2a1d5c 0%,#16113a 35%,#0c0920 65%,#060516 100%)}
+:root{--cc:#00B5E8;--cc2:rgba(0,181,232,.13);--cc3:rgba(0,181,232,.28);--hbg:radial-gradient(ellipse at 50% 30%,#0067E8 0%,#01346B 28%,#001f4d 60%,#000d28 100%)}
 #home{background:var(--hbg)}
 
 /* Top header bar */
@@ -70,8 +70,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* Center body — clean centered logo */
 .home-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
-.hc-logo{height:clamp(110px,26vh,240px);object-fit:contain;opacity:.28;filter:brightness(0) invert(1)}
-.hc-sub{font-size:clamp(11px,1.6vw,18px);font-weight:900;color:rgba(255,255,255,.14);letter-spacing:clamp(8px,2.5vw,20px);text-transform:uppercase;margin-top:4px}
+.hc-logo{height:clamp(110px,26vh,240px);object-fit:contain;opacity:.42;filter:brightness(0) invert(1)}
+.hc-sub{font-size:clamp(11px,1.6vw,18px);font-weight:900;color:rgba(255,255,255,.22);letter-spacing:clamp(8px,2.5vw,20px);text-transform:uppercase;margin-top:4px}
 
 /* Services grid (used on #services screen) */
 .sgrid-wrap{flex:1;padding:14px 20px 0;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
@@ -1090,7 +1090,7 @@ window.addEventListener('hashchange',()=>{const h=(location.hash||'').replace(/^
 
 // ── Club themes ──
 const CLUBS=[
-  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#0DFFDE',cc2:'rgba(13,255,222,.12)',cc3:'rgba(13,255,222,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#2a1d5c 0%,#16113a 35%,#0c0920 65%,#060516 100%)',short:'HS'},
+  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#00B5E8',cc2:'rgba(0,181,232,.13)',cc3:'rgba(0,181,232,.28)',hbg:'radial-gradient(ellipse at 50% 30%,#0067E8 0%,#01346B 28%,#001f4d 60%,#000d28 100%)',short:'HS'},
   {name:'G8 Billiards',logo:null,cc:'#1a6ef5',cc2:'rgba(26,110,245,.12)',cc3:'rgba(26,110,245,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#0d2d6e 0%,#071a48 35%,#040e2c 65%,#020818 100%)',short:'G8'},
   {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#3d1e00 0%,#1e0e00 35%,#100700 100%)',short:'A1'},
   {name:'Phúc Lợi',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#2d1060 0%,#16082e 35%,#0a0516 100%)',short:'PL'},
@@ -1106,7 +1106,7 @@ function setClub(i){
   r.setProperty('--cc3',c.cc3);
   r.setProperty('--hbg',c.hbg);
   document.getElementById('home').style.background=c.hbg;
-  document.getElementById('services').style.background='#070d1a';
+  document.getElementById('services').style.background='radial-gradient(ellipse at 50% 0%,#0a2d6e 0%,#031634 50%,#000a1e 100%)';
   document.getElementById('topClubName').textContent=c.name;
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
   const hn=document.getElementById('svcHeroName'); if(hn) hn.textContent=c.name;
