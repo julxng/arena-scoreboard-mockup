@@ -702,6 +702,81 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .idle-dots{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
 .idle-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2)}
 .idle-dot.on{background:var(--cc)}
+
+/* ════════════════════════════════════════════════════════════════════
+   ═══ GLOBAL LIGHT MODE — All scoreboard screens match Arena app ═══
+   ════════════════════════════════════════════════════════════════════ */
+body{background:#f5f7fa;color:#0a1228}
+
+/* HOME — light bg, dark text, Arena blue accents */
+#home{background:linear-gradient(180deg,#fff 0%,#f0f4fa 50%,#e5e9f0 100%)!important;color:#0a1228}
+.home-hdr .hbp{background:#fff!important;border:1px solid #e5e9f0!important;box-shadow:0 1px 3px rgba(10,12,20,.04)}
+.hbp img{filter:none!important}
+.hbp-txt{color:#0067E8!important}
+.hdr-table{color:#5a6378!important}
+.hdr-lang{background:#fff!important;color:#0a1228!important;border:1px solid #e5e9f0;box-shadow:0 1px 3px rgba(10,12,20,.04)}
+.hdr-lang:hover{background:#f0f4fa!important}
+.hdr-cfg{background:#fff!important;color:#5a6378!important;border:1px solid #e5e9f0;box-shadow:0 1px 3px rgba(10,12,20,.04)}
+.hdr-cfg:hover{background:#f0f4fa!important;color:#0067E8!important}
+.hc-logo{opacity:.88!important;filter:none!important}
+.hc-sub{color:rgba(0,103,232,.42)!important}
+
+/* Home bottom nav — light card */
+.home-nav{background:#fff!important;border:1px solid #e5e9f0!important;box-shadow:0 -4px 16px rgba(0,103,232,.06),0 2px 8px rgba(10,12,20,.04)!important;backdrop-filter:none!important}
+.hnav-btn:not(:last-child)::after{background:#e5e9f0!important}
+.hnav-btn:hover{background:#f3f6fb!important}
+.hnav-btn.primary{background:#f3f6fb!important}
+.hnav-lbl{color:#0a1228!important}
+.hnav-ico.grid{background:linear-gradient(135deg,#DBEAFE,#93C5FD)!important;border:none!important;color:#1E3A8A}
+.hnav-ico.play{background:linear-gradient(135deg,#00B5E8,#0067E8)!important;color:#fff!important;box-shadow:0 4px 20px rgba(0,103,232,.4)!important}
+.hnav-ico.hist{background:linear-gradient(135deg,#FED7AA,#FB923C)!important;border:none!important;color:#9A3412}
+
+/* RANKING — light bg, drop dark image */
+#ranking{background:#f5f7fa!important}
+#ranking .overlay{background:linear-gradient(180deg,rgba(245,247,250,.6) 0%,rgba(245,247,250,.85) 100%)!important;backdrop-filter:blur(8px)}
+#ranking .content,#ranking .phdr,#ranking .ptitle{color:#0a1228}
+#ranking .phdr small{color:#5a6378!important}
+#ranking .ptitle span,#ranking .ptitle b{color:#0a1228!important}
+#ranking .back-btn{background:#fff!important;color:#0a1228!important;border:1px solid #e5e9f0!important}
+#ranking .back-btn:hover{background:#f0f4fa!important}
+#ranking .rtab{background:#fff!important;color:#5a6378!important;border:1px solid #e5e9f0!important}
+#ranking .rtab.active{background:#0067E8!important;border-color:#0067E8!important;color:#fff!important}
+#ranking table,#ranking .row,#ranking .rlist{color:#0a1228}
+#ranking td,#ranking th{color:#0a1228!important;border-color:#e5e9f0!important}
+#ranking tr:hover{background:#f3f6fb!important}
+
+/* HISTORY — light bg */
+#history{background:#f5f7fa!important}
+#history .overlay{background:rgba(245,247,250,.7)!important;backdrop-filter:blur(8px)}
+#history .content,#history .phdr,#history .ptitle{color:#0a1228}
+#history .phdr small{color:#5a6378!important}
+#history .back-btn{background:#fff!important;color:#0a1228!important;border:1px solid #e5e9f0!important}
+
+/* GAME — light bg */
+#game{background:#f5f7fa!important;color:#0a1228}
+#game .ghdr,#game .gbody{color:#0a1228}
+#game .gtab{color:#5a6378!important;border-color:#e5e9f0!important}
+#game .gtab.active{color:#0067E8!important;border-bottom-color:#0067E8!important}
+
+/* POST GAME — light */
+#postgame{background:#f5f7fa!important;color:#0a1228}
+
+/* Club picker theme panel — light */
+#themePanel{background:#fff!important;border:1px solid #e5e9f0!important;color:#0a1228!important;box-shadow:0 12px 40px rgba(10,12,20,.12)!important}
+.tclub{color:#0a1228!important}
+.tclub:hover{background:#f0f4fa!important}
+.tclub.sel{background:#e8f1ff!important;color:#0067E8!important}
+
+/* Ad ticker — light, subtle */
+.ad-ticker{background:#fff!important;border-top:1px solid #e5e9f0!important;color:#0a1228}
+.ad-item{color:#0a1228!important}
+.ad-txt{color:#0a1228!important}
+.ad-price{color:#0067E8!important}
+.ad-cta{background:#0067E8!important;color:#fff!important}
+.ad-spon{background:#fef3c7!important;color:#854d0e!important}
+
+/* Idle overlay — keep dark for digital signage (digital ad screen) */
+/* (idle is full-screen takeover, light mode would be too bright) */
 </style>
 </head>
 <body>
@@ -1229,10 +1304,10 @@ window.addEventListener('hashchange',()=>{const h=(location.hash||'').replace(/^
 
 // ── Club themes ──
 const CLUBS=[
-  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#00B5E8',cc2:'rgba(0,181,232,.13)',cc3:'rgba(0,181,232,.28)',hbg:'radial-gradient(ellipse at 50% 30%,#0067E8 0%,#01346B 28%,#001f4d 60%,#000d28 100%)',short:'HS'},
-  {name:'G8 Billiards',logo:null,cc:'#1a6ef5',cc2:'rgba(26,110,245,.12)',cc3:'rgba(26,110,245,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#0d2d6e 0%,#071a48 35%,#040e2c 65%,#020818 100%)',short:'G8'},
-  {name:'Arena Q1',logo:'logo_arena.png',cc:'#f59e0b',cc2:'rgba(245,158,11,.12)',cc3:'rgba(245,158,11,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#3d1e00 0%,#1e0e00 35%,#100700 100%)',short:'A1'},
-  {name:'Phúc Lợi',logo:null,cc:'#a855f7',cc2:'rgba(168,85,247,.12)',cc3:'rgba(168,85,247,.28)',hbg:'radial-gradient(ellipse at 50% 35%,#2d1060 0%,#16082e 35%,#0a0516 100%)',short:'PL'},
+  {name:'Hoàng Sao',logo:'logo-hoangsao.jpg',cc:'#0067E8',cc2:'rgba(0,103,232,.1)',cc3:'rgba(0,103,232,.22)',hbg:'linear-gradient(180deg,#fff 0%,#f0f4fa 50%,#e5e9f0 100%)',short:'HS'},
+  {name:'G8 Billiards',logo:null,cc:'#0067E8',cc2:'rgba(0,103,232,.1)',cc3:'rgba(0,103,232,.22)',hbg:'linear-gradient(180deg,#fff 0%,#eef3fb 50%,#dde6f3 100%)',short:'G8'},
+  {name:'Arena Q1',logo:'logo_arena.png',cc:'#0067E8',cc2:'rgba(0,103,232,.1)',cc3:'rgba(0,103,232,.22)',hbg:'linear-gradient(180deg,#fff 0%,#f0f4fa 50%,#e5e9f0 100%)',short:'A1'},
+  {name:'Phúc Lợi',logo:null,cc:'#0067E8',cc2:'rgba(0,103,232,.1)',cc3:'rgba(0,103,232,.22)',hbg:'linear-gradient(180deg,#fff 0%,#f0f4fa 50%,#e5e9f0 100%)',short:'PL'},
 ];
 let curClub=0;
 
