@@ -1338,7 +1338,17 @@ function setClub(i){
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
   const hn=document.getElementById('svcHeroName'); if(hn) hn.textContent=c.name;
   const hc=document.getElementById('svcHeroClub'); if(hc) hc.style.backgroundImage=c.logo?`url('${c.logo}')`:'linear-gradient(135deg,'+c.cc+','+c.cc+'aa)';
-  const rn=document.getElementById('rankClubName'); if(rn) rn.textContent=c.name+' · Bảng xếp hạng ngày';
+  const rn=document.getElementById('rankClubName'); if(rn) rn.textContent=c.name+' · Carom 3 băng';
+  const rcl=document.getElementById('rankClubLogo');
+  if(rcl){
+    if(c.logo){
+      rcl.innerHTML=`<img src="${c.logo}" alt="">`;
+      rcl.style.cssText='';
+    }else{
+      rcl.innerHTML=c.short;
+      rcl.style.cssText=`display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,${c.cc},${c.cc}aa);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:11px;letter-spacing:.06em`;
+    }
+  }
   ['bdg-trp','sbdg-trp'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='2 GIẢI '+c.short; });
   ['bdg-rk','sbdg-rk'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='TOP '+c.short; });
   document.querySelectorAll('.tclub').forEach((el,j)=>el.classList.toggle('sel',j===i));
