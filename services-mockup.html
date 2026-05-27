@@ -245,18 +245,18 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* Layer 0: atmosphere */
 .r-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.r-orb{position:absolute;border-radius:50%;filter:blur(140px);will-change:transform}
-.r-orb.o1{width:580px;height:580px;background:radial-gradient(circle,rgba(0,196,255,.45),transparent 70%);top:-180px;left:-120px;animation:rdrift1 32s ease-in-out infinite alternate}
-.r-orb.o2{width:520px;height:520px;background:radial-gradient(circle,rgba(0,103,232,.4),transparent 70%);top:25%;right:-140px;animation:rdrift2 36s ease-in-out infinite alternate}
-.r-orb.o3{width:460px;height:460px;background:radial-gradient(circle,rgba(5,80,181,.5),transparent 70%);bottom:-160px;left:35%;animation:rdrift3 40s ease-in-out infinite alternate}
+.r-orb{position:absolute;border-radius:50%;filter:blur(80px)}
+.r-orb.o1{width:560px;height:560px;background:radial-gradient(circle,rgba(0,196,255,.35),transparent 70%);top:-160px;left:-100px;animation:rdrift1 60s ease-in-out infinite alternate}
+.r-orb.o2{width:500px;height:500px;background:radial-gradient(circle,rgba(0,103,232,.3),transparent 70%);top:25%;right:-120px;animation:rdrift2 70s ease-in-out infinite alternate}
+.r-orb.o3{width:440px;height:440px;background:radial-gradient(circle,rgba(5,80,181,.4),transparent 70%);bottom:-140px;left:35%;animation:rdrift3 80s ease-in-out infinite alternate}
 .r-grain{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(rgba(255,255,255,.4) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:overlay}
-.r-vignette{position:absolute;inset:0;box-shadow:inset 0 0 250px 40px rgba(0,0,0,.75);pointer-events:none;z-index:7}
+.r-vignette{position:absolute;inset:0;box-shadow:inset 0 0 200px 30px rgba(0,0,0,.55);pointer-events:none;z-index:1}
 @keyframes rdrift1{0%{transform:translate(0,0)}100%{transform:translate(80px,100px)}}
 @keyframes rdrift2{0%{transform:translate(0,0)}100%{transform:translate(-100px,60px)}}
 @keyframes rdrift3{0%{transform:translate(0,0)}100%{transform:translate(60px,-80px)}}
 
 /* Header — glass nav */
-.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(12px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
 .r-nav-brand{display:flex;align-items:center;gap:12px}
 .r-nav-logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;box-shadow:0 6px 22px rgba(0,196,255,.5),inset 0 1px 0 rgba(255,255,255,.3)}
 .r-nav-titles{display:flex;flex-direction:column}
@@ -275,10 +275,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* Hero podium stage */
 .r-stage{position:relative;z-index:6;display:flex;align-items:flex-end;justify-content:center;padding:34px 32px 14px;perspective:1400px;flex-shrink:0}
-.r-stage-floor{position:absolute;bottom:-20px;left:15%;right:15%;height:160px;background:radial-gradient(ellipse at top,rgba(0,196,255,.22),transparent 70%);pointer-events:none}
-.r-beam{position:absolute;top:0;left:50%;width:300px;height:100%;background:linear-gradient(180deg,rgba(0,196,255,.28) 0%,rgba(0,103,232,.1) 35%,transparent 75%);transform:translateX(-50%);filter:blur(28px);pointer-events:none}
+.r-stage-floor{position:absolute;bottom:-20px;left:15%;right:15%;height:160px;background:radial-gradient(ellipse at top,rgba(0,196,255,.22),transparent 70%);pointer-events:none;z-index:0}
+.r-beam{position:absolute;top:0;left:50%;width:280px;height:100%;background:linear-gradient(180deg,rgba(0,196,255,.22) 0%,rgba(0,103,232,.08) 35%,transparent 75%);transform:translateX(-50%);filter:blur(20px);pointer-events:none;z-index:0}
 
-.r-pod{position:relative;display:flex;flex-direction:column;align-items:center;padding:22px 20px 22px;border-radius:24px;backdrop-filter:blur(20px) saturate(180%);will-change:transform}
+.r-pod{position:relative;display:flex;flex-direction:column;align-items:center;padding:22px 20px 22px;border-radius:24px;backdrop-filter:blur(12px) saturate(140%);will-change:transform}
 .r-pod.first{width:340px;height:480px;margin:0 -8px;z-index:3;background:linear-gradient(180deg,rgba(0,196,255,.18) 0%,rgba(0,103,232,.1) 50%,rgba(5,80,181,.05) 100%);border:2px solid rgba(0,196,255,.6);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 100px rgba(0,196,255,.4),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 40px rgba(0,196,255,.08);animation:rfloat1 5.5s ease-in-out infinite}
 .r-pod.second{width:260px;height:400px;z-index:2;background:linear-gradient(180deg,rgba(59,143,243,.14) 0%,rgba(0,103,232,.06) 100%);border:1.5px solid rgba(59,143,243,.5);box-shadow:0 22px 55px rgba(0,0,0,.5),0 0 60px rgba(59,143,243,.25),inset 0 1px 0 rgba(255,255,255,.12);transform:rotateY(10deg) translateZ(-40px);animation:rfloat2 6s ease-in-out infinite .5s}
 .r-pod.third{width:260px;height:400px;z-index:2;background:linear-gradient(180deg,rgba(5,80,181,.16) 0%,rgba(1,52,107,.06) 100%);border:1.5px solid rgba(5,80,181,.5);box-shadow:0 22px 55px rgba(0,0,0,.5),0 0 60px rgba(5,80,181,.3),inset 0 1px 0 rgba(255,255,255,.1);transform:rotateY(-10deg) translateZ(-40px);animation:rfloat3 6.4s ease-in-out infinite 1s}
@@ -313,10 +313,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 .r-pod-big{margin-top:14px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .r-pod-big-l{font-size:9px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:.26em;text-transform:uppercase}
-.r-pod-big-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;line-height:.85;letter-spacing:-.05em;margin-top:4px;font-variant-numeric:tabular-nums}
-.r-pod.first .r-pod-big-n{font-size:132px;background:linear-gradient(180deg,#fff 10%,#00C4FF 55%,#0067E8 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.r-pod.second .r-pod-big-n{font-size:84px;color:#3B8FF3}
-.r-pod.third .r-pod-big-n{font-size:84px;color:#0550B5}
+.r-pod-big-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;line-height:1;letter-spacing:0;margin-top:4px;font-variant-numeric:tabular-nums;padding:0 4px}
+.r-pod.first .r-pod-big-n{font-size:108px;background:linear-gradient(180deg,#fff 10%,#00C4FF 55%,#0067E8 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.r-pod.second .r-pod-big-n{font-size:72px;color:#3B8FF3}
+.r-pod.third .r-pod-big-n{font-size:72px;color:#0550B5}
 .r-pod-big-u{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.2em;margin-top:2px}
 
 .r-pod-stats{display:flex;gap:5px;margin-top:auto;padding-top:12px;width:100%;justify-content:center;flex-wrap:wrap}
@@ -324,7 +324,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .r-pod-stat b{color:#00C4FF;font-weight:800;margin-left:4px}
 
 /* Sparkle */
-.r-sparkle{position:absolute;width:5px;height:5px;border-radius:50%;background:#00C4FF;box-shadow:0 0 12px #00C4FF,0 0 24px rgba(0,196,255,.6);animation:rtwinkle 3.5s ease-in-out infinite;pointer-events:none;z-index:4}
+.r-sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:#00C4FF;box-shadow:0 0 10px #00C4FF;animation:rtwinkle 4s ease-in-out infinite;pointer-events:none;z-index:0}
 .r-sparkle.s1{top:18%;left:24%;animation-delay:0s}
 .r-sparkle.s2{top:32%;right:22%;animation-delay:1.2s}
 .r-sparkle.s3{top:48%;left:34%;animation-delay:2.4s}
@@ -335,7 +335,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* Info strip pills */
 .r-info{position:relative;z-index:6;display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 32px 14px;flex-wrap:wrap;flex-shrink:0}
-.r-pill{display:flex;align-items:center;gap:11px;padding:10px 16px;background:rgba(255,255,255,.04);backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.1);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08)}
+.r-pill{display:flex;align-items:center;gap:11px;padding:10px 16px;background:rgba(255,255,255,.04);backdrop-filter:blur(12px) saturate(140%);border:1px solid rgba(255,255,255,.1);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08)}
 .r-pill.scope{padding:5px}
 .r-pill-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;color:#fff}
 .r-pill.pool .r-pill-ic{background:linear-gradient(135deg,#00C4FF,#0067E8);box-shadow:0 4px 14px rgba(0,196,255,.4)}
@@ -1049,10 +1049,10 @@ body{background:#f5f7fa;color:#0a1228}
     <!-- Filter pills -->
     <div class="r-filters">
       <div class="r-fgroup">
-        <button class="r-fb on">Hôm nay</button>
-        <button class="r-fb">Tháng</button>
-        <button class="r-fb">Quý</button>
-        <button class="r-fb">Grand Series</button>
+        <button class="r-fb on" onclick="switchRange(this,'today')">Hôm nay</button>
+        <button class="r-fb" onclick="switchRange(this,'month')">Tháng</button>
+        <button class="r-fb" onclick="switchRange(this,'quarter')">Quý</button>
+        <button class="r-fb" onclick="switchRange(this,'grand')">Grand Series</button>
       </div>
       <div class="r-fgroup">
         <button class="r-fb on" onclick="filterTier(this,'all')">Tất cả</button>
@@ -1347,9 +1347,10 @@ function switchGTab(el){ document.querySelectorAll('.gtab').forEach(t=>t.classLi
 function switchRankTab(el,kind){ document.querySelectorAll('#ranking .r-nav-tab').forEach(t=>t.classList.remove('on')); el.classList.add('on'); rankDiscipline=kind; renderRanking(); }
 function filterTier(el,t){ el.parentElement.querySelectorAll('.r-fb').forEach(b=>b.classList.remove('on','A','B','C')); el.classList.add('on'); if(t!=='all')el.classList.add(t); rankTier=t; renderRanking(); }
 function switchScope(el,s){ document.querySelectorAll('.r-scope-b').forEach(b=>b.classList.remove('on')); el.classList.add('on'); rankScope=s; renderRanking(); }
+function switchRange(el,r){ el.parentElement.querySelectorAll('.r-fb').forEach(b=>b.classList.remove('on')); el.classList.add('on'); rankRange=r; renderRanking(); }
 
 // ── Top Serie data ──
-let rankData=null, rankTier='all', rankDiscipline='carom', rankScope='system';
+let rankData=null, rankTier='all', rankDiscipline='carom', rankScope='system', rankRange='today';
 const RANK_API='https://arenaweb-ten.vercel.app/api/demo/top-serie-3c';
 
 function rankInitials(n){return n.split(' ').slice(-2).map(s=>s[0]||'').join('').toUpperCase();}
@@ -1554,11 +1555,13 @@ const SVC_CATS=[
 ];
 const SVC_HUB=[
   {cat:'catcam',ico:'📷',icoCls:'i-cam',name:'Cắt Cam',badge:'● LIVE',bdgCls:'bl',on:true,desc:'Camera trực tiếp · Cắt Cam LIVE stream',mk:'catcam'},
+  {cat:'catcam',ico:'🎥',icoCls:'i-lv',name:'Livestream bàn 07',badge:'● LIVE',bdgCls:'bl',on:true,desc:'Đang phát · 12 đang xem',mk:'livestream'},
   {cat:'catcam',ico:'🤖',icoCls:'i-ai',name:'AI Phân tích',badge:'BETA',bdgCls:'bz',on:false,desc:'Phân tích kỹ thuật bằng AI — đang phát triển',mk:null},
   {cat:'thi-dau',ico:'🏆',icoCls:'i-trp',name:'Giải đấu',badge:'ĐANG DIỄN RA',bdgCls:'bg',on:true,desc:'Tổ chức · Quản lý · Kết quả giải đấu',mk:'giai-dau'},
   {cat:'thi-dau',ico:'🎯',icoCls:'i-ch',name:'Thử thách AI',badge:'AI · MỚI',bdgCls:'bai',on:true,desc:'Thử thách hàng ngày · ELO reward',mk:'thu-thach'},
   {cat:'thi-dau',ico:'🥇',icoCls:'i-rk',name:'Xếp hạng',badge:'ELO',bdgCls:'bg',on:true,desc:'Bảng ELO cơ thủ tại club',mk:'xep-hang'},
   {cat:'tien-ich',ico:'🎟️',icoCls:'i-vc',name:'Voucher',badge:'3 ƯU ĐÃI',bdgCls:'bgn',on:true,desc:'Ưu đãi · Khuyến mãi · Điểm tích luỹ',mk:'voucher'},
+  {cat:'tien-ich',ico:'💬',icoCls:'i-fb',name:'Feedback club',badge:'MỚI',bdgCls:'bgn',on:true,desc:'Góp ý cho Hoàng Sao · Đánh giá dịch vụ',mk:'feedback'},
   {cat:'tien-ich',ico:'🎓',icoCls:'i-ac',name:'Academy',badge:'VIDEO',bdgCls:'bb',on:false,desc:'Video kỹ thuật · Bài giảng billiards',mk:'academy'},
   {cat:'tien-ich',ico:'📅',icoCls:'i-bk',name:'Đặt bàn',badge:'RA MẮT 06/25',bdgCls:'bz',on:false,desc:'Đặt bàn online · Quản lý lịch',mk:'dat-ban'},
   {cat:'in-game',ico:'📊',icoCls:'i-sc',name:'Bảng điểm',badge:'REAL-TIME',bdgCls:'bb',on:true,desc:'Tích điểm · Kết quả trực tiếp theo trận',mk:'bang-diem'},
