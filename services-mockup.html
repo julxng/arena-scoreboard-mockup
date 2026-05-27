@@ -84,25 +84,27 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .sc:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.16)}
 .sc.off{opacity:.22}
 
-/* ══ SERVICE HUB sidebar layout ══ */
-.svc-sb{width:180px;flex-shrink:0;display:flex;flex-direction:column;background:#060b14;border-right:1px solid rgba(255,255,255,.05)}
-.svc-sb-top{padding:13px 12px 9px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.05)}
+/* ══ SERVICE HUB — LIGHT MODE matching arena app svchub design system ══ */
+.svc-sb{width:180px;flex-shrink:0;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e5e9f0}
+.svc-sb-top{padding:13px 12px 9px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
 .svc-sb-logo{display:flex;align-items:center;gap:7px}
-.svc-sb-logo img{height:22px;object-fit:contain;filter:brightness(0) invert(1)}
-.svc-sb-logo-txt{font-size:11px;font-weight:900;color:#fff;letter-spacing:.5px}
+.svc-sb-logo img{height:22px;object-fit:contain}
+.svc-sb-logo-txt{font-size:11px;font-weight:900;color:#0a1228;letter-spacing:.5px}
 .svc-sb-nav{flex:1;overflow-y:auto;padding:7px 0}
 .svc-sb-nav::-webkit-scrollbar{display:none}
 .svc-sb-item{display:flex;align-items:center;gap:8px;padding:7px 9px;margin:1px 5px;cursor:pointer;transition:background .12s;border-radius:8px;border-left:3px solid transparent}
-.svc-sb-item:hover{background:rgba(255,255,255,.06)}
-.svc-sb-item.sel{background:rgba(255,255,255,.08);border-left-color:var(--cc)}
-.svc-sb-ico{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.svc-sb-item:hover{background:#f3f6fb}
+.svc-sb-item.sel{background:#e8f1ff;border-left-color:#0067E8}
+.svc-sb-ico{width:26px;height:26px;border-radius:8px;background:#f0f4fa;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
 .svc-sb-info{flex:1;min-width:0}
-.svc-sb-name{font-size:11px;font-weight:600;color:rgba(255,255,255,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.svc-sb-item.sel .svc-sb-name{color:#fff;font-weight:700}
-.svc-sb-cnt{font-size:9px;font-weight:700;color:rgba(255,255,255,.22)}
-.svc-sb-item.sel .svc-sb-cnt{color:var(--cc)}
+.svc-sb-name{font-size:11px;font-weight:600;color:#5a6378;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.svc-sb-item.sel .svc-sb-name{color:#0067E8;font-weight:700}
+.svc-sb-cnt{font-size:9px;font-weight:700;color:#8a93a8}
+.svc-sb-item.sel .svc-sb-cnt{color:#0067E8}
 .svc-sb-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.svc-sb-footer{padding:9px 12px;border-top:1px solid rgba(255,255,255,.05);flex-shrink:0}
+.svc-sb-footer{padding:9px 12px;border-top:1px solid #e5e9f0;flex-shrink:0}
+.svc-sb-footer .back-btn{background:#f0f4fa;color:#5a6378;border:1px solid #e5e9f0;font-size:11px}
+.svc-sb-footer .back-btn:hover{background:#e5e9f0;color:#0a1228}
 /* Hero header — blue gradient matching app mockup svchub */
 .svc-hero{padding:14px 18px;background:linear-gradient(135deg,#0067E8 0%,#01346B 100%);display:flex;align-items:center;gap:13px;flex-shrink:0;position:relative;overflow:hidden}
 .svc-hero::after{content:'';position:absolute;top:-30%;right:-10%;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 60%);pointer-events:none}
@@ -114,49 +116,59 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .svc-hero-table{font-size:10.5px;font-weight:500;color:rgba(255,255,255,.72);margin-top:1px;line-height:1.2}
 .svc-hero-live{display:inline-flex;align-items:center;gap:5px;background:rgba(34,197,94,.22);border:1px solid rgba(134,239,172,.45);padding:4px 9px;border-radius:999px;font-size:9.5px;font-weight:700;color:#86efac;letter-spacing:.02em;position:relative;z-index:1;flex-shrink:0}
 .svc-hero-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#22c55e;animation:pulse 1.6s infinite;box-shadow:0 0 5px #22c55e}
-/* Main content area — secondary header (table + count) */
-.svc-main-hdr{display:flex;align-items:center;padding:10px 16px;gap:10px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.2)}
-.svc-main-title{flex:1;font-size:10.5px;font-weight:800;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px}
-.svc-cnt-pill{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);padding:3px 10px;border-radius:999px}
-.svc-grid{flex:1;overflow-y:auto;padding:10px 12px 12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-content:start;min-height:0}
-.svc-grid::-webkit-scrollbar{width:3px}
-.svc-grid::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+/* Secondary header (table + count) — light */
+.svc-main-hdr{display:flex;align-items:center;padding:10px 16px;gap:10px;flex-shrink:0;border-bottom:1px solid #e5e9f0;background:#fff}
+.svc-main-title{flex:1;font-size:10.5px;font-weight:800;color:#5a6378;text-transform:uppercase;letter-spacing:1px}
+.svc-cnt-pill{font-size:10px;font-weight:700;color:#5a6378;background:#f0f4fa;padding:3px 10px;border-radius:999px}
+.svc-grid{flex:1;overflow-y:auto;padding:14px 14px 16px;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;align-content:start;min-height:0;background:#f5f7fa}
+.svc-grid::-webkit-scrollbar{width:4px}
+.svc-grid::-webkit-scrollbar-thumb{background:rgba(0,103,232,.18);border-radius:2px}
 /* Section headers span full width in the grid */
-.svc-sect-hd{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:6px 2px 4px;margin-top:4px}
+.svc-sect-hd{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:6px 2px 4px;margin-top:6px}
 .svc-sect-hd:first-child{margin-top:0}
-.svc-sect-lbl{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
-.svc-sect-hd.s-on .svc-sect-lbl{color:rgba(255,255,255,.55)}
-.svc-sect-hd.s-off .svc-sect-lbl{color:rgba(255,255,255,.22)}
+.svc-sect-lbl{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;display:flex;align-items:center;gap:6px;color:#1a2540}
+.svc-sect-hd.s-off .svc-sect-lbl{color:#8a93a8}
 .svc-sect-dot{width:6px;height:6px;border-radius:50%}
 .svc-sect-hd.s-on .svc-sect-dot{background:#22c55e;box-shadow:0 0 5px rgba(34,197,94,.5)}
-.svc-sect-hd.s-off .svc-sect-dot{background:rgba(255,255,255,.18)}
-.svc-sect-cnt{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.22);background:rgba(255,255,255,.05);padding:2px 8px;border-radius:999px}
-/* Cards — compact tile style matching app SH-tile */
-.svc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:11px 11px 10px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:all .15s;position:relative;min-height:118px}
-.svc-card:not(.inactive){background:rgba(10,20,44,.7);border:1px solid rgba(255,255,255,.1);box-shadow:0 2px 12px rgba(0,0,0,.3)}
-.svc-card:hover:not(.inactive){background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);transform:translateY(-1px)}
-.svc-card.inactive{opacity:.34;cursor:default;border-style:dashed;border-color:rgba(255,255,255,.07)}
+.svc-sect-hd.s-off .svc-sect-dot{background:#c5cbd9}
+.svc-sect-cnt{font-size:9.5px;font-weight:700;color:#5a6378;background:#fff;border:1px solid #e5e9f0;padding:2px 8px;border-radius:999px}
+/* Cards — light tile style (matches app SH-tile exactly) */
+.svc-card{background:#fff;border:1px solid #d8def0;border-radius:12px;padding:11px 11px 10px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:all .15s;position:relative;min-height:118px;box-shadow:0 1px 2px rgba(10,12,20,.04),0 4px 12px rgba(0,103,232,.04)}
+.svc-card:not(.inactive):hover{border-color:#0067E8;box-shadow:0 4px 16px rgba(0,103,232,.15);transform:translateY(-1px)}
+.svc-card.inactive{background:#fff;border:1px dashed #d8def0;box-shadow:none;opacity:.6;cursor:default}
 .svc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px}
 .svc-card-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-/* Icon palette — dark-mode version of Arena app tile colors */
-.i-cam{background:linear-gradient(135deg,#00B5E8,#0067E8);box-shadow:0 4px 14px rgba(0,103,232,.4)}
-.i-ai{background:linear-gradient(135deg,rgba(167,139,250,.28),rgba(124,58,237,.38));border:1px solid rgba(167,139,250,.2)}
-.i-trp{background:linear-gradient(135deg,rgba(253,224,71,.25),rgba(234,179,8,.35));border:1px solid rgba(234,179,8,.22)}
-.i-ch{background:linear-gradient(135deg,rgba(134,239,172,.25),rgba(22,163,74,.35));border:1px solid rgba(134,239,172,.22)}
-.i-rk{background:linear-gradient(135deg,rgba(165,180,252,.25),rgba(99,102,241,.35));border:1px solid rgba(165,180,252,.22)}
-.i-vc{background:linear-gradient(135deg,rgba(196,181,253,.25),rgba(147,51,234,.35));border:1px solid rgba(196,181,253,.22)}
-.i-ac{background:linear-gradient(135deg,rgba(103,232,249,.25),rgba(8,145,178,.35));border:1px solid rgba(103,232,249,.22)}
-.i-bk{background:linear-gradient(135deg,rgba(147,197,253,.25),rgba(37,99,235,.35));border:1px solid rgba(147,197,253,.22)}
-.i-sc{background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(29,78,216,.35));border:1px solid rgba(96,165,250,.22)}
-.i-fn{background:linear-gradient(135deg,rgba(252,211,77,.25),rgba(217,119,6,.35));border:1px solid rgba(252,211,77,.22)}
-.svc-card-name{font-size:13px;font-weight:800;color:#fff;line-height:1.2}
-.svc-card-desc{font-size:10px;color:rgba(255,255,255,.35);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+/* Icon palette — light-mode (matches app mockup SH-tile colors EXACTLY) */
+.i-cam{background:linear-gradient(135deg,#00B5E8,#0067E8);color:#fff;box-shadow:0 4px 12px rgba(0,103,232,.25)}
+.i-ai{background:linear-gradient(135deg,#EDE9FE,#A78BFA);color:#3B0764}
+.i-trp{background:linear-gradient(135deg,#FEF9C3,#FDE047);color:#854D0E}
+.i-ch{background:linear-gradient(135deg,#DCFCE7,#86EFAC);color:#14532D}
+.i-rk{background:linear-gradient(135deg,#E0E7FF,#A5B4FC);color:#312E81}
+.i-vc{background:linear-gradient(135deg,#EDE9FE,#C4B5FD);color:#4C1D95}
+.i-ac{background:linear-gradient(135deg,#CFFAFE,#67E8F9);color:#164E63}
+.i-bk{background:linear-gradient(135deg,#DBEAFE,#93C5FD);color:#1E3A8A}
+.i-sc{background:linear-gradient(135deg,#DBEAFE,#60A5FA);color:#1E3A8A}
+.i-fn{background:linear-gradient(135deg,#FEF3C7,#FCD34D);color:#78350F}
+.svc-card.inactive .svc-card-ico{background:#f0f4fa;color:#8a93a8;filter:grayscale(.5)}
+.svc-card-name{font-size:13px;font-weight:800;color:#0a1228;line-height:1.2}
+.svc-card.inactive .svc-card-name{color:#5a6378}
+.svc-card-desc{font-size:10px;color:#8a93a8;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
 .svc-status{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:999px;font-size:9px;font-weight:700;align-self:flex-start;margin-top:auto}
-.svc-on{background:rgba(34,197,94,.13);border:1px solid rgba(34,197,94,.25);color:#4ade80}
-.svc-off{background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.14);color:rgba(255,255,255,.28)}
+.svc-on{background:#dcfce7;border:1px solid #86efac;color:#15803D}
+.svc-off{background:#f0f4fa;border:1px dashed #c5cbd9;color:#8a93a8}
 .svc-sdot{width:4px;height:4px;border-radius:50%}
 .svc-on .svc-sdot{background:#22c55e}
-.svc-off .svc-sdot{background:rgba(255,255,255,.2)}
+.svc-off .svc-sdot{background:#8a93a8}
+/* Light-mode badge overrides for service cards */
+.svc-card .bdg{font-size:9px;font-weight:800;padding:3px 7px;border-radius:6px;letter-spacing:.02em}
+.svc-card .bl{background:#fee2e2;color:#b91c1c}
+.svc-card .bg{background:#fef3c7;color:#854d0e}
+.svc-card .bz{background:#ede9fe;color:#4c1d95}
+.svc-card .bai{background:#ddd6fe;color:#3b0764}
+.svc-card .bgn{background:#dcfce7;color:#15803d}
+.svc-card .bb{background:#dbeafe;color:#1e3a8a}
+.svc-card .bt{background:#cffafe;color:#164e63}
+.svc-card .bo{background:#fed7aa;color:#9a3412}
 
 /* Bottom nav — 3 buttons matching production app */
 .home-nav{flex-shrink:0;display:flex;align-items:stretch;gap:0;margin:10px 20px 14px;background:rgba(255,255,255,.07);border-radius:22px;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);overflow:hidden;min-height:86px}
@@ -226,10 +238,160 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .cn{font-size:12px;font-weight:700;color:rgba(255,255,255,.9)}
 .cnl{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.2px}
 
-/* ══ RANKING — Arena Top Serie brand (mirror app sections) ══ */
-#ranking{background:#0A1530 url('background_ranking.jpg') center/cover no-repeat;font-family:'Inter',sans-serif}
-#ranking .overlay{background:linear-gradient(120deg,rgba(10,21,48,.94) 0%,rgba(14,26,56,.86) 50%,rgba(7,14,31,.92) 100%)}
-#ranking .content{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto 1fr auto;height:100%;padding:14px 22px;gap:10px;color:#fff;overflow:hidden}
+/* ══ RANKING — Immersive 3D premium (single canvas) ══ */
+#ranking{background:radial-gradient(ellipse at 50% 25%,#0E1A38 0%,#070E1F 60%,#040911 100%);font-family:'Inter',sans-serif;overflow:hidden}
+#ranking .overlay{display:none}
+#ranking .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:0;gap:0;color:#fff;overflow:hidden}
+
+/* Layer 0: atmosphere */
+.r-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.r-orb{position:absolute;border-radius:50%;filter:blur(140px);will-change:transform}
+.r-orb.o1{width:580px;height:580px;background:radial-gradient(circle,rgba(0,196,255,.45),transparent 70%);top:-180px;left:-120px;animation:rdrift1 32s ease-in-out infinite alternate}
+.r-orb.o2{width:520px;height:520px;background:radial-gradient(circle,rgba(0,103,232,.4),transparent 70%);top:25%;right:-140px;animation:rdrift2 36s ease-in-out infinite alternate}
+.r-orb.o3{width:460px;height:460px;background:radial-gradient(circle,rgba(5,80,181,.5),transparent 70%);bottom:-160px;left:35%;animation:rdrift3 40s ease-in-out infinite alternate}
+.r-grain{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(rgba(255,255,255,.4) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:overlay}
+.r-vignette{position:absolute;inset:0;box-shadow:inset 0 0 250px 40px rgba(0,0,0,.75);pointer-events:none;z-index:7}
+@keyframes rdrift1{0%{transform:translate(0,0)}100%{transform:translate(80px,100px)}}
+@keyframes rdrift2{0%{transform:translate(0,0)}100%{transform:translate(-100px,60px)}}
+@keyframes rdrift3{0%{transform:translate(0,0)}100%{transform:translate(60px,-80px)}}
+
+/* Header — glass nav */
+.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.r-nav-brand{display:flex;align-items:center;gap:12px}
+.r-nav-logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#00C4FF,#0067E8);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;box-shadow:0 6px 22px rgba(0,196,255,.5),inset 0 1px 0 rgba(255,255,255,.3)}
+.r-nav-titles{display:flex;flex-direction:column}
+.r-nav-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;color:#00C4FF;letter-spacing:.28em;text-transform:uppercase}
+.r-nav-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#fff;letter-spacing:-.01em;margin-top:1px}
+.r-nav-tabs{display:flex;gap:6px;margin-left:24px}
+.r-nav-tab{padding:7px 16px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);font-family:'Inter',sans-serif}
+.r-nav-tab.on{background:linear-gradient(135deg,#0067E8,#0550B5);border-color:transparent;color:#fff;box-shadow:0 4px 16px rgba(0,103,232,.45)}
+.r-nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.r-nav-clock{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:#00C4FF;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.r-nav-live{display:flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);border-radius:8px}
+.r-nav-live-d{width:6px;height:6px;border-radius:50%;background:#ef4444;animation:blink 1.5s infinite}
+.r-nav-live-t{font-size:10px;font-weight:800;color:#fca5a5;letter-spacing:.18em;font-family:'Plus Jakarta Sans',sans-serif}
+.r-nav-back{padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.r-nav-back:hover{background:rgba(255,255,255,.12)}
+
+/* Hero podium stage */
+.r-stage{position:relative;z-index:6;display:flex;align-items:flex-end;justify-content:center;padding:34px 32px 14px;perspective:1400px;flex-shrink:0}
+.r-stage-floor{position:absolute;bottom:-20px;left:15%;right:15%;height:160px;background:radial-gradient(ellipse at top,rgba(0,196,255,.22),transparent 70%);pointer-events:none}
+.r-beam{position:absolute;top:0;left:50%;width:300px;height:100%;background:linear-gradient(180deg,rgba(0,196,255,.28) 0%,rgba(0,103,232,.1) 35%,transparent 75%);transform:translateX(-50%);filter:blur(28px);pointer-events:none}
+
+.r-pod{position:relative;display:flex;flex-direction:column;align-items:center;padding:22px 20px 22px;border-radius:24px;backdrop-filter:blur(20px) saturate(180%);will-change:transform}
+.r-pod.first{width:340px;height:480px;margin:0 -8px;z-index:3;background:linear-gradient(180deg,rgba(0,196,255,.18) 0%,rgba(0,103,232,.1) 50%,rgba(5,80,181,.05) 100%);border:2px solid rgba(0,196,255,.6);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 100px rgba(0,196,255,.4),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 40px rgba(0,196,255,.08);animation:rfloat1 5.5s ease-in-out infinite}
+.r-pod.second{width:260px;height:400px;z-index:2;background:linear-gradient(180deg,rgba(59,143,243,.14) 0%,rgba(0,103,232,.06) 100%);border:1.5px solid rgba(59,143,243,.5);box-shadow:0 22px 55px rgba(0,0,0,.5),0 0 60px rgba(59,143,243,.25),inset 0 1px 0 rgba(255,255,255,.12);transform:rotateY(10deg) translateZ(-40px);animation:rfloat2 6s ease-in-out infinite .5s}
+.r-pod.third{width:260px;height:400px;z-index:2;background:linear-gradient(180deg,rgba(5,80,181,.16) 0%,rgba(1,52,107,.06) 100%);border:1.5px solid rgba(5,80,181,.5);box-shadow:0 22px 55px rgba(0,0,0,.5),0 0 60px rgba(5,80,181,.3),inset 0 1px 0 rgba(255,255,255,.1);transform:rotateY(-10deg) translateZ(-40px);animation:rfloat3 6.4s ease-in-out infinite 1s}
+@keyframes rfloat1{0%,100%{transform:translateY(-30px)}50%{transform:translateY(-42px)}}
+@keyframes rfloat2{0%,100%{transform:rotateY(10deg) translateZ(-40px) translateY(0)}50%{transform:rotateY(10deg) translateZ(-40px) translateY(-8px)}}
+@keyframes rfloat3{0%,100%{transform:rotateY(-10deg) translateZ(-40px) translateY(10px)}50%{transform:rotateY(-10deg) translateZ(-40px) translateY(2px)}}
+
+.r-pod-crown{position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:52px;height:52px;background:radial-gradient(circle at 50% 30%,#fff,#00C4FF 40%,#0067E8 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 0 40px rgba(0,196,255,.8),inset 0 2px 0 rgba(255,255,255,.4);z-index:4}
+.r-pod-rank{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.r-pod.first .r-pod-rank{color:#00C4FF}
+.r-pod-rank-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:900;line-height:1;margin-top:2px}
+.r-pod.first .r-pod-rank-num{background:linear-gradient(180deg,#fff,#00C4FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.r-pod.second .r-pod-rank-num{color:#3B8FF3}
+.r-pod.third .r-pod-rank-num{color:#0550B5}
+
+.r-pod-av{margin-top:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:#fff;background:linear-gradient(135deg,#0E1A38,#070E1F);position:relative;overflow:hidden}
+.r-pod-av img{width:100%;height:100%;object-fit:cover}
+.r-pod.first .r-pod-av{width:118px;height:118px;font-size:36px;border:3px solid #00C4FF;box-shadow:0 0 55px rgba(0,196,255,.7),inset 0 0 30px rgba(0,196,255,.18)}
+.r-pod.second .r-pod-av{width:88px;height:88px;font-size:26px;border:2.5px solid #3B8FF3;box-shadow:0 0 30px rgba(59,143,243,.5)}
+.r-pod.third .r-pod-av{width:88px;height:88px;font-size:26px;border:2.5px solid #0550B5;box-shadow:0 0 30px rgba(5,80,181,.55)}
+
+.r-pod-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;text-align:center;letter-spacing:-.01em;margin-top:12px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.r-pod.first .r-pod-name{font-size:22px}
+.r-pod.second .r-pod-name,.r-pod.third .r-pod-name{font-size:17px}
+
+.r-pod-meta{display:flex;align-items:center;gap:8px;margin-top:4px}
+.r-pod-tier{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:900;letter-spacing:.14em;padding:3px 8px;border-radius:5px;color:#fff}
+.r-pod-tier.A{background:linear-gradient(135deg,#00C4FF,#00B5E8)}
+.r-pod-tier.B{background:#0067E8}
+.r-pod-tier.C{background:#0550B5}
+.r-pod-club{font-size:11px;color:rgba(255,255,255,.55);font-weight:600}
+
+.r-pod-big{margin-top:14px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.r-pod-big-l{font-size:9px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:.26em;text-transform:uppercase}
+.r-pod-big-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;line-height:.85;letter-spacing:-.05em;margin-top:4px;font-variant-numeric:tabular-nums}
+.r-pod.first .r-pod-big-n{font-size:132px;background:linear-gradient(180deg,#fff 10%,#00C4FF 55%,#0067E8 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.r-pod.second .r-pod-big-n{font-size:84px;color:#3B8FF3}
+.r-pod.third .r-pod-big-n{font-size:84px;color:#0550B5}
+.r-pod-big-u{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.2em;margin-top:2px}
+
+.r-pod-stats{display:flex;gap:5px;margin-top:auto;padding-top:12px;width:100%;justify-content:center;flex-wrap:wrap}
+.r-pod-stat{padding:5px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:999px;font-size:10px;font-weight:700;color:rgba(255,255,255,.85);font-family:'Inter',sans-serif}
+.r-pod-stat b{color:#00C4FF;font-weight:800;margin-left:4px}
+
+/* Sparkle */
+.r-sparkle{position:absolute;width:5px;height:5px;border-radius:50%;background:#00C4FF;box-shadow:0 0 12px #00C4FF,0 0 24px rgba(0,196,255,.6);animation:rtwinkle 3.5s ease-in-out infinite;pointer-events:none;z-index:4}
+.r-sparkle.s1{top:18%;left:24%;animation-delay:0s}
+.r-sparkle.s2{top:32%;right:22%;animation-delay:1.2s}
+.r-sparkle.s3{top:48%;left:34%;animation-delay:2.4s}
+.r-sparkle.s4{top:22%;right:30%;animation-delay:.6s}
+.r-sparkle.s5{top:58%;left:55%;animation-delay:1.8s;width:4px;height:4px}
+.r-sparkle.s6{top:28%;left:46%;animation-delay:3s;width:3px;height:3px}
+@keyframes rtwinkle{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1)}}
+
+/* Info strip pills */
+.r-info{position:relative;z-index:6;display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 32px 14px;flex-wrap:wrap;flex-shrink:0}
+.r-pill{display:flex;align-items:center;gap:11px;padding:10px 16px;background:rgba(255,255,255,.04);backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.1);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08)}
+.r-pill.scope{padding:5px}
+.r-pill-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;color:#fff}
+.r-pill.pool .r-pill-ic{background:linear-gradient(135deg,#00C4FF,#0067E8);box-shadow:0 4px 14px rgba(0,196,255,.4)}
+.r-pill.streak .r-pill-ic{background:linear-gradient(135deg,#00B5E8,#0067E8);box-shadow:0 4px 14px rgba(0,181,232,.4)}
+.r-pill.pb .r-pill-ic{background:linear-gradient(135deg,#0067E8,#0550B5);box-shadow:0 4px 14px rgba(0,103,232,.4)}
+.r-pill-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.18em;text-transform:uppercase}
+.r-pill-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:#fff;margin-top:1px;font-variant-numeric:tabular-nums}
+.r-pill-v small{font-size:11px;color:#00C4FF;font-weight:700;margin-left:4px;letter-spacing:.04em}
+.r-pill-v span.muted{color:rgba(255,255,255,.45);font-weight:600}
+
+.r-scope-b{padding:7px 13px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:9px;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif}
+.r-scope-b.on{background:linear-gradient(135deg,#0067E8,#0550B5);color:#fff;box-shadow:0 2px 8px rgba(0,103,232,.35)}
+
+/* Filter pills (smaller row) */
+.r-filters{position:relative;z-index:6;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 32px 14px;flex-shrink:0}
+.r-fgroup{display:flex;background:rgba(255,255,255,.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:3px;gap:2px}
+.r-fb{padding:6px 14px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif}
+.r-fb.on{background:linear-gradient(135deg,#0067E8,#0550B5);color:#fff;box-shadow:0 2px 8px rgba(0,103,232,.35)}
+.r-fb.on.A{background:linear-gradient(135deg,#00C4FF,#00B5E8)}
+.r-fb.on.B{background:#0067E8}
+.r-fb.on.C{background:#0550B5}
+.r-fcount{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.5);margin-left:8px}
+.r-fcount b{color:#00C4FF;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
+
+/* Leaderboard list 4-10 */
+.r-lboard{position:relative;z-index:6;padding:0 32px 14px;flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.r-lboard::-webkit-scrollbar{width:0}
+.r-lrow{display:grid;grid-template-columns:56px 50px 1.2fr 120px auto 80px;align-items:center;gap:14px;padding:10px 18px;background:rgba(255,255,255,.035);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.07);border-radius:14px;transition:.2s;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.r-lrow:hover{background:rgba(255,255,255,.07);transform:translateX(4px);border-color:rgba(0,196,255,.2)}
+.r-lrk{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:900;color:rgba(255,255,255,.3);text-align:center;font-variant-numeric:tabular-nums}
+.r-lav{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0067E8,#0550B5);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:14px;color:#fff;border:1.5px solid rgba(255,255,255,.12);overflow:hidden}
+.r-lav img{width:100%;height:100%;object-fit:cover}
+.r-li{min-width:0}
+.r-li-n{display:flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-li-c{font-size:11px;color:rgba(255,255,255,.45);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-li-bar{position:relative;width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden}
+.r-li-bar-f{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#00C4FF,#0067E8);border-radius:3px;box-shadow:0 0 12px rgba(0,196,255,.4)}
+.r-l-streak{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:rgba(0,196,255,.12);border:1px solid rgba(0,196,255,.28);border-radius:99px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#00C4FF}
+.r-l-streak.cold{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+.r-l-loat{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:900;color:#00C4FF;font-variant-numeric:tabular-nums;text-align:right;text-shadow:0 0 16px rgba(0,196,255,.4)}
+.r-tier-mini{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:900;letter-spacing:.12em;padding:2px 6px;border-radius:4px;color:#fff}
+.r-tier-mini.A{background:linear-gradient(135deg,#00C4FF,#00B5E8)}
+.r-tier-mini.B{background:#0067E8}
+.r-tier-mini.C{background:#0550B5}
+.r-pro-mini{display:inline-flex;align-items:center;gap:2px;padding:1px 5px;background:rgba(0,196,255,.18);color:#00C4FF;font-size:8px;font-weight:900;border-radius:3px;letter-spacing:.1em}
+
+/* Sponsor strip */
+.r-foot{position:relative;z-index:6;display:flex;align-items:center;gap:14px;padding:10px 32px;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.5));border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.r-foot-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:900;color:rgba(0,196,255,.8);letter-spacing:.26em;text-transform:uppercase}
+.r-foot-spons{display:flex;gap:10px;align-items:center}
+.r-spon{padding:7px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.7);backdrop-filter:blur(10px)}
+.r-foot-marquee{flex:1;overflow:hidden;margin-left:14px}
+.r-foot-marquee-tk{white-space:nowrap;animation:rscroll 55s linear infinite;font-size:12px;color:rgba(255,255,255,.6);font-weight:500}
+.r-foot-marquee-tk b{color:#00C4FF;font-weight:800}
+.r-foot-marquee-tk i{color:#3B8FF3;font-weight:700;font-style:normal}
+@keyframes rscroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 .phdr{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-bottom:0}
 .ptitle{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(18px,2vw,26px);font-weight:800;letter-spacing:-.02em;display:flex;flex-direction:column;flex:1}
 .ptitle small{font-family:'Inter',sans-serif;font-size:10px;font-weight:800;color:#00C4FF;letter-spacing:.3em;text-transform:uppercase;margin-bottom:2px}
@@ -682,190 +844,167 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 <!-- ══ RANKING ══ -->
 <div class="screen" id="ranking">
-  <div class="overlay"></div>
   <div class="content">
-    <!-- Row 1: header (full width) -->
-    <div class="phdr">
-      <div class="ptitle">
-        <small>Top Serie · Bảng xếp hạng ngày</small>
-        <span id="rankClubName">Arena · Bảng xếp hạng</span>
+    <!-- Layer 0: atmosphere -->
+    <div class="r-bg">
+      <div class="r-orb o1"></div>
+      <div class="r-orb o2"></div>
+      <div class="r-orb o3"></div>
+      <div class="r-grain"></div>
+    </div>
+    <div class="r-vignette"></div>
+
+    <!-- Top nav (glass) -->
+    <div class="r-nav">
+      <div class="r-nav-brand">
+        <div class="r-nav-logo">A</div>
+        <div class="r-nav-titles">
+          <div class="r-nav-sub">Top Serie · Bảng xếp hạng ngày</div>
+          <div class="r-nav-title" id="rankClubName">Hoàng Sao · Carom 3 băng</div>
+        </div>
       </div>
-      <div class="rtabs">
-        <div class="rtab" onclick="switchRankTab(this,'pool')">Pool 9-ball</div>
-        <div class="rtab active" onclick="switchRankTab(this,'carom')">Carom 3C</div>
+      <div class="r-nav-tabs">
+        <div class="r-nav-tab" onclick="switchRankTab(this,'pool')">Pool 9-ball</div>
+        <div class="r-nav-tab on" onclick="switchRankTab(this,'carom')">Carom 3C</div>
       </div>
-      <div class="phdr-meta">
-        <div class="phdr-clock" id="rankClock">—</div>
-        <div class="tser-live"><div class="tser-live-d"></div><div class="tser-live-t">LIVE</div></div>
-        <div class="back-btn" onclick="showScreen('home')">← Quay lại</div>
+      <div class="r-nav-right">
+        <div class="r-nav-clock" id="rankClock">—</div>
+        <div class="r-nav-live"><div class="r-nav-live-d"></div><div class="r-nav-live-t">LIVE</div></div>
+        <div class="r-nav-back" onclick="showScreen('home')">← Quay lại</div>
       </div>
     </div>
 
-    <!-- Row 2: compact filter bar (full width) -->
-    <div class="tser-filter">
-      <div class="tser-frange">
-        <button class="tser-frange-b on">Hôm nay</button>
-        <button class="tser-frange-b">Tháng</button>
-        <button class="tser-frange-b">Quý</button>
-        <button class="tser-frange-b">Grand Series</button>
+    <!-- Hero podium stage -->
+    <div class="r-stage">
+      <div class="r-stage-floor"></div>
+      <div class="r-beam"></div>
+      <span class="r-sparkle s1"></span><span class="r-sparkle s2"></span><span class="r-sparkle s3"></span>
+      <span class="r-sparkle s4"></span><span class="r-sparkle s5"></span><span class="r-sparkle s6"></span>
+
+      <div class="r-pod second" id="podSecond">
+        <div class="r-pod-rank">Bạc</div>
+        <div class="r-pod-rank-num">#2</div>
+        <div class="r-pod-av" id="podSecondAv">QB</div>
+        <div class="r-pod-name" id="podSecondName">Trần Q. Bảo</div>
+        <div class="r-pod-meta">
+          <span class="r-pod-tier B" id="podSecondTier">B</span>
+          <span class="r-pod-club" id="podSecondClub">Arena Q1</span>
+        </div>
+        <div class="r-pod-big">
+          <div class="r-pod-big-l">Loạt cao nhất</div>
+          <div class="r-pod-big-n" id="podSecondBig">14</div>
+        </div>
+        <div class="r-pod-stats">
+          <div class="r-pod-stat">Series<b id="podSecondSeries">412</b></div>
+          <div class="r-pod-stat">PB<b id="podSecondPB">17</b></div>
+        </div>
       </div>
-      <div class="tser-fsep"></div>
-      <div class="tser-scope">
-        <button class="tser-scope-b" onclick="switchScope(this,'club')">📍 Club này</button>
-        <button class="tser-scope-b on" onclick="switchScope(this,'system')">🌐 Hệ thống Arena</button>
+
+      <div class="r-pod first" id="podFirst">
+        <div class="r-pod-crown">👑</div>
+        <div class="r-pod-rank">Vàng · Vô địch</div>
+        <div class="r-pod-rank-num">#1</div>
+        <div class="r-pod-av" id="podFirstAv">NH</div>
+        <div class="r-pod-name" id="podFirstName">Nguyễn V. Hùng</div>
+        <div class="r-pod-meta">
+          <span class="r-pod-tier A" id="podFirstTier">A</span>
+          <span class="r-pod-club" id="podFirstClub">Arena Q1</span>
+        </div>
+        <div class="r-pod-big">
+          <div class="r-pod-big-l">Loạt cao nhất</div>
+          <div class="r-pod-big-n" id="podFirstBig">17</div>
+          <div class="r-pod-big-u">loạt hôm nay</div>
+        </div>
+        <div class="r-pod-stats">
+          <div class="r-pod-stat">Series<b id="podFirstSeries">580</b></div>
+          <div class="r-pod-stat">Daily<b id="podFirstDaily">100</b></div>
+          <div class="r-pod-stat">PB<b id="podFirstPB">21</b></div>
+        </div>
       </div>
-      <div class="tser-fsep"></div>
-      <div class="tser-tier">
-        <button class="tser-tier-b on" onclick="filterTier(this,'all')">Tất cả</button>
-        <button class="tser-tier-b" onclick="filterTier(this,'A')">A</button>
-        <button class="tser-tier-b" onclick="filterTier(this,'B')">B</button>
-        <button class="tser-tier-b" onclick="filterTier(this,'C')">C</button>
-      </div>
-      <div style="margin-left:auto;font-size:11px;color:rgba(255,255,255,.5)">
-        <span id="rankCount">—</span> cơ thủ ranked
+
+      <div class="r-pod third" id="podThird">
+        <div class="r-pod-rank">Đồng</div>
+        <div class="r-pod-rank-num">#3</div>
+        <div class="r-pod-av" id="podThirdAv">MT</div>
+        <div class="r-pod-name" id="podThirdName">Lê M. Tâm</div>
+        <div class="r-pod-meta">
+          <span class="r-pod-tier B" id="podThirdTier">B</span>
+          <span class="r-pod-club" id="podThirdClub">Arena Thủ Đức</span>
+        </div>
+        <div class="r-pod-big">
+          <div class="r-pod-big-l">Loạt cao nhất</div>
+          <div class="r-pod-big-n" id="podThirdBig">12</div>
+        </div>
+        <div class="r-pod-stats">
+          <div class="r-pod-stat">Series<b id="podThirdSeries">355</b></div>
+          <div class="r-pod-stat">PB<b id="podThirdPB">15</b></div>
+        </div>
       </div>
     </div>
 
-    <!-- Row 3: main 2-col content -->
-    <div style="display:flex;flex-direction:column;gap:0;min-height:0;overflow:hidden">
-      <!-- Status banner (mirror app) -->
-      <div class="tser-status">
-        <div class="tser-status-rk">#6</div>
-        <div class="tser-status-i">
-          <div class="tser-status-t">Bạn đang #6 · sắp chốt top 5</div>
-          <div class="tser-status-d">Còn 12 pt nữa để vào podium</div>
-          <div class="tser-status-bar"><div class="tser-status-bar-f"></div></div>
+    <!-- Info strip — 4 glass pills -->
+    <div class="r-info">
+      <div class="r-pill pool">
+        <div class="r-pill-ic">💰</div>
+        <div>
+          <div class="r-pill-l">Heo vàng tổng</div>
+          <div class="r-pill-v" id="rankPool">—<small>M ₫</small></div>
         </div>
       </div>
-
-      <!-- Heo vàng dual cards (mirror app) -->
-      <div class="tser-pools-row">
-        <div class="tser-poolc club" id="poolClub">
-          <div class="tser-pool-ic">🪙</div>
-          <div style="flex:1;min-width:0">
-            <div class="tser-pool-l">📍 Heo vàng Club này</div>
-            <div class="tser-pool-v" id="rankPoolClub">— K ₫</div>
-            <div class="tser-pool-sub">Chỉ club này</div>
-          </div>
-        </div>
-        <div class="tser-poolc system on" id="poolSystem">
-          <div class="tser-pool-ic">🏆</div>
-          <div style="flex:1;min-width:0">
-            <div class="tser-pool-l">🌐 Hệ thống Arena</div>
-            <div class="tser-pool-v" id="rankPool">— M ₫</div>
-            <div class="tser-pool-sub">5 clubs · national</div>
-          </div>
+      <div class="r-pill streak">
+        <div class="r-pill-ic">⚡</div>
+        <div>
+          <div class="r-pill-l">Streak leader</div>
+          <div class="r-pill-v" id="rankStreakLeader">Lê M. Tâm<small>· 7d</small></div>
         </div>
       </div>
-
-      <!-- Featured player -->
-      <div class="tser-featured" id="rankFeatured">
-        <span class="tser-feat-tag">Vô địch hôm nay</span>
-        <div class="tser-feat-av" id="rankFeatAv">NH</div>
-        <div class="tser-feat-info">
-          <div class="tser-feat-line">⭐ Spotlight · Carom 3 băng</div>
-          <div class="tser-feat-name" id="rankFeatName">Nguyễn V. Hùng</div>
-          <div class="tser-feat-stats">
-            <div class="tser-feat-st">Club <b id="rankFeatClub">Arena Q1</b></div>
-            <div class="tser-feat-st">Hạng <b id="rankFeatTier">A</b></div>
-            <div class="tser-feat-st">Series pt <b id="rankFeatPts">580</b></div>
-            <div class="tser-feat-st">PB <b id="rankFeatPB">21</b></div>
-          </div>
-        </div>
-        <div class="tser-feat-big">
-          <div class="tser-feat-big-n" id="rankFeatBig">17</div>
-          <div class="tser-feat-big-l">Loạt cao nhất</div>
+      <div class="r-pill pb">
+        <div class="r-pill-ic">🎯</div>
+        <div>
+          <div class="r-pill-l">PB cao nhất hôm nay</div>
+          <div class="r-pill-v" id="rankPBLeader">21<small>loạt</small></div>
         </div>
       </div>
-
-      <!-- Leaderboard -->
-      <div class="lboard">
-        <div class="lhdr">
-          <div class="lhc">#</div>
-          <div class="lhc nm">Cơ thủ</div>
-          <div class="lhc">Hạng</div>
-          <div class="lhc">Loạt</div>
-          <div class="lhc">Daily</div>
-          <div class="lhc">Streak</div>
-        </div>
-        <div id="rankList"></div>
+      <div class="r-pill scope">
+        <button class="r-scope-b" onclick="switchScope(this,'club')">📍 Club này</button>
+        <button class="r-scope-b on" onclick="switchScope(this,'system')">🌐 Hệ thống</button>
       </div>
     </div>
 
-    <!-- Right column: podium + streak + achievement 4-grid + bảng quý compact -->
-    <div class="tser-side">
-      <div class="podium">
-        <div class="pod-row" id="rankPodium"></div>
+    <!-- Filter pills -->
+    <div class="r-filters">
+      <div class="r-fgroup">
+        <button class="r-fb on">Hôm nay</button>
+        <button class="r-fb">Tháng</button>
+        <button class="r-fb">Quý</button>
+        <button class="r-fb">Grand Series</button>
       </div>
-
-      <!-- Streak meter + 7-day grid (mirror app) -->
-      <div class="tser-streak">
-        <div class="tser-streak-hd">
-          <div class="tser-streak-ic">⚡</div>
-          <div class="tser-streak-i">
-            <div class="tser-streak-l">Chuyên cần · streak</div>
-            <div class="tser-streak-v">5 ngày<span>+10% bonus</span></div>
-          </div>
-        </div>
-        <div class="tser-streak-grid">
-          <div class="tser-streak-d on">T2</div>
-          <div class="tser-streak-d on">T3</div>
-          <div class="tser-streak-d on">T4</div>
-          <div class="tser-streak-d on">T5</div>
-          <div class="tser-streak-d on">T6</div>
-          <div class="tser-streak-d">T7</div>
-          <div class="tser-streak-d">CN</div>
-        </div>
+      <div class="r-fgroup">
+        <button class="r-fb on" onclick="filterTier(this,'all')">Tất cả</button>
+        <button class="r-fb" onclick="filterTier(this,'A')">A</button>
+        <button class="r-fb" onclick="filterTier(this,'B')">B</button>
+        <button class="r-fb" onclick="filterTier(this,'C')">C</button>
       </div>
-
-      <!-- Achievement 4-col grid (mirror app exactly) -->
-      <div class="achv-grid">
-        <div class="achv-card cyan">
-          <div class="achv-card-ic">⚡</div>
-          <div class="achv-card-t">Streak 5d</div>
-          <div class="achv-card-d">+10% bonus</div>
-        </div>
-        <div class="achv-card light">
-          <div class="achv-card-ic">🎯</div>
-          <div class="achv-card-t">PB ≥20</div>
-          <div class="achv-card-d">21 loạt</div>
-        </div>
-        <div class="achv-card brand">
-          <div class="achv-card-ic">⚔️</div>
-          <div class="achv-card-t">Thách thắng × 3</div>
-          <div class="achv-card-d">đối kháng</div>
-        </div>
-        <div class="achv-card dark">
-          <div class="achv-card-ic">🏆</div>
-          <div class="achv-card-t">Top 3 ngày</div>
-          <div class="achv-card-d">chờ unlock</div>
-        </div>
-      </div>
-
-      <!-- Bảng quý compact -->
-      <div class="tser-panel">
-        <div class="tser-panel-h" style="color:#00C4FF">👑 Bảng quý · National top 5</div>
-        <div class="tser-pside" id="rankQuarter"></div>
-      </div>
+      <div class="r-fcount"><b id="rankCount">—</b> cơ thủ ranked</div>
     </div>
 
-    <div class="tser-adstrip">
-      <div class="tser-ad-tag">AD SLOT · placeholder</div>
-      <div class="tser-ad-content">
-        <div class="tser-ad-logos">
-          <div class="tser-ad-logo">PREDATOR</div>
-          <div class="tser-ad-logo">SIMONIS</div>
-          <div class="tser-ad-logo">HEINEKEN</div>
-          <div class="tser-ad-logo">ARAMITH</div>
-        </div>
-        <div class="tser-ad-cta">600 bảng điểm · 40% affiliate → chủ club · Liên hệ Arena để đăng ký quảng cáo</div>
-      </div>
-    </div>
+    <!-- Leaderboard 4-10 -->
+    <div class="r-lboard" id="rankList"></div>
 
-    <div class="tser-marquee">
-      <span>
-        🥇 Grand Series Q1 đang mở đăng ký · Top 8 mỗi tier vào playoffs · Pool tháng tích lũy <b>42.5M ₫</b> · Sponsor: Predator Cues, Simonis Cloth, Heineken · KOL Minh Điền livestream Chủ Nhật · 🏆 Pro Pass <i>giảm 50%</i> cho 100 đăng ký đầu · Camera AI verify 100% loạt · Highlight clip auto-share · A/B/C tier để không bị bigshot độc chiếm · ✨
-      </span>
+    <!-- Sponsor footer -->
+    <div class="r-foot">
+      <div class="r-foot-tag">AD · Sponsors</div>
+      <div class="r-foot-spons">
+        <div class="r-spon">PREDATOR</div>
+        <div class="r-spon">SIMONIS</div>
+        <div class="r-spon">HEINEKEN</div>
+        <div class="r-spon">ARAMITH</div>
+      </div>
+      <div class="r-foot-marquee">
+        <div class="r-foot-marquee-tk">
+          🥇 Grand Series Q1 đang mở đăng ký · Pool tháng <b>42.5M ₫</b> · KOL Minh Điền livestream Chủ Nhật · Pro Pass <i>giảm 50%</i> cho 100 đăng ký đầu · Camera AI verify 100% loạt · A/B/C tier để không bị bigshot độc chiếm · ✨
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1106,7 +1245,7 @@ function setClub(i){
   r.setProperty('--cc3',c.cc3);
   r.setProperty('--hbg',c.hbg);
   document.getElementById('home').style.background=c.hbg;
-  document.getElementById('services').style.background='radial-gradient(ellipse at 50% 0%,#0a2d6e 0%,#031634 50%,#000a1e 100%)';
+  document.getElementById('services').style.background='#f5f7fa';
   document.getElementById('topClubName').textContent=c.name;
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
   const hn=document.getElementById('svcHeroName'); if(hn) hn.textContent=c.name;
@@ -1130,9 +1269,9 @@ document.addEventListener('click',e=>{
 // ── Tabs ──
 function switchTab(el){ document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
 function switchGTab(el){ document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
-function switchRankTab(el,kind){ document.querySelectorAll('#ranking .rtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); rankDiscipline=kind; renderRanking(); }
-function filterTier(el,t){ document.querySelectorAll('.tser-tier-b').forEach(b=>{b.classList.remove('on','A','B','C');}); el.classList.add('on'); if(t!=='all')el.classList.add(t); rankTier=t; renderRanking(); }
-function switchScope(el,s){ document.querySelectorAll('.tser-scope-b').forEach(b=>b.classList.remove('on')); el.classList.add('on'); document.querySelectorAll('.tser-poolc').forEach(p=>p.classList.remove('on')); document.getElementById(s==='club'?'poolClub':'poolSystem').classList.add('on'); rankScope=s; renderRanking(); }
+function switchRankTab(el,kind){ document.querySelectorAll('#ranking .r-nav-tab').forEach(t=>t.classList.remove('on')); el.classList.add('on'); rankDiscipline=kind; renderRanking(); }
+function filterTier(el,t){ el.parentElement.querySelectorAll('.r-fb').forEach(b=>b.classList.remove('on','A','B','C')); el.classList.add('on'); if(t!=='all')el.classList.add(t); rankTier=t; renderRanking(); }
+function switchScope(el,s){ document.querySelectorAll('.r-scope-b').forEach(b=>b.classList.remove('on')); el.classList.add('on'); rankScope=s; renderRanking(); }
 
 // ── Top Serie data ──
 let rankData=null, rankTier='all', rankDiscipline='carom', rankScope='system';
@@ -1149,15 +1288,14 @@ setInterval(rankTick,1000);
 
 async function loadRanking(){
   rankTick();
-  // Update club name from current theme
-  const cn=document.getElementById('rankClubName'); if(cn)cn.textContent=CLUBS[curClub].name+' · Bảng xếp hạng ngày';
+  const cn=document.getElementById('rankClubName'); if(cn)cn.textContent=CLUBS[curClub].name+' · Carom 3 băng';
   try{
     const r=await fetch(RANK_API,{cache:'no-store'});
     rankData=await r.json();
     renderRanking();
   }catch(e){
     console.error(e);
-    document.getElementById('rankList').innerHTML='<div style="text-align:center;padding:24px;color:rgba(255,255,255,.4);font-size:13px">Không tải được dữ liệu</div>';
+    const lel=document.getElementById('rankList'); if(lel)lel.innerHTML='<div style="text-align:center;padding:32px;color:rgba(255,255,255,.5);font-size:13px">Không tải được dữ liệu — kiểm tra kết nối</div>';
   }
 }
 
@@ -1169,68 +1307,58 @@ function renderRanking(){
   let filtered=all;
   if(rankScope==='club'&&myClubName){filtered=filtered.filter(p=>p.club===myClubName);}
   if(rankTier!=='all'){filtered=filtered.filter(p=>p.tier===rankTier);}
-  document.getElementById('rankCount').textContent=filtered.length;
+
+  // Top stats
+  const setText=(id,t)=>{const e=document.getElementById(id);if(e)e.textContent=t;};
+  setText('rankCount',filtered.length);
   const sysPool=rankData.totalHeoVangPool||0;
-  const clubPool=clubs[0]?.heoVangPool||0;
-  document.getElementById('rankPool').textContent=`${(sysPool/1e6).toFixed(1)}M ₫`;
-  const clubPoolEl=document.getElementById('rankPoolClub');
-  if(clubPoolEl)clubPoolEl.textContent=`${(clubPool/1e6).toFixed(2)}M ₫`;
-  // Featured player = filtered[0]
-  if(filtered.length>0){
-    const top=filtered[0];
-    document.getElementById('rankFeatAv').textContent=rankInitials(top.name);
-    document.getElementById('rankFeatName').textContent=top.name;
-    document.getElementById('rankFeatClub').textContent=top.club||'Independent';
-    document.getElementById('rankFeatTier').textContent=top.tier;
-    document.getElementById('rankFeatPts').textContent=top.seriesPoints;
-    document.getElementById('rankFeatPB').textContent=top.personalBest.series;
-    document.getElementById('rankFeatBig').textContent=top.todayBestSeries;
-  }
-  // Podium
-  const podiumEl=document.getElementById('rankPodium');
+  const poolEl=document.getElementById('rankPool');
+  if(poolEl){poolEl.innerHTML=`${(sysPool/1e6).toFixed(1)}<small>M ₫</small>`;}
+
+  // Streak leader
+  const streakLeader=[...filtered].sort((a,b)=>b.streakDays-a.streakDays)[0];
+  const slEl=document.getElementById('rankStreakLeader');
+  if(slEl&&streakLeader){slEl.innerHTML=`${streakLeader.name.split(' ').slice(-2).join(' ')}<small>· ${streakLeader.streakDays}d</small>`;}
+
+  // PB leader
+  const pbLeader=[...filtered].sort((a,b)=>b.personalBest.series-a.personalBest.series)[0];
+  const pbEl=document.getElementById('rankPBLeader');
+  if(pbEl&&pbLeader){pbEl.innerHTML=`${pbLeader.personalBest.series}<small>loạt</small>`;}
+
+  // Podium top 3 — fill into 3 fixed cards
   const top3=filtered.slice(0,3);
-  if(top3.length>=3){
-    const order=[1,0,2];
-    podiumEl.innerHTML=order.map(i=>{
-      const p=top3[i]; if(!p)return '';
-      const cls=i===0?'p1':i===1?'p2':'p3';
-      return `<div class="pi ${cls}">
-        <div class="pav">${rankInitials(p.name)}</div>
-        <div class="pname">${p.name}</div>
-        <div class="pclub">${p.club||'Independent'}</div>
-        <div class="pelo">${p.todayBestSeries}<small>loạt</small></div>
-        <div class="pbase ${cls}">${i+1}</div>
-      </div>`;
-    }).join('');
-  }
-  // List 4-10
+  const fillPod=(prefix,p)=>{
+    if(!p)return;
+    setText(prefix+'Av',rankInitials(p.name));
+    setText(prefix+'Name',p.name);
+    setText(prefix+'Club',p.club||'Independent');
+    const tierEl=document.getElementById(prefix+'Tier');
+    if(tierEl){tierEl.className='r-pod-tier '+p.tier;tierEl.textContent=p.tier;}
+    setText(prefix+'Big',p.todayBestSeries);
+    setText(prefix+'Series',p.seriesPoints);
+    setText(prefix+'PB',p.personalBest.series);
+    if(prefix==='podFirst')setText(prefix+'Daily',p.dailyRankPoints);
+  };
+  fillPod('podFirst',top3[0]);
+  fillPod('podSecond',top3[1]);
+  fillPod('podThird',top3[2]);
+
+  // Leaderboard 4-10
   const listEl=document.getElementById('rankList');
+  const maxSeries=Math.max(...filtered.slice(3,13).map(p=>p.todayBestSeries),1);
   listEl.innerHTML=filtered.slice(3,13).map((p,i)=>{
     const rank=i+4;
-    return `<div class="lr">
-      <div class="lpos">${rank}</div>
-      <div class="lname">
-        <div class="lname-n">${p.name}${p.isProPass?'<span class="lpro">✦</span>':''}${p.isLive?'<span class="llive"></span>':''}</div>
-        <div class="lname-c">${p.club||'—'}</div>
+    const barPct=Math.round((p.todayBestSeries/maxSeries)*100);
+    return `<div class="r-lrow">
+      <div class="r-lrk">${rank}</div>
+      <div class="r-lav">${rankInitials(p.name)}</div>
+      <div class="r-li">
+        <div class="r-li-n">${p.name}<span class="r-tier-mini ${p.tier}">${p.tier}</span>${p.isProPass?'<span class="r-pro-mini">✦</span>':''}${p.isLive?'<span style="width:5px;height:5px;border-radius:50%;background:#ef4444;display:inline-block;margin-left:2px"></span>':''}</div>
+        <div class="r-li-c">${p.club||'—'} · ${p.dailyRankPoints} daily pt</div>
       </div>
-      <div style="text-align:center"><span class="ltier ${p.tier}">${p.tier}</span></div>
-      <div class="lelo">${p.todayBestSeries}</div>
-      <div class="lsmall">${p.dailyRankPoints}</div>
-      <div class="lstreak ${p.streakDays<7?'cold':''}">${p.streakDays>=7?'🔥':''}${p.streakDays}d</div>
-    </div>`;
-  }).join('');
-  // Quarter rank (national top 5 by accumulated score)
-  const quarterRanked=[...filtered].sort((a,b)=>(b.seriesPoints+b.dailyRankPoints*30)-(a.seriesPoints+a.dailyRankPoints*30));
-  document.getElementById('rankQuarter').innerHTML=quarterRanked.slice(0,5).map((p,i)=>{
-    const score=p.seriesPoints+p.dailyRankPoints*30;
-    return `<div class="tser-prow">
-      <div class="tser-prow-rk ${i===0?'top':''}">${i+1}</div>
-      <div class="tser-prow-av">${rankInitials(p.name)}</div>
-      <div class="tser-prow-n">
-        <div class="tser-prow-name">${p.name}<span class="ltier ${p.tier}" style="font-size:8px">${p.tier}</span></div>
-        <div class="tser-prow-club">${p.club||'—'}</div>
-      </div>
-      <div class="tser-prow-v">${(score/100).toFixed(1)}K</div>
+      <div class="r-li-bar"><div class="r-li-bar-f" style="width:${barPct}%"></div></div>
+      <div class="r-l-streak ${p.streakDays<7?'cold':''}">${p.streakDays>=7?'⚡':'·'} ${p.streakDays}d</div>
+      <div class="r-l-loat">${p.todayBestSeries}</div>
     </div>`;
   }).join('');
 }
