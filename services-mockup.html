@@ -201,6 +201,15 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .theme-panel{position:absolute;right:20px;top:70px;background:rgba(4,10,32,.97);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px;width:252px;display:none;flex-direction:column;gap:8px;z-index:30;box-shadow:0 14px 44px rgba(0,0,0,.7)}
 .theme-panel.open{display:flex}
 .tp-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.tp-divider{height:1px;background:#e5e9f0;margin:9px 0 5px}
+.tp-custom-row{display:flex;align-items:center;justify-content:space-between;padding:7px 11px;border-radius:9px;background:#f5f7fa;border:1px solid #e5e9f0}
+.tp-custom-lbl{font-size:12px;font-weight:600;color:#5a6378}
+.tp-sw{width:30px;height:30px;border-radius:8px;border:2px solid #fff;box-shadow:0 0 0 1px #e5e9f0;cursor:pointer;overflow:hidden;padding:0;position:relative;flex-shrink:0}
+.tp-sw input[type=color]{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);border:none;padding:0;cursor:pointer;background:none}
+.tp-logo-btn{font-size:11px;font-weight:700;color:#0067E8;background:#e8f1ff;border:1px solid #cee0ff;border-radius:7px;padding:6px 11px;cursor:pointer}
+.tp-logo-btn:hover{background:#d8e8ff}
+.tp-reset{font-size:11px;font-weight:600;color:#8a93a8;text-align:center;cursor:pointer;padding:7px;margin-top:3px;border-radius:7px}
+.tp-reset:hover{color:#0067E8;background:#f5f7fa}
 .tclub{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:9px;cursor:pointer;border:1.5px solid transparent}
 .tclub:hover{background:rgba(255,255,255,.05)}
 .tclub.sel{border-color:var(--cc);background:var(--cc2)}
@@ -854,6 +863,21 @@ body{background:#f5f7fa;color:#0a1228}
       <div class="tclub-info"><div class="tclub-name">Phúc Lợi Billiards</div><div class="tclub-sub">Purple · #a855f7</div></div>
       <div class="tclub-dot" style="background:#a855f7"></div>
     </div>
+    <div class="tp-divider"></div>
+    <div class="tp-title">TÙY CHỈNH THƯƠNG HIỆU</div>
+    <div class="tp-custom-row">
+      <span class="tp-custom-lbl">🎨 Màu nền</span>
+      <label class="tp-sw" id="swBg" style="background:#00B5E8"><input type="color" value="#00B5E8" oninput="setCustomBg(this.value)"></label>
+    </div>
+    <div class="tp-custom-row">
+      <span class="tp-custom-lbl">✏️ Màu nhấn / chữ</span>
+      <label class="tp-sw" id="swAccent" style="background:#00B5E8"><input type="color" value="#00B5E8" oninput="setCustomAccent(this.value)"></label>
+    </div>
+    <div class="tp-custom-row">
+      <span class="tp-custom-lbl">🖼️ Logo club</span>
+      <label class="tp-logo-btn">Tải lên<input type="file" accept="image/*" style="display:none" onchange="setCustomLogo(event)"></label>
+    </div>
+    <div class="tp-reset" onclick="setClub(curClub)">↺ Đặt lại theme club</div>
   </div>
 
 </div>
@@ -1338,12 +1362,35 @@ function setClub(i){
   ['bdg-trp','sbdg-trp'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='2 GIẢI '+c.short; });
   ['bdg-rk','sbdg-rk'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='TOP '+c.short; });
   document.querySelectorAll('.tclub').forEach((el,j)=>el.classList.toggle('sel',j===i));
+  // sync customization swatches to club theme
+  const swA=document.getElementById('swAccent'); if(swA){swA.style.background=c.cc;const inp=swA.querySelector('input');if(inp)inp.value=c.cc;}
+  const swB=document.getElementById('swBg'); if(swB){swB.style.background=c.cc;const inp=swB.querySelector('input');if(inp)inp.value=c.cc;}
   closeTheme();
 }
 
 let tOpen=false;
 function toggleTheme(){ tOpen=!tOpen; document.getElementById('themePanel').classList.toggle('open',tOpen); }
 function closeTheme(){ tOpen=false; document.getElementById('themePanel').classList.remove('open'); }
+// ── White-label customization ──
+function hexToRgb(h){h=h.replace('#','');if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function mixWhite(hex,t){const[r,g,b]=hexToRgb(hex);const m=v=>Math.round(v+(255-v)*t);return`rgb(${m(r)},${m(g)},${m(b)})`;}
+function rgba(hex,a){const[r,g,b]=hexToRgb(hex);return`rgba(${r},${g},${b},${a})`;}
+function setCustomBg(hex){
+  const grad=`linear-gradient(180deg,#fff 0%,${mixWhite(hex,.9)} 50%,${mixWhite(hex,.8)} 100%)`;
+  document.documentElement.style.setProperty('--hbg',grad);
+  document.getElementById('home').style.background=grad;
+  document.getElementById('swBg').style.background=hex;
+}
+function setCustomAccent(hex){
+  const r=document.documentElement.style;
+  r.setProperty('--cc',hex); r.setProperty('--cc2',rgba(hex,.1)); r.setProperty('--cc3',rgba(hex,.22));
+  document.getElementById('swAccent').style.background=hex;
+}
+function setCustomLogo(e){
+  const f=e.target.files&&e.target.files[0]; if(!f) return;
+  const url=URL.createObjectURL(f);
+  document.querySelectorAll('.hbp img,.svc-hero-logo,.svc-sb-logo img,.hc-logo').forEach(img=>{img.src=url;img.style.filter='none';});
+}
 function closeQfab(){}  // no-op, kept for compatibility
 
 document.addEventListener('click',e=>{
