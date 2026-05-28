@@ -743,62 +743,114 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .idle-dot.on{background:var(--cc)}
 
 /* ════════════════════════════════════════════════════════════════════
-   ═══ GLOBAL LIGHT MODE — All scoreboard screens match Arena app ═══
+   ═══ GLOBAL DARK PREMIUM — tất cả screens đồng bộ ranking immersive ═══
+   ═══ Tối ưu 21.5" (1920×1080); laptop auto-scale qua clamp/vh ═══
    ════════════════════════════════════════════════════════════════════ */
-body{background:#f5f7fa;color:#0a1228}
+:root{--rd-bg:radial-gradient(circle at 16% 18%, rgba(0,196,255,.12), transparent 36%),radial-gradient(circle at 84% 30%, rgba(0,103,232,.1), transparent 38%),radial-gradient(circle at 50% 100%, rgba(5,80,181,.14), transparent 48%),radial-gradient(ellipse at 50% 22%, #14254a 0%, #0b1630 48%, #060d1f 100%);
+  --rd-card:rgba(14,26,56,.72);--rd-card2:rgba(12,23,48,.85);--rd-bdr:rgba(0,196,255,.14);--rd-bdr2:rgba(0,196,255,.22)}
+body{background:#060d1f;color:#fff}
 
-/* HOME — light bg, dark text, Arena blue accents */
-#home{background:linear-gradient(180deg,#fff 0%,#f0f4fa 50%,#e5e9f0 100%)!important;color:#0a1228}
-.home-hdr .hbp{background:#fff!important;border:1px solid #e5e9f0!important;box-shadow:0 1px 3px rgba(10,12,20,.04)}
-.hbp img{filter:none!important}
-.hbp-txt{color:var(--cc)!important}
-.hdr-table{color:#5a6378!important}
-.hdr-lang{background:#fff!important;color:#0a1228!important;border:1px solid #e5e9f0;box-shadow:0 1px 3px rgba(10,12,20,.04)}
-.hdr-lang:hover{background:#f0f4fa!important}
-.hdr-cfg{background:#fff!important;color:#5a6378!important;border:1px solid #e5e9f0;box-shadow:0 1px 3px rgba(10,12,20,.04)}
-.hdr-cfg:hover{background:#f0f4fa!important;color:#0067E8!important}
-.hc-logo{opacity:.88!important;filter:none!important}
-.hc-sub{color:var(--cc)!important;opacity:.5}
+/* All screens share dark atmosphere */
+#home,#history,#game,#postgame{background:var(--rd-bg)!important;color:#fff}
+#services{background:var(--rd-bg)!important}
+#home .overlay,#history .overlay,#game .overlay{display:none!important}
 
-/* Home bottom nav — light card */
-.home-nav{background:#fff!important;border:1px solid #e5e9f0!important;box-shadow:0 -4px 16px rgba(0,103,232,.06),0 2px 8px rgba(10,12,20,.04)!important;backdrop-filter:none!important}
-.hnav-btn:not(:last-child)::after{background:#e5e9f0!important}
-.hnav-btn:hover{background:#f3f6fb!important}
-.hnav-btn.primary{background:#f3f6fb!important}
-.hnav-lbl{color:#0a1228!important}
-.hnav-ico.grid{background:linear-gradient(135deg,#DBEAFE,#93C5FD)!important;border:none!important;color:#1E3A8A}
-.hnav-ico.play{background:var(--cc)!important;color:#fff!important;box-shadow:0 4px 20px var(--cc3)!important}
-.hnav-ico.hist{background:linear-gradient(135deg,#FED7AA,#FB923C)!important;border:none!important;color:#9A3412}
+/* HOME */
+.home-hdr .hbp{background:rgba(12,23,48,.8)!important;border:1px solid var(--rd-bdr)!important;box-shadow:0 4px 16px rgba(0,0,0,.3)!important}
+.hbp img{filter:brightness(0) invert(1)!important}
+.hbp-txt{color:#fff!important}
+.hdr-table{color:rgba(255,255,255,.6)!important}
+.hdr-lang{background:rgba(12,23,48,.8)!important;color:#fff!important;border:1px solid var(--rd-bdr)!important}
+.hdr-lang:hover{background:rgba(0,103,232,.2)!important}
+.hdr-cfg{background:rgba(12,23,48,.8)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
+.hdr-cfg:hover{background:rgba(0,103,232,.2)!important;color:#00C4FF!important}
+.hc-logo{opacity:.16!important;filter:brightness(0) invert(1)!important}
+.hc-sub{color:#00C4FF!important;opacity:.3}
+.home-nav{background:rgba(12,23,48,.85)!important;border:1px solid var(--rd-bdr)!important;box-shadow:0 -6px 24px rgba(0,0,0,.35)!important;backdrop-filter:none!important}
+.hnav-btn:not(:last-child)::after{background:rgba(255,255,255,.1)!important}
+.hnav-btn:hover{background:rgba(0,103,232,.15)!important}
+.hnav-btn.primary{background:rgba(0,103,232,.12)!important}
+.hnav-lbl{color:#fff!important}
+.hnav-ico.grid{background:linear-gradient(135deg,#00C4FF,#0067E8)!important;border:none!important;color:#fff}
+.hnav-ico.play{background:linear-gradient(135deg,#00C4FF,#0067E8)!important;color:#fff!important;box-shadow:0 4px 24px rgba(0,196,255,.5)!important}
+.hnav-ico.hist{background:linear-gradient(135deg,#0067E8,#0550B5)!important;border:none!important;color:#fff}
 
-/* RANKING — dark immersive (no light override; design is self-contained dark) */
+/* SERVICES — dark glass sidebar + tiles */
+.svc-sb{background:rgba(10,18,40,.8)!important;border-right:1px solid var(--rd-bdr)!important}
+.svc-sb-top{border-bottom:1px solid var(--rd-bdr)!important}
+.svc-sb-logo img{filter:brightness(0) invert(1)!important}
+.svc-sb-logo-txt{color:#fff!important}
+.svc-sb-item:hover{background:rgba(0,103,232,.12)!important}
+.svc-sb-item.sel{background:rgba(0,196,255,.14)!important;border-left-color:#00C4FF!important}
+.svc-sb-ico{background:rgba(0,103,232,.16)!important}
+.svc-sb-name{color:rgba(255,255,255,.65)!important}
+.svc-sb-item.sel .svc-sb-name{color:#00C4FF!important}
+.svc-sb-cnt{color:rgba(255,255,255,.4)!important}
+.svc-sb-footer{border-top:1px solid var(--rd-bdr)!important}
+.svc-sb-footer .back-btn{background:rgba(12,23,48,.8)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
+.svc-main-hdr{border-bottom:1px solid var(--rd-bdr)!important;background:rgba(10,18,40,.6)!important}
+.svc-main-title{color:rgba(255,255,255,.6)!important}
+.svc-cnt-pill{color:rgba(255,255,255,.6)!important;background:rgba(0,103,232,.14)!important}
+.svc-grid{background:transparent!important}
+.svc-sect-lbl{color:#fff!important}
+.svc-sect-hd.s-off .svc-sect-lbl{color:rgba(255,255,255,.4)!important}
+.svc-sect-cnt{color:rgba(255,255,255,.6)!important;background:rgba(12,23,48,.8)!important;border:1px solid var(--rd-bdr)!important}
+.svc-card{background:var(--rd-card)!important;border:1px solid var(--rd-bdr)!important;box-shadow:0 4px 14px rgba(0,0,0,.2)!important}
+.svc-card:not(.inactive):hover{border-color:#00C4FF!important;box-shadow:0 6px 20px rgba(0,196,255,.18)!important}
+.svc-card.inactive{background:rgba(10,18,40,.5)!important;border:1px dashed rgba(255,255,255,.12)!important}
+.svc-card.inactive .svc-card-ico{background:rgba(255,255,255,.06)!important;color:rgba(255,255,255,.35)!important}
+.svc-card-name{color:#fff!important}
+.svc-card-desc{color:rgba(255,255,255,.5)!important}
 
-/* HISTORY — light bg */
-#history{background:#f5f7fa!important}
-#history .overlay{background:rgba(245,247,250,.7)!important;backdrop-filter:blur(8px)}
-#history .content,#history .phdr,#history .ptitle{color:#0a1228}
-#history .phdr small{color:#5a6378!important}
-#history .back-btn{background:#fff!important;color:#0a1228!important;border:1px solid #e5e9f0!important}
+/* HISTORY — dark glass rows */
+#history .content,#history .phdr,#history .ptitle{color:#fff!important}
+#history .phdr small{color:rgba(255,255,255,.55)!important}
+#history .back-btn{background:rgba(12,23,48,.8)!important;color:#fff!important;border:1px solid var(--rd-bdr)!important}
+.hrow{background:var(--rd-card)!important;border:1px solid var(--rd-bdr)!important}
+.hrow:hover{background:rgba(0,103,232,.12)!important}
 
-/* GAME / POST GAME — light (base #game/#postgame styles above are already light) */
-#game{background:#f5f7fa!important;color:#0a1228}
-#postgame{background:#f5f7fa!important;color:#0a1228}
+/* GAME — dark scoring UI */
+#game .gc{color:#fff!important}
+.pp{background:rgba(10,18,40,.6)!important}
+.pp1{border-right:1px solid var(--rd-bdr)!important;box-shadow:inset 5px 0 0 #00C4FF!important}
+.pp2{border-left:1px solid var(--rd-bdr)!important;box-shadow:inset -5px 0 0 #00C4FF!important}
+.pp-name{color:#fff!important}
+.pp-login{background:rgba(12,23,48,.8)!important;border:1px solid var(--rd-bdr)!important;color:rgba(255,255,255,.7)!important}
+.score-btns-bot .sbt{background:rgba(255,255,255,.05)!important;color:rgba(255,255,255,.6)!important;border-color:rgba(255,255,255,.12)!important}
+.score-sub{color:rgba(255,255,255,.4)!important}
+.score-num{color:#00C4FF!important}
+.gmode{color:#00C4FF!important;background:rgba(0,196,255,.12)!important;border:1px solid var(--rd-bdr2)!important}
+.gtimer{color:#fff!important}
+.gbtn-pause{background:rgba(255,255,255,.06)!important;color:#fff!important;border:1px solid var(--rd-bdr)!important}
+.gtabs{border-bottom:1px solid var(--rd-bdr)!important}
+.gtab{color:rgba(255,255,255,.55)!important}
+.gtab:hover{color:#fff!important}
+.gtab.active{color:#00C4FF!important;border-bottom-color:#00C4FF!important}
 
-/* Club picker theme panel — light */
-#themePanel{background:#fff!important;border:1px solid #e5e9f0!important;color:#0a1228!important;box-shadow:0 12px 40px rgba(10,12,20,.12)!important}
-.tclub{color:#0a1228!important}
-.tclub:hover{background:#f0f4fa!important}
-.tclub.sel{background:#e8f1ff!important;color:#0067E8!important}
+/* POST GAME — dark */
+.pg-score-num{color:#00C4FF!important}
+.pg-score-p{color:rgba(255,255,255,.6)!important}
+.pg-vs{color:rgba(255,255,255,.4)!important}
+.pg-ads{background:rgba(10,18,40,.5)!important}
+.pg-ads-title{color:rgba(255,255,255,.6)!important}
+.merch-card{background:var(--rd-card)!important;border:1px solid var(--rd-bdr)!important}
+.merch-name{color:#fff!important}
+.merch-aff{color:rgba(255,255,255,.5)!important}
+.pg-home-btn{background:linear-gradient(135deg,#00C4FF,#0067E8)!important;border:none!important}
 
-/* Ad ticker — light, subtle */
-.ad-ticker{background:#fff!important;border-top:1px solid #e5e9f0!important;color:#0a1228}
-.ad-item{color:#0a1228!important}
-.ad-txt{color:#0a1228!important}
-.ad-price{color:#0067E8!important}
-.ad-cta{background:#0067E8!important;color:#fff!important}
-.ad-spon{background:#fef3c7!important;color:#854d0e!important}
+/* Theme panel — dark */
+#themePanel{background:rgba(10,18,40,.96)!important;border:1px solid var(--rd-bdr)!important;color:#fff!important;box-shadow:0 16px 50px rgba(0,0,0,.6)!important}
+.tclub{color:#fff!important}
+.tclub:hover{background:rgba(0,103,232,.14)!important}
+.tclub.sel{background:rgba(0,196,255,.16)!important;color:#00C4FF!important}
 
-/* Idle overlay — keep dark for digital signage (digital ad screen) */
-/* (idle is full-screen takeover, light mode would be too bright) */
+/* Ad ticker — dark glass */
+.ad-ticker{background:rgba(8,16,34,.85)!important;border-top:1px solid var(--rd-bdr)!important;color:#fff}
+.ad-item{color:#fff!important}
+.ad-txt{color:rgba(255,255,255,.8)!important}
+.ad-price{color:#00C4FF!important}
+.ad-cta{background:linear-gradient(135deg,#00C4FF,#0067E8)!important;color:#fff!important}
+.ad-spon{background:rgba(0,196,255,.16)!important;color:#00C4FF!important}
 </style>
 </head>
 <body>
