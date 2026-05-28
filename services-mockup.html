@@ -609,95 +609,118 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .hsc{font-size:clamp(17px,1.9vw,24px);font-weight:900;letter-spacing:-1px;flex-shrink:0}
 .htm{font-size:11px;color:rgba(255,255,255,.3);flex-shrink:0}
 
-/* ══ GAME ══ */
-#game{background:url('bg_mode.png') center/cover no-repeat}
-#game .overlay{background:rgba(2,7,28,.88)}
-#game .gc{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.5fr 1fr;height:100%;color:#fff}
-.pp{display:flex;flex-direction:column;height:100%;border-right:1px solid rgba(255,255,255,.07)}
-.pp1{background:rgba(4,12,42,.8);border-left:4px solid #00B5E8}
-.pp2{background:rgba(4,12,42,.8);border-right:4px solid #00B5E8;border-left:none}
-.pp-header{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 10px;flex-shrink:0}
-.pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;color:#fff}
-.pp-login{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.7)}
-.score-btns-top,.score-btns-bot{display:flex;gap:5px;padding:6px 10px;flex-shrink:0}
-.sbt{flex:1;padding:9px 4px;border-radius:999px;font-size:clamp(13px,1.6vw,18px);font-weight:900;cursor:pointer;text-align:center;user-select:none;border:none}
-.sbt:active{transform:scale(.9)}
-.pp1 .score-btns-top .sbt{background:rgba(0,181,232,.12);color:#00B5E8;border:1.5px solid rgba(0,181,232,.35)!important}
-.pp1 .score-btns-top .sbt:hover{background:rgba(0,181,232,.25)}
-.pp1 .score-btns-bot .sbt{background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);border:1.5px solid rgba(255,255,255,.14)!important}
-.pp2 .score-btns-top .sbt{background:rgba(0,181,232,.1);color:#00B5E8;border:1.5px solid rgba(0,181,232,.35)!important}
-.pp2 .score-btns-top .sbt:hover{background:rgba(0,181,232,.2)}
-.pp2 .score-btns-bot .sbt{background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);border:1.5px solid rgba(255,255,255,.14)!important}
-.score-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
-.score-sub{font-size:clamp(11px,1.2vw,15px);font-weight:700;position:absolute;top:12px;right:14px;color:rgba(255,255,255,.3)}
-.score-num{font-size:clamp(110px,18vw,210px);font-weight:900;line-height:.9;font-variant-numeric:tabular-nums;user-select:none}
-.pp1 .score-num{color:#00B5E8}.pp2 .score-num{color:#00B5E8}
-.gcp{display:flex;flex-direction:column;background:rgba(3,9,30,.9);height:100%;border-left:1px solid rgba(255,255,255,.07);border-right:1px solid rgba(255,255,255,.07)}
-.gtopbar{display:flex;align-items:center;gap:7px;padding:8px 10px;background:rgba(4,15,50,.95);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
-.gvol{font-size:18px;cursor:pointer;color:rgba(255,255,255,.6)}
-.gcall-btn{background:rgba(0,181,232,.12);border:1px solid rgba(0,181,232,.3);border-radius:8px;padding:6px 11px;font-size:11px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:4px;color:#00B5E8}
-.gcall-btn:hover{background:rgba(0,181,232,.22)}
-.gmode{font-size:12px;font-weight:900;color:rgba(255,255,255,.6);flex:1;text-align:center;letter-spacing:.8px;text-transform:uppercase}
-.gtimer{font-size:clamp(16px,1.8vw,22px);font-weight:900;color:#00B5E8;font-variant-numeric:tabular-nums}
-.gtop-icons{display:flex;align-items:center;gap:6px}
-.gico{font-size:16px;cursor:pointer;color:rgba(255,255,255,.55)}
-.gico:hover{color:#fff}
-.gico.exit{font-size:12px;font-weight:700;color:rgba(255,255,255,.5);padding:4px 8px;border:1px solid rgba(255,255,255,.15);border-radius:6px}
-.gbtns{display:flex;gap:6px;padding:8px 10px;flex-shrink:0}
-.gbtn{flex:1;padding:11px;font-size:12px;font-weight:800;cursor:pointer;text-align:center;border:none;border-radius:9px;user-select:none}
-.gbtn:active{transform:scale(.97)}
-.gbtn-pause{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)!important}
-.gbtn-pause:hover{background:rgba(255,255,255,.14)}
-.gbtn-pause.paused{background:rgba(0,181,232,.15);color:#00B5E8;border-color:rgba(0,181,232,.4)!important}
-.gbtn-end{background:rgba(220,38,38,.15);color:#f87171;border:1px solid rgba(220,38,38,.3)!important}
-.gbtn-end:hover{background:rgba(220,38,38,.25)}
-.gtabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
-.gtab{flex:1;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.35);border-bottom:2px solid transparent}
-.gtab.active{color:#00B5E8;border-bottom-color:#00B5E8}
-.gactions{display:flex;align-items:center;padding:4px 6px;background:rgba(0,0,0,.2);flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.05);overflow-x:auto}
-.gactions::-webkit-scrollbar{display:none}
-.gact{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 7px;cursor:pointer;min-width:48px;flex-shrink:0;opacity:.7}
-.gact:hover{opacity:1}
-.gact-ico{font-size:16px}
-.gact-lbl{font-size:9px;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap}
-.gact-lbl.live{color:#ef4444}
-.turn-row{display:flex;align-items:center;gap:5px;padding:4px 7px;color:rgba(255,255,255,.4);font-size:10px;font-weight:600;flex-shrink:0;white-space:nowrap}
-.gcam{flex:1;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.gcam img{width:100%;height:100%;object-fit:cover}
-.gcam-ph{color:rgba(255,255,255,.2);text-align:center;font-size:11px}
-.gclips{display:flex;gap:4px;padding:5px;background:rgba(0,0,0,.4);flex-shrink:0;height:68px;border-top:1px solid rgba(255,255,255,.06)}
-.gclip{flex:1;background:rgba(255,255,255,.06);border-radius:5px;border:1px solid rgba(255,255,255,.06)}
+/* ══ GAME (light, decluttered) ══ */
+#game{background:#f5f7fa}
+#game .gc{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.6fr 1fr;height:100%;color:#0a1228}
 
-/* ══ POST GAME ══ */
-#postgame{background:url('bg_mode.png') center/cover no-repeat;color:#fff}
-#postgame .overlay{background:rgba(2,6,20,.92)}
+/* Player panels */
+.pp{display:flex;flex-direction:column;height:100%;background:#fff}
+.pp1{border-right:1px solid #e5e9f0;box-shadow:inset 5px 0 0 #00B5E8}
+.pp2{border-left:1px solid #e5e9f0;box-shadow:inset -5px 0 0 #00B5E8}
+.pp-header{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 10px;flex-shrink:0}
+.pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;color:#0f1b3d}
+.pp-login{background:#f3f6fb;border:1px solid #e5e9f0;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;color:#5a6378}
+.pp-login:hover{background:#e8f1ff;color:#0067E8;border-color:#cfe1fb}
+.score-btns-top,.score-btns-bot{display:flex;gap:6px;padding:7px 12px;flex-shrink:0}
+.sbt{flex:1;padding:11px 4px;border-radius:12px;font-size:clamp(13px,1.6vw,18px);font-weight:900;cursor:pointer;text-align:center;user-select:none;border:1.5px solid transparent;transition:transform .05s,background .12s}
+.sbt:active{transform:scale(.92)}
+.score-btns-top .sbt{background:rgba(0,103,232,.1);color:#0067E8;border-color:rgba(0,103,232,.28)}
+.score-btns-top .sbt:hover{background:rgba(0,103,232,.18)}
+.score-btns-bot .sbt{background:#f3f6fb;color:#5a6378;border-color:#e5e9f0}
+.score-btns-bot .sbt:hover{background:#eaeef5;color:#0f1b3d}
+.score-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.score-sub{font-size:clamp(11px,1.2vw,15px);font-weight:700;position:absolute;top:14px;right:16px;color:#aeb6c7}
+.score-num{font-size:clamp(110px,18vw,210px);font-weight:900;line-height:.9;font-variant-numeric:tabular-nums;user-select:none;color:#0067E8}
+
+/* Center column */
+.gcp{display:flex;flex-direction:column;background:#fff;height:100%;border-left:1px solid #e5e9f0;border-right:1px solid #e5e9f0;min-width:0}
+.gtopbar{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f8fafc;border-bottom:1px solid #e5e9f0;flex-shrink:0}
+.gtop-l{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.gtop-r{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+.gmode{font-size:11px;font-weight:900;color:#0067E8;letter-spacing:.6px;text-transform:uppercase;background:#e8f1ff;border:1px solid #cfe1fb;padding:5px 9px;border-radius:6px;white-space:nowrap}
+.gchip{font-size:11px;font-weight:700;color:#5a6378;background:#f3f6fb;border:1px solid #e5e9f0;padding:5px 9px;border-radius:6px;white-space:nowrap}
+.gtimer{font-size:clamp(18px,2vw,26px);font-weight:900;color:#0a1228;font-variant-numeric:tabular-nums;flex:1;text-align:center;letter-spacing:1px}
+.gcall-btn{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:800;cursor:pointer;color:#c2410c;white-space:nowrap}
+.gcall-btn:hover{background:#ffedd5}
+.gico.exit{font-size:12px;font-weight:700;color:#5a6378;padding:7px 12px;border:1px solid #e5e9f0;border-radius:8px;cursor:pointer;background:#fff;white-space:nowrap}
+.gico.exit:hover{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+.gbtns{display:flex;gap:8px;padding:10px 12px 8px;flex-shrink:0}
+.gbtn{flex:1;padding:13px;font-size:13px;font-weight:800;cursor:pointer;text-align:center;border-radius:11px;user-select:none}
+.gbtn:active{transform:scale(.97)}
+.gbtn-pause{background:#f3f6fb;color:#0f1b3d;border:1px solid #e5e9f0}
+.gbtn-pause:hover{background:#eaeef5}
+.gbtn-pause.paused{background:#e8f1ff;color:#0067E8;border-color:#cfe1fb}
+.gbtn-end{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.gbtn-end:hover{background:#fee2e2}
+.gturn{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;margin:0 12px 6px;background:#f8fafc;border:1px solid #e5e9f0;border-radius:10px;flex-shrink:0;font-size:12px;color:#5a6378;font-weight:600}
+.gturn b{color:#0f1b3d}
+.gturn-swap{background:#fff;border:1px solid #e5e9f0;border-radius:8px;padding:6px 11px;font-size:11px;font-weight:700;color:#0067E8;cursor:pointer}
+.gturn-swap:hover{background:#e8f1ff;border-color:#cfe1fb}
+.gtabs{display:flex;padding:0 12px;gap:2px;border-bottom:1px solid #e5e9f0;flex-shrink:0}
+.gtab{flex:1;padding:9px 4px;text-align:center;font-size:10px;font-weight:700;cursor:pointer;color:#5a6378;border-bottom:2px solid transparent;white-space:nowrap}
+.gtab:hover{color:#0f1b3d}
+.gtab.active{color:#0067E8;border-bottom-color:#0067E8}
+.gpanel{flex:1;display:flex;min-height:0;padding:10px 12px}
+.gpane{display:none;flex:1;min-height:0}
+.gpane.active{display:flex;flex-direction:column}
+.gcam{flex:1;background:#0f1b3d;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.gcam img{width:100%;height:100%;object-fit:cover}
+.gcam-ph{color:rgba(255,255,255,.5);text-align:center;font-size:12px}
+.gcam-mute{position:absolute;top:10px;right:10px;background:rgba(15,27,61,.7);border:1px solid rgba(255,255,255,.2);color:#fff;width:34px;height:34px;border-radius:8px;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.gcam-mute:hover{background:rgba(15,27,61,.95)}
+.grec,.gdelay{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#f8fafc;border:1px solid #e5e9f0;border-radius:12px;color:#5a6378;font-size:12px;font-weight:600;text-align:center;padding:16px}
+.grec-dot{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#0f1b3d}
+.grec-dot i{width:11px;height:11px;border-radius:50%;background:#dc2626;display:inline-block;animation:blink 1.2s infinite}
+.grec-time{font-size:30px;font-weight:900;font-variant-numeric:tabular-nums;color:#0a1228}
+.grec-btn{padding:10px 22px;border-radius:10px;border:1px solid #fecaca;background:#fff;font-weight:800;font-size:12px;cursor:pointer;color:#dc2626}
+.grec-btn:hover{background:#fef2f2}
+.gdelay-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.gdelay-b{padding:9px 16px;border-radius:9px;border:1px solid #e5e9f0;background:#fff;font-weight:800;font-size:12px;cursor:pointer;color:#5a6378}
+.gdelay-b.on{background:#e8f1ff;border-color:#cfe1fb;color:#0067E8}
+.greplay{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start;min-height:0}
+.gclip{background:#0f1b3d;border-radius:9px;border:1px solid #e5e9f0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:rgba(255,255,255,.6);font-size:18px;min-height:72px}
+.gclip span{font-size:10px;font-weight:700;color:rgba(255,255,255,.5)}
+.gclip:hover{outline:2px solid #0067E8;color:#fff}
+.gactions{display:flex;justify-content:space-around;align-items:center;padding:8px 6px;background:#f8fafc;border-top:1px solid #e5e9f0;flex-shrink:0}
+.gact{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;cursor:pointer;border-radius:9px;min-width:52px}
+.gact:hover{background:#eaeef5}
+.gact-ico{font-size:18px}
+.gact-lbl{font-size:9.5px;font-weight:700;color:#5a6378;white-space:nowrap}
+.gact-lbl.live{color:#dc2626}
+/* toast */
+#gToast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(12px);background:#0f1b3d;color:#fff;padding:12px 22px;border-radius:12px;font-size:13px;font-weight:700;box-shadow:0 8px 28px rgba(10,12,20,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:300;max-width:80vw;text-align:center}
+#gToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ══ POST GAME (light) ══ */
+#postgame{background:#f5f7fa;color:#0a1228}
 #postgame .pgc{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;height:100%}
-.pg-result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px;border-right:1px solid rgba(255,255,255,.07)}
-.pg-winner-label{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
-.pg-winner-name{font-size:clamp(28px,4vw,48px);font-weight:900;text-align:center}
+.pg-result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px;border-right:1px solid #e5e9f0;background:#fff}
+.pg-winner-label{font-size:12px;font-weight:700;color:#5a6378;letter-spacing:1px;text-transform:uppercase}
+.pg-winner-name{font-size:clamp(28px,4vw,48px);font-weight:900;text-align:center;color:#0f1b3d}
 .pg-scores{display:flex;align-items:center;gap:20px}
 .pg-score{display:flex;flex-direction:column;align-items:center;gap:4px}
-.pg-score-num{font-size:clamp(52px,8vw,88px);font-weight:900;line-height:1}
-.pg-score-p{font-size:13px;color:rgba(255,255,255,.5);font-weight:600}
-.pg-vs{font-size:20px;color:rgba(255,255,255,.2);font-weight:900}
+.pg-score-num{font-size:clamp(52px,8vw,88px);font-weight:900;line-height:1;color:#0067E8}
+.pg-score-p{font-size:13px;color:#5a6378;font-weight:600}
+.pg-vs{font-size:20px;color:#aeb6c7;font-weight:900}
 .pg-elo{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.pg-elo-up{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:rgba(16,185,129,.15);color:#22c55e;border:1px solid rgba(16,185,129,.25)}
-.pg-elo-dn{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:rgba(239,68,68,.12);color:#ef4444;border:1px solid rgba(239,68,68,.22)}
-.pg-home-btn{margin-top:8px;padding:11px 28px;border-radius:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:13px;font-weight:700;cursor:pointer}
-.pg-home-btn:hover{background:rgba(255,255,255,.14)}
-.pg-ads{display:flex;flex-direction:column;padding:28px;gap:14px;overflow:hidden}
-.pg-ads-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.pg-ads-title span{background:rgba(0,181,232,.1);border:1px solid rgba(0,181,232,.25);color:#00B5E8;padding:2px 8px;border-radius:4px;font-size:10px}
+.pg-elo-up{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:#ecfdf5;color:#059669;border:1px solid #a7f3d0}
+.pg-elo-dn{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.pg-home-btn{margin-top:8px;padding:11px 28px;border-radius:11px;background:#0067E8;border:1px solid #0067E8;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+.pg-home-btn:hover{background:#0556c0}
+.pg-ads{display:flex;flex-direction:column;padding:28px;gap:14px;overflow:hidden;background:#f8fafc}
+.pg-ads-title{font-size:12px;font-weight:700;color:#5a6378;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.pg-ads-title span{background:#e8f1ff;border:1px solid #cfe1fb;color:#0067E8;padding:2px 8px;border-radius:4px;font-size:10px}
 .merch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
-.merch-card{background:rgba(5,12,38,.8);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
-.merch-card:hover{border-color:rgba(255,255,255,.18)}
-.merch-img{height:90px;background:linear-gradient(135deg,#1a2060,#0d1440);display:flex;align-items:center;justify-content:center;font-size:36px}
+.merch-card{background:#fff;border:1px solid #e5e9f0;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
+.merch-card:hover{border-color:#cfe1fb;box-shadow:0 4px 14px rgba(0,103,232,.08)}
+.merch-img{height:90px;background:linear-gradient(135deg,#e8f1ff,#dbeafe);display:flex;align-items:center;justify-content:center;font-size:36px}
 .merch-info{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:4px}
-.merch-name{font-size:12px;font-weight:700;color:#fff}
-.merch-price{font-size:14px;font-weight:900;color:var(--cc)}
-.merch-aff{font-size:10px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:4px}
-.merch-aff-pct{color:#00B5E8;font-weight:700}
-.merch-buy{margin:0 12px 12px;padding:8px;border-radius:8px;background:linear-gradient(135deg,#0067E8,#01346B);color:#fff;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
+.merch-name{font-size:12px;font-weight:700;color:#0f1b3d}
+.merch-price{font-size:14px;font-weight:900;color:#0067E8}
+.merch-aff{font-size:10px;color:#5a6378;display:flex;align-items:center;gap:4px}
+.merch-aff-pct{color:#0067E8;font-weight:700}
+.merch-buy{margin:0 12px 12px;padding:8px;border-radius:8px;background:#0067E8;color:#fff;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
+.merch-buy:hover{background:#0556c0}
 .pg-aff-note{font-size:10px;color:rgba(255,255,255,.2);text-align:center;display:flex;align-items:center;gap:5px;justify-content:center;flex-shrink:0}
 
 /* ══ IDLE OVERLAY (digital signage) ══ */
@@ -756,13 +779,8 @@ body{background:#f5f7fa;color:#0a1228}
 #history .phdr small{color:#5a6378!important}
 #history .back-btn{background:#fff!important;color:#0a1228!important;border:1px solid #e5e9f0!important}
 
-/* GAME — light bg */
+/* GAME / POST GAME — light (base #game/#postgame styles above are already light) */
 #game{background:#f5f7fa!important;color:#0a1228}
-#game .ghdr,#game .gbody{color:#0a1228}
-#game .gtab{color:#5a6378!important;border-color:#e5e9f0!important}
-#game .gtab.active{color:#0067E8!important;border-bottom-color:#0067E8!important}
-
-/* POST GAME — light */
 #postgame{background:#f5f7fa!important;color:#0a1228}
 
 /* Club picker theme panel — light */
@@ -1128,13 +1146,12 @@ body{background:#f5f7fa;color:#0a1228}
 
 <!-- ══ GAME ══ -->
 <div class="screen" id="game">
-  <div class="overlay"></div>
   <div class="gc">
     <!-- Player 1 -->
     <div class="pp pp1">
       <div class="pp-header">
         <div class="pp-name">Player 1</div>
-        <button class="pp-login">Đăng nhập ℹ️</button>
+        <button class="pp-login" onclick="openModal('player-login')">Đăng nhập ℹ️</button>
       </div>
       <div class="score-btns-top">
         <div class="sbt" onclick="addScore('s1',2)">+2</div>
@@ -1156,54 +1173,86 @@ body{background:#f5f7fa;color:#0a1228}
     <!-- Center -->
     <div class="gcp">
       <div class="gtopbar">
-        <div class="gvol">🔊</div>
-        <button class="gcall-btn">🔔 GỌI NHÂN VIÊN</button>
-        <div class="gmode" id="gmode">CAROM</div>
+        <div class="gtop-l">
+          <span class="gmode" id="gmode">CAROM</span>
+          <span class="gchip" id="pcount">👥 2 người</span>
+        </div>
         <div class="gtimer" id="gtimer">00 : 00 : 00</div>
-        <div class="gtop-icons">
-          <span class="gico">🪙</span>
-          <span class="gico">🔄</span>
-          <span class="gico" id="pcount">👥 2</span>
-          <span class="gico exit" id="exitBtn">← Thoát</span>
+        <div class="gtop-r">
+          <button class="gcall-btn" onclick="callStaff()">🔔 Gọi nhân viên</button>
+          <button class="gico exit" id="exitBtn">← Thoát</button>
         </div>
       </div>
       <div class="gbtns">
-        <div class="gbtn gbtn-pause" id="pauseBtn" onclick="togglePause()">TAM DỪNG</div>
-        <div class="gbtn gbtn-end" onclick="endGame()">KẾT THÚC</div>
+        <div class="gbtn gbtn-pause" id="pauseBtn" onclick="togglePause()">⏸ Tạm dừng</div>
+        <div class="gbtn gbtn-end" onclick="endGame()">⏹ Kết thúc</div>
+      </div>
+      <div class="gturn">
+        <span>🎱 Đến lượt: <b id="turnName">Player 1</b></span>
+        <button class="gturn-swap" onclick="swapTurn()">🔄 Đổi lượt</button>
       </div>
       <div class="gtabs">
-        <div class="gtab active" onclick="switchGTab(this)">▶ Video</div>
-        <div class="gtab" onclick="switchGTab(this)">⊙ Ghi</div>
-        <div class="gtab" onclick="switchGTab(this)">⏱ Độ trễ</div>
-        <div class="gtab" onclick="switchGTab(this)">↩ Xem lại</div>
-        <div class="gtab" onclick="switchGTab(this)">⛶ Full</div>
+        <div class="gtab active" onclick="switchGTab(this,'video')">▶ Video</div>
+        <div class="gtab" onclick="switchGTab(this,'rec')">⊙ Ghi</div>
+        <div class="gtab" onclick="switchGTab(this,'delay')">⏱ Độ trễ</div>
+        <div class="gtab" onclick="switchGTab(this,'replay')">↩ Xem lại</div>
+        <div class="gtab" onclick="goFullCam()">⛶ Full</div>
       </div>
-      <div class="gactions">
-        <div class="turn-row">đến lượt quay &nbsp;10'&nbsp; 🎱</div>
-        <div class="gact"><div class="gact-ico">📡</div><div class="gact-lbl live">Livestream</div></div>
-        <div class="gact"><div class="gact-ico">📘</div><div class="gact-lbl live">Live Facebook</div></div>
-        <div class="gact"><div class="gact-ico">🍽️</div><div class="gact-lbl">Thực đơn</div></div>
-        <div class="gact"><div class="gact-ico">🎁</div><div class="gact-lbl">Khuyến mãi</div></div>
-        <div class="gact"><div class="gact-ico">💬</div><div class="gact-lbl">Feedback</div></div>
-        <div class="gact"><div class="gact-ico">🏅</div><div class="gact-lbl">Top Series</div></div>
-      </div>
-      <div class="gcam">
-        <img id="camFeed" style="display:none" alt="cam">
-        <div id="camPh" class="gcam-ph">
-          <div style="font-size:36px;margin-bottom:8px;opacity:.3">📹</div>
-          <div>AI ARENA &nbsp;·&nbsp; Camera feed</div>
+      <div class="gpanel">
+        <div class="gpane active" id="pane-video">
+          <div class="gcam" id="gcamWrap">
+            <img id="camFeed" style="display:none" alt="cam">
+            <div id="camPh" class="gcam-ph">
+              <div style="font-size:36px;margin-bottom:8px;opacity:.3">📹</div>
+              <div>AI ARENA &nbsp;·&nbsp; Camera feed</div>
+            </div>
+            <button class="gcam-mute" id="muteBtn" onclick="toggleMute()">🔊</button>
+          </div>
+        </div>
+        <div class="gpane" id="pane-rec">
+          <div class="grec">
+            <div class="grec-dot" id="recState"><i></i> Đang ghi trận đấu</div>
+            <div class="grec-time">00 : 00 : 12</div>
+            <div>Tự động lưu vào thư viện club</div>
+            <button class="grec-btn" id="recBtn" onclick="toggleRec()">Dừng ghi</button>
+          </div>
+        </div>
+        <div class="gpane" id="pane-delay">
+          <div class="gdelay">
+            <div>Độ trễ phát livestream</div>
+            <div class="gdelay-row">
+              <button class="gdelay-b on" onclick="setDelay(this,'Tức thì')">Tức thì</button>
+              <button class="gdelay-b" onclick="setDelay(this,'5 giây')">5s</button>
+              <button class="gdelay-b" onclick="setDelay(this,'10 giây')">10s</button>
+              <button class="gdelay-b" onclick="setDelay(this,'30 giây')">30s</button>
+            </div>
+            <div style="font-size:10.5px;color:#aeb6c7;max-width:240px">Độ trễ giúp giấu pha đánh trước người xem livestream</div>
+          </div>
+        </div>
+        <div class="gpane" id="pane-replay">
+          <div class="greplay">
+            <div class="gclip" onclick="showToast('Đang phát lại clip 1')">▶<span>Clip 1</span></div>
+            <div class="gclip" onclick="showToast('Đang phát lại clip 2')">▶<span>Clip 2</span></div>
+            <div class="gclip" onclick="showToast('Đang phát lại clip 3')">▶<span>Clip 3</span></div>
+            <div class="gclip" onclick="showToast('Đang phát lại clip 4')">▶<span>Clip 4</span></div>
+            <div class="gclip" onclick="showToast('Đang phát lại clip 5')">▶<span>Clip 5</span></div>
+          </div>
         </div>
       </div>
-      <div class="gclips">
-        <div class="gclip"></div><div class="gclip"></div><div class="gclip"></div>
-        <div class="gclip"></div><div class="gclip"></div>
+      <div class="gactions">
+        <div class="gact" onclick="openModal('livestream')"><div class="gact-ico">📡</div><div class="gact-lbl live">Livestream</div></div>
+        <div class="gact" onclick="showToast('Đang phát lên Facebook')"><div class="gact-ico">📘</div><div class="gact-lbl live">Live Facebook</div></div>
+        <div class="gact" onclick="openModal('goi-do')"><div class="gact-ico">🍽️</div><div class="gact-lbl">Thực đơn</div></div>
+        <div class="gact" onclick="openModal('voucher')"><div class="gact-ico">🎁</div><div class="gact-lbl">Khuyến mãi</div></div>
+        <div class="gact" onclick="openModal('feedback')"><div class="gact-ico">💬</div><div class="gact-lbl">Feedback</div></div>
+        <div class="gact" onclick="showScreen('ranking')"><div class="gact-ico">🏅</div><div class="gact-lbl">Top Series</div></div>
       </div>
     </div>
     <!-- Player 2 -->
     <div class="pp pp2">
       <div class="pp-header">
         <div class="pp-name">Player 2</div>
-        <button class="pp-login">Đăng nhập ℹ️</button>
+        <button class="pp-login" onclick="openModal('player-login')">Đăng nhập ℹ️</button>
       </div>
       <div class="score-btns-top">
         <div class="sbt" onclick="addScore('s2',2)">+2</div>
@@ -1399,7 +1448,27 @@ document.addEventListener('click',e=>{
 
 // ── Tabs ──
 function switchTab(el){ document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
-function switchGTab(el){ document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
+function switchGTab(el,pane){
+  document.querySelectorAll('#game .gtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#game .gpane').forEach(p=>p.classList.remove('active'));
+  const pn=document.getElementById('pane-'+pane); if(pn)pn.classList.add('active');
+}
+// ── Game controls (wired so no button is dead) ──
+function showToast(msg){
+  let t=document.getElementById('gToast');
+  if(!t){ t=document.createElement('div'); t.id='gToast'; document.body.appendChild(t); }
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm=setTimeout(()=>t.classList.remove('show'),2200);
+}
+function callStaff(){ showToast('🔔 Đã gọi nhân viên, vui lòng đợi'); }
+function swapTurn(){ const el=document.getElementById('turnName'); if(!el)return; el.textContent = el.textContent.trim()==='Player 1' ? 'Player 2' : 'Player 1'; }
+let _muted=false;
+function toggleMute(){ _muted=!_muted; const b=document.getElementById('muteBtn'); if(b)b.textContent=_muted?'🔇':'🔊'; showToast(_muted?'Đã tắt tiếng camera':'Đã bật tiếng camera'); }
+function goFullCam(){ const c=document.getElementById('gcamWrap'); if(c&&c.requestFullscreen){ c.requestFullscreen().catch(()=>showToast('Không vào được toàn màn hình')); } else { showToast('Trình duyệt không hỗ trợ toàn màn hình'); } }
+let _rec=true;
+function toggleRec(){ _rec=!_rec; const d=document.getElementById('recState'), b=document.getElementById('recBtn'); if(d)d.innerHTML=_rec?'<i></i> Đang ghi trận đấu':'⏸ Đã tạm dừng ghi'; if(b)b.textContent=_rec?'Dừng ghi':'Tiếp tục ghi'; showToast(_rec?'Bắt đầu ghi':'Đã dừng ghi'); }
+function setDelay(el,v){ el.parentElement.querySelectorAll('.gdelay-b').forEach(b=>b.classList.remove('on')); el.classList.add('on'); showToast('Độ trễ stream: '+v); }
 function switchRankTab(el,kind){ document.querySelectorAll('#ranking .r-nav-tab').forEach(t=>t.classList.remove('on')); el.classList.add('on'); rankDiscipline=kind; renderRanking(); }
 function filterTier(el,t){ el.parentElement.querySelectorAll('.r-fb').forEach(b=>b.classList.remove('on','A','B','C')); el.classList.add('on'); if(t!=='all')el.classList.add(t); rankTier=t; renderRanking(); }
 function switchScope(el,s){ document.querySelectorAll('.r-scope-b').forEach(b=>b.classList.remove('on')); el.classList.add('on'); rankScope=s; renderRanking(); }
@@ -1504,13 +1573,15 @@ function startGame(){
   ['s1','s2'].forEach(id=>document.getElementById(id).textContent='0');
   document.getElementById('sub1').textContent='0';
   document.getElementById('sub2').textContent='0';
+  const _tn=document.getElementById('turnName'); if(_tn)_tn.textContent='Player 1';
+  const _pb=document.getElementById('pauseBtn'); if(_pb){_pb.textContent='⏸ Tạm dừng';_pb.classList.remove('paused');}
   _s=0; _p=false; clearInterval(_t);
   _t=setInterval(()=>{ if(!_p){ _s++; const h=Math.floor(_s/3600),m=Math.floor((_s%3600)/60),s=_s%60; document.getElementById('gtimer').textContent=String(h).padStart(2,'0')+' : '+String(m).padStart(2,'0')+' : '+String(s).padStart(2,'0'); } },1000);
   initCamera();
   clearTimeout(_idleTimer);
 }
 function stopGame(){ clearInterval(_t); }
-function togglePause(){ _p=!_p; const b=document.getElementById('pauseBtn'); b.textContent=_p?'TIẾP TỤC':'TAM DỪNG'; b.classList.toggle('paused',_p); }
+function togglePause(){ _p=!_p; const b=document.getElementById('pauseBtn'); b.textContent=_p?'▶ Tiếp tục':'⏸ Tạm dừng'; b.classList.toggle('paused',_p); }
 function endGame(){
   stopGame();
   const s1=parseInt(document.getElementById('s1').textContent);
@@ -1553,6 +1624,7 @@ const MODAL_DATA={
   'goi-do':{title:'🍺 Gọi đồ',badge:'MENU',bc:'bo',body:`<div class="m-section">Menu phổ biến</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🍺</div><div class="m-item-info"><div class="m-item-name">Bia Tiger — lon 330ml</div><div class="m-item-sub">Lạnh sẵn · Giao tại bàn</div></div><div class="m-item-right">35k ₫</div></div><div class="m-item"><div class="m-item-ico">🥤</div><div class="m-item-info"><div class="m-item-name">Nước ngọt các loại</div><div class="m-item-sub">Pepsi / 7UP / Mirinda</div></div><div class="m-item-right">20k ₫</div></div><div class="m-item"><div class="m-item-ico">☕</div><div class="m-item-info"><div class="m-item-name">Cà phê sữa đá</div><div class="m-item-sub">Phin · Trung Nguyên</div></div><div class="m-item-right">25k ₫</div></div><div class="m-item"><div class="m-item-ico">🍜</div><div class="m-item-info"><div class="m-item-name">Mì ly các loại</div><div class="m-item-sub">Hảo Hảo / Omachi</div></div><div class="m-item-right">15k ₫</div></div></div><button class="m-cta yellow">🔔 Gọi nhân viên ngay</button>`},
   'livestream':{title:'🎥 Livestream bàn 07',badge:'● LIVE',bc:'bl',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">12</div><div class="m-stat-lbl">Đang xem</div></div><div class="m-stat"><div class="m-stat-val">HD</div><div class="m-stat-lbl">Chất lượng</div></div><div class="m-stat"><div class="m-stat-val">LIVE</div><div class="m-stat-lbl">Trạng thái</div></div></div><div class="m-section">Trận đang phát</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🎱</div><div class="m-item-info"><div class="m-item-name">Bàn 07 — Pool 9-ball</div><div class="m-item-sub">Nguyễn Văn An vs Trần Minh Tuấn</div></div><div class="m-item-right">5 – 3</div></div></div><button class="m-cta" onclick="closeModal();showScreen('game');startGame()">🎥 Xem livestream &amp; chấm điểm</button>`},
   'feedback':{title:'💬 Feedback club',badge:'MỚI',bc:'bgn',body:`<div class="m-section">Đánh giá G8 Billiards</div><div class="m-list"><div class="m-item"><div class="m-item-ico">⭐</div><div class="m-item-info"><div class="m-item-name">Chất lượng bàn &amp; thiết bị</div><div class="m-item-sub">Bàn, cơ, phấn, ánh sáng</div></div><div class="m-item-right">★★★★★</div></div><div class="m-item"><div class="m-item-ico">🛎️</div><div class="m-item-info"><div class="m-item-name">Dịch vụ &amp; nhân viên</div><div class="m-item-sub">Thái độ phục vụ, tốc độ</div></div><div class="m-item-right">★★★★☆</div></div><div class="m-item"><div class="m-item-ico">🧹</div><div class="m-item-info"><div class="m-item-name">Vệ sinh &amp; không gian</div><div class="m-item-sub">Sạch sẽ, thoáng mát</div></div><div class="m-item-right">★★★★★</div></div></div><button class="m-cta grn">💬 Gửi góp ý cho club</button>`},
+  'player-login':{title:'🔑 Đăng nhập cơ thủ',badge:'TÍCH ĐIỂM',bc:'bb',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">+ELO</div><div class="m-stat-lbl">Tính điểm xếp hạng</div></div><div class="m-stat"><div class="m-stat-val">🏅</div><div class="m-stat-lbl">Lên bảng Top Series</div></div></div><div class="m-section">Đăng nhập để lưu thành tích trận này</div><div class="m-list"><div class="m-item"><div class="m-item-ico">📱</div><div class="m-item-info"><div class="m-item-name">Quét QR bằng app Arena</div><div class="m-item-sub">Mở app → quét mã trên màn hình</div></div><div class="m-item-right">Nhanh</div></div><div class="m-item"><div class="m-item-ico">☎️</div><div class="m-item-info"><div class="m-item-name">Nhập số điện thoại</div><div class="m-item-sub">Dùng SĐT đã đăng ký tại club</div></div><div class="m-item-right">SĐT</div></div></div><button class="m-cta">🔑 Quét QR đăng nhập</button>`},
 };
 
 function openModal(key){
