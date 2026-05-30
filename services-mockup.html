@@ -1784,6 +1784,7 @@ function showScreen(id){
   if(id==='home') resetIdle(); else clearTimeout(_idleTimer);
   if(typeof location!=='undefined' && location.hash!=='#'+id){try{history.replaceState(null,'','#'+id)}catch(e){}}
   if(id==='ranking') loadRanking();
+  if(id==='game-setup' && typeof renderSetupTypes==='function'){ renderSetupTypes(); renderSetupPcnt(); renderSetupNames(); renderSetupTarget(); }
 }
 // Hash routing — open via /#ranking deep link
 window.addEventListener('DOMContentLoaded',()=>{const h=(location.hash||'').replace(/^#/,'');if(h)showScreen(h)});
@@ -2105,6 +2106,32 @@ function openModal(key){
 }
 function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
 document.getElementById('modalBg').addEventListener('click',e=>{ if(e.target===document.getElementById('modalBg')) closeModal(); });
+// ── Ad ticker → product QR purchase modal ──
+function openAdQR(name,price,ico){
+  document.getElementById('modalTitle').innerHTML='🛍️ '+(ico||'')+' '+name+' <span class="modal-badge bg">CỬA HÀNG</span>';
+  document.getElementById('modalBody').innerHTML=`
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:6px 0 4px">
+      <div style="font-size:34px">${ico||'🛍️'}</div>
+      <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.3">${name}</div>
+      <div style="font-size:22px;font-weight:900;color:var(--ccB)">${price}</div>
+      <div style="width:170px;height:170px;background:#fff;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:96px;box-shadow:0 8px 26px rgba(0,0,0,.4)">🔲</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.6)">Quét mã bằng app Arena hoặc camera điện thoại</div>
+    </div>
+    <div class="m-list" style="margin-top:14px">
+      <div class="m-item"><div class="m-item-ico">📱</div><div class="m-item-info"><div class="m-item-name">Quét QR để đặt mua</div><div class="m-item-sub">Mở app Arena → quét mã trên màn hình</div></div><div class="m-item-right">Nhanh</div></div>
+      <div class="m-item"><div class="m-item-ico">🚚</div><div class="m-item-info"><div class="m-item-name">Giao hàng tại bàn</div><div class="m-item-sub">Nhân viên mang tới bàn của bạn</div></div><div class="m-item-right">5-10'</div></div>
+    </div>
+    <button class="m-cta" onclick="closeModal()">🛍️ Đã hiểu</button>`;
+  document.getElementById('modalBg').classList.add('open');
+}
+// Delegated handler — works for every .ad-item across both ticker instances
+document.querySelectorAll('.ad-ticker').forEach(t=>t.addEventListener('click',e=>{
+  const item=e.target.closest('.ad-item'); if(!item) return;
+  const name=item.querySelector('.ad-txt')?.textContent.trim()||'Sản phẩm';
+  const price=item.querySelector('.ad-price')?.textContent.trim()||'';
+  const ico=item.querySelector('.ad-ico')?.textContent.trim()||'🛍️';
+  openAdQR(name,price,ico);
+}));
 
 // Confirm before leaving game — score will not be saved
 function confirmExit(){
