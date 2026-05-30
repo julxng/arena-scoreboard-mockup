@@ -887,9 +887,10 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
    ═══ GLOBAL DARK PREMIUM — tất cả screens đồng bộ ranking immersive ═══
    ═══ Tối ưu 21.5" (1920×1080); laptop auto-scale qua clamp/vh ═══
    ════════════════════════════════════════════════════════════════════ */
-:root{--rd-bg:radial-gradient(circle at 16% 18%, rgba(var(--ccB-rgb),.42), transparent 48%),radial-gradient(circle at 84% 30%, rgba(var(--ccD-rgb),.36), transparent 50%),radial-gradient(circle at 50% 100%, rgba(var(--ccD-rgb),.32), transparent 58%),radial-gradient(ellipse at 50% 22%, #3c5fa8 0%, #284680 48%, #182f60 100%);
+:root{--bg1:#3c5fa8;--bg2:#284680;--bg3:#182f60;--bgBody:#060d1f;
+  --rd-bg:radial-gradient(circle at 16% 18%, rgba(var(--ccB-rgb),.42), transparent 48%),radial-gradient(circle at 84% 30%, rgba(var(--ccD-rgb),.36), transparent 50%),radial-gradient(circle at 50% 100%, rgba(var(--ccD-rgb),.32), transparent 58%),radial-gradient(ellipse at 50% 22%, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
   --rd-card:rgba(20,34,68,.7);--rd-card2:rgba(16,28,58,.82);--rd-bdr:rgba(var(--ccB-rgb),.22);--rd-bdr2:rgba(var(--ccB-rgb),.32)}
-body{background:#060d1f;color:#fff}
+body{background:var(--bgBody);color:#fff}
 
 /* All screens share dark atmosphere */
 #home,#history,#game,#postgame{background:var(--rd-bg)!important;color:#fff}
@@ -921,7 +922,7 @@ body{background:#060d1f;color:#fff}
 .hnav-lbl{color:#fff!important}
 .hnav-ico.grid{background:linear-gradient(135deg,var(--ccB),var(--ccD))!important;border:none!important;color:#fff}
 .hnav-ico.play{background:linear-gradient(135deg,var(--ccB),var(--ccD))!important;color:#fff!important;box-shadow:0 4px 24px rgba(var(--ccB-rgb),.5)!important}
-.hnav-ico.hist{background:linear-gradient(135deg,var(--ccD),#0550B5)!important;border:none!important;color:#fff}
+.hnav-ico.hist{background:linear-gradient(135deg,var(--ccB),var(--ccD))!important;border:none!important;color:#fff}
 
 /* SERVICES — dark glass sidebar + tiles */
 .svc-sb{background:rgba(10,18,40,.8)!important;border-right:1px solid var(--rd-bdr)!important}
@@ -1172,7 +1173,7 @@ body{background:#060d1f;color:#fff}
       <div class="hnav-ico grid">⊞</div>
       <div class="hnav-lbl">Dịch vụ</div>
     </div>
-    <div class="hnav-btn primary" onclick="showScreen('game');startGame()">
+    <div class="hnav-btn primary" onclick="openGameSetup()">
       <div class="hnav-ico play">▶</div>
       <div class="hnav-lbl">Đánh nhanh</div>
     </div>
@@ -1499,6 +1500,42 @@ body{background:#060d1f;color:#fff}
   </div>
 </div>
 
+<!-- ══ GAME SETUP ══ -->
+<div class="screen" id="game-setup">
+  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="gs-wrap">
+    <div class="gs-head">
+      <div class="gs-title">Tạo trận mới</div>
+      <div class="gs-sub">Chọn loại trò chơi, số người, và điểm đích · Bấm Bắt đầu để vào trận</div>
+    </div>
+    <div class="gs-section">
+      <div class="gs-step"><span class="gs-step-n">1</span>Chọn loại trò chơi</div>
+      <div class="gs-types" id="gsTypes"></div>
+    </div>
+    <div class="gs-section">
+      <div class="gs-step"><span class="gs-step-n">2</span>Số người chơi</div>
+      <div class="gs-pcnt" id="gsPcnt"></div>
+    </div>
+    <div class="gs-section">
+      <div class="gs-step"><span class="gs-step-n">3</span>Tên cơ thủ</div>
+      <div class="gs-pnames" id="gsPnames"></div>
+    </div>
+    <div class="gs-section">
+      <div class="gs-step"><span class="gs-step-n">4</span><span id="gsTargetLbl">Điểm thắng</span></div>
+      <div class="gs-target">
+        <span class="gs-target-lbl" id="gsTargetText">Race to / điểm đích</span>
+        <div class="gs-target-ctrl">
+          <button class="gs-target-btn" onclick="adjustTarget(-1)">−</button>
+          <span class="gs-target-val" id="gsTargetVal">40</span>
+          <button class="gs-target-btn" onclick="adjustTarget(1)">+</button>
+        </div>
+        <span class="gs-target-unit" id="gsTargetUnit">điểm</span>
+      </div>
+    </div>
+    <button class="gs-cta" id="gsCta" onclick="startMatchFromSetup()">🎱 Bắt đầu trận đấu →</button>
+  </div>
+</div>
+
 <!-- ══ GAME ══ -->
 <div class="screen" id="game">
   <button class="btn-back" onclick="confirmExit()" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -1645,6 +1682,7 @@ body{background:#060d1f;color:#fff}
       </div>
     </div>
   </div>
+  <div class="players-strip" id="playersStrip"></div>
 </div>
 
 <!-- ══ POST GAME ══ -->
@@ -1655,7 +1693,7 @@ body{background:#060d1f;color:#fff}
     <div class="pg-result">
       <div class="pg-winner-label">🏆 CHIẾN THẮNG</div>
       <div class="pg-winner-name" id="pg-winner">Player 1</div>
-      <div class="pg-scores">
+      <div class="pg-scores" id="pgScoresWrap">
         <div class="pg-score">
           <div class="pg-score-num" id="pg-s1" style="color:#00B5E8">0</div>
           <div class="pg-score-p">Player 1</div>
@@ -1669,6 +1707,10 @@ body{background:#060d1f;color:#fff}
       <div class="pg-elo">
         <div class="pg-elo-up">▲ +28 ELO</div>
         <div class="pg-elo-dn">▼ -28 ELO</div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;justify-content:center">
+        <button class="pg-newmatch-btn" onclick="openGameSetup()">🎱 Trận mới</button>
+        <button class="pg-newmatch-btn" style="background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.15)" onclick="showScreen('home')">← Về trang chủ</button>
       </div>
     </div>
     <div class="pg-ads">
@@ -1768,6 +1810,8 @@ function setClub(i){
   r.setProperty('--ccB-rgb',c.ccBrgb);
   r.setProperty('--ccD-rgb',c.ccDrgb);
   r.setProperty('--hbg',c.hbg);
+  // Background fades into a tone of the club's brand color (not fixed navy)
+  applyDeepBg(c.ccB);
   document.getElementById('services').style.background='#f5f7fa';
   document.getElementById('topClubName').textContent='Bàn 7 · '+c.name;
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
@@ -1820,6 +1864,23 @@ function hexToRgb(h){h=h.replace('#','');if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h
 function mixWhite(hex,t){const[r,g,b]=hexToRgb(hex);const m=v=>Math.round(v+(255-v)*t);return`rgb(${m(r)},${m(g)},${m(b)})`;}
 function rgba(hex,a){const[r,g,b]=hexToRgb(hex);return`rgba(${r},${g},${b},${a})`;}
 function darken(hex,t){const[r,g,b]=hexToRgb(hex);const d=v=>Math.max(0,Math.round(v*(1-t)));const h=v=>v.toString(16).padStart(2,'0');return`#${h(d(r))}${h(d(g))}${h(d(b))}`;}
+// Deep background shade derived from the brand color — hue-true, lightly desaturated
+// so any accent (warm or cool) fades into a tone of itself instead of a fixed navy.
+function deepen(hex,dark,desat){
+  let[r,g,b]=hexToRgb(hex);
+  const luma=0.2126*r+0.7152*g+0.0722*b;
+  r+=(luma-r)*desat; g+=(luma-g)*desat; b+=(luma-b)*desat;
+  const d=v=>Math.max(0,Math.min(255,Math.round(v*(1-dark))));
+  const h=v=>d(v).toString(16).padStart(2,'0');
+  return`#${h(r)}${h(g)}${h(b)}`;
+}
+function applyDeepBg(hex){
+  const r=document.documentElement.style;
+  r.setProperty('--bg1',deepen(hex,.55,.34));
+  r.setProperty('--bg2',deepen(hex,.70,.40));
+  r.setProperty('--bg3',deepen(hex,.83,.46));
+  r.setProperty('--bgBody',deepen(hex,.90,.52));
+}
 function setBrandColor(hex){
   const r=document.documentElement.style;
   const [br,bg,bb]=hexToRgb(hex);
@@ -1834,6 +1895,8 @@ function setBrandColor(hex){
   r.setProperty('--ccD',darkHex);
   r.setProperty('--ccB-rgb',`${br},${bg},${bb}`);
   r.setProperty('--ccD-rgb',`${dr},${dg},${db}`);
+  // Background fades into a tone of the chosen color (not fixed navy)
+  applyDeepBg(hex);
   // Mark active swatch
   document.querySelectorAll('.tp-sw-mini').forEach(el=>{
     el.classList.toggle('active',(el.dataset.hex||'').toLowerCase()===hex.toLowerCase());
