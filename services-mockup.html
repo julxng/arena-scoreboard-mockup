@@ -60,15 +60,18 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 :root{
   --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;
   --brand-primary:var(--ccD);--brand-cyan:var(--ccB);
-  --back-top:clamp(12px,1.6vh,18px);
-  --back-left:clamp(12px,1.4vw,20px);
 }
 
-/* ── Unified back button — ALWAYS top-left, same style every screen (dark glass on any bg) ── */
-.btn-back{position:absolute;top:var(--back-top);left:var(--back-left);z-index:50;width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(var(--surf-rgb),.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.32);color:#fff;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s,border-color .15s;padding:0;font:inherit;user-select:none;box-shadow:0 4px 14px rgba(0,0,0,.28)}
-.btn-back:hover{background:rgba(var(--ccD-rgb),.88);border-color:rgba(255,255,255,.55);box-shadow:0 6px 20px rgba(var(--ccD-rgb),.45)}
+/* ── Unified back button — lives INSIDE each screen's dark header bar ── */
+.btn-back{position:relative;flex-shrink:0;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);color:#fff;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s,border-color .15s;padding:0;font:inherit;user-select:none}
+.btn-back:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.4);box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .btn-back:active{transform:scale(.92)}
-.btn-back svg{width:20px;height:20px;display:block;stroke:currentColor}
+.btn-back svg{width:18px;height:18px;display:block;stroke:currentColor}
+
+/* Postgame + Game Setup top bar — single thin dark strip with the back button */
+.pg-topbar,.gs-topbar{display:flex;align-items:center;gap:14px;padding:14px 22px;background:linear-gradient(180deg,rgba(8,16,34,.92),rgba(8,16,34,.65));border-bottom:1px solid rgba(0,196,255,.14);flex-shrink:0;position:relative;z-index:5}
+.pg-topbar-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#fff}
+#postgame .pgc{flex:1;min-height:0;height:auto!important}
 
 /* ══ HOME (production-matching layout) ══ */
 :root{--cc:#00B5E8;--cc2:rgba(0,181,232,.13);--cc3:rgba(0,181,232,.28);--ccB:#00C4FF;--ccD:#0067E8;--ccB-rgb:0,196,255;--ccD-rgb:0,103,232;--hbg:radial-gradient(ellipse at 50% 30%,#0067E8 0%,#01346B 28%,#001f4d 60%,#000d28 100%)}
@@ -135,7 +138,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
   --ico-card:clamp(52px,4vw,68px);   /* card icon tile */
 }
 .svc-sb{width:clamp(200px,16vw,264px);flex-shrink:0;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e5e9f0}
-.svc-sb-top{padding:13px 12px 9px 72px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
+.svc-sb-top{padding:13px 12px 9px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
 .svc-sb-logo{display:flex;align-items:center;gap:7px}
 .svc-sb-logo img{height:22px;object-fit:contain}
 .svc-sb-logo-txt{font-size:var(--fs-body);font-weight:900;color:#0a1228;letter-spacing:.5px}
@@ -349,7 +352,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .r-vignette{position:absolute;inset:0;box-shadow:inset 0 0 180px 30px rgba(0,0,0,.45);pointer-events:none;z-index:1}
 
 /* Header — glass nav */
-.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px 14px 72px;background:linear-gradient(180deg,rgba(var(--surf-rgb),.85),rgba(var(--surf-rgb),.7));border-bottom:1px solid rgba(var(--ccB-rgb),.12);flex-shrink:0}
+.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px;background:linear-gradient(180deg,rgba(var(--surf-rgb),.85),rgba(var(--surf-rgb),.7));border-bottom:1px solid rgba(var(--ccB-rgb),.12);flex-shrink:0}
 .r-nav-brand{display:flex;align-items:center;gap:12px}
 .r-nav-logo{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--ccB),var(--ccD));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(var(--ccB-rgb),.45),inset 0 1px 0 rgba(255,255,255,.3);padding:7px;flex-shrink:0}
 .r-nav-logo img{width:100%;height:100%;object-fit:contain;filter:brightness(0) invert(1)}
@@ -751,7 +754,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* ══ HISTORY ══ */
 #history{background:#0c0e2a url('bg_history.png') center/cover no-repeat}
 #history .overlay{background:rgba(0,0,0,.77)}
-#history .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px 22px 72px;gap:14px;color:#fff}
+#history .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px;gap:14px;color:#fff}
 .hlist{flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
 .hrow{display:flex;align-items:center;gap:13px;padding:12px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:9px}
 .hrow:hover{background:rgba(255,255,255,.08)}
@@ -769,7 +772,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* Player panels */
 .pp{display:flex;flex-direction:column;height:100%;background:#fff}
 .pp1{border-right:1px solid #e5e9f0;box-shadow:inset 5px 0 0 var(--ccB)}
-.pp1 .pp-header{padding-left:72px}
 .pp2{border-left:1px solid #e5e9f0;box-shadow:inset -5px 0 0 var(--ccB)}
 .pp-header{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 10px;flex-shrink:0}
 .pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;color:#0f1b3d}
@@ -942,7 +944,7 @@ body{background:var(--bgBody);color:#fff}
 .svc-sb-logo-txt{color:#fff!important}
 .svc-sb-item:hover{background:rgba(var(--ccD-rgb),.12)!important}
 .svc-sb-item.sel{background:rgba(var(--ccB-rgb),.14)!important;border-left-color:var(--ccB)!important}
-.svc-sb-ico{background:rgba(var(--ccD-rgb),.16)!important}
+.svc-sb-ico{background:color-mix(in srgb,var(--ic,#00C4FF) 24%,transparent)!important;color:var(--ic,#00C4FF)!important}
 .svc-sb-name{color:rgba(255,255,255,.65)!important}
 .svc-sb-item.sel .svc-sb-name{color:var(--ccB)!important}
 .svc-sb-cnt{color:rgba(255,255,255,.4)!important}
@@ -1259,7 +1261,6 @@ body{background:var(--bgBody);color:#fff}
 
 <!-- ══ SERVICES ══ -->
 <div class="screen" id="services">
-  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div style="flex:1;display:flex;flex-direction:row;min-height:0">
 
   <!-- Sidebar -->
@@ -1277,6 +1278,7 @@ body{background:var(--bgBody);color:#fff}
   <div id="svcInner" style="flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden">
     <!-- Hero — Arena × Club branding (matches app mockup svchub) -->
     <div class="svc-hero">
+      <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <img src="logo_arena.png" alt="Arena" class="svc-hero-logo">
       <span class="svc-hero-x">×</span>
       <div class="svc-hero-club" id="svcHeroClub" style="background-image:url('logo-hoangsao.jpg')"></div>
@@ -1311,7 +1313,6 @@ body{background:var(--bgBody);color:#fff}
 
 <!-- ══ RANKING ══ -->
 <div class="screen" id="ranking">
-  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="content">
     <!-- Layer 0: atmosphere -->
     <div class="r-bg">
@@ -1326,6 +1327,7 @@ body{background:var(--bgBody);color:#fff}
 
     <!-- Top nav (glass) -->
     <div class="r-nav">
+      <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="r-nav-brand">
         <div class="r-nav-logo"><img src="logo_arena.png" alt="Arena"></div>
         <div class="r-nav-wordmark">ARENA<span>PLAY BETTER</span></div>
@@ -1494,10 +1496,10 @@ body{background:var(--bgBody);color:#fff}
 
 <!-- ══ HISTORY ══ -->
 <div class="screen" id="history">
-  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="overlay"></div>
   <div class="content">
     <div class="phdr">
+      <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="ptitle">LỊCH SỬ TRẬN ĐẤU</div>
     </div>
     <div class="hlist">
@@ -1513,8 +1515,10 @@ body{background:var(--bgBody);color:#fff}
 
 <!-- ══ GAME SETUP ══ -->
 <div class="screen" id="game-setup">
-  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="gs-wrap">
+    <div class="gs-topbar">
+      <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
     <div class="gs-head">
       <div class="gs-title">Tạo trận mới</div>
       <div class="gs-sub">Chọn loại trò chơi, số người, và điểm đích · Bấm Bắt đầu để vào trận</div>
@@ -1549,7 +1553,6 @@ body{background:var(--bgBody);color:#fff}
 
 <!-- ══ GAME ══ -->
 <div class="screen" id="game">
-  <button class="btn-back" onclick="confirmExit()" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="gc">
     <!-- Player 1 -->
     <div class="pp pp1">
@@ -1578,6 +1581,7 @@ body{background:var(--bgBody);color:#fff}
     <div class="gcp">
       <div class="gtopbar">
         <div class="gtop-l">
+          <button class="btn-back" onclick="confirmExit()" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <span class="gmode" id="gmode">CAROM</span>
           <span class="gchip" id="pcount">👥 2 người</span>
         </div>
@@ -1698,7 +1702,10 @@ body{background:var(--bgBody);color:#fff}
 
 <!-- ══ POST GAME ══ -->
 <div class="screen" id="postgame">
-  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="pg-topbar">
+    <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="pg-topbar-title">KẾT QUẢ TRẬN ĐẤU</div>
+  </div>
   <div class="overlay"></div>
   <div class="pgc">
     <div class="pg-result">
@@ -2236,11 +2243,11 @@ document.getElementById('idleOverlay').addEventListener('click', hideIdle);
 
 // ── Service Hub ──
 const SVC_CATS=[
-  {id:'all',dot:'var(--cc)',label:'Tất cả dịch vụ',ico:'⊞'},
-  {id:'catcam',dot:'#ef4444',label:'CẮT CAM (IN-APP)',ico:'📹'},
-  {id:'thi-dau',dot:'#f59e0b',label:'THI ĐẤU & GIẢI',ico:'🏆'},
-  {id:'tien-ich',dot:'#22c55e',label:'TIỆN ÍCH',ico:'🎯'},
-  {id:'in-game',dot:'#3b82f6',label:'IN-GAME',ico:'📊'},
+  {id:'all',dot:'#0067E8',label:'Tất cả dịch vụ',sf:'grid'},
+  {id:'catcam',dot:'#ef4444',label:'CẮT CAM (IN-APP)',sf:'cam'},
+  {id:'thi-dau',dot:'#f59e0b',label:'THI ĐẤU & GIẢI',sf:'trophy'},
+  {id:'tien-ich',dot:'#22c55e',label:'TIỆN ÍCH',sf:'target'},
+  {id:'in-game',dot:'#3b82f6',label:'IN-GAME',sf:'chart'},
 ];
 // Arena custom icon set — monoline SVG, currentColor inherits from .i-* gradient text color
 const SVG={
@@ -2270,7 +2277,8 @@ const SF = {
   grad:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v4.5a6 6 0 0 0 12 0V12"/><path d="M22 10v5.5"/></svg>',
   cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10.5h18"/><path d="M8 3v4M16 3v4"/></svg>',
   trend:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5l6-6 4 4 7-7"/><path d="M14 8.5h6.5V15"/></svg>',
-  cup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5h10v9.5a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8.5z"/><path d="M16 11.5h2a3 3 0 0 1 0 6h-2"/><path d="M8.5 4v2M11 4v2M13.5 4v2"/></svg>'
+  cup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5h10v9.5a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8.5z"/><path d="M16 11.5h2a3 3 0 0 1 0 6h-2"/><path d="M8.5 4v2M11 4v2M13.5 4v2"/></svg>',
+  grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>'
 };
 
 const SVC_HUB=[
@@ -2295,7 +2303,7 @@ function renderSvcSidebar(){
   SVC_CATS.forEach(cat=>{
     const cnt=cat.id==='all'?SVC_HUB.length:SVC_HUB.filter(s=>s.cat===cat.id).length;
     const onCnt=cat.id==='all'?SVC_HUB.filter(s=>s.on).length:SVC_HUB.filter(s=>s.cat===cat.id&&s.on).length;
-    nav.insertAdjacentHTML('beforeend',`<div class="svc-sb-item${curSvcCat===cat.id?' sel':''}" onclick="filterSvc('${cat.id}')"><div class="svc-sb-ico">${cat.ico}</div><div class="svc-sb-info"><div class="svc-sb-name">${cat.label}</div><div class="svc-sb-cnt">${onCnt}/${cnt} kích hoạt</div></div><span class="svc-sb-dot" style="background:${cat.dot}"></span></div>`);
+    nav.insertAdjacentHTML('beforeend',`<div class="svc-sb-item${curSvcCat===cat.id?' sel':''}" onclick="filterSvc('${cat.id}')"><div class="svc-sb-ico" style="--ic:${cat.dot}">${SF[cat.sf]||''}</div><div class="svc-sb-info"><div class="svc-sb-name">${cat.label}</div><div class="svc-sb-cnt">${onCnt}/${cnt} kích hoạt</div></div><span class="svc-sb-dot" style="background:${cat.dot}"></span></div>`);
   });
 }
 
