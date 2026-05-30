@@ -2257,6 +2257,230 @@ function filterSvc(catId){
 setClub(0);
 filterSvc('all');
 resetIdle();
+
+// ══════════════════════════════════════════════════════════════════════════
+// GAME TYPES + SETUP + DYNAMIC MULTI-PLAYER SCOREBOARD
+// ══════════════════════════════════════════════════════════════════════════
+const GAME_TYPES = [
+  {id:'carom-3c', short:'CAROM 3C', name:'Carom 3 băng',     ico:'🎯', scoring:'points', defaultTarget:40,  targetMin:5,  targetMax:200, targetStep:5,  targetUnit:'điểm', targetLbl:'Điểm thắng', scoreBtns:{top:[1,2,3,5],bot:[-1,-2,-3]},                desc:'Đánh chạm 3 băng · Tích điểm đến mục tiêu', tag:'CLASSIC'},
+  {id:'pool-8',   short:'8-BALL',   name:'Pool 8-ball',       ico:'8️⃣', scoring:'frames', defaultTarget:5,   targetMin:1,  targetMax:21,  targetStep:1,  targetUnit:'ván',  targetLbl:'Race to',     scoreBtns:{top:[1],bot:[-1]},                            desc:'Race to N ván · +1 mỗi ván thắng', tag:'POPULAR'},
+  {id:'pool-9',   short:'9-BALL',   name:'Pool 9-ball',       ico:'9️⃣', scoring:'frames', defaultTarget:7,   targetMin:1,  targetMax:21,  targetStep:1,  targetUnit:'ván',  targetLbl:'Race to',     scoreBtns:{top:[1],bot:[-1]},                            desc:'Race to N ván · format thi đấu chuẩn'},
+  {id:'pool-10',  short:'10-BALL',  name:'Pool 10-ball',      ico:'🔟', scoring:'frames', defaultTarget:7,   targetMin:1,  targetMax:21,  targetStep:1,  targetUnit:'ván',  targetLbl:'Race to',     scoreBtns:{top:[1],bot:[-1]},                            desc:'Race to N ván · luật rotation'},
+  {id:'snooker',  short:'SNOOKER',  name:'Snooker',           ico:'🔴', scoring:'points', defaultTarget:50,  targetMin:10, targetMax:200, targetStep:10, targetUnit:'điểm', targetLbl:'Điểm thắng',  scoreBtns:{top:[1,2,3,4,5,6,7],bot:[-4]},                desc:'Tích điểm bóng màu · phạm lỗi -4'},
+  {id:'loi',      short:'LÔI',      name:'Lôi (8-ball Việt)', ico:'🎱', scoring:'frames', defaultTarget:5,   targetMin:1,  targetMax:21,  targetStep:1,  targetUnit:'ván',  targetLbl:'Race to',     scoreBtns:{top:[1],bot:[-1]},                            desc:'8-ball luật Việt · Race to N ván', tag:'VIỆT'},
+  {id:'phai-tien',short:'PHẢI TIỀN',name:'Phải tiền',         ico:'💵', scoring:'points', defaultTarget:10,  targetMin:1,  targetMax:50,  targetStep:1,  targetUnit:'lượt', targetLbl:'Số lượt tối đa', scoreBtns:{top:[1,2,5,10],bot:[-1,-2,-5]},            desc:'Đếm số pha phải trả tiền · format thân mật', tag:'VIỆT'},
+];
+
+let GAME = {type:GAME_TYPES[0], players:[], target:GAME_TYPES[0].defaultTarget, currentTurn:0};
+let _setup = {typeId:'carom-3c', count:2, names:['Player 1','Player 2'], target:GAME_TYPES[0].defaultTarget};
+
+function openGameSetup(){
+  showScreen('game-setup');
+  renderSetupTypes();
+  renderSetupPcnt();
+  renderSetupNames();
+  renderSetupTarget();
+}
+function selectSetupType(id){
+  _setup.typeId = id;
+  const t = GAME_TYPES.find(x=>x.id===id);
+  _setup.target = t.defaultTarget;
+  renderSetupTypes();
+  renderSetupTarget();
+}
+function selectSetupCount(n){
+  const prev = _setup.names.slice();
+  _setup.count = n;
+  _setup.names = Array.from({length:n}, (_,i)=> (prev[i] && prev[i].trim()) ? prev[i] : ('Player '+(i+1)));
+  renderSetupPcnt();
+  renderSetupNames();
+}
+function setSetupName(i,v){ _setup.names[i] = v; }
+function adjustTarget(delta){
+  const t = GAME_TYPES.find(x=>x.id===_setup.typeId);
+  _setup.target = Math.max(t.targetMin, Math.min(t.targetMax, _setup.target + delta*t.targetStep));
+  renderSetupTarget();
+}
+function renderSetupTypes(){
+  const el = document.getElementById('gsTypes'); if(!el) return;
+  el.innerHTML = GAME_TYPES.map(t=>`
+    <div class="gs-type${t.id===_setup.typeId?' sel':''}" onclick="selectSetupType('${t.id}')">
+      ${t.tag?`<span class="gs-type-tag">${t.tag}</span>`:''}
+      <div class="gs-type-ic">${t.ico}</div>
+      <div class="gs-type-name">${t.name}</div>
+      <div class="gs-type-desc">${t.desc}</div>
+    </div>`).join('');
+}
+function renderSetupPcnt(){
+  const el = document.getElementById('gsPcnt'); if(!el) return;
+  el.innerHTML = [2,3,4,5,6,7,8].map(n=>`<button class="gs-pcnt-b${n===_setup.count?' sel':''}" onclick="selectSetupCount(${n})">${n} người</button>`).join('');
+}
+function renderSetupNames(){
+  const el = document.getElementById('gsPnames'); if(!el) return;
+  el.innerHTML = _setup.names.map((nm,i)=>`
+    <div class="gs-pname">
+      <span class="gs-pname-num">${i+1}</span>
+      <input type="text" value="${nm.replace(/"/g,'&quot;')}" placeholder="Tên cơ thủ ${i+1}" oninput="setSetupName(${i},this.value)" maxlength="24">
+    </div>`).join('');
+}
+function renderSetupTarget(){
+  const t = GAME_TYPES.find(x=>x.id===_setup.typeId);
+  const lbl = document.getElementById('gsTargetLbl');     if(lbl) lbl.textContent = t.targetLbl;
+  const txt = document.getElementById('gsTargetText');    if(txt) txt.textContent = t.targetLbl;
+  const val = document.getElementById('gsTargetVal');     if(val) val.textContent = _setup.target;
+  const unit = document.getElementById('gsTargetUnit');   if(unit) unit.textContent = t.targetUnit;
+}
+function startMatchFromSetup(){
+  const t = GAME_TYPES.find(x=>x.id===_setup.typeId);
+  GAME.type = t;
+  GAME.target = _setup.target;
+  GAME.currentTurn = 0;
+  GAME.players = _setup.names.slice(0,_setup.count).map((nm,i)=>({name:(nm.trim()||('Player '+(i+1))), score:0}));
+  showScreen('game');
+  startGame();
+}
+
+// ── Override startGame / endGame / addScore / swapTurn to be N-player aware ──
+function startGame(){
+  if(!GAME.players || GAME.players.length===0){
+    // Fallback for legacy entry points (livestream/catcam modals)
+    GAME.type = GAME_TYPES[0];
+    GAME.target = GAME_TYPES[0].defaultTarget;
+    GAME.players = [{name:'Player 1',score:0},{name:'Player 2',score:0}];
+    GAME.currentTurn = 0;
+  } else {
+    GAME.players.forEach(p=>p.score=0);
+    GAME.currentTurn = 0;
+  }
+  // Mode + player count chips
+  const modeEl = document.getElementById('gmode'); if(modeEl) modeEl.textContent = GAME.type.short;
+  const pcEl = document.getElementById('pcount'); if(pcEl) pcEl.textContent = '👥 '+GAME.players.length+' người';
+  // Layout class
+  const gameEl = document.getElementById('game');
+  if(gameEl){
+    gameEl.classList.toggle('players-multi', GAME.players.length > 2);
+  }
+  renderGameUI();
+  // Timer + UI reset
+  const _pb=document.getElementById('pauseBtn'); if(_pb){_pb.textContent='⏸ Tạm dừng';_pb.classList.remove('paused');}
+  _s=0; _p=false; clearInterval(_t);
+  _t=setInterval(()=>{ if(!_p){ _s++; const h=Math.floor(_s/3600),m=Math.floor((_s%3600)/60),s=_s%60; const g=document.getElementById('gtimer'); if(g) g.textContent=String(h).padStart(2,'0')+' : '+String(m).padStart(2,'0')+' : '+String(s).padStart(2,'0'); } },1000);
+  initCamera();
+  clearTimeout(_idleTimer);
+}
+
+function renderGameUI(){
+  // 2-player: refresh built-in pp1/pp2 panels
+  if(GAME.players.length === 2){
+    const setText=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
+    const names=document.querySelectorAll('#game .pp .pp-name');
+    if(names[0]) names[0].textContent = GAME.players[0].name;
+    if(names[1]) names[1].textContent = GAME.players[1].name;
+    setText('s1', GAME.players[0].score); setText('sub1', GAME.players[0].score);
+    setText('s2', GAME.players[1].score); setText('sub2', GAME.players[1].score);
+    // Rewire score buttons to use GAME deltas
+    rewireDuoScoreBtns();
+    // Turn label
+    const tn=document.getElementById('turnName'); if(tn) tn.textContent = GAME.players[GAME.currentTurn].name;
+    return;
+  }
+  // 3+ players: render compact strip
+  const strip = document.getElementById('playersStrip'); if(!strip) return;
+  const top = GAME.type.scoreBtns.top, bot = GAME.type.scoreBtns.bot;
+  const fmt = d => (d>0?'+'+d:''+d);
+  strip.innerHTML = GAME.players.map((p,i)=>`
+    <div class="pc${i===GAME.currentTurn?' active':''}" onclick="setTurn(${i})">
+      <div class="pc-hd">
+        <div class="pc-name">${escapeHtml(p.name)}</div>
+        <div class="pc-turn-dot"></div>
+      </div>
+      <div class="pc-score" id="pc-score-${i}">${p.score}</div>
+      <div class="pc-btns">
+        ${top.map(d=>`<div class="pc-btn pos" onclick="event.stopPropagation();addScoreN(${i},${d})">${fmt(d)}</div>`).join('')}
+        ${bot.map(d=>`<div class="pc-btn neg" onclick="event.stopPropagation();addScoreN(${i},${d})">${fmt(d)}</div>`).join('')}
+      </div>
+    </div>`).join('');
+  // Turn label
+  const tn=document.getElementById('turnName'); if(tn) tn.textContent = GAME.players[GAME.currentTurn].name;
+}
+
+function rewireDuoScoreBtns(){
+  const top = GAME.type.scoreBtns.top, bot = GAME.type.scoreBtns.bot;
+  const fmt = d => (d>0?'+'+d:''+d);
+  ['s1','s2'].forEach((id,idx)=>{
+    const pp = document.querySelectorAll('#game .pp')[idx]; if(!pp) return;
+    const topRow = pp.querySelector('.score-btns-top');
+    const botRow = pp.querySelector('.score-btns-bot');
+    if(topRow) topRow.innerHTML = top.map(d=>`<div class="sbt" onclick="addScoreN(${idx},${d})">${fmt(d)}</div>`).join('');
+    if(botRow) botRow.innerHTML = bot.map(d=>`<div class="sbt" onclick="addScoreN(${idx},${d})">${fmt(d)}</div>`).join('');
+  });
+}
+
+function setTurn(i){
+  GAME.currentTurn = i;
+  const tn=document.getElementById('turnName'); if(tn) tn.textContent = GAME.players[i].name;
+  document.querySelectorAll('#playersStrip .pc').forEach((el,idx)=>el.classList.toggle('active', idx===i));
+}
+
+function swapTurn(){
+  if(!GAME.players || GAME.players.length<2) return;
+  setTurn((GAME.currentTurn + 1) % GAME.players.length);
+}
+
+function addScoreN(playerIdx, delta){
+  const p = GAME.players[playerIdx]; if(!p) return;
+  p.score = Math.max(0, p.score + delta);
+  // Update DOM
+  if(GAME.players.length === 2){
+    const sId = 's'+(playerIdx+1), subId = 'sub'+(playerIdx+1);
+    const sEl = document.getElementById(sId); const subEl = document.getElementById(subId);
+    if(sEl){ sEl.textContent = p.score; sEl.style.opacity='.6'; setTimeout(()=>sEl.style.opacity='1',100); }
+    if(subEl) subEl.textContent = p.score;
+  } else {
+    const el = document.getElementById('pc-score-'+playerIdx);
+    if(el){ el.textContent = p.score; el.style.opacity='.6'; setTimeout(()=>el.style.opacity='1',120); }
+  }
+  // Auto-end on race-to target reached
+  if(GAME.target && p.score >= GAME.target){
+    setTimeout(()=>endGame(), 250);
+  }
+}
+
+// Legacy entry point (kept for compatibility with old "+2 +3 +4 +5" / "-1 -2 -3 -4" onclick attrs
+// that survive if a render didn't happen — maps id 's1'/'s2' → index 0/1)
+function addScore(id, delta){
+  const idx = (id === 's2') ? 1 : 0;
+  addScoreN(idx, delta);
+}
+
+function endGame(){
+  stopGame();
+  // Determine winner
+  let win = GAME.players[0], wIdx = 0;
+  GAME.players.forEach((p,i)=>{ if(p.score > win.score){ win = p; wIdx = i; } });
+  document.getElementById('pg-winner').textContent = win.name;
+  // Render scores wrap dynamically
+  const wrap = document.getElementById('pgScoresWrap');
+  if(wrap){
+    if(GAME.players.length === 2){
+      wrap.className = 'pg-scores';
+      wrap.innerHTML = `
+        <div class="pg-score"><div class="pg-score-num" style="color:#00B5E8">${GAME.players[0].score}</div><div class="pg-score-p">${escapeHtml(GAME.players[0].name)}</div></div>
+        <div class="pg-vs">–</div>
+        <div class="pg-score"><div class="pg-score-num" style="color:#00B5E8">${GAME.players[1].score}</div><div class="pg-score-p">${escapeHtml(GAME.players[1].name)}</div></div>`;
+    } else {
+      wrap.className = 'pg-scores multi';
+      wrap.innerHTML = GAME.players.map((p,i)=>`
+        <div class="pg-score">
+          <div class="pg-score-num" style="color:${i===wIdx?'#00C4FF':'rgba(255,255,255,.6)'}">${p.score}</div>
+          <div class="pg-score-p">${escapeHtml(p.name)}${i===wIdx?' 🏆':''}</div>
+        </div>`).join('');
+    }
+  }
+  showScreen('postgame');
+}
+
+function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 </script>
 </body>
 </html>
