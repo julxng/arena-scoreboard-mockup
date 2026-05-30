@@ -174,7 +174,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* Cards — light tile style (matches app SH-tile exactly) */
 .svc-card{background:#fff;border:1px solid #d8def0;border-radius:14px;padding:clamp(11px,1.2vw,18px);display:flex;flex-direction:column;gap:clamp(6px,.8vh,12px);cursor:pointer;transition:all .15s;position:relative;min-height:clamp(150px,20vh,240px);box-shadow:0 1px 2px rgba(10,12,20,.04),0 4px 12px rgba(0,103,232,.04);overflow:hidden}
 .svc-card:not(.inactive):hover{border-color:#0067E8;box-shadow:0 4px 16px rgba(0,103,232,.15);transform:translateY(-1px)}
-.svc-card.inactive{background:#fff;border:1px dashed #d8def0;box-shadow:none;opacity:.6;cursor:default}
+.svc-card.inactive{background:#fff;border:1px dashed #d8def0;box-shadow:none;opacity:.6;cursor:pointer}
+.svc-card.inactive:hover{opacity:.85;border-color:#b9c2d6}
 .svc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px}
 .svc-card-ico{width:clamp(56px,4.6vw,76px);height:clamp(56px,4.6vw,76px);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,1.8vw,30px);flex-shrink:0}
 .svc-card-ico svg{width:68%;height:68%;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
@@ -944,6 +945,7 @@ body{background:#060d1f;color:#fff}
 .svc-card{background:var(--rd-card)!important;border:1px solid var(--rd-bdr)!important;box-shadow:0 4px 14px rgba(0,0,0,.25)!important;padding:clamp(14px,1.5vw,22px)!important}
 .svc-card:not(.inactive):hover{border-color:var(--ccB)!important;box-shadow:0 6px 20px rgba(var(--ccB-rgb),.18)!important;transform:translateY(-1px)!important}
 .svc-card.inactive{background:rgba(16,28,58,.55)!important;border:1px dashed rgba(255,255,255,.12)!important}
+.svc-card.inactive:hover{border-color:rgba(255,255,255,.28)!important;opacity:.95!important}
 .svc-card.inactive .svc-card-ico{background:rgba(255,255,255,.06)!important;color:rgba(255,255,255,.35)!important}
 .svc-card-name{color:#fff!important}
 .svc-card-desc{color:rgba(255,255,255,.62)!important}
@@ -1953,6 +1955,7 @@ const MODAL_DATA={
   'thu-thach':{title:'🎯 Thử thách AI',badge:'AI · MỚI',bc:'bai',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">95%</div><div class="m-stat-lbl">Độ chính xác AI</div></div><div class="m-stat"><div class="m-stat-val">3,200</div><div class="m-stat-lbl">Thử thách hoàn thành</div></div></div><div class="m-section">Thử thách hôm nay</div><div class="m-list"><div class="m-item"><div class="m-item-ico">⭐</div><div class="m-item-info"><div class="m-item-name">Ghi 5 điểm liên tiếp</div><div class="m-item-sub">Thưởng: +50 ELO · Hết hạn 23:59</div></div><div class="m-item-tag" style="background:#047857">+50 ELO</div></div><div class="m-item"><div class="m-item-ico">💡</div><div class="m-item-info"><div class="m-item-name">Carom 30 điểm không fault</div><div class="m-item-sub">Thưởng: Voucher 50k</div></div><div class="m-item-tag" style="background:#b45309">Voucher</div></div></div><button class="m-cta">🎯 Bắt đầu thử thách</button>`},
   'voucher':{title:'🎟️ Voucher',badge:'ƯU ĐÃI',bc:'bgn',body:`<div class="m-section">Voucher của bạn (3)</div><div class="m-list"><div class="m-item"><div class="m-item-ico">💵</div><div class="m-item-info"><div class="m-item-name">Giảm 100k — Bàn Pool</div><div class="m-item-sub">Hết hạn: 30/05/2025</div></div><div class="m-item-right">-100k</div></div><div class="m-item"><div class="m-item-ico">🍺</div><div class="m-item-info"><div class="m-item-name">1 ly nước miễn phí</div><div class="m-item-sub">Hết hạn: 31/05/2025</div></div><div class="m-item-right">Miễn phí</div></div><div class="m-item"><div class="m-item-ico">🏆</div><div class="m-item-info"><div class="m-item-name">Ưu tiên đăng ký giải</div><div class="m-item-sub">Hoàng Sao Open 2025</div></div><div class="m-item-right">VIP</div></div></div><button class="m-cta grn">🎟️ Đổi voucher mới</button>`},
   'xep-hang':{title:'🥇 Xếp hạng',badge:'ELO',bc:'bg',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">#1</div><div class="m-stat-lbl">Nguyễn Văn An</div></div><div class="m-stat"><div class="m-stat-val">2,840</div><div class="m-stat-lbl">ELO cao nhất</div></div><div class="m-stat"><div class="m-stat-val">156</div><div class="m-stat-lbl">Cơ thủ ranked</div></div></div><button class="m-cta" onclick="closeModal();showScreen('ranking')">🏆 Xem bảng đầy đủ</button>`},
+  'ai-phan-tich':{title:'✨ AI Phân tích',badge:'BETA',bc:'bz',body:`<div class="m-coming"><div class="m-coming-ico">✨</div><div class="m-coming-txt">Phân tích kỹ thuật bằng AI — đang phát triển</div></div>`},
   'academy':{title:'🎓 Academy',badge:'VIDEO',bc:'bb',body:`<div class="m-coming"><div class="m-coming-ico">🎓</div><div class="m-coming-txt">Nội dung học thuật đang cập nhật</div></div>`},
   'dat-ban':{title:'📅 Đặt bàn',badge:'CÒN SLOT',bc:'bt',body:`<div class="m-coming"><div class="m-coming-ico">📅</div><div class="m-coming-txt">Đặt bàn online — ra mắt tháng 6/2025</div></div>`},
   'bang-diem':{title:'📊 Bảng điểm',badge:'REAL-TIME',bc:'bb',body:`<div class="m-stat-row"><div class="m-stat"><div class="m-stat-val">5</div><div class="m-stat-lbl">Bàn đang chơi</div></div><div class="m-stat"><div class="m-stat-val">12</div><div class="m-stat-lbl">Trận hôm nay</div></div><div class="m-stat"><div class="m-stat-val">LIVE</div><div class="m-stat-lbl">Cập nhật</div></div></div><div class="m-section">Đang diễn ra</div><div class="m-list"><div class="m-item"><div class="m-item-ico">🎱</div><div class="m-item-info"><div class="m-item-name">Bàn 07 — Pool 9-ball</div><div class="m-item-sub">Nguyễn Văn An vs Trần Minh Tuấn</div></div><div class="m-item-right">5 – 3</div></div><div class="m-item"><div class="m-item-ico">🎯</div><div class="m-item-info"><div class="m-item-name">Bàn 03 — Carom 3C</div><div class="m-item-sub">Lê Hoàng Phúc vs Phạm Quốc Bảo</div></div><div class="m-item-right">28 – 22</div></div><div class="m-item"><div class="m-item-ico">🎱</div><div class="m-item-info"><div class="m-item-name">Bàn 12 — Pool 9-ball</div><div class="m-item-sub">Hoàng Đức Việt vs Vũ Thành Long</div></div><div class="m-item-right">2 – 4</div></div></div><button class="m-cta" onclick="closeModal();showScreen('history')">📊 Xem lịch sử trận đấu</button>`},
@@ -2064,7 +2067,7 @@ const SF = {
 const SVC_HUB=[
   {cat:'catcam',svg:SVG.cam,icoCls:'i-cam',name:'Cắt Cam',sf:'cam',badge:'● LIVE',bdgCls:'bl',on:true,desc:'Camera trực tiếp · Cắt Cam LIVE stream',mk:'catcam'},
   {cat:'catcam',svg:SVG.lv,icoCls:'i-lv',name:'Livestream bàn 07',sf:'live',badge:'● LIVE',bdgCls:'bl',on:true,desc:'Đang phát · 12 đang xem',mk:'livestream'},
-  {cat:'catcam',svg:SVG.ai,icoCls:'i-ai',name:'AI Phân tích',sf:'ai',badge:'BETA',bdgCls:'bz',on:false,desc:'Phân tích kỹ thuật bằng AI — đang phát triển',mk:null},
+  {cat:'catcam',svg:SVG.ai,icoCls:'i-ai',name:'AI Phân tích',sf:'ai',badge:'BETA',bdgCls:'bz',on:false,desc:'Phân tích kỹ thuật bằng AI — đang phát triển',mk:'ai-phan-tich'},
   {cat:'thi-dau',svg:SVG.trp,icoCls:'i-trp',name:'Giải đấu',sf:'trophy',badge:'ĐANG DIỄN RA',bdgCls:'bg',on:true,desc:'Tổ chức · Quản lý · Kết quả giải đấu',mk:'giai-dau'},
   {cat:'thi-dau',svg:SVG.ch,icoCls:'i-ch',name:'Thử thách AI',sf:'target',badge:'AI · MỚI',bdgCls:'bai',on:true,desc:'Thử thách hàng ngày · ELO reward',mk:'thu-thach'},
   {cat:'thi-dau',svg:SVG.rk,icoCls:'i-rk',name:'Xếp hạng',sf:'chart',badge:'ELO',bdgCls:'bg',on:true,desc:'Bảng ELO cơ thủ tại club',mk:'xep-hang'},
@@ -2098,7 +2101,7 @@ function renderSvcGrid(catId){
   const onItems=items.filter(s=>s.on), offItems=items.filter(s=>!s.on);
   pill.textContent=`${onItems.length}/${items.length} đã kích hoạt`;
   function cardHtml(s){
-    return `<div class="svc-card${s.on?'':' inactive'}" onclick="${s.mk&&s.on?`openModal('${s.mk}')`:''}">`+
+    return `<div class="svc-card${s.on?'':' inactive'}" onclick="${s.mk?`openModal('${s.mk}')`:''}">`+
       `<div class="svc-card-top"><div class="svc-card-ico">${SF[s.sf]||''}</div><span class="bdg ${s.bdgCls}">${s.badge}</span></div>`+
       `<div class="svc-card-name">${s.name}</div>`+
       `<div class="svc-card-desc">${s.desc}</div>`+
