@@ -64,14 +64,11 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
   --back-left:clamp(12px,1.4vw,20px);
 }
 
-/* ── Unified back button — ALWAYS top-left, 40×40 circle, same position every screen ── */
-.btn-back{position:absolute;top:var(--back-top);left:var(--back-left);z-index:50;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;padding:0;font:inherit;user-select:none}
-.btn-back:hover{background:rgba(255,255,255,.22);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+/* ── Unified back button — ALWAYS top-left, same style every screen (dark glass on any bg) ── */
+.btn-back{position:absolute;top:var(--back-top);left:var(--back-left);z-index:50;width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(12,23,48,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.32);color:#fff;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s,border-color .15s;padding:0;font:inherit;user-select:none;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+.btn-back:hover{background:rgba(0,103,232,.88);border-color:rgba(255,255,255,.55);box-shadow:0 6px 20px rgba(0,103,232,.45)}
 .btn-back:active{transform:scale(.92)}
 .btn-back svg{width:20px;height:20px;display:block;stroke:currentColor}
-/* Light surface variant — for screens with light background (services, game, postgame) */
-.btn-back.light{background:rgba(255,255,255,.96);border:1px solid #e5e9f0;color:#0f1b3d;box-shadow:0 2px 8px rgba(10,12,20,.08);backdrop-filter:none;-webkit-backdrop-filter:none}
-.btn-back.light:hover{background:#fff;box-shadow:0 4px 14px rgba(10,12,20,.14);color:var(--brand-primary)}
 
 /* ══ HOME (production-matching layout) ══ */
 :root{--cc:#00B5E8;--cc2:rgba(0,181,232,.13);--cc3:rgba(0,181,232,.28);--ccB:#00C4FF;--ccD:#0067E8;--ccB-rgb:0,196,255;--ccD-rgb:0,103,232;--hbg:radial-gradient(ellipse at 50% 30%,#0067E8 0%,#01346B 28%,#001f4d 60%,#000d28 100%)}
@@ -128,7 +125,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* ══ SERVICE HUB — LIGHT MODE matching arena app svchub design system ══ */
 .svc-sb{width:clamp(180px,15vw,260px);flex-shrink:0;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e5e9f0}
-.svc-sb-top{padding:13px 12px 9px 60px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
+.svc-sb-top{padding:13px 12px 9px 72px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
 .svc-sb-logo{display:flex;align-items:center;gap:7px}
 .svc-sb-logo img{height:22px;object-fit:contain}
 .svc-sb-logo-txt{font-size:11px;font-weight:900;color:#0a1228;letter-spacing:.5px}
@@ -179,8 +176,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .svc-card:not(.inactive):hover{border-color:#0067E8;box-shadow:0 4px 16px rgba(0,103,232,.15);transform:translateY(-1px)}
 .svc-card.inactive{background:#fff;border:1px dashed #d8def0;box-shadow:none;opacity:.6;cursor:default}
 .svc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px}
-.svc-card-ico{width:clamp(42px,3.4vw,58px);height:clamp(42px,3.4vw,58px);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,1.8vw,30px);flex-shrink:0}
-.svc-card-ico svg{width:52%;height:52%;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.svc-card-ico{width:clamp(56px,4.6vw,76px);height:clamp(56px,4.6vw,76px);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,1.8vw,30px);flex-shrink:0}
+.svc-card-ico svg{width:68%;height:68%;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
 /* ── Mini-widgets inside active cards ── */
 .svc-w{margin-top:auto;padding-top:clamp(6px,.8vh,10px);border-top:1px dashed #e5e9f0;display:flex;flex-direction:column;gap:clamp(3px,.4vh,6px);font-size:clamp(10px,.78vw,12.5px);color:#0a1228;font-variant-numeric:tabular-nums;min-height:0}
 .svc-w .ww-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
@@ -760,7 +757,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* Player panels */
 .pp{display:flex;flex-direction:column;height:100%;background:#fff}
 .pp1{border-right:1px solid #e5e9f0;box-shadow:inset 5px 0 0 #00B5E8}
-.pp1 .pp-header{padding-left:60px}
+.pp1 .pp-header{padding-left:72px}
 .pp2{border-left:1px solid #e5e9f0;box-shadow:inset -5px 0 0 #00B5E8}
 .pp-header{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 10px;flex-shrink:0}
 .pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;color:#0f1b3d}
@@ -1179,7 +1176,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ SERVICES ══ -->
 <div class="screen" id="services">
-  <button class="btn-back light" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div style="flex:1;display:flex;flex-direction:row;min-height:0">
 
   <!-- Sidebar -->
@@ -1433,7 +1430,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ GAME ══ -->
 <div class="screen" id="game">
-  <button class="btn-back light" onclick="confirmExit()" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="btn-back" onclick="confirmExit()" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="gc">
     <!-- Player 1 -->
     <div class="pp pp1">
@@ -1581,7 +1578,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ POST GAME ══ -->
 <div class="screen" id="postgame">
-  <button class="btn-back light" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="overlay"></div>
   <div class="pgc">
     <div class="pg-result">
@@ -2050,18 +2047,18 @@ const SVG={
 };
 // ── Apple SF Symbols-style line icons ──
 const SF = {
-  cam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7l1.3-2.6a1 1 0 0 1 .9-.6h1.6a1 1 0 0 1 .9.6L15 7"/><circle cx="12" cy="13.5" r="3.5"/></svg>',
-  live:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7"/><path d="M5 18.5a9 9 0 0 1 0-13M19 5.5a9 9 0 0 1 0 13"/></svg>',
-  ai:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l1.6 3.9 3.9 1.6-3.9 1.6L12 14.5l-1.6-3.9-3.9-1.6 3.9-1.6L12 3.5z"/><path d="M19 14l.9 1.9 1.9.9-1.9.9L19 19.5l-.9-1.9L16.2 16.8l1.9-.9L19 14z"/><path d="M5 16l.7 1.5L7.2 18.2l-1.5.7L5 20.4l-.7-1.5L2.8 18.2l1.5-.7L5 16z"/></svg>',
-  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5h8v5.5a4 4 0 0 1-8 0V4.5z"/><path d="M8 6.5H5.5A1.5 1.5 0 0 0 4 8v.5a3 3 0 0 0 3 3H8M16 6.5h2.5A1.5 1.5 0 0 1 20 8v.5a3 3 0 0 1-3 3H16"/><path d="M12 14v3.5M9.5 20h5M10 17.5h4v2.5h-4z"/></svg>',
-  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>',
-  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5V12.5"/><path d="M12 19.5V6.5"/><path d="M18.5 19.5V14.5"/><path d="M3 20.5h18"/></svg>',
-  ticket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9V7.5a1.5 1.5 0 0 1 1.5-1.5h15A1.5 1.5 0 0 1 21 7.5V9a2 2 0 0 0 0 4v1.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 14.5V13a2 2 0 0 0 0-4z"/><path d="M10 6v15" stroke-dasharray="2 2.5"/></svg>',
-  chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.8a8.2 8.2 0 0 1-3.5 6.8l1.3 3.4-4.2-2.1A9 9 0 1 1 21 11.8z"/></svg>',
-  grad:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v4.5a6 6 0 0 0 12 0V12"/><path d="M22 10v5.5"/></svg>',
-  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10.5h18"/><path d="M8 3v4M16 3v4"/></svg>',
-  trend:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5l6-6 4 4 7-7"/><path d="M14 8.5h6.5V15"/></svg>',
-  cup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5h10v9.5a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8.5z"/><path d="M16 11.5h2a3 3 0 0 1 0 6h-2"/><path d="M8.5 4v2M11 4v2M13.5 4v2"/></svg>'
+  cam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7l1.3-2.6a1 1 0 0 1 .9-.6h1.6a1 1 0 0 1 .9.6L15 7"/><circle cx="12" cy="13.5" r="3.5"/></svg>',
+  live:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7"/><path d="M5 18.5a9 9 0 0 1 0-13M19 5.5a9 9 0 0 1 0 13"/></svg>',
+  ai:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l1.6 3.9 3.9 1.6-3.9 1.6L12 14.5l-1.6-3.9-3.9-1.6 3.9-1.6L12 3.5z"/><path d="M19 14l.9 1.9 1.9.9-1.9.9L19 19.5l-.9-1.9L16.2 16.8l1.9-.9L19 14z"/><path d="M5 16l.7 1.5L7.2 18.2l-1.5.7L5 20.4l-.7-1.5L2.8 18.2l1.5-.7L5 16z"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5h8v5.5a4 4 0 0 1-8 0V4.5z"/><path d="M8 6.5H5.5A1.5 1.5 0 0 0 4 8v.5a3 3 0 0 0 3 3H8M16 6.5h2.5A1.5 1.5 0 0 1 20 8v.5a3 3 0 0 1-3 3H16"/><path d="M12 14v3.5M9.5 20h5M10 17.5h4v2.5h-4z"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5V12.5"/><path d="M12 19.5V6.5"/><path d="M18.5 19.5V14.5"/><path d="M3 20.5h18"/></svg>',
+  ticket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9V7.5a1.5 1.5 0 0 1 1.5-1.5h15A1.5 1.5 0 0 1 21 7.5V9a2 2 0 0 0 0 4v1.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 14.5V13a2 2 0 0 0 0-4z"/><path d="M10 6v15" stroke-dasharray="2 2.5"/></svg>',
+  chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.8a8.2 8.2 0 0 1-3.5 6.8l1.3 3.4-4.2-2.1A9 9 0 1 1 21 11.8z"/></svg>',
+  grad:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v4.5a6 6 0 0 0 12 0V12"/><path d="M22 10v5.5"/></svg>',
+  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10.5h18"/><path d="M8 3v4M16 3v4"/></svg>',
+  trend:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5l6-6 4 4 7-7"/><path d="M14 8.5h6.5V15"/></svg>',
+  cup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5h10v9.5a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8.5z"/><path d="M16 11.5h2a3 3 0 0 1 0 6h-2"/><path d="M8.5 4v2M11 4v2M13.5 4v2"/></svg>'
 };
 
 const SVC_HUB=[
