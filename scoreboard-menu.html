@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arena — Bảng Giá Dịch Vụ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #0067E8;
+    --brand-d: #0550B5;
+    --brand-l: rgba(0,103,232,.08);
+    --brand-m: rgba(0,103,232,.15);
+    --green: #15803D;
+    --green-l: rgba(21,128,61,.08);
+    --surf: #f6f7f9;
+    --card: #ffffff;
+    --txt: #0F182E;
+    --txt2: rgba(15,24,46,.72);
+    --txt3: rgba(15,24,46,.52);
+    --txt4: rgba(15,24,46,.36);
+    --bdr: rgba(15,24,46,.09);
+    --bdr2: rgba(15,24,46,.18);
+    --head: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --body: 'Inter', system-ui, sans-serif;
+    --radius: 12px;
+  }
+
+  html, body {
+    font-family: var(--body);
+    background: var(--surf);
+    color: var(--txt);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* ── TV MODE ── */
+  body.tv-mode {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.tv-mode .tv-header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px 16px;
+    background: var(--card);
+    border-bottom: 1px solid var(--bdr);
+  }
+
+  body.tv-mode .tv-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  body.tv-mode .logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--brand);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--head);
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  body.tv-mode .brand-name {
+    font-family: var(--head);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--txt);
+  }
+
+  body.tv-mode .branch-name {
+    font-size: 14px;
+    color: var(--txt3);
+    margin-top: 1px;
+  }
+
+  body.tv-mode .tv-header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: var(--txt3);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .pill-live {
+    background: var(--green-l);
+    color: var(--green);
+    border: 1px solid rgba(21,128,61,.2);
+  }
+  .pill-live::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  body.tv-mode .tv-body {
+    flex: 1;
+    overflow: hidden;
+    padding: 28px 40px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  body.tv-mode .branch-tabs {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .branch-tab {
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--bdr2);
+    background: transparent;
+    color: var(--txt3);
+    transition: all .15s;
+  }
+  .branch-tab.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+  }
+
+  body.tv-mode .service-grid {
+    flex: 1;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    align-content: start;
+  }
+
+  body.tv-mode .group-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--bdr);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.tv-mode .group-header {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--bdr);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  body.tv-mode .group-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  body.tv-mode .group-name {
+    font-family: var(--head);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--txt);
+  }
+
+  body.tv-mode .group-body {
+    flex: 1;
+    padding: 10px 0;
+  }
+
+  body.tv-mode .service-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--bdr);
+  }
+
+  body.tv-mode .service-row:last-child {
+    border-bottom: none;
+  }
+
+  body.tv-mode .service-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--txt);
+    flex: 1;
+  }
+
+  body.tv-mode .service-desc {
+    font-size: 12px;
+    color: var(--txt4);
+    margin-top: 1px;
+  }
+
+  body.tv-mode .service-price-wrap {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  body.tv-mode .service-price {
+    font-family: var(--head);
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--brand);
+    white-space: nowrap;
+  }
+
+  body.tv-mode .service-unit {
+    font-size: 12px;
+    color: var(--txt4);
+    margin-top: 1px;
+  }
+
+  /* ── MOBILE MODE ── */
+  body.mobile-mode {
+    min-height: 100vh;
+    padding-bottom: 40px;
+  }
+
+  body.mobile-mode .mobile-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--bdr);
+    padding: 16px 20px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  body.mobile-mode .mobile-header-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  body.mobile-mode .logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--brand);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--head);
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  body.mobile-mode .brand-name {
+    font-family: var(--head);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+
+  body.mobile-mode .breadcrumb {
+    font-size: 13px;
+    color: var(--txt3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  body.mobile-mode .breadcrumb-sep {
+    color: var(--txt4);
+  }
+
+  body.mobile-mode .breadcrumb-current {
+    color: var(--brand);
+    font-weight: 600;
+  }
+
+  body.mobile-mode .mobile-body {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  body.mobile-mode .branch-select-wrap {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.mobile-mode .branch-select-wrap::-webkit-scrollbar { display: none; }
+
+  body.mobile-mode .group-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--bdr);
+    overflow: hidden;
+  }
+
+  body.mobile-mode .group-header {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--bdr);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  body.mobile-mode .group-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  body.mobile-mode .group-name {
+    font-family: var(--head);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--txt);
+  }
+
+  body.mobile-mode .service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--bdr);
+  }
+
+  body.mobile-mode .service-row:last-child {
+    border-bottom: none;
+  }
+
+  body.mobile-mode .service-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--txt);
+    flex: 1;
+  }
+
+  body.mobile-mode .service-desc {
+    font-size: 12px;
+    color: var(--txt4);
+    margin-top: 1px;
+  }
+
+  body.mobile-mode .service-price-wrap {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  body.mobile-mode .service-price {
+    font-family: var(--head);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brand);
+    white-space: nowrap;
+  }
+
+  body.mobile-mode .service-unit {
+    font-size: 11px;
+    color: var(--txt4);
+    margin-top: 1px;
+  }
+
+  body.mobile-mode .table-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 10px;
+    background: var(--brand-l);
+    border: 1px solid var(--brand-m);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 4px;
+  }
+
+  /* ── LOADING / ERROR ── */
+  .loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--txt3);
+    font-size: 15px;
+  }
+
+  .spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--bdr2);
+    border-top-color: var(--brand);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .updated-at {
+    font-size: 12px;
+    color: var(--txt4);
+  }
+</style>
+</head>
+<body>
+
+<script>
+// ── Helpers ──────────────────────────────────────────────────────────────
+function params() {
+  return new URLSearchParams(window.location.search);
+}
+
+function fmtPrice(n) {
+  return new Intl.NumberFormat('vi-VN').format(n) + 'đ';
+}
+
+function fmtTime(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
+function detectMode() {
+  const p = params();
+  if (p.get('mode') === 'tv') return 'tv';
+  if (p.get('mode') === 'mobile') return 'mobile';
+  // Auto-detect: table param or narrow screen → mobile
+  if (p.get('table') || window.innerWidth < 900) return 'mobile';
+  return 'tv';
+}
+
+// ── TV Mode ──────────────────────────────────────────────────────────────
+function renderTV(data, branchId) {
+  document.body.className = 'tv-mode';
+
+  const branches = data.branches;
+  let activeBranchIdx = branchId
+    ? branches.findIndex(b => String(b.id) === String(branchId))
+    : 0;
+  if (activeBranchIdx < 0) activeBranchIdx = 0;
+
+  function build(idx) {
+    const branch = branches[idx];
+    const updatedAt = fmtTime(data.meta.generatedAt);
+
+    document.body.innerHTML = `
+      <div class="tv-header">
+        <div class="tv-header-left">
+          <div class="logo-mark">A</div>
+          <div>
+            <div class="brand-name">Arena Billiard</div>
+            <div class="branch-name">${branch.name} · ${branch.address || ''}</div>
+          </div>
+        </div>
+        <div class="tv-header-right">
+          ${updatedAt ? `<span class="updated-at">Cập nhật: ${updatedAt}</span>` : ''}
+          <span class="pill pill-live">Live</span>
+        </div>
+      </div>
+
+      <div class="tv-body">
+        ${branches.length > 1 ? `
+        <div class="branch-tabs" id="branch-tabs">
+          ${branches.map((b, i) => `<button class="branch-tab ${i === idx ? 'active' : ''}" data-idx="${i}">${b.name}</button>`).join('')}
+        </div>` : ''}
+
+        <div class="service-grid" id="service-grid">
+          ${branch.serviceGroups.map(g => `
+            <div class="group-card">
+              <div class="group-header">
+                <span class="group-icon">${g.icon || '📋'}</span>
+                <span class="group-name">${g.name}</span>
+              </div>
+              <div class="group-body">
+                ${g.services.map(s => `
+                  <div class="service-row">
+                    <div>
+                      <div class="service-name">${s.name}</div>
+                      ${s.description ? `<div class="service-desc">${s.description}</div>` : ''}
+                    </div>
+                    <div class="service-price-wrap">
+                      <div class="service-price">${fmtPrice(s.price)}</div>
+                      <div class="service-unit">/${s.unit}</div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Branch tab switching
+    document.querySelectorAll('.branch-tab').forEach(btn => {
+      btn.addEventListener('click', () => build(+btn.dataset.idx));
+    });
+  }
+
+  build(activeBranchIdx);
+
+  // Auto-refresh every 10 minutes
+  setTimeout(() => window.location.reload(), 10 * 60 * 1000);
+}
+
+// ── Mobile Mode ───────────────────────────────────────────────────────────
+function renderMobile(data, branchId, tableId) {
+  document.body.className = 'mobile-mode';
+
+  const branches = data.branches;
+  let activeBranchIdx = branchId
+    ? branches.findIndex(b => String(b.id) === String(branchId))
+    : 0;
+  if (activeBranchIdx < 0) activeBranchIdx = 0;
+
+  function build(idx) {
+    const branch = branches[idx];
+    const table = tableId
+      ? branch.tables.find(t => String(t.id) === String(tableId))
+      : null;
+
+    const breadcrumb = table
+      ? `<div class="breadcrumb">
+           <span>${branch.name}</span>
+           <span class="breadcrumb-sep">›</span>
+           <span class="breadcrumb-current">${table.name}</span>
+         </div>`
+      : `<div class="breadcrumb"><span>${branch.name}</span></div>`;
+
+    document.body.innerHTML = `
+      <div class="mobile-header">
+        <div class="mobile-header-top">
+          <div class="logo-mark">A</div>
+          <div class="brand-name">Arena Billiard</div>
+          <span class="pill pill-live" style="margin-left:auto">Live</span>
+        </div>
+        ${breadcrumb}
+      </div>
+
+      <div class="mobile-body">
+        ${branches.length > 1 ? `
+        <div class="branch-select-wrap" id="branch-tabs">
+          ${branches.map((b, i) => `<button class="branch-tab ${i === idx ? 'active' : ''}" data-idx="${i}">${b.name}</button>`).join('')}
+        </div>` : ''}
+
+        ${table ? `
+        <div class="table-badge">
+          🎱 ${table.name} · ${table.type}
+        </div>` : ''}
+
+        ${branch.serviceGroups.map(g => `
+          <div class="group-card">
+            <div class="group-header">
+              <span class="group-icon">${g.icon || '📋'}</span>
+              <span class="group-name">${g.name}</span>
+            </div>
+            ${g.services.map(s => `
+              <div class="service-row">
+                <div>
+                  <div class="service-name">${s.name}</div>
+                  ${s.description ? `<div class="service-desc">${s.description}</div>` : ''}
+                </div>
+                <div class="service-price-wrap">
+                  <div class="service-price">${fmtPrice(s.price)}</div>
+                  <div class="service-unit">/${s.unit}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `).join('')}
+
+        ${data.meta.generatedAt ? `<div class="updated-at" style="text-align:center;padding-top:4px">Cập nhật: ${fmtTime(data.meta.generatedAt)}</div>` : ''}
+      </div>
+    `;
+
+    document.querySelectorAll('.branch-tab').forEach(btn => {
+      btn.addEventListener('click', () => build(+btn.dataset.idx));
+    });
+  }
+
+  build(activeBranchIdx);
+}
+
+// ── Bootstrap ─────────────────────────────────────────────────────────────
+async function init() {
+  const p = params();
+  const branchId = p.get('branch');
+  const tableId = p.get('table');
+  const mode = detectMode();
+
+  // Show loading state
+  document.body.innerHTML = `<div class="loading-state"><div class="spinner"></div><div>Đang tải dữ liệu…</div></div>`;
+  if (mode === 'tv') document.body.className = 'tv-mode';
+  else document.body.className = 'mobile-mode';
+
+  try {
+    // Resolve path relative to this HTML file
+    const base = window.location.href.replace(/\/[^/]*$/, '/');
+    const res = await fetch(base + 'data/services.json?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    if (mode === 'tv') renderTV(data, branchId);
+    else renderMobile(data, branchId, tableId);
+
+  } catch (e) {
+    document.body.innerHTML = `
+      <div class="loading-state" style="height:100vh">
+        <div style="font-size:32px">⚠️</div>
+        <div style="color:var(--txt2)">Không tải được dữ liệu</div>
+        <div style="font-size:13px;color:var(--txt4)">${e.message}</div>
+        <button onclick="location.reload()" style="margin-top:12px;padding:8px 20px;border-radius:8px;border:none;background:var(--brand);color:#fff;font-size:14px;font-weight:600;cursor:pointer">Thử lại</button>
+      </div>
+    `;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

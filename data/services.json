@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "generatedAt": "2026-05-20T10:00:00Z",
+    "generatedBy": "mock"
+  },
+  "branches": [
+    {
+      "id": 1,
+      "name": "Arena Q1",
+      "address": "Quận 1, TP.HCM",
+      "tables": [
+        { "id": 1, "name": "Bàn 01", "type": "Pool 9-ball" },
+        { "id": 2, "name": "Bàn 02", "type": "Pool 9-ball" },
+        { "id": 3, "name": "Bàn 03", "type": "Carom 3C" },
+        { "id": 4, "name": "Bàn 04", "type": "Carom 3C" },
+        { "id": 5, "name": "Bàn 05", "type": "Snooker" }
+      ],
+      "serviceGroups": [
+        {
+          "id": 1,
+          "name": "Thuê bàn",
+          "icon": "🎱",
+          "services": [
+            { "id": 101, "name": "Pool 9-ball", "price": 80000, "unit": "giờ", "description": "Bàn Pool tiêu chuẩn" },
+            { "id": 102, "name": "Carom 3 băng", "price": 100000, "unit": "giờ", "description": "Bàn Carom chuyên nghiệp" },
+            { "id": 103, "name": "Snooker", "price": 120000, "unit": "giờ", "description": "Bàn Snooker chuẩn quốc tế" },
+            { "id": 104, "name": "Pool VIP", "price": 150000, "unit": "giờ", "description": "Phòng riêng, điều hòa" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Thức uống",
+          "icon": "🥤",
+          "services": [
+            { "id": 201, "name": "Nước suối", "price": 15000, "unit": "chai" },
+            { "id": 202, "name": "Nước ngọt lon", "price": 20000, "unit": "lon" },
+            { "id": 203, "name": "Trà đào", "price": 35000, "unit": "ly" },
+            { "id": 204, "name": "Sinh tố", "price": 45000, "unit": "ly" },
+            { "id": 205, "name": "Cà phê", "price": 30000, "unit": "ly" },
+            { "id": 206, "name": "Nước ép", "price": 40000, "unit": "ly" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Đồ ăn nhẹ",
+          "icon": "🍟",
+          "services": [
+            { "id": 301, "name": "Khoai tây chiên", "price": 55000, "unit": "phần" },
+            { "id": 302, "name": "Bánh mì nóng", "price": 35000, "unit": "cái" },
+            { "id": 303, "name": "Hạt điều", "price": 45000, "unit": "gói" },
+            { "id": 304, "name": "Mì ly", "price": 25000, "unit": "ly" }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Dụng cụ",
+          "icon": "🏆",
+          "services": [
+            { "id": 401, "name": "Thuê cơ bi-a", "price": 20000, "unit": "lần" },
+            { "id": 402, "name": "Phấn bi-a", "price": 5000, "unit": "viên" },
+            { "id": 403, "name": "Găng tay", "price": 10000, "unit": "đôi" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Arena Q3",
+      "address": "Quận 3, TP.HCM",
+      "tables": [
+        { "id": 6, "name": "Bàn 01", "type": "Pool 9-ball" },
+        { "id": 7, "name": "Bàn 02", "type": "Pool 9-ball" },
+        { "id": 8, "name": "Bàn 03", "type": "Carom 3C" }
+      ],
+      "serviceGroups": [
+        {
+          "id": 1,
+          "name": "Thuê bàn",
+          "icon": "🎱",
+          "services": [
+            { "id": 101, "name": "Pool 9-ball", "price": 75000, "unit": "giờ", "description": "" },
+            { "id": 102, "name": "Carom 3 băng", "price": 95000, "unit": "giờ", "description": "" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Thức uống",
+          "icon": "🥤",
+          "services": [
+            { "id": 201, "name": "Nước suối", "price": 15000, "unit": "chai" },
+            { "id": 202, "name": "Nước ngọt lon", "price": 20000, "unit": "lon" },
+            { "id": 203, "name": "Trà đào", "price": 35000, "unit": "ly" },
+            { "id": 205, "name": "Cà phê", "price": 30000, "unit": "ly" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Đồ ăn nhẹ",
+          "icon": "🍟",
+          "services": [
+            { "id": 301, "name": "Khoai tây chiên", "price": 55000, "unit": "phần" },
+            { "id": 303, "name": "Hạt điều", "price": 45000, "unit": "gói" }
+          ]
+        }
+      ]
+    }
+  ]
+}
