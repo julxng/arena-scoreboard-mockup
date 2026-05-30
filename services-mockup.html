@@ -158,14 +158,14 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .svc-sect-hd.s-off .svc-sect-dot{background:#c5cbd9}
 .svc-sect-cnt{font-size:clamp(9.5px,.8vw,12.5px);font-weight:700;color:#5a6378;background:#fff;border:1px solid #e5e9f0;padding:clamp(2px,.3vh,5px) clamp(8px,.7vw,12px);border-radius:999px}
 /* Cards — light tile style (matches app SH-tile exactly) */
-.svc-card{background:#fff;border:1px solid #d8def0;border-radius:14px;padding:clamp(11px,1.2vw,18px);display:flex;flex-direction:column;gap:clamp(5px,.7vh,10px);cursor:pointer;transition:all .15s;position:relative;min-height:clamp(118px,16vh,200px);box-shadow:0 1px 2px rgba(10,12,20,.04),0 4px 12px rgba(0,103,232,.04)}
+.svc-card{background:#fff;border:1px solid #d8def0;border-radius:14px;padding:clamp(11px,1.2vw,18px);display:flex;flex-direction:column;gap:clamp(6px,.8vh,12px);cursor:pointer;transition:all .15s;position:relative;min-height:clamp(150px,20vh,240px);box-shadow:0 1px 2px rgba(10,12,20,.04),0 4px 12px rgba(0,103,232,.04);overflow:hidden}
 .svc-card:not(.inactive):hover{border-color:#0067E8;box-shadow:0 4px 16px rgba(0,103,232,.15);transform:translateY(-1px)}
 .svc-card.inactive{background:#fff;border:1px dashed #d8def0;box-shadow:none;opacity:.6;cursor:default}
 .svc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px}
 .svc-card-ico{width:clamp(42px,3.4vw,58px);height:clamp(42px,3.4vw,58px);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,1.8vw,30px);flex-shrink:0}
-.svc-card-ico svg{width:55%;height:55%;stroke-width:2}
+.svc-card-ico svg{width:52%;height:52%;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 /* ── Mini-widgets inside active cards ── */
-.svc-w{margin-top:auto;padding-top:clamp(6px,.8vh,10px);border-top:1px dashed #e5e9f0;display:flex;flex-direction:column;gap:4px;font-size:clamp(10px,.78vw,12.5px);color:#0a1228;font-variant-numeric:tabular-nums}
+.svc-w{margin-top:auto;padding-top:clamp(6px,.8vh,10px);border-top:1px dashed #e5e9f0;display:flex;flex-direction:column;gap:clamp(3px,.4vh,6px);font-size:clamp(10px,.78vw,12.5px);color:#0a1228;font-variant-numeric:tabular-nums;min-height:0}
 .svc-w .ww-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
 .svc-w .ww-row.tight{gap:4px}
 .svc-w .ww-lbl{color:#5a6378;font-weight:600;font-size:.92em}
@@ -1006,9 +1006,8 @@ body{background:#060d1f;color:#fff}
 
 /* Service icons — Arena blue family (kill rainbow) 4-shade variations */
 .i-cam,.i-bk{background:linear-gradient(135deg,#00C4FF,#00B5E8)!important;color:#fff!important;box-shadow:0 4px 14px rgba(0,196,255,.35)!important}
-.i-trp,.i-rk,.i-fn{background:linear-gradient(135deg,#00B5E8,#0067E8)!important;color:#fff!important;box-shadow:0 4px 14px rgba(0,181,232,.35)!important}
-.i-ai,.i-ch,.i-vc,.i-sc{background:linear-gradient(135deg,#0067E8,#0550B5)!important;color:#fff!important;box-shadow:0 4px 14px rgba(0,103,232,.4)!important}
-.i-ac,.i-fb{background:linear-gradient(135deg,#0550B5,#01346B)!important;color:#fff!important;box-shadow:0 4px 14px rgba(5,80,181,.4)!important}
+/* UNIFIED: all icons one Arena blue gradient (no rainbow palette) */
+.i-cam,.i-lv,.i-ai,.i-trp,.i-ch,.i-rk,.i-vc,.i-ac,.i-bk,.i-sc,.i-fn,.i-fb{background:linear-gradient(135deg,#00B5E8 0%,#0067E8 60%,#0550B5 100%)!important;color:#fff!important;box-shadow:0 4px 14px rgba(0,103,232,.32),inset 0 1px 0 rgba(255,255,255,.18)!important}
 .svc-card-ico svg{stroke:#fff!important;color:#fff!important}
 .svc-card-ico svg [fill]:not([fill="none"]){fill:#fff!important}
 
