@@ -887,7 +887,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
    ═══ GLOBAL DARK PREMIUM — tất cả screens đồng bộ ranking immersive ═══
    ═══ Tối ưu 21.5" (1920×1080); laptop auto-scale qua clamp/vh ═══
    ════════════════════════════════════════════════════════════════════ */
-:root{--rd-bg:radial-gradient(circle at 16% 18%, rgba(var(--ccB-rgb),.34), transparent 44%),radial-gradient(circle at 84% 30%, rgba(var(--ccD-rgb),.28), transparent 46%),radial-gradient(circle at 50% 100%, rgba(var(--ccD-rgb),.26), transparent 54%),radial-gradient(ellipse at 50% 22%, #2a4880 0%, #1c2e58 48%, #122244 100%);
+:root{--rd-bg:radial-gradient(circle at 16% 18%, rgba(var(--ccB-rgb),.42), transparent 48%),radial-gradient(circle at 84% 30%, rgba(var(--ccD-rgb),.36), transparent 50%),radial-gradient(circle at 50% 100%, rgba(var(--ccD-rgb),.32), transparent 58%),radial-gradient(ellipse at 50% 22%, #3c5fa8 0%, #284680 48%, #182f60 100%);
   --rd-card:rgba(20,34,68,.7);--rd-card2:rgba(16,28,58,.82);--rd-bdr:rgba(var(--ccB-rgb),.22);--rd-bdr2:rgba(var(--ccB-rgb),.32)}
 body{background:#060d1f;color:#fff}
 
@@ -1063,6 +1063,75 @@ body{background:#060d1f;color:#fff}
 .ad-price{color:var(--ccB)!important}
 .ad-cta{background:linear-gradient(135deg,var(--ccB),var(--ccD))!important;color:#fff!important}
 .ad-spon{background:rgba(var(--ccB-rgb),.16)!important;color:var(--ccB)!important}
+
+/* ══ GAME SETUP SCREEN — dark, full-screen wizard ══ */
+#game-setup{background:var(--rd-bg);color:#fff;overflow-y:auto;padding:clamp(20px,3vh,40px) clamp(20px,4vw,60px) clamp(80px,8vh,100px)}
+.gs-wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,2.4vh,28px);padding-top:clamp(40px,5vh,70px)}
+.gs-head{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.gs-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,2.6vw,32px);font-weight:900;letter-spacing:-0.5px;background:linear-gradient(135deg,#fff 30%,var(--ccB) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gs-sub{font-size:13px;color:rgba(255,255,255,.55)}
+.gs-section{display:flex;flex-direction:column;gap:10px}
+.gs-step{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:1.2px;text-transform:uppercase}
+.gs-step-n{width:22px;height:22px;border-radius:50%;background:rgba(var(--ccB-rgb),.2);border:1px solid var(--rd-bdr2);color:var(--ccB);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center}
+/* Game type cards */
+.gs-types{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.gs-type{background:var(--rd-card);border:1.5px solid var(--rd-bdr);border-radius:14px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:all .15s;position:relative;min-height:130px}
+.gs-type:hover{border-color:var(--ccB);background:rgba(var(--ccB-rgb),.06);transform:translateY(-1px)}
+.gs-type.sel{border-color:var(--ccB);background:linear-gradient(135deg,rgba(var(--ccB-rgb),.18),rgba(var(--ccD-rgb),.06));box-shadow:0 4px 18px rgba(var(--ccB-rgb),.18)}
+.gs-type-ic{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--ccB),var(--ccD));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 3px 10px rgba(var(--ccD-rgb),.35)}
+.gs-type-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:#fff;line-height:1.2}
+.gs-type-desc{font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.4;flex:1}
+.gs-type-tag{position:absolute;top:10px;right:10px;font-size:9px;font-weight:800;padding:3px 7px;border-radius:5px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);letter-spacing:.3px;text-transform:uppercase}
+/* Player count pills */
+.gs-pcnt{display:flex;gap:8px;flex-wrap:wrap}
+.gs-pcnt-b{padding:10px 18px;border-radius:10px;border:1.5px solid var(--rd-bdr);background:rgba(12,23,48,.5);color:rgba(255,255,255,.7);font-size:14px;font-weight:800;cursor:pointer;transition:all .12s;font-variant-numeric:tabular-nums;min-width:48px}
+.gs-pcnt-b:hover{border-color:var(--ccB);color:#fff}
+.gs-pcnt-b.sel{background:linear-gradient(135deg,var(--ccB),var(--ccD));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(var(--ccD-rgb),.35)}
+/* Player name inputs */
+.gs-pnames{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.gs-pname{display:flex;align-items:center;gap:10px;background:rgba(12,23,48,.55);border:1.5px solid var(--rd-bdr);border-radius:10px;padding:9px 12px;transition:border-color .12s}
+.gs-pname:focus-within{border-color:var(--ccB);background:rgba(12,23,48,.7)}
+.gs-pname-num{width:24px;height:24px;border-radius:50%;background:rgba(var(--ccB-rgb),.18);color:var(--ccB);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gs-pname input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-weight:600;font-family:inherit;min-width:0}
+.gs-pname input::placeholder{color:rgba(255,255,255,.35)}
+/* Target picker */
+.gs-target{display:flex;align-items:center;gap:10px;background:rgba(12,23,48,.55);border:1.5px solid var(--rd-bdr);border-radius:10px;padding:6px 6px 6px 14px;max-width:320px}
+.gs-target-lbl{font-size:13px;color:rgba(255,255,255,.7);font-weight:600;flex:1}
+.gs-target-ctrl{display:flex;gap:4px;align-items:center;background:rgba(8,16,34,.7);border-radius:8px;padding:3px}
+.gs-target-btn{width:30px;height:30px;border:none;background:transparent;color:#fff;font-size:18px;font-weight:900;cursor:pointer;border-radius:6px}
+.gs-target-btn:hover{background:rgba(var(--ccB-rgb),.15);color:var(--ccB)}
+.gs-target-val{min-width:50px;text-align:center;font-size:18px;font-weight:900;color:var(--ccB);font-variant-numeric:tabular-nums;font-family:'Plus Jakarta Sans',sans-serif}
+.gs-target-unit{font-size:11px;color:rgba(255,255,255,.4);margin-right:6px}
+/* CTA */
+.gs-cta{margin-top:8px;align-self:flex-start;background:linear-gradient(135deg,var(--ccB),var(--ccD));color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;box-shadow:0 6px 22px rgba(var(--ccD-rgb),.45);transition:all .15s;letter-spacing:.2px}
+.gs-cta:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(var(--ccD-rgb),.55)}
+.gs-cta:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;transform:none}
+
+/* ══ MULTI-PLAYER GAME LAYOUT (3+ players) ══ */
+#game.players-multi .gc{grid-template-columns:1fr;grid-template-rows:1fr auto}
+#game.players-multi .pp{display:none}
+#game.players-multi .gcp{border:none}
+#game.players-multi .players-strip{display:grid}
+.players-strip{display:none;background:rgba(8,16,34,.75);border-top:1px solid var(--rd-bdr);padding:10px 12px;gap:8px;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);min-height:130px;max-height:180px}
+.pc{background:rgba(14,26,56,.7);border:1.5px solid var(--rd-bdr);border-radius:12px;padding:9px 11px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:all .12s;position:relative;min-width:0;overflow:hidden}
+.pc:hover{border-color:rgba(var(--ccB-rgb),.4)}
+.pc.active{border-color:var(--ccB);background:linear-gradient(135deg,rgba(var(--ccB-rgb),.16),rgba(var(--ccD-rgb),.06));box-shadow:0 0 0 1px var(--ccB),0 4px 14px rgba(var(--ccB-rgb),.25)}
+.pc-hd{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.pc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.pc-turn-dot{width:7px;height:7px;border-radius:50%;background:var(--ccB);flex-shrink:0;box-shadow:0 0 8px var(--ccB);opacity:0;transition:opacity .15s}
+.pc.active .pc-turn-dot{opacity:1;animation:blink 1.6s ease-in-out infinite}
+.pc-score{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--ccB);text-align:center;line-height:1;font-variant-numeric:tabular-nums;flex:1;display:flex;align-items:center;justify-content:center}
+.pc-btns{display:grid;grid-template-columns:repeat(auto-fit,minmax(28px,1fr));gap:3px}
+.pc-btn{padding:5px 2px;border-radius:6px;font-size:11px;font-weight:800;cursor:pointer;text-align:center;border:1px solid;user-select:none;transition:transform .06s,background .12s}
+.pc-btn:active{transform:scale(.9)}
+.pc-btn.pos{background:rgba(var(--ccB-rgb),.12);color:var(--ccB);border-color:rgba(var(--ccB-rgb),.28)}
+.pc-btn.pos:hover{background:rgba(var(--ccB-rgb),.22)}
+.pc-btn.neg{background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.12)}
+.pc-btn.neg:hover{background:rgba(255,255,255,.1);color:#fff}
+/* Postgame — render N players' scores + new match button */
+.pg-scores.multi{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;max-width:760px}
+.pg-newmatch-btn{margin-left:10px;background:rgba(var(--ccB-rgb),.16);color:var(--ccB);border:1.5px solid var(--rd-bdr2);border-radius:11px;padding:11px 22px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .12s}
+.pg-newmatch-btn:hover{background:rgba(var(--ccB-rgb),.28);transform:translateY(-1px)}
 </style>
 </head>
 <body>
