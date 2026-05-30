@@ -64,8 +64,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* Top header bar */
 .home-hdr{position:relative;z-index:2;display:flex;align-items:center;padding:14px 20px;gap:10px;flex-shrink:0}
-.hbp{display:flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:999px;backdrop-filter:blur(12px);cursor:default}
-.hbp img{height:30px;object-fit:contain;filter:brightness(0) invert(1)}
+.hbp{display:flex;align-items:center;gap:10px;cursor:default}
+.hbp img{height:90px;object-fit:contain;filter:brightness(0) invert(1)}
 .hbp-txt{font-size:15px;font-weight:900;color:#fff;letter-spacing:.8px;text-transform:uppercase}
 .hdr-sp{flex:1}
 .hdr-info{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
@@ -885,9 +885,8 @@ body{background:#060d1f;color:#fff}
 #home .overlay,#history .overlay,#game .overlay{display:none!important}
 
 /* HOME */
-.home-hdr .hbp{background:rgba(12,23,48,.8)!important;border:1px solid var(--rd-bdr)!important;box-shadow:0 4px 16px rgba(0,0,0,.3)!important}
+.home-hdr .hbp{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}
 .hbp img{filter:brightness(0) invert(1)!important}
-.hbp-txt{color:#fff!important}
 .hdr-table{color:rgba(255,255,255,.6)!important}
 .hdr-lang{background:rgba(12,23,48,.8)!important;color:#fff!important;border:1px solid var(--rd-bdr)!important}
 .hdr-lang:hover{background:rgba(var(--ccD-rgb),.2)!important}
@@ -1036,7 +1035,6 @@ body{background:#060d1f;color:#fff}
   <div class="home-hdr">
     <div class="hbp">
       <img src="logo_arena.png" alt="Arena">
-      <span class="hbp-txt">ARENA SCOREBOARD</span>
     </div>
     <div class="hdr-sp"></div>
     <div class="hdr-info">
