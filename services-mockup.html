@@ -1565,11 +1565,20 @@ function setClub(i){
   const sn=document.getElementById('svcClubName'); if(sn) sn.textContent=c.name;
   const hn=document.getElementById('svcHeroName'); if(hn) hn.textContent=c.name;
   const hc=document.getElementById('svcHeroClub'); if(hc) hc.style.backgroundImage=c.logo?`url('${c.logo}')`:'linear-gradient(135deg,'+c.ccB+','+c.ccD+')';
-  // Home watermark logo: swap to club logo (or keep Arena fallback for clubs without one)
+  // Home watermark logo: swap to club logo (or render initial badge for clubs without one)
   const hl=document.querySelector('.hc-logo');
   if(hl){
-    if(c.logo){ hl.src=c.logo; hl.style.filter='none'; hl.style.opacity='.65'; }
-    else{ hl.src='logo_arena.png'; hl.style.filter=''; hl.style.opacity=''; }
+    if(c.logo){
+      hl.src=c.logo;
+      hl.style.setProperty('filter','none','important');
+      hl.style.setProperty('opacity','.75','important');
+    } else {
+      // Inline SVG initial badge — colored circle + club short text
+      const svg=`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='${c.ccB}'/><stop offset='1' stop-color='${c.ccD}'/></linearGradient></defs><circle cx='100' cy='100' r='92' fill='url(%23g)'/><text x='100' y='128' font-family='Plus Jakarta Sans, Inter, sans-serif' font-size='78' font-weight='900' fill='white' text-anchor='middle' letter-spacing='-2'>${c.short}</text></svg>`;
+      hl.src='data:image/svg+xml;utf8,'+svg.replace(/#/g,'%23').replace(/"/g,'%22');
+      hl.style.setProperty('filter','none','important');
+      hl.style.setProperty('opacity','.85','important');
+    }
   }
   const rn=document.getElementById('rankClubName'); if(rn) rn.textContent=c.name+' · Carom 3 băng';
   const rcl=document.getElementById('rankClubLogo');
