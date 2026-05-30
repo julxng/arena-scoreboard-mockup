@@ -992,6 +992,12 @@ body{background:#060d1f;color:#fff}
 #themePanel .tp-divider{background:var(--rd-bdr)!important;margin:11px 0 6px!important}
 #themePanel .tp-custom-row{background:rgba(12,23,48,.7)!important;border:1px solid var(--rd-bdr)!important;border-radius:11px!important;padding:9px 13px!important;backdrop-filter:blur(6px)!important;transition:border-color .15s ease,background .15s ease}
 #themePanel .tp-custom-row:hover{border-color:var(--ccB)!important;background:rgba(var(--ccB-rgb),.06)!important}
+#themePanel .tp-custom-block{background:rgba(12,23,48,.7)!important;border:1px solid var(--rd-bdr)!important;border-radius:11px!important;padding:11px 13px 12px!important;backdrop-filter:blur(6px)!important;display:flex;flex-direction:column;gap:9px}
+#themePanel .tp-custom-block .tp-custom-lbl{color:rgba(255,255,255,.78)!important;font-weight:700!important;font-size:12px!important}
+#themePanel .tp-sw-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px;width:100%}
+#themePanel .tp-sw-mini{width:100%;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(255,255,255,.2);cursor:pointer;padding:0;transition:transform .15s ease,box-shadow .15s ease;box-shadow:inset 0 -2px 4px rgba(0,0,0,.25),0 2px 6px rgba(0,0,0,.3)}
+#themePanel .tp-sw-mini:hover{transform:scale(1.18);border-color:rgba(255,255,255,.5);box-shadow:inset 0 -2px 4px rgba(0,0,0,.25),0 4px 12px rgba(0,0,0,.45),0 0 0 2px rgba(255,255,255,.15)}
+#themePanel .tp-sw-mini.active{border-color:#fff!important;box-shadow:inset 0 -2px 4px rgba(0,0,0,.25),0 0 0 2px rgba(255,255,255,.55),0 4px 14px rgba(0,0,0,.5)!important;transform:scale(1.1)}
 #themePanel .tp-custom-lbl{color:rgba(255,255,255,.78)!important;font-weight:700!important}
 #themePanel .tp-sw{border:2px solid rgba(255,255,255,.18)!important;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.35)!important;border-radius:9px!important}
 #themePanel .tp-logo-btn{background:linear-gradient(135deg,var(--ccB),var(--ccD))!important;color:#fff!important;border:none!important;border-radius:8px!important;font-weight:800!important;padding:7px 13px!important;box-shadow:0 2px 10px rgba(var(--ccB-rgb),.35)!important;letter-spacing:.02em}
@@ -1112,13 +1118,18 @@ body{background:#060d1f;color:#fff}
     </div>
     <div class="tp-divider"></div>
     <div class="tp-title">TÙY CHỈNH THƯƠNG HIỆU</div>
-    <div class="tp-custom-row">
-      <span class="tp-custom-lbl">🎨 Màu nền</span>
-      <label class="tp-sw" id="swBg" style="background:#00B5E8"><input type="color" value="#00B5E8" oninput="setCustomBg(this.value)"></label>
-    </div>
-    <div class="tp-custom-row">
-      <span class="tp-custom-lbl">✏️ Màu nhấn / chữ</span>
-      <label class="tp-sw" id="swAccent" style="background:#00B5E8"><input type="color" value="#00B5E8" oninput="setCustomAccent(this.value)"></label>
+    <div class="tp-custom-block">
+      <div class="tp-custom-lbl">🎨 Màu thương hiệu</div>
+      <div class="tp-sw-grid" id="swGrid">
+        <button class="tp-sw-mini" data-hex="#00B5E8" style="background:#00B5E8" onclick="setBrandColor('#00B5E8')" title="Cyan"></button>
+        <button class="tp-sw-mini" data-hex="#3B82F6" style="background:#3B82F6" onclick="setBrandColor('#3B82F6')" title="Blue"></button>
+        <button class="tp-sw-mini" data-hex="#10B981" style="background:#10B981" onclick="setBrandColor('#10B981')" title="Emerald"></button>
+        <button class="tp-sw-mini" data-hex="#F59E0B" style="background:#F59E0B" onclick="setBrandColor('#F59E0B')" title="Gold"></button>
+        <button class="tp-sw-mini" data-hex="#EF4444" style="background:#EF4444" onclick="setBrandColor('#EF4444')" title="Red"></button>
+        <button class="tp-sw-mini" data-hex="#EC4899" style="background:#EC4899" onclick="setBrandColor('#EC4899')" title="Pink"></button>
+        <button class="tp-sw-mini" data-hex="#A855F7" style="background:#A855F7" onclick="setBrandColor('#A855F7')" title="Purple"></button>
+        <button class="tp-sw-mini" data-hex="#06B6D4" style="background:#06B6D4" onclick="setBrandColor('#06B6D4')" title="Teal"></button>
+      </div>
     </div>
     <div class="tp-custom-row">
       <span class="tp-custom-lbl">🖼️ Logo club</span>
@@ -1671,8 +1682,10 @@ function setClub(i){
   ['bdg-rk','sbdg-rk'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent='TOP '+c.short; });
   document.querySelectorAll('.tclub').forEach((el,j)=>el.classList.toggle('sel',j===i));
   // sync customization swatches to club theme
-  const swA=document.getElementById('swAccent'); if(swA){swA.style.background=c.cc;const inp=swA.querySelector('input');if(inp)inp.value=c.cc;}
-  const swB=document.getElementById('swBg'); if(swB){swB.style.background=c.cc;const inp=swB.querySelector('input');if(inp)inp.value=c.cc;}
+  // Sync swatch grid active state to current club
+  document.querySelectorAll('.tp-sw-mini').forEach(el=>{
+    el.classList.toggle('active',(el.dataset.hex||'').toLowerCase()===c.ccB.toLowerCase());
+  });
   closeTheme();
 }
 
@@ -1683,16 +1696,25 @@ function closeTheme(){ tOpen=false; document.getElementById('themePanel').classL
 function hexToRgb(h){h=h.replace('#','');if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
 function mixWhite(hex,t){const[r,g,b]=hexToRgb(hex);const m=v=>Math.round(v+(255-v)*t);return`rgb(${m(r)},${m(g)},${m(b)})`;}
 function rgba(hex,a){const[r,g,b]=hexToRgb(hex);return`rgba(${r},${g},${b},${a})`;}
-function setCustomBg(hex){
-  const grad=`linear-gradient(180deg,#fff 0%,${mixWhite(hex,.9)} 50%,${mixWhite(hex,.8)} 100%)`;
-  document.documentElement.style.setProperty('--hbg',grad);
-  document.getElementById('home').style.background=grad;
-  document.getElementById('swBg').style.background=hex;
-}
-function setCustomAccent(hex){
+function darken(hex,t){const[r,g,b]=hexToRgb(hex);const d=v=>Math.max(0,Math.round(v*(1-t)));const h=v=>v.toString(16).padStart(2,'0');return`#${h(d(r))}${h(d(g))}${h(d(b))}`;}
+function setBrandColor(hex){
   const r=document.documentElement.style;
-  r.setProperty('--cc',hex); r.setProperty('--cc2',rgba(hex,.1)); r.setProperty('--cc3',rgba(hex,.22));
-  document.getElementById('swAccent').style.background=hex;
+  const [br,bg,bb]=hexToRgb(hex);
+  const darkHex=darken(hex,.35);
+  const [dr,dg,db]=hexToRgb(darkHex);
+  // Light-mode vars (legacy)
+  r.setProperty('--cc',hex);
+  r.setProperty('--cc2',rgba(hex,.1));
+  r.setProperty('--cc3',rgba(hex,.22));
+  // Dark-mode vars (the ones that actually drive UI on TV)
+  r.setProperty('--ccB',hex);
+  r.setProperty('--ccD',darkHex);
+  r.setProperty('--ccB-rgb',`${br},${bg},${bb}`);
+  r.setProperty('--ccD-rgb',`${dr},${dg},${db}`);
+  // Mark active swatch
+  document.querySelectorAll('.tp-sw-mini').forEach(el=>{
+    el.classList.toggle('active',(el.dataset.hex||'').toLowerCase()===hex.toLowerCase());
+  });
 }
 function setCustomLogo(e){
   const f=e.target.files&&e.target.files[0]; if(!f) return;
