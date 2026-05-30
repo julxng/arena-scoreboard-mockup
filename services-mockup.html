@@ -813,11 +813,13 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .gclip span{font-size:10px;font-weight:700;color:rgba(255,255,255,.5)}
 .gclip:hover{outline:2px solid #0067E8;color:#fff}
 .gactions{display:flex;justify-content:space-around;align-items:center;padding:8px 6px;background:#f8fafc;border-top:1px solid #e5e9f0;flex-shrink:0}
-.gact{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;cursor:pointer;border-radius:9px;min-width:52px}
+.gact{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 8px;cursor:pointer;border-radius:9px;min-width:52px;transition:background .12s}
 .gact:hover{background:#eaeef5}
-.gact-ico{font-size:18px}
+.gact-ico{width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:#5a6378}
+.gact-ico svg{width:100%;height:100%;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .gact-lbl{font-size:9.5px;font-weight:700;color:#5a6378;white-space:nowrap}
 .gact-lbl.live{color:#dc2626}
+.gact:hover .gact-ico{color:#0067E8}
 /* toast */
 #gToast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(12px);background:#0f1b3d;color:#fff;padding:12px 22px;border-radius:12px;font-size:13px;font-weight:700;box-shadow:0 8px 28px rgba(10,12,20,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:300;max-width:80vw;text-align:center}
 #gToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -975,6 +977,37 @@ body{background:#060d1f;color:#fff}
 .gtab{color:rgba(255,255,255,.55)!important}
 .gtab:hover{color:#fff!important}
 .gtab.active{color:var(--ccB)!important;border-bottom-color:var(--ccB)!important}
+/* Center game panel — dark surface */
+.gcp{background:rgba(10,18,40,.6)!important;border-left:1px solid var(--rd-bdr)!important;border-right:1px solid var(--rd-bdr)!important}
+.gtopbar{background:rgba(8,16,34,.55)!important;border-bottom:1px solid var(--rd-bdr)!important}
+.gchip{background:rgba(255,255,255,.06)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
+.gcall-btn{background:rgba(194,65,12,.18)!important;border:1px solid rgba(251,146,60,.35)!important;color:#fdba74!important}
+.gcall-btn:hover{background:rgba(194,65,12,.28)!important}
+.gico.exit{background:rgba(12,23,48,.7)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
+.gico.exit:hover{background:rgba(220,38,38,.18)!important;color:#fca5a5!important;border-color:rgba(220,38,38,.4)!important}
+.gbtn-end{background:rgba(220,38,38,.18)!important;color:#fca5a5!important;border:1px solid rgba(220,38,38,.4)!important}
+.gturn{background:rgba(8,16,34,.55)!important;border:1px solid var(--rd-bdr)!important;color:rgba(255,255,255,.7)!important}
+.gturn b{color:#fff!important}
+.gturn-swap{background:rgba(12,23,48,.7)!important;border:1px solid var(--rd-bdr)!important;color:var(--ccB)!important}
+.gturn-swap:hover{background:rgba(var(--ccB-rgb),.12)!important;border-color:var(--rd-bdr2)!important}
+.gpanel{background:transparent!important}
+.gcam{background:rgba(8,16,34,.5)!important;border:1px solid var(--rd-bdr)!important}
+.gcam-ph{color:rgba(255,255,255,.45)!important}
+.gcam-mute{background:rgba(12,23,48,.85)!important;border:1px solid var(--rd-bdr)!important;color:#fff!important}
+.gdelay{color:rgba(255,255,255,.78)!important}
+.gdelay-b{background:rgba(12,23,48,.7)!important;border:1px solid var(--rd-bdr)!important;color:rgba(255,255,255,.7)!important}
+.gdelay-b.on{background:rgba(var(--ccB-rgb),.18)!important;border-color:var(--rd-bdr2)!important;color:var(--ccB)!important}
+.gclip{background:rgba(12,23,48,.7)!important;border:1px solid var(--rd-bdr)!important;color:#fff!important}
+.gclip:hover{background:rgba(var(--ccB-rgb),.12)!important;border-color:var(--rd-bdr2)!important}
+.grec{color:rgba(255,255,255,.78)!important}
+.grec-dot{color:#fca5a5!important}
+.grec-btn{background:rgba(12,23,48,.7)!important;border:1px solid var(--rd-bdr)!important;color:#fff!important}
+.gactions{background:rgba(8,16,34,.55)!important;border-top:1px solid var(--rd-bdr)!important}
+.gact:hover{background:rgba(var(--ccB-rgb),.1)!important}
+.gact-ico{color:rgba(255,255,255,.7)!important}
+.gact:hover .gact-ico{color:var(--ccB)!important}
+.gact-lbl{color:rgba(255,255,255,.7)!important}
+.gact-lbl.live{color:#fca5a5!important}
 
 /* POST GAME — dark */
 .pg-score-num{color:var(--ccB)!important}
@@ -1493,12 +1526,30 @@ body{background:#060d1f;color:#fff}
         </div>
       </div>
       <div class="gactions">
-        <div class="gact" onclick="openModal('livestream')"><div class="gact-ico">📡</div><div class="gact-lbl live">Livestream</div></div>
-        <div class="gact" onclick="showToast('Đang phát lên Facebook')"><div class="gact-ico">📘</div><div class="gact-lbl live">Live Facebook</div></div>
-        <div class="gact" onclick="openModal('goi-do')"><div class="gact-ico">🍽️</div><div class="gact-lbl">Thực đơn</div></div>
-        <div class="gact" onclick="openModal('voucher')"><div class="gact-ico">🎁</div><div class="gact-lbl">Khuyến mãi</div></div>
-        <div class="gact" onclick="openModal('feedback')"><div class="gact-ico">💬</div><div class="gact-lbl">Feedback</div></div>
-        <div class="gact" onclick="showScreen('ranking')"><div class="gact-ico">🏅</div><div class="gact-lbl">Top Series</div></div>
+        <div class="gact" onclick="openModal('livestream')">
+          <div class="gact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2M4.9 19.1a10 10 0 0 1 0-14.2"/></svg></div>
+          <div class="gact-lbl live">Livestream</div>
+        </div>
+        <div class="gact" onclick="openModal('catcam')">
+          <div class="gact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/><circle cx="9" cy="12" r="2.2"/></svg></div>
+          <div class="gact-lbl">Cắt Cam</div>
+        </div>
+        <div class="gact" onclick="openModal('goi-do')">
+          <div class="gact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/><path d="M6 7l1-3h10l1 3"/><path d="M9 12v5M15 12v5"/></svg></div>
+          <div class="gact-lbl">Gọi đồ</div>
+        </div>
+        <div class="gact" onclick="openModal('voucher')">
+          <div class="gact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M9 6v2M9 11v2M9 16v2"/></svg></div>
+          <div class="gact-lbl">Voucher</div>
+        </div>
+        <div class="gact" onclick="openModal('xep-hang')">
+          <div class="gact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="6" height="8" rx="1"/><rect x="9" y="7" width="6" height="14" rx="1"/><rect x="16" y="10" width="6" height="11" rx="1"/><path d="M12 3l.9 1.8L15 5l-1.5 1.5L14 9l-2-1-2 1 .5-2.5L9 5l2.1-.2z"/></svg></div>
+          <div class="gact-lbl">Xếp hạng</div>
+        </div>
+        <div class="gact" onclick="openModal('feedback')">
+          <div class="gact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M12 9l.9 1.8L15 11l-1.5 1.5L14 15l-2-1-2 1 .5-2.5L9 11l2.1-.2z"/></svg></div>
+          <div class="gact-lbl">Feedback</div>
+        </div>
       </div>
     </div>
     <!-- Player 2 -->
