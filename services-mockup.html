@@ -1875,12 +1875,17 @@ function deepen(hex,dark,desat){
   const h=v=>d(v).toString(16).padStart(2,'0');
   return`#${h(r)}${h(g)}${h(b)}`;
 }
+// rgb-triplet of a deep shade, for rgba(var(--surf-rgb),A) glass surfaces
+function deepRgb(hex,dark,desat){return hexToRgb(deepen(hex,dark,desat)).join(',');}
 function applyDeepBg(hex){
   const r=document.documentElement.style;
   r.setProperty('--bg1',deepen(hex,.55,.34));
   r.setProperty('--bg2',deepen(hex,.70,.40));
   r.setProperty('--bg3',deepen(hex,.83,.46));
   r.setProperty('--bgBody',deepen(hex,.90,.52));
+  // Glass surfaces (cards, modal, sidebar, pills) tint to the theme too
+  r.setProperty('--surf-rgb',deepRgb(hex,.84,.58));   // deep panels
+  r.setProperty('--surf2-rgb',deepRgb(hex,.70,.50));  // raised panels
 }
 function setBrandColor(hex){
   const r=document.documentElement.style;
