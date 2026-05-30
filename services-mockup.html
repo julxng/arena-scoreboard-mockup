@@ -434,7 +434,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .r-pod-big-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;line-height:1;letter-spacing:0;margin-top:4px;font-variant-numeric:tabular-nums;padding:0 4px}
 .r-pod.first .r-pod-big-n{font-size:clamp(64px,9.5vh,108px);background:linear-gradient(180deg,#fff 10%,#00B5E8 55%,#0067E8 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(0,181,232,.45));animation:bigGlowFirst 4s ease-in-out 2.5s infinite}
 .r-pod.second .r-pod-big-n{font-size:72px;color:#3B82F6}
-.r-pod.third .r-pod-big-n{font-size:clamp(44px,6.4vh,72px);color:#0550B5}
+.r-pod.third .r-pod-big-n{font-size:clamp(38px,5.4vh,60px);color:#0550B5}
 .r-pod-big-u{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.2em;margin-top:2px}
 @keyframes bigGlowFirst{
   0%,100%{filter:drop-shadow(0 0 14px rgba(0,181,232,.4))}
@@ -442,7 +442,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 }
 
 .r-pod-stats{flex-shrink:0;display:flex;gap:5px;margin-top:auto;padding-top:clamp(6px,1.2vh,12px);width:100%;justify-content:center;flex-wrap:wrap}
-.r-pod-stat{padding:5px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:999px;font-size:10px;font-weight:700;color:rgba(255,255,255,.85);font-family:'Inter',sans-serif}
+.r-pod-stat{padding:4px 9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:999px;font-size:clamp(9px,.75vw,11px);font-weight:700;color:rgba(255,255,255,.85);font-family:'Inter',sans-serif;white-space:nowrap}
 .r-pod-stat b{color:#00B5E8;font-weight:800;margin-left:4px}
 
 /* Sparkle */
@@ -508,7 +508,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .r-foot{position:relative;z-index:6;display:flex;align-items:center;gap:14px;padding:10px 32px;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.5));border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
 .r-foot-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:900;color:rgba(0,181,232,.8);letter-spacing:.26em;text-transform:uppercase}
 .r-foot-spons{display:flex;gap:10px;align-items:center}
-.r-spon{padding:7px 14px;background:rgba(14,26,56,.7);border:1px solid rgba(0,196,255,.14);border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.75)}
+.r-spon{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(14,26,56,.7);border:1px solid rgba(0,196,255,.18);border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.8)}
+.r-spon-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor}
 .r-foot-marquee{flex:1;overflow:hidden;margin-left:14px}
 .r-foot-marquee-tk{white-space:nowrap;animation:rscroll 55s linear infinite;font-size:12px;color:rgba(255,255,255,.6);font-weight:500}
 .r-foot-marquee-tk b{color:#00B5E8;font-weight:800}
@@ -1315,12 +1316,12 @@ body{background:#060d1f;color:#fff}
 
     <!-- Sponsor footer -->
     <div class="r-foot">
-      <div class="r-foot-tag">AD · Sponsors</div>
+      <div class="r-foot-tag">Sponsors · Demo</div>
       <div class="r-foot-spons">
-        <div class="r-spon">PREDATOR</div>
-        <div class="r-spon">SIMONIS</div>
-        <div class="r-spon">HEINEKEN</div>
-        <div class="r-spon">ARAMITH</div>
+        <div class="r-spon"><span class="r-spon-dot" style="background:#00C4FF"></span>Predator</div>
+        <div class="r-spon"><span class="r-spon-dot" style="background:#00B5E8"></span>Simonis</div>
+        <div class="r-spon"><span class="r-spon-dot" style="background:#0067E8"></span>Heineken</div>
+        <div class="r-spon"><span class="r-spon-dot" style="background:#0550B5"></span>Aramith</div>
       </div>
       <div class="r-foot-marquee">
         <div class="r-foot-marquee-tk">
