@@ -350,8 +350,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* Hero podium stage — responsive vh sizing */
 /* Podium: vertical ladder (each rank a horizontal row) — fits narrow left col cho 13" laptop */
 .r-stage{position:relative;z-index:6;display:flex;flex-direction:column;gap:clamp(8px,1vh,14px);padding:0;perspective:none!important;flex-shrink:0}
-.r-stage-floor{position:absolute;bottom:-20px;left:15%;right:15%;height:160px;background:radial-gradient(ellipse at top,rgba(0,181,232,.22),transparent 70%);pointer-events:none;z-index:0}
-.r-beam{position:absolute;top:0;left:50%;width:280px;height:100%;background:linear-gradient(180deg,rgba(0,181,232,.22) 0%,rgba(0,103,232,.08) 35%,transparent 75%);transform:translateX(-50%);filter:blur(20px);pointer-events:none;z-index:0}
+.r-stage-floor,.r-beam,.r-sparkle{display:none}
 
 .r-stage{transform-style:preserve-3d}
 .r-pod{position:relative;display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:clamp(10px,1vw,16px);padding:clamp(10px,1.4vh,16px) clamp(12px,1.2vw,20px);border-radius:14px;width:100%;height:auto;transform:none!important;animation:none!important}
@@ -1772,6 +1771,7 @@ function renderRanking(){
   // Top stats
   const setText=(id,t)=>{const e=document.getElementById(id);if(e)e.textContent=t;};
   setText('rankCount',filtered.length);
+  setText('rankCount2',Math.max(0,filtered.length-3));
   const sysPool=rankData.totalHeoVangPool||0;
   const poolEl=document.getElementById('rankPool');
   if(poolEl){poolEl.innerHTML=`${(sysPool/1e6).toFixed(1)}<small>M ₫</small>`;}
