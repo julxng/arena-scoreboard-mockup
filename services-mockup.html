@@ -124,21 +124,32 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .sc.off{opacity:.22}
 
 /* ══ SERVICE HUB — LIGHT MODE matching arena app svchub design system ══ */
-.svc-sb{width:clamp(180px,15vw,260px);flex-shrink:0;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e5e9f0}
+/* Unified type + element scale for the whole Service Hub screen — kills the per-element clamp jitter */
+:root{
+  --fs-cap:clamp(10px,.8vw,12px);    /* counts · status · sub-labels */
+  --fs-body:clamp(12px,.95vw,14px);  /* nav name · desc · pill · table */
+  --fs-label:clamp(12px,.95vw,14px); /* uppercase section / header labels */
+  --fs-title:clamp(14px,1.1vw,16px); /* card titles */
+  --fs-hero:clamp(17px,1.5vw,22px);  /* hero club name */
+  --ico-sb:clamp(34px,2.6vw,44px);   /* sidebar icon tile */
+  --ico-card:clamp(52px,4vw,68px);   /* card icon tile */
+}
+.svc-sb{width:clamp(200px,16vw,264px);flex-shrink:0;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e5e9f0}
 .svc-sb-top{padding:13px 12px 9px 72px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
 .svc-sb-logo{display:flex;align-items:center;gap:7px}
 .svc-sb-logo img{height:22px;object-fit:contain}
-.svc-sb-logo-txt{font-size:11px;font-weight:900;color:#0a1228;letter-spacing:.5px}
+.svc-sb-logo-txt{font-size:var(--fs-body);font-weight:900;color:#0a1228;letter-spacing:.5px}
 .svc-sb-nav{flex:1;overflow-y:auto;padding:7px 0}
 .svc-sb-nav::-webkit-scrollbar{display:none}
-.svc-sb-item{display:flex;align-items:center;gap:clamp(8px,.6vw,12px);padding:clamp(7px,.9vh,14px) clamp(9px,.7vw,14px);margin:1px 5px;cursor:pointer;transition:background .12s;border-radius:8px;border-left:3px solid transparent}
+.svc-sb-item{display:flex;align-items:center;gap:clamp(10px,.7vw,13px);padding:clamp(9px,1.1vh,14px) clamp(10px,.8vw,14px);margin:2px 7px;cursor:pointer;transition:background .12s;border-radius:10px;border-left:3px solid transparent}
 .svc-sb-item:hover{background:#f3f6fb}
 .svc-sb-item.sel{background:var(--cc2);border-left-color:var(--cc)}
-.svc-sb-ico{width:clamp(26px,2vw,38px);height:clamp(26px,2vw,38px);border-radius:9px;background:#f0f4fa;display:flex;align-items:center;justify-content:center;font-size:clamp(13px,1vw,18px);flex-shrink:0}
+.svc-sb-ico{width:var(--ico-sb);height:var(--ico-sb);border-radius:10px;background:color-mix(in srgb,var(--ic,#0067E8) 14%,#fff);color:var(--ic,#0067E8);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-sb-ico svg{width:56%;height:56%;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .svc-sb-info{flex:1;min-width:0}
-.svc-sb-name{font-size:clamp(11px,.85vw,15px);font-weight:600;color:#5a6378;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.svc-sb-name{font-size:var(--fs-body);font-weight:600;color:#5a6378;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .svc-sb-item.sel .svc-sb-name{color:var(--cc);font-weight:700}
-.svc-sb-cnt{font-size:clamp(9px,.7vw,12px);font-weight:700;color:#8a93a8;margin-top:1px}
+.svc-sb-cnt{font-size:var(--fs-cap);font-weight:700;color:#8a93a8;margin-top:2px}
 .svc-sb-item.sel .svc-sb-cnt{color:var(--cc)}
 .svc-sb-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .svc-sb-footer{padding:9px 12px;border-top:1px solid #e5e9f0;flex-shrink:0}
@@ -149,14 +160,14 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .svc-hero-x{color:rgba(255,255,255,.32);font-size:16px;font-weight:300;position:relative;z-index:1}
 .svc-hero-club{width:clamp(38px,3.5vw,56px);height:clamp(38px,3.5vw,56px);border-radius:10px;background-size:cover;background-position:center;box-shadow:0 4px 12px rgba(0,0,0,.3);flex-shrink:0;position:relative;z-index:1}
 .svc-hero-info{flex:1;min-width:0;position:relative;z-index:1}
-.svc-hero-name{font-size:clamp(15px,1.4vw,22px);font-weight:800;color:#fff;line-height:1.2}
-.svc-hero-table{font-size:clamp(10.5px,.95vw,14px);font-weight:500;color:rgba(255,255,255,.72);margin-top:2px;line-height:1.2}
-.svc-hero-live{display:inline-flex;align-items:center;gap:5px;background:rgba(34,197,94,.22);border:1px solid rgba(134,239,172,.45);padding:clamp(4px,.5vh,8px) clamp(9px,.8vw,14px);border-radius:999px;font-size:clamp(9.5px,.8vw,13px);font-weight:700;color:#86efac;letter-spacing:.02em;position:relative;z-index:1;flex-shrink:0}
+.svc-hero-name{font-size:var(--fs-hero);font-weight:800;color:#fff;line-height:1.2}
+.svc-hero-table{font-size:var(--fs-body);font-weight:500;color:rgba(255,255,255,.72);margin-top:2px;line-height:1.2}
+.svc-hero-live{display:inline-flex;align-items:center;gap:5px;background:rgba(34,197,94,.22);border:1px solid rgba(134,239,172,.45);padding:clamp(4px,.5vh,8px) clamp(9px,.8vw,14px);border-radius:999px;font-size:var(--fs-cap);font-weight:700;color:#86efac;letter-spacing:.02em;position:relative;z-index:1;flex-shrink:0}
 .svc-hero-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#22c55e;animation:pulse 1.6s infinite;box-shadow:0 0 5px #22c55e}
 /* Secondary header (table + count) — light */
 .svc-main-hdr{display:flex;align-items:center;padding:clamp(10px,1.2vh,18px) clamp(16px,1.4vw,28px);gap:clamp(10px,.9vw,16px);flex-shrink:0;border-bottom:1px solid #e5e9f0;background:#fff}
-.svc-main-title{flex:1;font-size:clamp(10.5px,.85vw,14px);font-weight:800;color:#5a6378;text-transform:uppercase;letter-spacing:1px}
-.svc-cnt-pill{font-size:clamp(10px,.85vw,14px);font-weight:700;color:#5a6378;background:#f0f4fa;padding:clamp(3px,.4vh,6px) clamp(10px,.9vw,16px);border-radius:999px}
+.svc-main-title{flex:1;font-size:var(--fs-label);font-weight:800;color:#5a6378;text-transform:uppercase;letter-spacing:1px}
+.svc-cnt-pill{font-size:var(--fs-body);font-weight:700;color:#5a6378;background:#f0f4fa;padding:clamp(3px,.4vh,6px) clamp(10px,.9vw,16px);border-radius:999px}
 .svc-grid{flex:1;overflow-y:auto;padding:clamp(14px,1.5vh,24px) clamp(14px,1.4vw,28px) clamp(16px,1.6vh,28px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1vw,18px);align-content:start;min-height:0;background:#f5f7fa}
 @media (max-width:1023px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:639px){.svc-grid{grid-template-columns:1fr}}
@@ -165,19 +176,19 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* Section headers span full width in the grid */
 .svc-sect-hd{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:6px 2px 4px;margin-top:6px}
 .svc-sect-hd:first-child{margin-top:0}
-.svc-sect-lbl{font-size:clamp(10.5px,.9vw,14px);font-weight:800;letter-spacing:.07em;text-transform:uppercase;display:flex;align-items:center;gap:6px;color:#1a2540}
+.svc-sect-lbl{font-size:var(--fs-label);font-weight:800;letter-spacing:.07em;text-transform:uppercase;display:flex;align-items:center;gap:6px;color:#1a2540}
 .svc-sect-hd.s-off .svc-sect-lbl{color:#8a93a8}
 .svc-sect-dot{width:6px;height:6px;border-radius:50%}
 .svc-sect-hd.s-on .svc-sect-dot{background:#22c55e;box-shadow:0 0 5px rgba(34,197,94,.5)}
 .svc-sect-hd.s-off .svc-sect-dot{background:#c5cbd9}
-.svc-sect-cnt{font-size:clamp(9.5px,.8vw,12.5px);font-weight:700;color:#5a6378;background:#fff;border:1px solid #e5e9f0;padding:clamp(2px,.3vh,5px) clamp(8px,.7vw,12px);border-radius:999px}
+.svc-sect-cnt{font-size:var(--fs-cap);font-weight:700;color:#5a6378;background:#fff;border:1px solid #e5e9f0;padding:clamp(2px,.3vh,5px) clamp(8px,.7vw,12px);border-radius:999px}
 /* Cards — light tile style (matches app SH-tile exactly) */
 .svc-card{background:#fff;border:1px solid #d8def0;border-radius:14px;padding:clamp(11px,1.2vw,18px);display:flex;flex-direction:column;gap:clamp(6px,.8vh,12px);cursor:pointer;transition:all .15s;position:relative;min-height:clamp(150px,20vh,240px);box-shadow:0 1px 2px rgba(10,12,20,.04),0 4px 12px rgba(var(--ccD-rgb),.04);overflow:hidden}
 .svc-card:not(.inactive):hover{border-color:var(--ccD);box-shadow:0 4px 16px rgba(var(--ccD-rgb),.15);transform:translateY(-1px)}
 .svc-card.inactive{background:#fff;border:1px dashed #d8def0;box-shadow:none;opacity:.6;cursor:pointer}
 .svc-card.inactive:hover{opacity:.85;border-color:#b9c2d6}
 .svc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px}
-.svc-card-ico{width:clamp(56px,4.6vw,76px);height:clamp(56px,4.6vw,76px);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,1.8vw,30px);flex-shrink:0}
+.svc-card-ico{width:var(--ico-card);height:var(--ico-card);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,1.8vw,30px);flex-shrink:0}
 .svc-card-ico svg{width:68%;height:68%;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
 /* ── Mini-widgets inside active cards ── */
 .svc-w{margin-top:auto;padding-top:clamp(6px,.8vh,10px);border-top:1px dashed #e5e9f0;display:flex;flex-direction:column;gap:clamp(3px,.4vh,6px);font-size:clamp(10px,.78vw,12.5px);color:#0a1228;font-variant-numeric:tabular-nums;min-height:0}
@@ -224,17 +235,17 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .i-lv{background:linear-gradient(135deg,#FEE2E2,#FCA5A5);color:#991B1B}
 .i-fb{background:linear-gradient(135deg,#FFE4E6,#FDA4AF);color:#9F1239}
 .svc-card.inactive .svc-card-ico{background:#f0f4fa;color:#8a93a8;filter:grayscale(.5)}
-.svc-card-name{font-size:clamp(13px,1vw,18px);font-weight:800;color:#0a1228;line-height:1.2}
+.svc-card-name{font-size:var(--fs-title);font-weight:800;color:#0a1228;line-height:1.2}
 .svc-card.inactive .svc-card-name{color:#5a6378}
-.svc-card-desc{font-size:clamp(10px,.85vw,13.5px);color:#8a93a8;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
-.svc-status{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:999px;font-size:9px;font-weight:700;align-self:flex-start;margin-top:auto}
+.svc-card-desc{font-size:var(--fs-body);color:#8a93a8;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.svc-status{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:var(--fs-cap);font-weight:700;align-self:flex-start;margin-top:auto}
 .svc-on{background:#dcfce7;border:1px solid #86efac;color:#15803D}
 .svc-off{background:#f0f4fa;border:1px dashed #c5cbd9;color:#8a93a8}
 .svc-sdot{width:4px;height:4px;border-radius:50%}
 .svc-on .svc-sdot{background:#22c55e}
 .svc-off .svc-sdot{background:#8a93a8}
 /* Light-mode badge overrides for service cards */
-.svc-card .bdg{font-size:9px;font-weight:800;padding:3px 7px;border-radius:6px;letter-spacing:.02em}
+.svc-card .bdg{font-size:10px;font-weight:800;padding:3px 7px;border-radius:6px;letter-spacing:.02em}
 .svc-card .bl{background:#fee2e2;color:#b91c1c}
 .svc-card .bg{background:#fef3c7;color:#854d0e}
 .svc-card .bz{background:#ede9fe;color:#4c1d95}
