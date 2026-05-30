@@ -55,8 +55,23 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* ── Shared ── */
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .dot-live{width:8px;height:8px;border-radius:50%;background:var(--cc);animation:blink 2s infinite;flex-shrink:0}
-.back-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.75);user-select:none}
-.back-btn:hover{background:rgba(255,255,255,.14);color:#fff}
+
+/* ── Design tokens (unified system) ── */
+:root{
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;
+  --brand-primary:#0067E8;--brand-cyan:#00C4FF;
+  --back-top:clamp(12px,1.6vh,18px);
+  --back-left:clamp(12px,1.4vw,20px);
+}
+
+/* ── Unified back button — ALWAYS top-left, 40×40 circle, same position every screen ── */
+.btn-back{position:absolute;top:var(--back-top);left:var(--back-left);z-index:50;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;padding:0;font:inherit;user-select:none}
+.btn-back:hover{background:rgba(255,255,255,.22);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.btn-back:active{transform:scale(.92)}
+.btn-back svg{width:20px;height:20px;display:block;stroke:currentColor}
+/* Light surface variant — for screens with light background (services, game, postgame) */
+.btn-back.light{background:rgba(255,255,255,.96);border:1px solid #e5e9f0;color:#0f1b3d;box-shadow:0 2px 8px rgba(10,12,20,.08);backdrop-filter:none;-webkit-backdrop-filter:none}
+.btn-back.light:hover{background:#fff;box-shadow:0 4px 14px rgba(10,12,20,.14);color:var(--brand-primary)}
 
 /* ══ HOME (production-matching layout) ══ */
 :root{--cc:#00B5E8;--cc2:rgba(0,181,232,.13);--cc3:rgba(0,181,232,.28);--ccB:#00C4FF;--ccD:#0067E8;--ccB-rgb:0,196,255;--ccD-rgb:0,103,232;--hbg:radial-gradient(ellipse at 50% 30%,#0067E8 0%,#01346B 28%,#001f4d 60%,#000d28 100%)}
@@ -111,7 +126,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 
 /* ══ SERVICE HUB — LIGHT MODE matching arena app svchub design system ══ */
 .svc-sb{width:clamp(180px,15vw,260px);flex-shrink:0;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e5e9f0}
-.svc-sb-top{padding:13px 12px 9px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
+.svc-sb-top{padding:13px 12px 9px 60px;flex-shrink:0;border-bottom:1px solid #e5e9f0}
 .svc-sb-logo{display:flex;align-items:center;gap:7px}
 .svc-sb-logo img{height:22px;object-fit:contain}
 .svc-sb-logo-txt{font-size:11px;font-weight:900;color:#0a1228;letter-spacing:.5px}
@@ -128,8 +143,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .svc-sb-item.sel .svc-sb-cnt{color:var(--cc)}
 .svc-sb-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .svc-sb-footer{padding:9px 12px;border-top:1px solid #e5e9f0;flex-shrink:0}
-.svc-sb-footer .back-btn{background:#f0f4fa;color:#5a6378;border:1px solid #e5e9f0;font-size:11px}
-.svc-sb-footer .back-btn:hover{background:#e5e9f0;color:#0a1228}
 /* Hero header — brand gradient */
 .svc-hero{padding:clamp(14px,1.8vh,26px) clamp(18px,1.6vw,32px);background:linear-gradient(135deg,var(--ccB) 0%,var(--ccD) 100%);display:flex;align-items:center;gap:clamp(13px,1.2vw,22px);flex-shrink:0;position:relative;overflow:hidden}
 .svc-hero::after{content:'';position:absolute;top:-30%;right:-10%;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 60%);pointer-events:none}
@@ -325,7 +338,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .r-vignette{position:absolute;inset:0;box-shadow:inset 0 0 180px 30px rgba(0,0,0,.45);pointer-events:none;z-index:1}
 
 /* Header — glass nav */
-.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px;background:linear-gradient(180deg,rgba(12,23,48,.85),rgba(8,16,34,.7));border-bottom:1px solid rgba(0,196,255,.12);flex-shrink:0}
+.r-nav{position:relative;z-index:10;display:flex;align-items:center;gap:14px;padding:14px 32px 14px 72px;background:linear-gradient(180deg,rgba(12,23,48,.85),rgba(8,16,34,.7));border-bottom:1px solid rgba(0,196,255,.12);flex-shrink:0}
 .r-nav-brand{display:flex;align-items:center;gap:12px}
 .r-nav-logo{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,#00B5E8,#0067E8);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,181,232,.45),inset 0 1px 0 rgba(255,255,255,.3);padding:7px;flex-shrink:0}
 .r-nav-logo img{width:100%;height:100%;object-fit:contain;filter:brightness(0) invert(1)}
@@ -346,8 +359,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .r-nav-live{display:flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);border-radius:8px}
 .r-nav-live-d{width:6px;height:6px;border-radius:50%;background:#ef4444;animation:blink 1.5s infinite}
 .r-nav-live-t{font-size:10px;font-weight:800;color:#fca5a5;letter-spacing:.18em;font-family:'Plus Jakarta Sans',sans-serif}
-.r-nav-back{padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
-.r-nav-back:hover{background:rgba(255,255,255,.12)}
 
 /* Hero podium stage — responsive vh sizing */
 /* Podium: vertical ladder (each rank a horizontal row) — fits narrow left col cho 13" laptop */
@@ -729,7 +740,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* ══ HISTORY ══ */
 #history{background:#0c0e2a url('bg_history.png') center/cover no-repeat}
 #history .overlay{background:rgba(0,0,0,.77)}
-#history .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px;gap:14px;color:#fff}
+#history .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:22px 28px 22px 72px;gap:14px;color:#fff}
 .hlist{flex:1;display:flex;flex-direction:column;gap:7px;overflow:hidden}
 .hrow{display:flex;align-items:center;gap:13px;padding:12px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:9px}
 .hrow:hover{background:rgba(255,255,255,.08)}
@@ -747,6 +758,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 /* Player panels */
 .pp{display:flex;flex-direction:column;height:100%;background:#fff}
 .pp1{border-right:1px solid #e5e9f0;box-shadow:inset 5px 0 0 #00B5E8}
+.pp1 .pp-header{padding-left:60px}
 .pp2{border-left:1px solid #e5e9f0;box-shadow:inset -5px 0 0 #00B5E8}
 .pp-header{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 10px;flex-shrink:0}
 .pp-name{font-size:clamp(16px,2vw,26px);font-weight:900;color:#0f1b3d}
@@ -773,8 +785,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .gtimer{font-size:clamp(18px,2vw,26px);font-weight:900;color:#0a1228;font-variant-numeric:tabular-nums;flex:1;text-align:center;letter-spacing:1px}
 .gcall-btn{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:800;cursor:pointer;color:#c2410c;white-space:nowrap}
 .gcall-btn:hover{background:#ffedd5}
-.gico.exit{font-size:12px;font-weight:700;color:#5a6378;padding:7px 12px;border:1px solid #e5e9f0;border-radius:8px;cursor:pointer;background:#fff;white-space:nowrap}
-.gico.exit:hover{background:#fef2f2;color:#dc2626;border-color:#fecaca}
 .gbtns{display:flex;gap:8px;padding:10px 12px 8px;flex-shrink:0}
 .gbtn{flex:1;padding:13px;font-size:13px;font-weight:800;cursor:pointer;text-align:center;border-radius:11px;user-select:none}
 .gbtn:active{transform:scale(.97)}
@@ -838,8 +848,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
 .pg-elo{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .pg-elo-up{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:#ecfdf5;color:#059669;border:1px solid #a7f3d0}
 .pg-elo-dn{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
-.pg-home-btn{margin-top:8px;padding:11px 28px;border-radius:11px;background:#0067E8;border:1px solid #0067E8;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
-.pg-home-btn:hover{background:#0556c0}
 .pg-ads{display:flex;flex-direction:column;padding:28px;gap:14px;overflow:hidden;background:#f8fafc}
 .pg-ads-title{font-size:12px;font-weight:700;color:#5a6378;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
 .pg-ads-title span{background:#e8f1ff;border:1px solid #cfe1fb;color:#0067E8;padding:2px 8px;border-radius:4px;font-size:10px}
@@ -879,8 +887,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;font-family:'Inter',sans-seri
    ═══ GLOBAL DARK PREMIUM — tất cả screens đồng bộ ranking immersive ═══
    ═══ Tối ưu 21.5" (1920×1080); laptop auto-scale qua clamp/vh ═══
    ════════════════════════════════════════════════════════════════════ */
-:root{--rd-bg:radial-gradient(circle at 16% 18%, rgba(var(--ccB-rgb),.12), transparent 36%),radial-gradient(circle at 84% 30%, rgba(var(--ccD-rgb),.1), transparent 38%),radial-gradient(circle at 50% 100%, rgba(5,80,181,.14), transparent 48%),radial-gradient(ellipse at 50% 22%, #14254a 0%, #0b1630 48%, #060d1f 100%);
-  --rd-card:rgba(14,26,56,.72);--rd-card2:rgba(12,23,48,.85);--rd-bdr:rgba(var(--ccB-rgb),.14);--rd-bdr2:rgba(var(--ccB-rgb),.22)}
+:root{--rd-bg:radial-gradient(circle at 16% 18%, rgba(var(--ccB-rgb),.28), transparent 42%),radial-gradient(circle at 84% 30%, rgba(var(--ccD-rgb),.22), transparent 44%),radial-gradient(circle at 50% 100%, rgba(var(--ccD-rgb),.2), transparent 52%),radial-gradient(ellipse at 50% 22%, #1c2e57 0%, #131e3d 48%, #0d152a 100%);
+  --rd-card:rgba(20,34,68,.7);--rd-card2:rgba(16,28,58,.82);--rd-bdr:rgba(var(--ccB-rgb),.22);--rd-bdr2:rgba(var(--ccB-rgb),.32)}
 body{background:#060d1f;color:#fff}
 
 /* All screens share dark atmosphere */
@@ -927,7 +935,6 @@ body{background:#060d1f;color:#fff}
 .svc-sb-item.sel .svc-sb-name{color:var(--ccB)!important}
 .svc-sb-cnt{color:rgba(255,255,255,.4)!important}
 .svc-sb-footer{border-top:1px solid var(--rd-bdr)!important}
-.svc-sb-footer .back-btn{background:rgba(12,23,48,.8)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
 .svc-main-hdr{border-bottom:1px solid var(--rd-bdr)!important;background:rgba(10,18,40,.6)!important}
 .svc-main-title{color:rgba(255,255,255,.6)!important}
 .svc-cnt-pill{color:rgba(255,255,255,.6)!important;background:rgba(var(--ccD-rgb),.14)!important}
@@ -956,7 +963,6 @@ body{background:#060d1f;color:#fff}
 /* HISTORY — dark glass rows */
 #history .content,#history .phdr,#history .ptitle{color:#fff!important}
 #history .phdr small{color:rgba(255,255,255,.55)!important}
-#history .back-btn{background:rgba(12,23,48,.8)!important;color:#fff!important;border:1px solid var(--rd-bdr)!important}
 .hrow{background:var(--rd-card)!important;border:1px solid var(--rd-bdr)!important}
 .hrow:hover{background:rgba(var(--ccD-rgb),.12)!important}
 
@@ -983,8 +989,6 @@ body{background:#060d1f;color:#fff}
 .gchip{background:rgba(255,255,255,.06)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
 .gcall-btn{background:rgba(194,65,12,.18)!important;border:1px solid rgba(251,146,60,.35)!important;color:#fdba74!important}
 .gcall-btn:hover{background:rgba(194,65,12,.28)!important}
-.gico.exit{background:rgba(12,23,48,.7)!important;color:rgba(255,255,255,.7)!important;border:1px solid var(--rd-bdr)!important}
-.gico.exit:hover{background:rgba(220,38,38,.18)!important;color:#fca5a5!important;border-color:rgba(220,38,38,.4)!important}
 .gbtn-end{background:rgba(220,38,38,.18)!important;color:#fca5a5!important;border:1px solid rgba(220,38,38,.4)!important}
 .gturn{background:rgba(8,16,34,.55)!important;border:1px solid var(--rd-bdr)!important;color:rgba(255,255,255,.7)!important}
 .gturn b{color:#fff!important}
@@ -1018,7 +1022,6 @@ body{background:#060d1f;color:#fff}
 .merch-card{background:var(--rd-card)!important;border:1px solid var(--rd-bdr)!important}
 .merch-name{color:#fff!important}
 .merch-aff{color:rgba(255,255,255,.5)!important}
-.pg-home-btn{background:linear-gradient(135deg,var(--ccB),var(--ccD))!important;border:none!important}
 
 /* Theme panel — dark */
 #themePanel{background:rgba(10,18,40,.96)!important;border:1px solid var(--rd-bdr)!important;color:#fff!important;box-shadow:0 16px 50px rgba(0,0,0,.6)!important}
@@ -1174,6 +1177,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ SERVICES ══ -->
 <div class="screen" id="services">
+  <button class="btn-back light" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div style="flex:1;display:flex;flex-direction:row;min-height:0">
 
   <!-- Sidebar -->
@@ -1185,9 +1189,6 @@ body{background:#060d1f;color:#fff}
       </div>
     </div>
     <div class="svc-sb-nav" id="svcSbNav"></div>
-    <div class="svc-sb-footer">
-      <div class="back-btn" onclick="showScreen('home')" style="border-radius:9px;padding:8px 14px;text-align:center;display:block">← Trang chủ</div>
-    </div>
   </div>
 
   <!-- Main content -->
@@ -1228,6 +1229,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ RANKING ══ -->
 <div class="screen" id="ranking">
+  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="content">
     <!-- Layer 0: atmosphere -->
     <div class="r-bg">
@@ -1258,7 +1260,6 @@ body{background:#060d1f;color:#fff}
       <div class="r-nav-right">
         <div class="r-nav-clock" id="rankClock">—</div>
         <div class="r-nav-live"><div class="r-nav-live-d"></div><div class="r-nav-live-t">LIVE</div></div>
-        <div class="r-nav-back" onclick="showScreen('home')">← Quay lại</div>
       </div>
     </div>
 
@@ -1411,11 +1412,11 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ HISTORY ══ -->
 <div class="screen" id="history">
+  <button class="btn-back" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="overlay"></div>
   <div class="content">
     <div class="phdr">
       <div class="ptitle">LỊCH SỬ TRẬN ĐẤU</div>
-      <div class="back-btn" onclick="showScreen('home')">← Quay lại</div>
     </div>
     <div class="hlist">
       <div class="hrow"><div class="ht hp">Pool 9-ball</div><div class="hpl">Nguyễn Văn An vs Trần Minh Tuấn</div><div class="hsc">7 – 5</div><div class="htm">14:32 hôm nay</div></div>
@@ -1430,6 +1431,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ GAME ══ -->
 <div class="screen" id="game">
+  <button class="btn-back light" onclick="confirmExit()" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="gc">
     <!-- Player 1 -->
     <div class="pp pp1">
@@ -1464,7 +1466,6 @@ body{background:#060d1f;color:#fff}
         <div class="gtimer" id="gtimer">00 : 00 : 00</div>
         <div class="gtop-r">
           <button class="gcall-btn" onclick="callStaff()">🔔 Gọi nhân viên</button>
-          <button class="gico exit" id="exitBtn">← Thoát</button>
         </div>
       </div>
       <div class="gbtns">
@@ -1578,6 +1579,7 @@ body{background:#060d1f;color:#fff}
 
 <!-- ══ POST GAME ══ -->
 <div class="screen" id="postgame">
+  <button class="btn-back light" onclick="showScreen('home')" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="overlay"></div>
   <div class="pgc">
     <div class="pg-result">
@@ -1598,7 +1600,6 @@ body{background:#060d1f;color:#fff}
         <div class="pg-elo-up">▲ +28 ELO</div>
         <div class="pg-elo-dn">▼ -28 ELO</div>
       </div>
-      <button class="pg-home-btn" onclick="showScreen('home')">← Về trang chủ</button>
     </div>
     <div class="pg-ads">
       <div class="pg-ads-title">
@@ -1897,7 +1898,8 @@ function renderRanking(){
 }
 
 // ── Exit button ──
-document.getElementById('exitBtn').onclick = ()=>{ stopGame(); showScreen('home'); };
+// Exit game (called from confirm dialog "Thoát trận")
+function exitGame(){ stopGame(); showScreen('home'); }
 
 // ── Timer ──
 let _t=null,_s=0,_p=false;
@@ -1967,6 +1969,18 @@ function openModal(key){
 }
 function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
 document.getElementById('modalBg').addEventListener('click',e=>{ if(e.target===document.getElementById('modalBg')) closeModal(); });
+
+// Confirm before leaving game — score will not be saved
+function confirmExit(){
+  document.getElementById('modalTitle').innerHTML='⚠️ Thoát trận đấu? <span class="modal-badge bl">CẢNH BÁO</span>';
+  document.getElementById('modalBody').innerHTML=`
+    <div class="m-coming"><div class="m-coming-ico">🎱</div><div class="m-coming-txt">Điểm số trận hiện tại sẽ <b style="color:#fca5a5">không được lưu</b>.</div></div>
+    <div style="display:flex;gap:10px;margin-top:8px">
+      <button class="m-cta" style="flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);box-shadow:none" onclick="closeModal()">Tiếp tục chơi</button>
+      <button class="m-cta" style="flex:1;background:linear-gradient(135deg,#ef4444,#b91c1c);box-shadow:0 10px 28px rgba(239,68,68,.4)" onclick="closeModal();exitGame()">Thoát trận</button>
+    </div>`;
+  document.getElementById('modalBg').classList.add('open');
+}
 
 // ── Idle overlay ──
 const IDLE_PRODUCTS=[
